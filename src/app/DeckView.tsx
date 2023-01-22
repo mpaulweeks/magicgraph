@@ -48,13 +48,20 @@ export const DeckView = (props: {
           </button>
         ))}
       </div>
-      {toRender.map((card, ci) => (
-        <CardView
-          key={ci}
-          deck={deck}
-          card={card}
-        />
-      ))}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+        margin: '1em 0',
+      }}>
+        {toRender.map((card, ci) => (
+          <CardView
+            key={ci}
+            deck={deck}
+            card={card}
+          />
+        ))}
+      </div>
     </div>
   );
 };

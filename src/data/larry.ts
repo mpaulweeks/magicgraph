@@ -1,9 +1,12 @@
 import { CardDraft, CardType } from "../types";
 
-enum LarryTag {
+export enum LarryCategory {
   Disk = 'Disk',
   Recursion = 'Recursion',
+  Protection = 'Protection',
+}
 
+enum LarryTag {
   HasPhasing = 'HasPhasing',
   HasIndestructible = 'HasIndestructible',
   HasFalseDeath = 'HasFalseDeath',
@@ -32,7 +35,7 @@ export const LarryDraft: CardDraft[] = [
   name: `Magus of the Disk`,
   types: [CardType.Creature],
   mc: '2WW',
-  tags: [LarryTag.Disk],
+  tags: [LarryCategory.Disk],
   combos: [{
     edgeType: LarryEdge.LoopsWith,
     match: c => c.tags.intersects(
@@ -45,27 +48,27 @@ export const LarryDraft: CardDraft[] = [
   name: `Oblivion Stone`,
   types: [CardType.Artifact],
   mc: '3',
-  tags: [LarryTag.Disk],
+  tags: [LarryCategory.Disk],
 }, {
   name: `Nevinyrral's Disk`,
   types: [CardType.Artifact],
   mc: '4',
-  tags: [LarryTag.Disk],
+  tags: [LarryCategory.Disk],
 }, {
   name: `Planar Collapse`,
   types: [CardType.Enchantment],
   mc: '2',
-  tags: [LarryTag.Disk],
+  tags: [LarryCategory.Disk],
 }, {
   name: `Serenity`,
   types: [CardType.Enchantment],
   mc: '2',
-  tags: [LarryTag.Disk],
+  tags: [LarryCategory.Disk],
 }, {
   name: `Phyrexian Scriptures`,
   types: [CardType.Enchantment],
   mc: '4',
-  tags: [LarryTag.Disk],
+  tags: [LarryCategory.Disk],
   combos: [{
     edgeType: LarryEdge.LoopsWith,
     match: c => c.tags.intersects(LarryTag.RemovesCounters),
@@ -74,7 +77,7 @@ export const LarryDraft: CardDraft[] = [
   name: `The Phasing of Zhalfir`,
   types: [CardType.Enchantment],
   mc: '4',
-  tags: [LarryTag.Disk],
+  tags: [LarryCategory.Disk],
 },
 
 // Recursion
@@ -82,7 +85,7 @@ export const LarryDraft: CardDraft[] = [
   name: `Emeria Shepherd`,
   types: [CardType.Creature],
   mc: '5WW',
-  tags: [LarryTag.Recursion],
+  tags: [LarryCategory.Recursion],
   combos: [{
     edgeType: LarryEdge.Reanimates,
     match: c => !c.types.intersects(CardType.Land),
@@ -91,7 +94,7 @@ export const LarryDraft: CardDraft[] = [
   name: `Hanna, Ship's Navigator`,
   types: [CardType.Creature],
   mc: '1WU',
-  tags: [LarryTag.Recursion],
+  tags: [LarryCategory.Recursion],
   combos: [{
     edgeType: LarryEdge.Reanimates,
     match: c => c.types.intersects(CardType.Artifact, CardType.Enchantment),
@@ -100,7 +103,7 @@ export const LarryDraft: CardDraft[] = [
   name: `Ironsoul Enforcer`,
   types: [CardType.Creature],
   mc: '4W',
-  tags: [LarryTag.Recursion],
+  tags: [LarryCategory.Recursion],
   combos: [{
     edgeType: LarryEdge.Reanimates,
     match: c => c.types.intersects(CardType.Artifact, CardType.Enchantment),
@@ -109,7 +112,7 @@ export const LarryDraft: CardDraft[] = [
   name: `Lurrus of the Dream-Den`,
   types: [CardType.Creature],
   mc: '1WW',
-  tags: [LarryTag.Recursion],
+  tags: [LarryCategory.Recursion],
   combos: [{
     edgeType: LarryEdge.Reanimates,
     match: c => c.mv <= 2 && !c.types.intersects(CardType.Land),
@@ -118,7 +121,7 @@ export const LarryDraft: CardDraft[] = [
   name: `Silent Sentinel`,
   types: [CardType.Creature],
   mc: '5WW',
-  tags: [LarryTag.Recursion],
+  tags: [LarryCategory.Recursion],
   combos: [{
     edgeType: LarryEdge.Reanimates,
     match: c => c.types.intersects(CardType.Enchantment),
@@ -127,7 +130,7 @@ export const LarryDraft: CardDraft[] = [
   name: `Sun Titan`,
   types: [CardType.Creature],
   mc: '4WW',
-  tags: [LarryTag.Recursion],
+  tags: [LarryCategory.Recursion],
   combos: [{
     edgeType: LarryEdge.Reanimates,
     match: c => c.mv <= 3,
@@ -136,7 +139,7 @@ export const LarryDraft: CardDraft[] = [
   name: `Treasury Thrull`,
   types: [CardType.Creature],
   mc: '4WB',
-  tags: [LarryTag.Recursion],
+  tags: [LarryCategory.Recursion],
   combos: [{
     edgeType: LarryEdge.Reanimates,
     match: c => c.types.intersects(CardType.Creature, CardType.Artifact, CardType.Enchantment),
@@ -145,7 +148,7 @@ export const LarryDraft: CardDraft[] = [
   name: `Twilight Shepherd`,
   types: [CardType.Creature],
   mc: '4WW',
-  tags: [LarryTag.Recursion],
+  tags: [LarryCategory.Recursion],
   combos: [{
     edgeType: LarryEdge.LoopsWith,
     match: c => c.tags.intersects(LarryTag.RemovesCounters),
@@ -161,40 +164,40 @@ export const LarryDraft: CardDraft[] = [
   name: `Darksteel Plate`,
   types: [CardType.Artifact, CardType.Equipment],
   mc: '3',
-  tags: [LarryTag.HasIndestructible, LarryTag.GivesIndestructible],
+  tags: [LarryCategory.Protection, LarryTag.HasIndestructible, LarryTag.GivesIndestructible],
 }, {
   name: `Kaldra Compleat`,
   types: [CardType.Artifact, CardType.Equipment],
   mc: '7',
-  tags: [LarryTag.HasIndestructible, LarryTag.GivesIndestructible],
+  tags: [LarryCategory.Protection, LarryTag.HasIndestructible, LarryTag.GivesIndestructible],
 }, {
   name: `Shield of Kaldra`,
   types: [CardType.Artifact, CardType.Equipment],
   mc: '4',
-  tags: [LarryTag.HasIndestructible, LarryTag.GivesIndestructible],
+  tags: [LarryCategory.Protection, LarryTag.HasIndestructible, LarryTag.GivesIndestructible],
 }, {
   name: `Robe of Stars`,
   types: [CardType.Artifact, CardType.Equipment],
   mc: '2',
-  tags: [LarryTag.HasPhasing, LarryTag.GivesPhasing],
+  tags: [LarryCategory.Protection, LarryTag.HasPhasing, LarryTag.GivesPhasing],
 }, {
   name: `Vanishing`,
   types: [CardType.Enchantment, CardType.Aura],
   mc: '2',
-  tags: [LarryTag.HasPhasing, LarryTag.GivesPhasing],
+  tags: [LarryCategory.Protection, LarryTag.HasPhasing, LarryTag.GivesPhasing],
 }, {
   name: `Athreos, Shroud-Veiled`,
   types: [CardType.Creature, CardType.Enchantment],
   mc: '6',
-  tags: [LarryTag.HasIndestructible, LarryTag.GivesFalseDeath],
+  tags: [LarryCategory.Protection, LarryTag.HasIndestructible, LarryTag.GivesFalseDeath],
 }, {
   name: `Gift of Immortality`,
   types: [CardType.Enchantment, CardType.Aura],
   mc: '3',
-  tags: [LarryTag.HasFalseDeath, LarryTag.GivesFalseDeath],
+  tags: [LarryCategory.Protection, LarryTag.HasFalseDeath, LarryTag.GivesFalseDeath],
 }, {
   name: `Fool's Demise`,
   types: [CardType.Enchantment, CardType.Aura],
   mc: '5',
-  tags: [LarryTag.HasFalseDeath, LarryTag.GivesFalseDeath],
+  tags: [LarryCategory.Protection, LarryTag.HasFalseDeath, LarryTag.GivesFalseDeath],
 }];
