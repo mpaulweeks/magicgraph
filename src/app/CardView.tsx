@@ -21,7 +21,9 @@ const EdgeBinView = (props: {
     </b></div>
     <br/>
     {props.bin.neighbors.map((card, ci) => (
-      <div key={ci}>
+      <div key={ci} style={{
+        marginBottom: '0.3em',
+      }}>
         <CardLink card={card} />
       </div>
     ))}
