@@ -18,6 +18,8 @@ enum LarryTag {
 
   RemovesCounters = 'Removes Counters',
   BouncesWizards = 'Bounces Wizards',
+
+  DestroysArtifactEnchantment = 'Destroys Artifacts and Enchantments',
 }
 
 enum LarryEdge {
@@ -64,6 +66,7 @@ export const LarryDraft: CardDraft[] = [
   mc: '2WW',
   category: LarryCategory.Disk,
   notes: [`ETBs tapped`, `Bounce/phase in response to the activation`],
+  tags: [LarryTag.DestroysArtifactEnchantment],
   combos: [{
     edgeType: LarryEdge.TwoCardCombo,
     match: c => c.tags.intersects(
@@ -83,6 +86,7 @@ export const LarryDraft: CardDraft[] = [
   mc: '4',
   category: LarryCategory.Disk,
   notes: [`ETBs tapped`],
+  tags: [LarryTag.DestroysArtifactEnchantment],
 }, {
   name: `Planar Collapse`,
   types: [CardType.Enchantment],
@@ -95,6 +99,7 @@ export const LarryDraft: CardDraft[] = [
   mc: '2',
   category: LarryCategory.Disk,
   notes: [`Triggers on upkeep`, `Doesn't hit creatures`],
+  tags: [LarryTag.DestroysArtifactEnchantment],
 }, {
   name: `Phyrexian Scriptures`,
   types: [CardType.Enchantment],
@@ -294,6 +299,24 @@ export const LarryDraft: CardDraft[] = [
   combos: [{
     edgeType: LarryEdge.TwoCardCombo,
     match: c => c.types.intersects('Wizard') && c.name === 'Magus of the Disk',
+  }],
+}, {
+  name: `Enchanted Evening`,
+  types: [CardType.Enchantment],
+  mc: '3WU',
+  category: LarryCategory.Other,
+  combos: [{
+    edgeType: LarryEdge.TwoCardCombo,
+    match: c => c.tags.intersects(LarryTag.DestroysArtifactEnchantment),
+  }],
+}, {
+  name: `Mycosynth Lattice`,
+  types: [CardType.Artifact],
+  mc: '6',
+  category: LarryCategory.Other,
+  combos: [{
+    edgeType: LarryEdge.TwoCardCombo,
+    match: c => c.tags.intersects(LarryTag.DestroysArtifactEnchantment),
   }],
 },
 
