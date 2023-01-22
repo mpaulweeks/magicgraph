@@ -8,6 +8,10 @@ export enum LarryCategory {
 }
 
 enum LarryTag {
+  LoopsWithBounceLand = 'LoopsWithBounceLand',
+  LoopsWithAttacking = 'LoopsWithAttacking',
+  LoopsWithTapping = 'LoopsWithTapping',
+
   HasPhasing = 'HasPhasing',
   HasIndestructible = 'HasIndestructible',
   HasFalseDeath = 'HasFalseDeath',
@@ -19,6 +23,7 @@ enum LarryTag {
 }
 
 enum LarryEdge {
+  SurvivesWith = 'SurvivesWith',
   LoopsWith = 'LoopsWith',
   Reanimates = 'Reanimates',
 }
@@ -82,85 +87,6 @@ export const LarryDraft: CardDraft[] = [
   category: LarryCategory.Disk,
 },
 
-// Recursion
-{
-  name: `Emeria Shepherd`,
-  types: [CardType.Creature],
-  mc: '5WW',
-  category: LarryCategory.Recursion,
-  combos: [{
-    edgeType: LarryEdge.Reanimates,
-    match: c => !c.types.intersects(CardType.Land),
-  }],
-}, {
-  name: `Hanna, Ship's Navigator`,
-  types: [CardType.Creature],
-  mc: '1WU',
-  category: LarryCategory.Recursion,
-  combos: [{
-    edgeType: LarryEdge.Reanimates,
-    match: c => c.types.intersects(CardType.Artifact, CardType.Enchantment),
-  }],
-}, {
-  name: `Ironsoul Enforcer`,
-  types: [CardType.Creature],
-  mc: '4W',
-  category: LarryCategory.Recursion,
-  combos: [{
-    edgeType: LarryEdge.Reanimates,
-    match: c => c.types.intersects(CardType.Artifact, CardType.Enchantment),
-  }],
-}, {
-  name: `Lurrus of the Dream-Den`,
-  types: [CardType.Creature],
-  mc: '1WW',
-  category: LarryCategory.Recursion,
-  combos: [{
-    edgeType: LarryEdge.Reanimates,
-    match: c => c.mv <= 2 && !c.types.intersects(CardType.Land),
-  }],
-}, {
-  name: `Silent Sentinel`,
-  types: [CardType.Creature],
-  mc: '5WW',
-  category: LarryCategory.Recursion,
-  combos: [{
-    edgeType: LarryEdge.Reanimates,
-    match: c => c.types.intersects(CardType.Enchantment),
-  }],
-}, {
-  name: `Sun Titan`,
-  types: [CardType.Creature],
-  mc: '4WW',
-  category: LarryCategory.Recursion,
-  combos: [{
-    edgeType: LarryEdge.Reanimates,
-    match: c => c.mv <= 3,
-  }],
-}, {
-  name: `Treasury Thrull`,
-  types: [CardType.Creature],
-  mc: '4WB',
-  category: LarryCategory.Recursion,
-  combos: [{
-    edgeType: LarryEdge.Reanimates,
-    match: c => c.types.intersects(CardType.Creature, CardType.Artifact, CardType.Enchantment),
-  }],
-}, {
-  name: `Twilight Shepherd`,
-  types: [CardType.Creature],
-  mc: '4WW',
-  category: LarryCategory.Recursion,
-  combos: [{
-    edgeType: LarryEdge.LoopsWith,
-    match: c => c.tags.intersects(LarryTag.RemovesCounters),
-  }, {
-    edgeType: LarryEdge.Reanimates,
-    match: c => true,
-  }],
-},
-
-
 // Protection
 {
   name: `Darksteel Plate`,
@@ -210,4 +136,115 @@ export const LarryDraft: CardDraft[] = [
   mc: '5',
   category: LarryCategory.Protection,
   tags: [LarryTag.HasFalseDeath, LarryTag.GivesFalseDeath],
-}];
+},
+
+// Recursion
+{
+  name: `Emeria Shepherd`,
+  types: [CardType.Creature],
+  mc: '5WW',
+  category: LarryCategory.Recursion,
+  tags: [LarryTag.LoopsWithBounceLand],
+  combos: [{
+    edgeType: LarryEdge.Reanimates,
+    match: c => c.category === LarryCategory.Disk && !c.types.intersects(CardType.Land),
+  }, {
+    edgeType: LarryEdge.SurvivesWith,
+    match: c => c.tags.intersects(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
+  }],
+}, {
+  name: `Hanna, Ship's Navigator`,
+  types: [CardType.Creature],
+  mc: '1WU',
+  category: LarryCategory.Recursion,
+  tags: [LarryTag.LoopsWithTapping],
+  combos: [{
+    edgeType: LarryEdge.Reanimates,
+    match: c => c.category === LarryCategory.Disk && c.types.intersects(CardType.Artifact, CardType.Enchantment),
+  }, {
+    edgeType: LarryEdge.SurvivesWith,
+    match: c => c.tags.intersects(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
+  }],
+}, {
+  name: `Ironsoul Enforcer`,
+  types: [CardType.Creature],
+  mc: '4W',
+  category: LarryCategory.Recursion,
+  tags: [LarryTag.LoopsWithAttacking],
+  combos: [{
+    edgeType: LarryEdge.Reanimates,
+    match: c => c.category === LarryCategory.Disk && c.types.intersects(CardType.Artifact, CardType.Enchantment),
+  }, {
+    edgeType: LarryEdge.SurvivesWith,
+    match: c => c.tags.intersects(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
+  }],
+}, {
+  name: `Lurrus of the Dream-Den`,
+  types: [CardType.Creature],
+  mc: '1WW',
+  category: LarryCategory.Recursion,
+  tags: [LarryTag.LoopsWithTapping],
+  combos: [{
+    edgeType: LarryEdge.Reanimates,
+    match: c => c.category === LarryCategory.Disk && c.mv <= 2 && !c.types.intersects(CardType.Land),
+  }, {
+    edgeType: LarryEdge.SurvivesWith,
+    match: c => c.tags.intersects(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
+  }],
+}, {
+  name: `Silent Sentinel`,
+  types: [CardType.Creature],
+  mc: '5WW',
+  category: LarryCategory.Recursion,
+  tags: [LarryTag.LoopsWithAttacking],
+  combos: [{
+    edgeType: LarryEdge.Reanimates,
+    match: c => c.category === LarryCategory.Disk && c.types.intersects(CardType.Enchantment),
+  }, {
+    edgeType: LarryEdge.SurvivesWith,
+    match: c => c.tags.intersects(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
+  }],
+}, {
+  name: `Sun Titan`,
+  types: [CardType.Creature],
+  mc: '4WW',
+  category: LarryCategory.Recursion,
+  tags: [LarryTag.LoopsWithAttacking],
+  combos: [{
+    edgeType: LarryEdge.Reanimates,
+    match: c => c.category === LarryCategory.Disk && c.mv <= 3,
+  }, {
+    edgeType: LarryEdge.SurvivesWith,
+    match: c => c.tags.intersects(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
+  }],
+}, {
+  name: `Treasury Thrull`,
+  types: [CardType.Creature],
+  mc: '4WB',
+  category: LarryCategory.Recursion,
+  tags: [LarryTag.LoopsWithAttacking],
+  combos: [{
+    edgeType: LarryEdge.Reanimates,
+    match: c => c.category === LarryCategory.Disk && c.types.intersects(CardType.Creature, CardType.Artifact, CardType.Enchantment),
+  }, {
+    edgeType: LarryEdge.SurvivesWith,
+    match: c => c.tags.intersects(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
+  }],
+}, {
+  name: `Twilight Shepherd`,
+  types: [CardType.Creature],
+  mc: '4WW',
+  category: LarryCategory.Recursion,
+  combos: [{
+    edgeType: LarryEdge.LoopsWith,
+    match: c => c.tags.intersects(LarryTag.RemovesCounters) || c.tags.intersects(LarryTag.GivesFalseDeath),
+  }, {
+    edgeType: LarryEdge.Reanimates,
+    match: c => c.category === LarryCategory.Disk && c.category === LarryCategory.Disk,
+  }, {
+    edgeType: LarryEdge.SurvivesWith,
+    match: c => c.tags.intersects(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
+  }],
+},
+
+];

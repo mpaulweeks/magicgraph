@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Deck } from "../lib/deck";
-import { unique } from "../util/loop";
+import { unique } from "../util/list";
 import { CardView } from "./CardView";
 import { GraphVis } from "./GraphVis";
 
