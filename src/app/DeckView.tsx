@@ -70,9 +70,9 @@ export const DeckView = (props: {
         flexWrap: 'wrap',
         margin: '1em 0',
       }}>
-        {toRender.map((card, ci) => (
+        {toRender.map((card) => (
           <CardView
-            key={ci}
+            key={card.id}
             deck={deck}
             card={card}
           />
