@@ -20,6 +20,7 @@ export interface Cardlike {
   readonly mv: number;
   readonly category: string;
   readonly tags: Interset<string>;
+  readonly notes: string[];
   readonly combos: CardCombo[];
 }
 
@@ -34,6 +35,7 @@ export interface CardDraft {
   mc?: string;
   category: string;
   tags?: string[];
+  notes?: string[];
   combos?: CardCombo[];
 }
 

@@ -2,7 +2,7 @@ import { LarryCategory, LarryInverseEdge } from "../data/larry";
 import { CardImpl } from "../lib/card";
 import { Deck } from "../lib/deck";
 import { Cardlike } from "../types";
-import { groupBy } from "../util/list";
+import { groupBy, sortBy, unique } from "../util/list";
 import { AutoCard } from "./AutoCard";
 import { CardLink } from "./CardLink";
 
@@ -14,7 +14,7 @@ const EdgeBinView = (props: {
   bin: DisplayBin;
 }) => (
   <div style={{
-    marginRight: '1em',
+    marginRight: '2em',
   }}>
     <div><b>
       {props.bin.relationship}
@@ -33,16 +33,18 @@ export const CardView = (props: {
   card: CardImpl,
 }) => {
   const { deck, card } = props;
-  const edgeTo = deck.edges.filter(e => e.related[0].id === card.id);
-  const edgeFrom = deck.edges.filter(e => e.related[1].id === card.id);
-
-  const edgeToBins: DisplayBin[] = groupBy(edgeTo, e => e.relationship).map(bin => ({
-    relationship: bin[0].relationship,
-    neighbors: bin.map(edge => edge.related[1]),
+  const edgeTo = deck.edges.filter(e => e.related[0].id === card.id).map(edge => ({
+    relationship: edge.relationship,
+    neighbor: edge.related[1],
   }));
-  const edgeFromBins: DisplayBin[] = groupBy(edgeFrom, e => e.relationship).map(bin => ({
-    relationship: LarryInverseEdge(bin[0].relationship),
-    neighbors: bin.map(edge => edge.related[0]),
+  const edgeFrom = deck.edges.filter(e => e.related[1].id === card.id).map(edge => ({
+    relationship: LarryInverseEdge(edge.relationship),
+    neighbor: edge.related[0],
+  }));
+
+  const edgeBins: DisplayBin[] = groupBy([...edgeTo, ...edgeFrom], e => e.relationship).map(rel => ({
+    relationship: rel[0].relationship,
+    neighbors: sortBy(unique(rel.map(rel => rel.neighbor)), c => c.name),
   }));
 
   const bgColor = {
@@ -59,29 +61,35 @@ export const CardView = (props: {
       margin: '0 1em 1em 0',
     }}>
       <header style={{
-        fontSize: '2em',
-        padding: '0.5em',
+        padding: '1em',
         backgroundColor: bgColor,
       }}>
-        <AutoCard card={card}/>
+        <div style={{
+          fontSize: '2em',
+        }}>
+          <AutoCard card={card}/>
+        </div>
+        <div>
+          {card.category}
+        </div>
       </header>
 
       <section style={{
         padding: '1em',
       }}>
-        <div><b>Tags</b></div>
         <div>
-          {card.tags.asArray.join(', ')}
+          {card.notes.map((note, ni) => (
+            <div key={ni}>
+              {note}
+            </div>
+          ))}
         </div>
         <br/>
 
         <div style={{
           display: 'flex',
         }}>
-          {edgeToBins.map((bin, bi) => (
-            <EdgeBinView key={bi} bin={bin} />
-          ))}
-          {edgeFromBins.map((bin, bi) => (
+          {edgeBins.map((bin, bi) => (
             <EdgeBinView key={bi} bin={bin} />
           ))}
         </div>
