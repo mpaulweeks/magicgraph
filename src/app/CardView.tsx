@@ -12,12 +12,11 @@ export const CardView = (props: {
   const edgeTo = deck.edges.filter(e => e.related[0].id === card.id);
   const edgeFrom = deck.edges.filter(e => e.related[1].id === card.id);
 
-  const bgColor = (
-    (card.tags.intersects(LarryCategory.Disk) && 'salmon') ||
-    (card.tags.intersects(LarryCategory.Recursion) && 'lightgreen') ||
-    (card.tags.intersects(LarryCategory.Protection) && 'lightyellow') ||
-    'lightgrey'
-  )
+  const bgColor = {
+    [LarryCategory.Disk]: 'salmon',
+    [LarryCategory.Recursion]: 'lightgreen',
+    [LarryCategory.Protection]: 'khaki',
+  }[card.category] ?? 'lightgrey';
 
   return (
     <div id={card.id} style={{

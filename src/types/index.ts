@@ -15,9 +15,10 @@ export enum CardType {
 export interface Cardlike {
   readonly id: string;
   readonly name: string;
+  readonly types: Interset<string>;
   readonly mc: string;
   readonly mv: number;
-  readonly types: Interset<string>;
+  readonly category: string;
   readonly tags: Interset<string>;
   readonly combos: CardCombo[];
 }
@@ -31,6 +32,7 @@ export interface CardDraft {
   name: string;
   types: string[];
   mc?: string;
+  category?: string;
   tags?: string[];
   combos?: CardCombo[];
 }

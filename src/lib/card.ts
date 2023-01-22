@@ -4,9 +4,10 @@ import { Interset } from "../util/interset";
 export class CardImpl implements Cardlike {
   readonly id: string;
   readonly name: string;
+  readonly types: Interset<string>;
   readonly mc: string;
   readonly mv: number;
-  readonly types: Interset<string>;
+  readonly category: string;
   readonly tags: Interset<string>;
   readonly combos: {
     edgeType: string;
@@ -15,8 +16,9 @@ export class CardImpl implements Cardlike {
 
   constructor(draft: CardDraft) {
     this.name = draft.name;
-    this.mc = draft.mc ?? '';
     this.types = new Interset(draft.types);
+    this.mc = draft.mc ?? '';
+    this.category = draft.category ?? '';
     this.tags = new Interset(draft.tags ?? []);
     this.combos = draft.combos ?? [];
 
