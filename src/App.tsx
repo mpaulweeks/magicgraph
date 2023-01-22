@@ -4,7 +4,6 @@ import { Deck } from './lib/deck';
 
 function App() {
   const deck = new Deck('Larry Loops', LarryDraft);
-  console.log(deck);
   return (
     <DeckView deck={deck} />
   );
