@@ -1,11 +1,15 @@
 import { LarryDraft } from './data/larry';
-import { Card } from './lib/card';
-import { Deck } from './app/Deck';
+import { CardImpl } from './lib/card';
+import { DeckView } from './app/DeckView';
+import { Deck } from './types';
 
 function App() {
-  const deck = LarryDraft.map(draft => new Card(draft));
+  const deck: Deck = {
+    name: 'Larry Loops',
+    cards: LarryDraft.map(draft => new CardImpl(draft)),
+  };
   return (
-    <Deck deck={deck} />
+    <DeckView deck={deck} />
   );
 }
 

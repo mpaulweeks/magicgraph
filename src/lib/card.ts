@@ -1,7 +1,7 @@
 import { CardDraft, CardEdges, Cardlike } from "../types";
-import { Interset } from "../util/set";
+import { Interset } from "../util/interset";
 
-export class Card implements Cardlike {
+export class CardImpl implements Cardlike {
   readonly name: string;
   readonly mc: string;
   readonly mv: number;
@@ -13,19 +13,19 @@ export class Card implements Cardlike {
   }[];
   constructor(draft: CardDraft) {
     this.name = draft.name;
-    this.mc = draft.mc;
+    this.mc = draft.mc ?? '';
     this.types = new Interset(draft.types);
     this.tags = new Interset(draft.tags ?? []);
     this.combos = draft.combos ?? [];
 
-    this.mv = draft.mc.split('').map(c => {
+    this.mv = this.mc.split('').map(c => {
       const parsed = parseFloat(c);
       return isNaN(parsed) ? 1 : parsed;
     }).reduce((sum, cur) => sum + cur, 0);
   }
 
-  getEdges(allCards: Card[]): CardEdges[] {
-    const lookup = new Map<string, Card[]>();
+  getEdges(allCards: Cardlike[]): CardEdges[] {
+    const lookup = new Map<string, CardImpl[]>();
     allCards.forEach(other => {
       this.combos.forEach(combo => {
         if (combo.match(other)) {
