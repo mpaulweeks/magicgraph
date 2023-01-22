@@ -21,6 +21,8 @@ enum LarryTag {
 }
 
 enum LarryEdge {
+  TwoCardCombo = 'Two Card Combo!',
+
   SurvivesWith = 'Survives with',
   LoopsWith = 'Loops with',
   ReanimatesDisk = 'Reanimates Disk',
@@ -31,6 +33,8 @@ enum LarryEdge {
 }
 export function LarryInverseEdge(edge: string) {
   return {
+    [LarryEdge.TwoCardCombo]: LarryEdge.TwoCardCombo,
+
     [LarryEdge.SurvivesWith]: LarryEdge.Protects,
     [LarryEdge.LoopsWith]: LarryEdge.Loops,
     [LarryEdge.ReanimatesDisk]: LarryEdge.ReanimatedBy,
@@ -40,12 +44,17 @@ export function LarryInverseEdge(edge: string) {
     [LarryEdge.ReanimatedBy]: LarryEdge.ReanimatesDisk,
   }[edge] ?? 'Unknown Edge';
 }
+export const OrderedEdges: string[] = [
+  LarryEdge.TwoCardCombo,
 
-enum LarryNotes {
-  LoopsWithBounceLand = 'Activates by Landfall',
-  LoopsWithAttacking = 'Activates by Attacking',
-  LoopsWithTapping = 'Activates by Tapping',
-}
+  LarryEdge.SurvivesWith,
+  LarryEdge.LoopsWith,
+  LarryEdge.ReanimatesDisk,
+
+  LarryEdge.Protects,
+  LarryEdge.Loops,
+  LarryEdge.ReanimatedBy,
+];
 
 export const LarryDraft: CardDraft[] = [
 // Disks
@@ -54,8 +63,9 @@ export const LarryDraft: CardDraft[] = [
   types: [CardType.Creature, 'Wizard'],
   mc: '2WW',
   category: LarryCategory.Disk,
+  notes: [`ETBs tapped`, `Bounce/phase in response to the activation`],
   combos: [{
-    edgeType: LarryEdge.LoopsWith,
+    edgeType: LarryEdge.TwoCardCombo,
     match: c => c.tags.intersects(
       LarryTag.GivesPhasing,
       LarryTag.GivesIndestructible,
@@ -72,30 +82,35 @@ export const LarryDraft: CardDraft[] = [
   types: [CardType.Artifact],
   mc: '4',
   category: LarryCategory.Disk,
+  notes: [`ETBs tapped`],
 }, {
   name: `Planar Collapse`,
   types: [CardType.Enchantment],
   mc: '2',
   category: LarryCategory.Disk,
+  notes: [`Triggers on upkeep`, `Only hits creatures`],
 }, {
   name: `Serenity`,
   types: [CardType.Enchantment],
   mc: '2',
   category: LarryCategory.Disk,
+  notes: [`Triggers on upkeep`, `Doesn't hit creatures`],
 }, {
   name: `Phyrexian Scriptures`,
   types: [CardType.Enchantment],
   mc: '4',
   category: LarryCategory.Disk,
+  notes: [`Only hits non-artifact creatures`],
   combos: [{
-    edgeType: LarryEdge.LoopsWith,
+    edgeType: LarryEdge.TwoCardCombo,
     match: c => c.tags.intersects(LarryTag.RemovesCounters),
-  }]
+  }],
 }, {
   name: `The Phasing of Zhalfir`,
   types: [CardType.Enchantment],
   mc: '4',
   category: LarryCategory.Disk,
+  notes: [`Only hits creatures`],
 },
 
 // Protection
@@ -155,7 +170,7 @@ export const LarryDraft: CardDraft[] = [
   types: [CardType.Creature],
   mc: '5WW',
   category: LarryCategory.Recursion,
-  notes: [LarryNotes.LoopsWithBounceLand],
+  notes: [`Activates via Landfall (Loop Bounceland)`],
   combos: [{
     edgeType: LarryEdge.ReanimatesDisk,
     match: c => c.category === LarryCategory.Disk && !c.types.intersects(CardType.Land),
@@ -168,7 +183,7 @@ export const LarryDraft: CardDraft[] = [
   types: [CardType.Creature],
   mc: '1WU',
   category: LarryCategory.Recursion,
-  notes: [LarryNotes.LoopsWithTapping],
+  notes: [`Activates via tapping`],
   combos: [{
     edgeType: LarryEdge.ReanimatesDisk,
     match: c => c.category === LarryCategory.Disk && c.types.intersects(CardType.Artifact, CardType.Enchantment),
@@ -181,7 +196,7 @@ export const LarryDraft: CardDraft[] = [
   types: [CardType.Creature],
   mc: '4W',
   category: LarryCategory.Recursion,
-  notes: [LarryNotes.LoopsWithAttacking],
+  notes: [`Acivates via attacking`],
   combos: [{
     edgeType: LarryEdge.ReanimatesDisk,
     match: c => c.category === LarryCategory.Disk && c.types.intersects(CardType.Artifact, CardType.Enchantment),
@@ -194,7 +209,7 @@ export const LarryDraft: CardDraft[] = [
   types: [CardType.Creature],
   mc: '1WW',
   category: LarryCategory.Recursion,
-  notes: [LarryNotes.LoopsWithTapping],
+  notes: [`Activates once per turn`],
   combos: [{
     edgeType: LarryEdge.ReanimatesDisk,
     match: c => c.category === LarryCategory.Disk && c.mv <= 2 && !c.types.intersects(CardType.Land),
@@ -207,7 +222,7 @@ export const LarryDraft: CardDraft[] = [
   types: [CardType.Creature],
   mc: '5WW',
   category: LarryCategory.Recursion,
-  notes: [LarryNotes.LoopsWithAttacking],
+  notes: [`Acivates via attacking`],
   combos: [{
     edgeType: LarryEdge.ReanimatesDisk,
     match: c => c.category === LarryCategory.Disk && c.types.intersects(CardType.Enchantment),
@@ -220,7 +235,7 @@ export const LarryDraft: CardDraft[] = [
   types: [CardType.Creature],
   mc: '4WW',
   category: LarryCategory.Recursion,
-  notes: [LarryNotes.LoopsWithAttacking],
+  notes: [`Acivates via attacking`],
   combos: [{
     edgeType: LarryEdge.ReanimatesDisk,
     match: c => c.category === LarryCategory.Disk && c.mv <= 3,
@@ -233,7 +248,7 @@ export const LarryDraft: CardDraft[] = [
   types: [CardType.Creature],
   mc: '4WB',
   category: LarryCategory.Recursion,
-  notes: [LarryNotes.LoopsWithAttacking],
+  notes: [`Acivates via attacking`],
   combos: [{
     edgeType: LarryEdge.ReanimatesDisk,
     match: c => c.category === LarryCategory.Disk && c.types.intersects(CardType.Creature, CardType.Artifact, CardType.Enchantment),
@@ -262,13 +277,49 @@ export const LarryDraft: CardDraft[] = [
   types: [CardType.Land],
   category: LarryCategory.Other,
   tags: [LarryTag.RemovesCounters],
+  notes: [`Sorcery speed limits combos`],
+}, {
+  name: `Hall of Heliod's Generosity`,
+  types: [CardType.Land],
+  category: LarryCategory.Recursion,
+  notes: [`Requires card draw to not softlock self`],
+  combos: [{
+    edgeType: LarryEdge.TwoCardCombo,
+    match: c => c.category === LarryCategory.Disk && c.types.intersects(CardType.Enchantment),
+  }],
 }, {
   name: `Riptide Laboratory`,
   types: [CardType.Land],
   category: LarryCategory.Other,
   combos: [{
-    edgeType: LarryEdge.Loops,
+    edgeType: LarryEdge.TwoCardCombo,
     match: c => c.types.intersects('Wizard') && c.name === 'Magus of the Disk',
+  }],
+},
+
+// Speculative
+{
+  pending: true,
+  name: `Academy Ruins`,
+  types: [CardType.Land],
+  category: LarryCategory.Recursion,
+  notes: [`Requires card draw to not softlock self`],
+  combos: [{
+    edgeType: LarryEdge.TwoCardCombo,
+    match: c => c.category === LarryCategory.Disk && c.types.intersects(CardType.Artifact),
+  }],
+}, {
+  pending: true,
+  name: `Volrath's Stronghold`,
+  types: [CardType.Land],
+  category: LarryCategory.Recursion,
+  notes: [`Requires card draw to not softlock self`],
+  combos: [{
+    edgeType: LarryEdge.TwoCardCombo,
+    match: c => c.category === LarryCategory.Disk && c.types.intersects(CardType.Creature),
+  }, {
+    edgeType: LarryEdge.Protects,
+    match: c => c.types.intersects(CardType.Creature),
   }],
 },
 

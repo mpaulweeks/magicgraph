@@ -1,4 +1,4 @@
-import { LarryCategory, LarryInverseEdge } from "../data/larry";
+import { LarryCategory, LarryInverseEdge, OrderedEdges } from "../data/larry";
 import { CardImpl } from "../lib/card";
 import { Deck } from "../lib/deck";
 import { Cardlike } from "../types";
@@ -42,10 +42,10 @@ export const CardView = (props: {
     neighbor: edge.related[0],
   }));
 
-  const edgeBins: DisplayBin[] = groupBy([...edgeTo, ...edgeFrom], e => e.relationship).map(rel => ({
+  const edgeBins: DisplayBin[] = sortBy(groupBy([...edgeTo, ...edgeFrom], e => e.relationship).map(rel => ({
     relationship: rel[0].relationship,
     neighbors: sortBy(unique(rel.map(rel => rel.neighbor)), c => c.name),
-  }));
+  })), bin => OrderedEdges.indexOf(bin.relationship));
 
   const bgColor = {
     [LarryCategory.Disk]: 'salmon',
@@ -56,7 +56,7 @@ export const CardView = (props: {
   return (
     <div id={card.id} style={{
       flex: '1',
-      minWidth: '400px',
+      minWidth: '500px',
       border: '1px solid black',
       margin: '0 1em 1em 0',
     }}>
@@ -68,6 +68,7 @@ export const CardView = (props: {
           fontSize: '2em',
         }}>
           <AutoCard card={card}/>
+          {card.pending && ' (not in deck)'}
         </div>
         <div>
           {card.category}

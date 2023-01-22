@@ -22,6 +22,7 @@ export interface Cardlike {
   readonly tags: Interset<string>;
   readonly notes: string[];
   readonly combos: CardCombo[];
+  readonly pending: boolean;
 }
 
 export interface CardCombo {
@@ -37,6 +38,7 @@ export interface CardDraft {
   tags?: string[];
   notes?: string[];
   combos?: CardCombo[];
+  pending?: boolean;
 }
 
 export interface CardEdge {
