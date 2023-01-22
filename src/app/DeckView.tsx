@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Deck } from "../lib/deck";
+import { unique } from "../util/loop";
 import { CardView } from "./CardView";
 import { GraphVis } from "./GraphVis";
 
@@ -29,8 +30,9 @@ export const DeckView = (props: {
     );
   }
 
-  const tags = deck.cards.map(c => c.tags.asArray).flat();
-  const toRender = filter ? deck.cards.filter(c => c.tags.intersects(filter)) : deck.cards;
+  const categories = unique(deck.cards.map(c => c.category));
+  const tags = unique(deck.cards.map(c => c.tags.asArray).flat());
+  const toRender = filter ? deck.cards.filter(c => c.category === filter || c.tags.intersects(filter)) : deck.cards;
 
   return (
     <div>
@@ -38,16 +40,30 @@ export const DeckView = (props: {
       <p>
         <button onClick={() => setShowGraph(true)}>graph</button>
       </p>
-      <div>
-        <button onClick={() => setFilter(undefined)}>
-          reset
-        </button>
-        {tags.map((t, ti) => (
-          <button key={ti} onClick={() => setFilter(t)}>
-            {t}
+      <section>
+        <div>
+          Filter: {filter ?? 'none'}
+          <button onClick={() => setFilter(undefined)}>
+            reset
           </button>
-        ))}
-      </div>
+        </div>
+        <div>
+          Category:
+          {categories.map((t, ti) => (
+            <button key={ti} onClick={() => setFilter(t)}>
+              {t}
+            </button>
+          ))}
+        </div>
+        <div>
+          Tags:
+          {tags.map((t, ti) => (
+            <button key={ti} onClick={() => setFilter(t)}>
+              {t}
+            </button>
+          ))}
+        </div>
+      </section>
       <div style={{
         display: 'flex',
         justifyContent: 'center',

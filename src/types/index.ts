@@ -32,7 +32,7 @@ export interface CardDraft {
   name: string;
   types: string[];
   mc?: string;
-  category?: string;
+  category: string;
   tags?: string[];
   combos?: CardCombo[];
 }

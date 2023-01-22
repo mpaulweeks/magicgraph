@@ -4,6 +4,7 @@ export enum LarryCategory {
   Disk = 'Disk',
   Recursion = 'Recursion',
   Protection = 'Protection',
+  Other = 'Other',
 }
 
 enum LarryTag {
@@ -27,6 +28,7 @@ export const LarryDraft: CardDraft[] = [
 {
   name: `Nesting Grounds`,
   types: [CardType.Land],
+  category: LarryCategory.Other,
   tags: [LarryTag.RemovesCounters],
 },
 

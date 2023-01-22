@@ -18,7 +18,7 @@ export class CardImpl implements Cardlike {
     this.name = draft.name;
     this.types = new Interset(draft.types);
     this.mc = draft.mc ?? '';
-    this.category = draft.category ?? '';
+    this.category = draft.category;
     this.tags = new Interset(draft.tags ?? []);
     this.combos = draft.combos ?? [];
 
