@@ -1,8 +1,32 @@
-import { LarryCategory } from "../data/larry";
+import { LarryCategory, LarryInverseEdge } from "../data/larry";
 import { CardImpl } from "../lib/card";
 import { Deck } from "../lib/deck";
+import { Cardlike } from "../types";
+import { groupBy } from "../util/list";
 import { AutoCard } from "./AutoCard";
 import { CardLink } from "./CardLink";
+
+interface DisplayBin {
+  relationship: string;
+  neighbors: Cardlike[];
+}
+const EdgeBinView = (props: {
+  bin: DisplayBin;
+}) => (
+  <div style={{
+    marginRight: '1em',
+  }}>
+    <div><b>
+      {props.bin.relationship}
+    </b></div>
+    <br/>
+    {props.bin.neighbors.map((card, ci) => (
+      <div key={ci}>
+        <CardLink card={card} />
+      </div>
+    ))}
+  </div>
+)
 
 export const CardView = (props: {
   deck: Deck,
@@ -11,6 +35,15 @@ export const CardView = (props: {
   const { deck, card } = props;
   const edgeTo = deck.edges.filter(e => e.related[0].id === card.id);
   const edgeFrom = deck.edges.filter(e => e.related[1].id === card.id);
+
+  const edgeToBins: DisplayBin[] = groupBy(edgeTo, e => e.relationship).map(bin => ({
+    relationship: bin[0].relationship,
+    neighbors: bin.map(edge => edge.related[1]),
+  }));
+  const edgeFromBins: DisplayBin[] = groupBy(edgeFrom, e => e.relationship).map(bin => ({
+    relationship: LarryInverseEdge(bin[0].relationship),
+    neighbors: bin.map(edge => edge.related[0]),
+  }));
 
   const bgColor = {
     [LarryCategory.Disk]: 'salmon',
@@ -42,16 +75,16 @@ export const CardView = (props: {
         </div>
         <br/>
 
-        {edgeTo.map((edge, ei) => (
-          <div key={ei}>
-            {edge.relationship} {'->'} <CardLink card={edge.related[1]} />
-          </div>
-        ))}
-        {edgeFrom.map((edge, ei) => (
-          <div key={ei}>
-            <CardLink card={edge.related[0]} /> {'->'} {edge.relationship}
-          </div>
-        ))}
+        <div style={{
+          display: 'flex',
+        }}>
+          {edgeToBins.map((bin, bi) => (
+            <EdgeBinView key={bi} bin={bin} />
+          ))}
+          {edgeFromBins.map((bin, bi) => (
+            <EdgeBinView key={bi} bin={bin} />
+          ))}
+        </div>
       </section>
     </div>
   )

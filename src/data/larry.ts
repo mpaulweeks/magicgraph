@@ -8,24 +8,39 @@ export enum LarryCategory {
 }
 
 enum LarryTag {
-  LoopsWithBounceLand = 'LoopsWithBounceLand',
-  LoopsWithAttacking = 'LoopsWithAttacking',
-  LoopsWithTapping = 'LoopsWithTapping',
+  LoopsWithBounceLand = 'Loops w/ BounceLand',
+  LoopsWithAttacking = 'Loops w/ Attacking',
+  LoopsWithTapping = 'Loops w/ Tapping',
 
-  HasPhasing = 'HasPhasing',
-  HasIndestructible = 'HasIndestructible',
-  HasFalseDeath = 'HasFalseDeath',
+  HasPhasing = 'Has Phasing',
+  HasIndestructible = 'Has Indestructible',
+  HasFalseDeath = 'Has FalseDeath',
 
-  GivesPhasing = 'GivesPhasing',
-  GivesIndestructible = 'GivesIndestructible',
-  GivesFalseDeath = 'GivesFalseDeath',
-  RemovesCounters = 'RemovesCounters',
+  GivesPhasing = 'Gives Phasing',
+  GivesIndestructible = 'Gives Indestructible',
+  GivesFalseDeath = 'Gives FalseDeath',
+  RemovesCounters = 'Removes Counters',
 }
 
 enum LarryEdge {
-  SurvivesWith = 'SurvivesWith',
-  LoopsWith = 'LoopsWith',
+  SurvivesWith = 'Survives With',
+  LoopsWith = 'Loops With',
   Reanimates = 'Reanimates',
+
+  Protects = 'Protects',
+  Loops = 'Loops',
+  ReanimatedBy = 'Reanimated By',
+}
+export function LarryInverseEdge(edge: string) {
+  return {
+    [LarryEdge.SurvivesWith]: LarryEdge.Protects,
+    [LarryEdge.LoopsWith]: LarryEdge.Loops,
+    [LarryEdge.Reanimates]: LarryEdge.ReanimatedBy,
+
+    [LarryEdge.Protects]: LarryEdge.SurvivesWith,
+    [LarryEdge.Loops]: LarryEdge.LoopsWith,
+    [LarryEdge.ReanimatedBy]: LarryEdge.Reanimates,
+  }[edge] ?? 'Unknown Edge';
 }
 
 export const LarryDraft: CardDraft[] = [
