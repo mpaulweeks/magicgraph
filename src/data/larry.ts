@@ -1,23 +1,43 @@
-import { Card } from "../types";
+import { CardDraft, Cardlike, CardType } from "../types";
 
-export enum Larry {
-  Disk = '1',
+enum LarryTag {
+  Disk = 'Disk',
+  Recursion = 'Recursion',
+  GivesPhasing = 'GivesPhasing',
+  GivesIndestructible = 'GivesIndestructible',
 }
 
-const partials: Partial<Card>[] = [{
+enum LarryEdge {
+  Survives = 'Survives',
+  Reanimates = 'Reanimates',
+}
+
+export const LarryDraft: CardDraft[] = [{
   name: 'Magus of the Disk',
-  tags: [Larry.Disk],
+  types: [CardType.Creature],
+  mc: '2WW',
+  tags: [LarryTag.Disk],
+  combos: [{
+    edgeType: LarryEdge.Survives,
+    match: c => c.tags.intersects([LarryTag.GivesPhasing, LarryTag.GivesIndestructible]),
+  }],
+}, {
+  name: 'Sun Titan',
+  types: [CardType.Creature],
+  mc: '4WW',
+  tags: [LarryTag.Recursion],
+  combos: [{
+    edgeType: LarryEdge.Reanimates,
+    match: c => c.mv <= 3,
+  }],
+}, {
+  name: 'Oblivion Stone',
+  types: [CardType.Artifact],
+  mc: '3',
+  tags: [LarryTag.Disk],
+}, {
+  name: 'Darksteel Plate',
+  types: [CardType.Artifact],
+  mc: '3',
+  tags: [LarryTag.GivesIndestructible],
 }];
-
-
-export const LarryCards: Card[] = partials.map<Card>(c => {
-  if (c.name === undefined) { throw new Error('name is required'); }
-  const card: Card = {
-    name: c.name!,
-    mv: c.mv!,
-    types: c.types!,
-    tags: c.tags ?? [],
-    combos: c.combos ?? [],
-  };
-  return card;
-});
