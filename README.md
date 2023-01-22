@@ -1,2 +1,0 @@
-# magicgraph
-Visualize MTG cards
