@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { CardImpl } from "../lib/card";
-import { Deck } from "../types";
+import { Deck } from "../lib/deck";
 import { CardView } from "./CardView";
 
 export const DeckView = (props: {

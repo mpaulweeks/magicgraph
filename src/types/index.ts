@@ -13,13 +13,13 @@ export enum CardType {
 }
 
 export interface Cardlike {
+  readonly id: string;
   readonly name: string;
   readonly mc: string;
   readonly mv: number;
   readonly types: Interset<string>;
   readonly tags: Interset<string>;
   readonly combos: CardCombo[];
-  getEdges(allCards: Cardlike[]): CardEdges[];
 }
 
 export interface CardCombo {
@@ -35,12 +35,7 @@ export interface CardDraft {
   combos?: CardCombo[];
 }
 
-export interface CardEdges {
-  category: string;
+export interface CardEdge {
+  relationship: string;
   related: Cardlike[];
-}
-
-export interface Deck {
-  name: string;
-  cards: Cardlike[];
 }
