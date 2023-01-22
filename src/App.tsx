@@ -1,5 +1,4 @@
 import { LarryDraft } from './data/larry';
-import { CardImpl } from './lib/card';
 import { DeckView } from './app/DeckView';
 import { Deck } from './lib/deck';
 

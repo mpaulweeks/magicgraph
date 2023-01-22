@@ -1,4 +1,4 @@
-import { CardDraft, Cardlike, CardType } from "../types";
+import { CardDraft, CardType } from "../types";
 
 enum LarryTag {
   Disk = 'Disk',
