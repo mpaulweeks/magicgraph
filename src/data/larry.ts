@@ -343,8 +343,8 @@ export const LarryDraft: CardDraft[] = [
 
 // matcher helpers
 const bounceLoop = (a: Cardlike, b: Cardlike) => (
-  a.tags.has(LarryTag.Bounces) && b.tags.has(LarryTag.IsBouncable) ||
-  a.tags.has(LarryTag.BouncesWizards) && b.tags.has(LarryTag.IsBouncable) && b.subtypes.has('Wizard')
+  (a.tags.has(LarryTag.Bounces) && b.tags.has(LarryTag.IsBouncable)) ||
+  (a.tags.has(LarryTag.BouncesWizards) && b.tags.has(LarryTag.IsBouncable) && b.subtypes.has('Wizard'))
 );
 const matchRecursion = (a: Cardlike, b: Cardlike) => (
   (a.tags.has(LarryTag.ReanimatesArtifacts) && b.types.has(CardType.Artifact)) ||
