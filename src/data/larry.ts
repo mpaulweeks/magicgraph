@@ -31,6 +31,7 @@ enum LarryTag {
   DestroysArtifactEnchantment = 'Destroys Artifacts and Enchantments',
   DestroysOnlyArtifactEnchantment = 'Destroys Only Artifacts and Enchantments',
   DestroysNonArtifacts = 'Does Not Destroy Artifacts',
+  DestroysNonCreatures = 'Does Not Destroy Creatures',
 }
 
 enum LarryEdge {
@@ -126,7 +127,7 @@ export const LarryDraft: CardDraft[] = [
   mc: '4',
   category: LarryCategory.Disk,
   notes: [`Only hits non-artifact creatures`],
-  tags: [LarryTag.IsBouncable],
+  tags: [LarryTag.IsBouncable, LarryTag.DestroysNonArtifacts, LarryTag.DestroysNonCreatures],
   combos: [{
     edgeType: LarryEdge.TwoCardCombo,
     match: c => c.tags.intersects(LarryTag.RemovesCounters),
@@ -152,6 +153,12 @@ export const LarryDraft: CardDraft[] = [
   name: `Capsize`,
   types: [CardType.Instant],
   mc: '4UU',
+  category: LarryCategory.Recursion,
+  tags: [LarryTag.Bounces],
+}, {
+  name: `Heidar, Rimewind Master`,
+  types: [CardType.Creature],
+  mc: '4U',
   category: LarryCategory.Recursion,
   tags: [LarryTag.Bounces],
 },
@@ -377,6 +384,9 @@ export const LarryDraft: CardDraft[] = [
 
 ];
 
+const bounceLoop = (a: Cardlike, b: Cardlike) => (
+  a.tags.intersects(LarryTag.Bounces) && b.tags.intersects(LarryTag.IsBouncable)
+);
 const matchRecursion = (a: Cardlike, b: Cardlike) => (
   (a.tags.intersects(LarryTag.ReanimatesArtifacts) && b.types.intersects(CardType.Artifact)) ||
   (a.tags.intersects(LarryTag.ReanimatesEnchantments) && b.types.intersects(CardType.Enchantment)) ||
@@ -384,23 +394,30 @@ const matchRecursion = (a: Cardlike, b: Cardlike) => (
   (a.tags.intersects(LarryTag.Reanimates2orLess) && b.mv <= 2 && !b.types.intersects(CardType.Land)) ||
   (a.tags.intersects(LarryTag.Reanimates3orLess) && b.mv <= 3)
 );
+const survivesDisk = (a: Cardlike, b: Cardlike) => (
+  a.types.equals(CardType.Land) ||
+  a.types.equals(CardType.Instant) ||
+  (a.types.intersects(CardType.Artifact) && b.tags.intersects(LarryTag.DestroysNonArtifacts)) ||
+  (a.types.intersects(CardType.Creature) && b.tags.intersects(LarryTag.DestroysNonCreatures)) ||
+  (!a.types.intersects(CardType.Artifact, CardType.Enchantment) && b.tags.intersects(LarryTag.DestroysOnlyArtifactEnchantment))
+);
 
 // ordering matters, only looks for first match
 export const LarryMatchers: Matcher[] = [{
   relationship: LarryEdge.TwoCardCombo,
-  isMatch: (a, b) => a.types.intersects(CardType.Instant) && a.tags.intersects(LarryTag.Bounces) && b.tags.intersects(LarryTag.IsBouncable),
-}, {
-  relationship: LarryEdge.BounceLoops,
-  isMatch: (a, b) => a.tags.intersects(LarryTag.Bounces) && b.tags.intersects(LarryTag.IsBouncable),
-}, {
-  relationship: LarryEdge.TwoCardCombo,
-  isMatch: (a, b) => matchRecursion(a, b) && (
+  isMatch: (a, b) => bounceLoop(a, b) &&
     a.category === LarryCategory.Recursion &&
     b.category === LarryCategory.Disk &&
-    a.types.equals(CardType.Land) ||
-    (a.types.intersects(CardType.Artifact, CardType.Land) && b.tags.intersects(LarryTag.DestroysNonArtifacts)) ||
-    (!a.types.intersects(CardType.Artifact, CardType.Enchantment) && b.tags.intersects(LarryTag.DestroysOnlyArtifactEnchantment))
-  ),
+    survivesDisk(a, b),
+}, {
+  relationship: LarryEdge.BounceLoops,
+  isMatch: (a, b) => bounceLoop(a, b),
+}, {
+  relationship: LarryEdge.TwoCardCombo,
+  isMatch: (a, b) => matchRecursion(a, b) &&
+    a.category === LarryCategory.Recursion &&
+    b.category === LarryCategory.Disk &&
+    survivesDisk(a, b),
 }, {
   relationship: LarryEdge.Reanimates,
   isMatch: (a, b) => matchRecursion(a, b),
