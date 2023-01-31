@@ -45,9 +45,9 @@ export const DeckView = (props: {
   return (
     <div>
       <h1>{deck.name}</h1>
-      <p>
+      {/* <p>
         <button onClick={() => setShowGraph(true)}>graph</button>
-      </p>
+      </p> */}
       <section>
         <div>
           Show cards not in deck?
