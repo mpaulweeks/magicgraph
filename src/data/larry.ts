@@ -89,14 +89,6 @@ export const LarryDraft: CardDraft[] = [
   category: LarryCategory.Disk,
   notes: [`ETBs tapped`, `Bounce/phase in response to the activation`],
   tags: [LarryTag.IsBouncable, LarryTag.DestroysArtifactEnchantment],
-  combos: [{
-    edgeType: LarryEdge.TwoCardCombo,
-    match: c => c.tags.has(
-      LarryTag.GivesPhasing,
-      LarryTag.GivesIndestructible,
-      LarryTag.GivesFalseDeath,
-    ),
-  }],
 }, {
   name: `Oblivion Stone`,
   types: [CardType.Artifact],
@@ -224,13 +216,7 @@ export const LarryDraft: CardDraft[] = [
   mc: '5WW',
   category: LarryCategory.Recursion,
   notes: [`Activates via Landfall (Loop Bounceland)`],
-  combos: [{
-    edgeType: LarryEdge.Reanimates,
-    match: c => c.category === LarryCategory.Disk && !c.types.has(CardType.Land),
-  }, {
-    edgeType: LarryEdge.SurvivesWith,
-    match: c => c.tags.has(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
-  }],
+  tags: [LarryTag.ReanimatesArtifacts, LarryTag.ReanimatesEnchantments, LarryTag.ReanimatesCreatures],
 }, {
   name: `Hanna, Ship's Navigator`,
   types: [CardType.Creature],
@@ -238,10 +224,6 @@ export const LarryDraft: CardDraft[] = [
   category: LarryCategory.Recursion,
   notes: [`Activates via tapping`],
   tags: [LarryTag.ReanimatesArtifacts, LarryTag.ReanimatesEnchantments],
-  combos: [{
-    edgeType: LarryEdge.SurvivesWith,
-    match: c => c.tags.has(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
-  }],
 }, {
   name: `Ironsoul Enforcer`,
   types: [CardType.Creature, CardType.Artifact],
@@ -249,10 +231,6 @@ export const LarryDraft: CardDraft[] = [
   category: LarryCategory.Recursion,
   notes: [`Acivates via attacking`],
   tags: [LarryTag.ReanimatesArtifacts],
-  combos: [{
-    edgeType: LarryEdge.SurvivesWith,
-    match: c => c.tags.has(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
-  }],
 }, {
   name: `Lurrus of the Dream-Den`,
   types: [CardType.Creature],
@@ -260,10 +238,6 @@ export const LarryDraft: CardDraft[] = [
   category: LarryCategory.Recursion,
   notes: [`Activates once per turn`],
   tags: [LarryTag.Reanimates2orLess],
-  combos: [{
-    edgeType: LarryEdge.SurvivesWith,
-    match: c => c.tags.has(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
-  }],
 }, {
   name: `Silent Sentinel`,
   types: [CardType.Creature],
@@ -271,10 +245,6 @@ export const LarryDraft: CardDraft[] = [
   category: LarryCategory.Recursion,
   notes: [`Acivates via attacking`],
   tags: [LarryTag.ReanimatesEnchantments],
-  combos: [{
-    edgeType: LarryEdge.SurvivesWith,
-    match: c => c.tags.has(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
-  }],
 }, {
   name: `Sun Titan`,
   types: [CardType.Creature],
@@ -282,10 +252,6 @@ export const LarryDraft: CardDraft[] = [
   category: LarryCategory.Recursion,
   notes: [`Acivates via attacking`],
   tags: [LarryTag.Reanimates3orLess],
-  combos: [{
-    edgeType: LarryEdge.SurvivesWith,
-    match: c => c.tags.has(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
-  }],
 }, {
   name: `Treasury Thrull`,
   types: [CardType.Creature],
@@ -293,10 +259,6 @@ export const LarryDraft: CardDraft[] = [
   category: LarryCategory.Recursion,
   notes: [`Acivates via attacking`],
   tags: [LarryTag.ReanimatesArtifacts, LarryTag.ReanimatesEnchantments, LarryTag.ReanimatesCreatures],
-  combos: [{
-    edgeType: LarryEdge.SurvivesWith,
-    match: c => c.tags.has(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
-  }],
 }, {
   pending: true,
   name: `Twilight Shepherd`,
@@ -318,10 +280,6 @@ export const LarryDraft: CardDraft[] = [
   mc: '2W',
   category: LarryCategory.Recursion,
   tags: [LarryTag.ReanimatesEnchantments],
-  combos: [{
-    edgeType: LarryEdge.SurvivesWith,
-    match: c => c.tags.has(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
-  }],
 },
 
 // Other
@@ -383,6 +341,7 @@ export const LarryDraft: CardDraft[] = [
 
 ];
 
+// matcher helpers
 const bounceLoop = (a: Cardlike, b: Cardlike) => (
   a.tags.has(LarryTag.Bounces) && b.tags.has(LarryTag.IsBouncable) ||
   a.tags.has(LarryTag.BouncesWizards) && b.tags.has(LarryTag.IsBouncable) && b.subtypes.has('Wizard')
@@ -401,23 +360,34 @@ const survivesDisk = (a: Cardlike, b: Cardlike) => (
   (a.types.has(CardType.Creature) && b.tags.has(LarryTag.DestroysNonCreatures)) ||
   (!a.types.has(CardType.Artifact, CardType.Enchantment) && b.tags.has(LarryTag.DestroysOnlyArtifactEnchantment))
 );
+const protects = (a: Cardlike, b: Cardlike) => (
+  a.tags.has(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing) &&
+  b.types.has(CardType.Creature)
+);
 
 // ordering matters, only looks for first match
 export const LarryMatchers: Matcher[] = [{
+  relationship: LarryEdge.TwoCardCombo,
+  isMatch: (a, b) => protects(a, b) &&
+    b.category === LarryCategory.Disk,
+}, {
   relationship: LarryEdge.TwoCardCombo,
   isMatch: (a, b) => bounceLoop(a, b) &&
     a.category === LarryCategory.Bouncer &&
     b.category === LarryCategory.Disk &&
     survivesDisk(a, b),
 }, {
-  relationship: LarryEdge.BounceLoops,
-  isMatch: (a, b) => bounceLoop(a, b),
-}, {
   relationship: LarryEdge.TwoCardCombo,
   isMatch: (a, b) => matchRecursion(a, b) &&
     a.category === LarryCategory.Recursion &&
     b.category === LarryCategory.Disk &&
     survivesDisk(a, b),
+}, {
+  relationship: LarryEdge.Protects,
+  isMatch: (a, b) => protects(a, b),
+}, {
+  relationship: LarryEdge.BounceLoops,
+  isMatch: (a, b) => bounceLoop(a, b),
 }, {
   relationship: LarryEdge.Reanimates,
   isMatch: (a, b) => matchRecursion(a, b),
