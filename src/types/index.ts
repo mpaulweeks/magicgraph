@@ -16,6 +16,7 @@ export interface Cardlike {
   readonly id: string;
   readonly name: string;
   readonly types: Interset<string>;
+  readonly subtypes: Interset<string>;
   readonly mc: string;
   readonly mv: number;
   readonly category: string;
@@ -38,6 +39,7 @@ export interface Matcher {
 export interface CardDraft {
   name: string;
   types: string[];
+  subtypes?: string[];
   mc?: string;
   category: string;
   tags?: string[];

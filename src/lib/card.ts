@@ -5,6 +5,7 @@ export class CardImpl implements Cardlike {
   readonly id: string;
   readonly name: string;
   readonly types: Interset<string>;
+  readonly subtypes: Interset<string>;
   readonly mc: string;
   readonly mv: number;
   readonly category: string;
@@ -19,6 +20,7 @@ export class CardImpl implements Cardlike {
   constructor(draft: CardDraft) {
     this.name = draft.name;
     this.types = new Interset(draft.types);
+    this.subtypes = new Interset(draft.subtypes ?? []);
     this.mc = draft.mc ?? '';
     this.category = draft.category;
     this.tags = new Interset(draft.tags ?? []);

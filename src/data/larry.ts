@@ -3,6 +3,7 @@ import { CardDraft, Cardlike, CardType, Matcher } from "../types";
 export enum LarryCategory {
   Disk = 'Disk',
   Recursion = 'Recursion',
+  Bouncer = 'Bouncer',
   Protection = 'Protection',
   Other = 'Other',
 }
@@ -82,7 +83,8 @@ export const LarryDraft: CardDraft[] = [
 // Disks
 {
   name: `Magus of the Disk`,
-  types: [CardType.Creature, 'Wizard'],
+  types: [CardType.Creature],
+  subtypes: ['Wizard'],
   mc: '2WW',
   category: LarryCategory.Disk,
   notes: [`ETBs tapped`, `Bounce/phase in response to the activation`],
@@ -153,13 +155,13 @@ export const LarryDraft: CardDraft[] = [
   name: `Capsize`,
   types: [CardType.Instant],
   mc: '4UU',
-  category: LarryCategory.Recursion,
+  category: LarryCategory.Bouncer,
   tags: [LarryTag.Bounces],
 }, {
   name: `Heidar, Rimewind Master`,
   types: [CardType.Creature],
   mc: '4U',
-  category: LarryCategory.Recursion,
+  category: LarryCategory.Bouncer,
   tags: [LarryTag.Bounces],
 },
 
@@ -345,11 +347,8 @@ export const LarryDraft: CardDraft[] = [
 }, {
   name: `Riptide Laboratory`,
   types: [CardType.Land],
-  category: LarryCategory.Other,
-  combos: [{
-    edgeType: LarryEdge.TwoCardCombo,
-    match: c => c.types.intersects('Wizard') && c.name === 'Magus of the Disk',
-  }],
+  category: LarryCategory.Bouncer,
+  tags: [LarryTag.BouncesWizards],
 }, {
   pending: true,
   name: `Enchanted Evening`,
@@ -385,7 +384,8 @@ export const LarryDraft: CardDraft[] = [
 ];
 
 const bounceLoop = (a: Cardlike, b: Cardlike) => (
-  a.tags.intersects(LarryTag.Bounces) && b.tags.intersects(LarryTag.IsBouncable)
+  a.tags.intersects(LarryTag.Bounces) && b.tags.intersects(LarryTag.IsBouncable) ||
+  a.tags.intersects(LarryTag.BouncesWizards) && b.tags.intersects(LarryTag.IsBouncable) && b.subtypes.intersects('Wizard')
 );
 const matchRecursion = (a: Cardlike, b: Cardlike) => (
   (a.tags.intersects(LarryTag.ReanimatesArtifacts) && b.types.intersects(CardType.Artifact)) ||
@@ -406,7 +406,7 @@ const survivesDisk = (a: Cardlike, b: Cardlike) => (
 export const LarryMatchers: Matcher[] = [{
   relationship: LarryEdge.TwoCardCombo,
   isMatch: (a, b) => bounceLoop(a, b) &&
-    a.category === LarryCategory.Recursion &&
+    a.category === LarryCategory.Bouncer &&
     b.category === LarryCategory.Disk &&
     survivesDisk(a, b),
 }, {
