@@ -14,14 +14,17 @@ export class Graph {
             });
           }
         });
-        matchers.forEach(m => {
+
+        // only match once per pair
+        for (const m of matchers) {
           if (m.isMatch(a,b)) {
             edges.push({
               relationship: m.relationship,
               related: [a, b],
             });
+            break;
           }
-        })
+        }
       });
     });
     return edges;
