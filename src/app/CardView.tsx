@@ -52,6 +52,7 @@ export const CardView = (props: {
   const bgColor = {
     [LarryCategory.Disk]: 'salmon',
     [LarryCategory.Recursion]: 'lightgreen',
+    [LarryCategory.Bouncer]: 'lightblue',
     [LarryCategory.Protection]: 'khaki',
   }[card.category] ?? 'lightgrey';
 
