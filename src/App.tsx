@@ -1,4 +1,4 @@
-import { LarryDraft } from './data/larry';
+import { LarryDraft, LarryMatchers } from './data/larry';
 import { DeckView } from './app/DeckView';
 import { Deck } from './lib/deck';
 
@@ -8,7 +8,7 @@ function App() {
   let deck: Deck | undefined;
 
   if (queryParsm.get('larry')) {
-    deck = new Deck('Larry Loops', LarryDraft);
+    deck = new Deck('Larry Loops', LarryDraft, LarryMatchers);
   }
 
   if (deck) {

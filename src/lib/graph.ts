@@ -1,7 +1,7 @@
-import { CardEdge, Cardlike } from "../types";
+import { CardEdge, Cardlike, Matcher } from "../types";
 
 export class Graph {
-  getEdges(allCards: Cardlike[]): CardEdge[] {
+  getEdges(allCards: Cardlike[], matchers: Matcher[]): CardEdge[] {
     const edges: CardEdge[] = [];
     allCards.forEach(a => {
       allCards.forEach(b => {
@@ -14,6 +14,14 @@ export class Graph {
             });
           }
         });
+        matchers.forEach(m => {
+          if (m.isMatch(a,b)) {
+            edges.push({
+              relationship: m.relationship,
+              related: [a, b],
+            });
+          }
+        })
       });
     });
     return edges;

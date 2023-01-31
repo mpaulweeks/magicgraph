@@ -1,4 +1,4 @@
-import { CardDraft, CardEdge } from "../types";
+import { CardDraft, CardEdge, Matcher } from "../types";
 import { sortBy } from "../util/list";
 import { CardImpl } from "./card";
 import { Graph } from "./graph";
@@ -10,8 +10,9 @@ export class Deck {
   constructor(
     readonly name: string,
     drafts: CardDraft[],
+    matchers: Matcher[],
   ) {
     this.cards = sortBy(drafts.map(d => new CardImpl(d)), c => c.name);
-    this.edges = new Graph().getEdges(this.cards);
+    this.edges = new Graph().getEdges(this.cards, matchers);
   }
 }

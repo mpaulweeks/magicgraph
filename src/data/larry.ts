@@ -1,4 +1,4 @@
-import { CardDraft, CardType } from "../types";
+import { CardDraft, CardType, Matcher } from "../types";
 
 export enum LarryCategory {
   Disk = 'Disk',
@@ -8,6 +8,9 @@ export enum LarryCategory {
 }
 
 enum LarryTag {
+  Bounces = 'Bounces',
+  IsBouncable = 'Is Bouncable',
+
   HasPhasing = 'Has Phasing',
   HasIndestructible = 'Has Indestructible',
   HasFalseDeath = 'Has FalseDeath',
@@ -31,11 +34,13 @@ enum LarryEdge {
   SurvivesWith = 'Survives with',
   LoopsETBWith = 'Loops ETB with',
   ReanimatesDisk = 'Reanimates Disk',
+  BounceLoops = 'Bounce Loops',
 
   TopDecks = 'Topdecks',
   Protects = 'Protects',
   LoopsETB = 'Loops ETB',
   ReanimatedBy = 'Reanimated By',
+  BounceLoopedBy = 'Bounce Looped By',
 }
 export function LarryInverseEdge(edge: string) {
   return {
@@ -45,15 +50,20 @@ export function LarryInverseEdge(edge: string) {
     [LarryEdge.SurvivesWith]: LarryEdge.Protects,
     [LarryEdge.LoopsETBWith]: LarryEdge.LoopsETB,
     [LarryEdge.ReanimatesDisk]: LarryEdge.ReanimatedBy,
+    [LarryEdge.BounceLoops]: LarryEdge.BounceLoopedBy,
 
     [LarryEdge.TopDecks]: LarryEdge.TopDeckedBy,
     [LarryEdge.Protects]: LarryEdge.SurvivesWith,
     [LarryEdge.LoopsETB]: LarryEdge.LoopsETBWith,
     [LarryEdge.ReanimatedBy]: LarryEdge.ReanimatesDisk,
+    [LarryEdge.BounceLoopedBy]: LarryEdge.BounceLoops,
   }[edge] ?? 'Unknown Edge';
 }
 export const OrderedEdges: string[] = [
   LarryEdge.TwoCardCombo,
+
+  LarryEdge.BounceLoops,
+  LarryEdge.BounceLoopedBy,
 
   LarryEdge.SurvivesWith,
   LarryEdge.Protects,
@@ -76,7 +86,7 @@ export const LarryDraft: CardDraft[] = [
   mc: '2WW',
   category: LarryCategory.Disk,
   notes: [`ETBs tapped`, `Bounce/phase in response to the activation`],
-  tags: [LarryTag.DestroysArtifactEnchantment],
+  tags: [LarryTag.IsBouncable, LarryTag.DestroysArtifactEnchantment],
   combos: [{
     edgeType: LarryEdge.TwoCardCombo,
     match: c => c.tags.intersects(
@@ -96,26 +106,28 @@ export const LarryDraft: CardDraft[] = [
   mc: '4',
   category: LarryCategory.Disk,
   notes: [`ETBs tapped`],
-  tags: [LarryTag.DestroysArtifactEnchantment],
+  tags: [LarryTag.IsBouncable, LarryTag.DestroysArtifactEnchantment],
 }, {
   name: `Planar Collapse`,
   types: [CardType.Enchantment],
   mc: '2',
   category: LarryCategory.Disk,
   notes: [`Triggers on upkeep`, `Only hits creatures`],
+  tags: [LarryTag.IsBouncable],
 }, {
   name: `Serenity`,
   types: [CardType.Enchantment],
   mc: '2',
   category: LarryCategory.Disk,
   notes: [`Triggers on upkeep`, `Doesn't hit creatures`],
-  tags: [LarryTag.DestroysArtifactEnchantment, LarryTag.DestroysOnlyArtifactEnchantment],
+  tags: [LarryTag.IsBouncable, LarryTag.DestroysArtifactEnchantment, LarryTag.DestroysOnlyArtifactEnchantment],
 }, {
   name: `Phyrexian Scriptures`,
   types: [CardType.Enchantment],
   mc: '4',
   category: LarryCategory.Disk,
   notes: [`Only hits non-artifact creatures`],
+  tags: [LarryTag.IsBouncable],
   combos: [{
     edgeType: LarryEdge.TwoCardCombo,
     match: c => c.tags.intersects(LarryTag.RemovesCounters),
@@ -126,6 +138,7 @@ export const LarryDraft: CardDraft[] = [
   mc: '4',
   category: LarryCategory.Disk,
   notes: [`Only hits creatures`],
+  tags: [LarryTag.IsBouncable],
 }, {
   name: `Scourglass`,
   types: [CardType.Artifact],
@@ -133,6 +146,15 @@ export const LarryDraft: CardDraft[] = [
   category: LarryCategory.Disk,
   notes: [`Triggers on upkeep`, `Only hits non-land, non-artifact`],
   tags: [LarryTag.DestroysNonArtifacts],
+},
+
+// Bounce
+{
+  name: `Capsize`,
+  types: [CardType.Instant],
+  mc: '4UU',
+  category: LarryCategory.Recursion,
+  tags: [LarryTag.Bounces],
 },
 
 // Protection
@@ -411,3 +433,12 @@ export const LarryDraft: CardDraft[] = [
 },
 
 ];
+
+
+export const LarryMatchers: Matcher[] = [{
+  relationship: LarryEdge.TwoCardCombo,
+  isMatch: (a, b) => a.types.intersects(CardType.Instant) && a.tags.intersects(LarryTag.Bounces) && b.tags.intersects(LarryTag.IsBouncable),
+}, {
+  relationship: LarryEdge.BounceLoops,
+  isMatch: (a, b) => a.tags.intersects(LarryTag.Bounces) && b.tags.intersects(LarryTag.IsBouncable),
+}];

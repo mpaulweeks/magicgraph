@@ -30,6 +30,11 @@ export interface CardCombo {
   match: (other: Cardlike) => boolean;
 }
 
+export interface Matcher {
+  relationship: string;
+  isMatch(a: Cardlike, b: Cardlike): boolean;
+}
+
 export interface CardDraft {
   name: string;
   types: string[];
