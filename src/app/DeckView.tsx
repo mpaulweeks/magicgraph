@@ -8,6 +8,7 @@ export const DeckView = (props: {
   deck: Deck,
 }) => {
   const { deck } = props;
+  const [includePending, setIncludePending] = useState(false);
   const [filter, setFilter] = useState<string>();
   const [showGraph, setShowGraph] = useState(false);
 
@@ -30,9 +31,14 @@ export const DeckView = (props: {
     );
   }
 
+
   const categories = unique(deck.cards.map(c => c.category));
   const tags = unique(deck.cards.map(c => c.tags.asArray).flat());
-  const toRender = filter ? deck.cards.filter(c => c.category === filter || c.tags.intersects(filter)) : deck.cards;
+  const toRender = deck.cards
+    .filter(c => includePending || !c.pending)
+    .filter(c => !filter || c.category === filter || c.tags.intersects(filter));
+  const edges = deck.edges
+    .filter(e => includePending || e.related.every(c => !c.pending));
 
   return (
     <div>
@@ -41,6 +47,14 @@ export const DeckView = (props: {
         <button onClick={() => setShowGraph(true)}>graph</button>
       </p>
       <section>
+        <div>
+          Show cards not in deck?
+          <input 
+            type="checkbox"
+            value={includePending.toString()}
+            onClick={() => setIncludePending(!includePending)}
+          />
+        </div>
         <div>
           Filter: {filter ?? 'none'}
           <button onClick={() => setFilter(undefined)}>
@@ -73,7 +87,7 @@ export const DeckView = (props: {
         {toRender.map((card) => (
           <CardView
             key={card.id}
-            deck={deck}
+            edges={edges}
             card={card}
           />
         ))}

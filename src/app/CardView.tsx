@@ -1,7 +1,7 @@
 import { LarryCategory, LarryInverseEdge, OrderedEdges } from "../data/larry";
 import { CardImpl } from "../lib/card";
 import { Deck } from "../lib/deck";
-import { Cardlike } from "../types";
+import { CardEdge, Cardlike } from "../types";
 import { groupBy, sortBy, unique } from "../util/list";
 import { AutoCard } from "./AutoCard";
 import { CardLink } from "./CardLink";
@@ -31,15 +31,15 @@ const EdgeBinView = (props: {
 )
 
 export const CardView = (props: {
-  deck: Deck,
+  edges: CardEdge[],
   card: CardImpl,
 }) => {
-  const { deck, card } = props;
-  const edgeTo = deck.edges.filter(e => e.related[0].id === card.id).map(edge => ({
+  const { edges, card } = props;
+  const edgeTo = edges.filter(e => e.related[0].id === card.id).map(edge => ({
     relationship: edge.relationship,
     neighbor: edge.related[1],
   }));
-  const edgeFrom = deck.edges.filter(e => e.related[1].id === card.id).map(edge => ({
+  const edgeFrom = edges.filter(e => e.related[1].id === card.id).map(edge => ({
     relationship: LarryInverseEdge(edge.relationship),
     neighbor: edge.related[0],
   }));
