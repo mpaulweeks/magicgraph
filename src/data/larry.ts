@@ -127,7 +127,6 @@ export const LarryDraft: CardDraft[] = [
   category: LarryCategory.Disk,
   notes: [`Only hits creatures`],
 }, {
-  pending: true,
   name: `Scourglass`,
   types: [CardType.Artifact],
   mc: '3WW',
@@ -189,6 +188,7 @@ export const LarryDraft: CardDraft[] = [
 
 // Recursion
 {
+  pending: true,
   name: `Emeria Shepherd`,
   types: [CardType.Creature],
   mc: '5WW',
@@ -301,6 +301,7 @@ export const LarryDraft: CardDraft[] = [
     match: c => c.tags.intersects(LarryTag.GivesFalseDeath, LarryTag.GivesIndestructible, LarryTag.GivesPhasing),
   }],
 }, {
+  pending: true,
   name: `Twilight Shepherd`,
   types: [CardType.Creature],
   mc: '4WW',
@@ -350,37 +351,8 @@ export const LarryDraft: CardDraft[] = [
     edgeType: LarryEdge.TopDecks,
     match: c => c.category !== LarryCategory.Disk && c.types.intersects(CardType.Enchantment),
   }],
-}, {
-  name: `Riptide Laboratory`,
-  types: [CardType.Land],
-  category: LarryCategory.Other,
-  combos: [{
-    edgeType: LarryEdge.TwoCardCombo,
-    match: c => c.types.intersects('Wizard') && c.name === 'Magus of the Disk',
-  }],
-}, {
-  name: `Enchanted Evening`,
-  types: [CardType.Enchantment],
-  mc: '3WU',
-  category: LarryCategory.Other,
-  combos: [{
-    edgeType: LarryEdge.TwoCardCombo,
-    match: c => c.tags.intersects(LarryTag.DestroysArtifactEnchantment),
-  }],
-}, {
-  name: `Mycosynth Lattice`,
-  types: [CardType.Artifact],
-  mc: '6',
-  category: LarryCategory.Other,
-  combos: [{
-    edgeType: LarryEdge.TwoCardCombo,
-    match: c => c.tags.intersects(LarryTag.DestroysArtifactEnchantment),
-  }],
-},
-
-// Speculative
+}, 
 {
-  pending: true,
   name: `Academy Ruins`,
   types: [CardType.Land],
   category: LarryCategory.Recursion,
@@ -393,6 +365,37 @@ export const LarryDraft: CardDraft[] = [
     match: c => c.category !== LarryCategory.Disk && c.types.intersects(CardType.Artifact),
   }],
 }, {
+  name: `Riptide Laboratory`,
+  types: [CardType.Land],
+  category: LarryCategory.Other,
+  combos: [{
+    edgeType: LarryEdge.TwoCardCombo,
+    match: c => c.types.intersects('Wizard') && c.name === 'Magus of the Disk',
+  }],
+}, {
+  pending: true,
+  name: `Enchanted Evening`,
+  types: [CardType.Enchantment],
+  mc: '3WU',
+  category: LarryCategory.Other,
+  combos: [{
+    edgeType: LarryEdge.TwoCardCombo,
+    match: c => c.tags.intersects(LarryTag.DestroysArtifactEnchantment),
+  }],
+}, {
+  pending: true,
+  name: `Mycosynth Lattice`,
+  types: [CardType.Artifact],
+  mc: '6',
+  category: LarryCategory.Other,
+  combos: [{
+    edgeType: LarryEdge.TwoCardCombo,
+    match: c => c.tags.intersects(LarryTag.DestroysArtifactEnchantment),
+  }],
+},
+
+// Speculative
+{
   pending: true,
   name: `Volrath's Stronghold`,
   types: [CardType.Land],
