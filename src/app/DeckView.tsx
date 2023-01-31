@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Deck } from "../lib/deck";
-import { unique } from "../util/list";
+import { sort, sortBy, unique, uniqueBy } from "../util/list";
 import { CardView } from "./CardView";
 import { GraphVis } from "./GraphVis";
 
@@ -37,8 +37,10 @@ export const DeckView = (props: {
   const toRender = deck.cards
     .filter(c => includePending || !c.pending)
     .filter(c => !filter || c.category === filter || c.tags.has(filter));
-  const edges = deck.edges
-    .filter(e => includePending || e.related.every(c => !c.pending));
+  const edges = uniqueBy(
+    deck.edges.filter(e => includePending || e.related.every(c => !c.pending)),
+    elm => sort(elm.related.map(c => c.id)).join('|')
+  );
 
   return (
     <div>

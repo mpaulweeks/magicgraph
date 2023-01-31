@@ -266,12 +266,10 @@ export const LarryDraft: CardDraft[] = [
   mc: '4WW',
   category: LarryCategory.Recursion,
   notes: ['Activates by ETB'],
+  tags: [LarryTag.ReanimatesArtifacts, LarryTag.ReanimatesEnchantments, LarryTag.ReanimatesCreatures],
   combos: [{
     edgeType: LarryEdge.LoopsETBWith,
     match: c => c.tags.has(LarryTag.RemovesCounters) || c.tags.has(LarryTag.GivesFalseDeath),
-  }, {
-    edgeType: LarryEdge.Reanimates,
-    match: c => c.category === LarryCategory.Disk && c.category === LarryCategory.Disk,
   }],
 }, {
   pending: true,
