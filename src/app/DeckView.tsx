@@ -36,7 +36,7 @@ export const DeckView = (props: {
   const tags = unique(deck.cards.map(c => c.tags.asArray).flat());
   const toRender = deck.cards
     .filter(c => includePending || !c.pending)
-    .filter(c => !filter || c.category === filter || c.tags.intersects(filter));
+    .filter(c => !filter || c.category === filter || c.tags.has(filter));
   const edges = deck.edges
     .filter(e => includePending || e.related.every(c => !c.pending));
 
@@ -49,7 +49,7 @@ export const DeckView = (props: {
       <section>
         <div>
           Show cards not in deck?
-          <input 
+          <input
             type="checkbox"
             value={includePending.toString()}
             onClick={() => setIncludePending(!includePending)}

@@ -8,7 +8,7 @@ export class Interset<T> {
     return Array.from(this.set.values());
   }
 
-  intersects(...other: T[]): boolean {
+  has(...other: T[]): boolean {
     return other.some(c => this.set.has(c));
   }
   equals(...other: T[]): boolean {
