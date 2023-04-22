@@ -1,4 +1,5 @@
 import { LarryCategory, LarryInverseEdge, OrderedEdges } from "../data/larry";
+import { MonCat, MonumentEdges, MonumentInverseEdge } from "../data/monument";
 import { CardImpl } from "../lib/card";
 import { Deck } from "../lib/deck";
 import { CardEdge, Cardlike } from "../types";
@@ -40,20 +41,22 @@ export const CardView = (props: {
     neighbor: edge.related[1],
   }));
   const edgeFrom = edges.filter(e => e.related[1].id === card.id).map(edge => ({
-    relationship: LarryInverseEdge(edge.relationship),
+    relationship: LarryInverseEdge(edge.relationship) ?? MonumentInverseEdge(edge.relationship) ?? 'Unknown Edge',
     neighbor: edge.related[0],
   }));
 
   const edgeBins: DisplayBin[] = sortBy(groupBy([...edgeTo, ...edgeFrom], e => e.relationship).map(rel => ({
     relationship: rel[0].relationship,
     neighbors: sortBy(unique(rel.map(rel => rel.neighbor)), c => c.name),
-  })), bin => OrderedEdges.indexOf(bin.relationship));
+  })), bin => [...OrderedEdges, ...MonumentEdges].indexOf(bin.relationship));
 
   const bgColor = {
     [LarryCategory.Disk]: 'salmon',
     [LarryCategory.Recursion]: 'lightgreen',
     [LarryCategory.Bouncer]: 'lightblue',
     [LarryCategory.Protection]: 'khaki',
+    [MonCat.Land]: 'khaki',
+    [MonCat.NonLand]: 'lightblue',
   }[card.category] ?? 'lightgrey';
 
   return (

@@ -4,6 +4,7 @@ import { Interset } from "../util/interset";
 export class CardImpl implements Cardlike {
   readonly id: string;
   readonly name: string;
+  readonly nick: string;
   readonly types: Interset<string>;
   readonly subtypes: Interset<string>;
   readonly mc: string;
@@ -19,6 +20,7 @@ export class CardImpl implements Cardlike {
 
   constructor(draft: CardDraft) {
     this.name = draft.name;
+    this.nick = draft.nick ?? this.name;
     this.types = new Interset(draft.types);
     this.subtypes = new Interset(draft.subtypes ?? []);
     this.mc = draft.mc ?? '';

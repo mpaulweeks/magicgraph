@@ -15,6 +15,7 @@ export enum CardType {
 export interface Cardlike {
   readonly id: string;
   readonly name: string;
+  readonly nick: string;
   readonly types: Interset<string>;
   readonly subtypes: Interset<string>;
   readonly mc: string;
@@ -38,6 +39,7 @@ export interface Matcher {
 
 export interface CardDraft {
   name: string;
+  nick?: string;
   types: string[];
   subtypes?: string[];
   mc?: string;

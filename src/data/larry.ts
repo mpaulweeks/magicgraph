@@ -48,21 +48,20 @@ enum LarryEdge {
   ReanimatedBy = 'Reanimated By',
   BounceLoopedBy = 'Bounce Looped By',
 }
-export function LarryInverseEdge(edge: string) {
-  return {
-    [LarryEdge.TwoCardCombo]: LarryEdge.TwoCardCombo,
+export const LarryInverseEdge = (edge: string) => ({
+  [LarryEdge.TwoCardCombo]: LarryEdge.TwoCardCombo,
 
-    [LarryEdge.SurvivesWith]: LarryEdge.Protects,
-    [LarryEdge.LoopsETBWith]: LarryEdge.LoopsETB,
-    [LarryEdge.Reanimates]: LarryEdge.ReanimatedBy,
-    [LarryEdge.BounceLoops]: LarryEdge.BounceLoopedBy,
+  [LarryEdge.SurvivesWith]: LarryEdge.Protects,
+  [LarryEdge.LoopsETBWith]: LarryEdge.LoopsETB,
+  [LarryEdge.Reanimates]: LarryEdge.ReanimatedBy,
+  [LarryEdge.BounceLoops]: LarryEdge.BounceLoopedBy,
 
-    [LarryEdge.Protects]: LarryEdge.SurvivesWith,
-    [LarryEdge.LoopsETB]: LarryEdge.LoopsETBWith,
-    [LarryEdge.ReanimatedBy]: LarryEdge.Reanimates,
-    [LarryEdge.BounceLoopedBy]: LarryEdge.BounceLoops,
-  }[edge] ?? 'Unknown Edge';
-}
+  [LarryEdge.Protects]: LarryEdge.SurvivesWith,
+  [LarryEdge.LoopsETB]: LarryEdge.LoopsETBWith,
+  [LarryEdge.ReanimatedBy]: LarryEdge.Reanimates,
+  [LarryEdge.BounceLoopedBy]: LarryEdge.BounceLoops,
+}[edge]);
+
 export const OrderedEdges: string[] = [
   LarryEdge.TwoCardCombo,
 
