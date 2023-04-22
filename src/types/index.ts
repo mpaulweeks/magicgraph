@@ -57,6 +57,7 @@ export interface CardEdge {
 
 export type DeckData = {
   name: string;
+  url?: string;
   cardDrafts: CardDraft[];
   matchers: Matcher[];
 }

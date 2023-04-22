@@ -392,6 +392,7 @@ const LarryMatchers: Matcher[] = [{
 
 export const LarryData: DeckData = {
   name: 'Larry Loops',
+  url: 'https://tappedout.net/mtg-decks/tutorless-larry/',
   cardDrafts: LarryDraft,
   matchers: LarryMatchers,
 }

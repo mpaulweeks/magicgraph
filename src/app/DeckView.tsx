@@ -8,7 +8,8 @@ export const DeckView = (props: {
   deck: Deck,
 }) => {
   const { deck } = props;
-  const [includePending, setIncludePending] = useState(false);
+  const queryParsm = new URLSearchParams(window.location.search);
+  const [includePending, setIncludePending] = useState<boolean>(!!queryParsm.get('pending'));
   const [filter, setFilter] = useState<string>();
   const [showGraph, setShowGraph] = useState(false);
 
@@ -31,7 +32,6 @@ export const DeckView = (props: {
     );
   }
 
-
   const categories = unique(deck.cards.map(c => c.category));
   const tags = unique(deck.cards.map(c => c.tags.asArray).flat());
   const toRender = deck.cards
@@ -45,6 +45,13 @@ export const DeckView = (props: {
   return (
     <div>
       <h1>{deck.name}</h1>
+      {deck.data.url && (
+        <div>
+          <a href={deck.data.url}>
+            Link to Decklist
+          </a>
+        </div>
+      )}
       {/* <p>
         <button onClick={() => setShowGraph(true)}>graph</button>
       </p> */}
@@ -53,7 +60,7 @@ export const DeckView = (props: {
           Show cards not in deck?
           <input
             type="checkbox"
-            value={includePending.toString()}
+            checked={includePending}
             onClick={() => setIncludePending(!includePending)}
           />
         </div>
