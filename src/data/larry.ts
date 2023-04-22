@@ -81,6 +81,18 @@ export const OrderedEdges: string[] = [
 const LarryDraft: CardDraft[] = [
 // Disks
 {
+  name: `Boompile`,
+  types: [CardType.Artifact],
+  mc: '4',
+  category: LarryCategory.Disk,
+  tags: [LarryTag.IsBouncable],
+}, {
+  name: `Coercive Portal`,
+  types: [CardType.Artifact],
+  mc: '4',
+  category: LarryCategory.Disk,
+  tags: [LarryTag.IsBouncable],
+}, {
   name: `Magus of the Disk`,
   types: [CardType.Creature],
   subtypes: ['Wizard'],
@@ -89,11 +101,6 @@ const LarryDraft: CardDraft[] = [
   notes: [`ETBs tapped`, `Bounce/phase in response to the activation`],
   tags: [LarryTag.IsBouncable, LarryTag.DestroysArtifactEnchantment],
 }, {
-  name: `Oblivion Stone`,
-  types: [CardType.Artifact],
-  mc: '3',
-  category: LarryCategory.Disk,
-}, {
   name: `Nevinyrral's Disk`,
   types: [CardType.Artifact],
   mc: '4',
@@ -101,19 +108,10 @@ const LarryDraft: CardDraft[] = [
   notes: [`ETBs tapped`],
   tags: [LarryTag.IsBouncable, LarryTag.DestroysArtifactEnchantment],
 }, {
-  name: `Planar Collapse`,
-  types: [CardType.Enchantment],
-  mc: '2',
+  name: `Oblivion Stone`,
+  types: [CardType.Artifact],
+  mc: '3',
   category: LarryCategory.Disk,
-  notes: [`Triggers on upkeep`, `Only hits creatures`],
-  tags: [LarryTag.IsBouncable],
-}, {
-  name: `Serenity`,
-  types: [CardType.Enchantment],
-  mc: '2',
-  category: LarryCategory.Disk,
-  notes: [`Triggers on upkeep`, `Doesn't hit creatures`],
-  tags: [LarryTag.IsBouncable, LarryTag.DestroysArtifactEnchantment, LarryTag.DestroysOnlyArtifactEnchantment],
 }, {
   name: `Phyrexian Scriptures`,
   types: [CardType.Enchantment],
@@ -126,11 +124,11 @@ const LarryDraft: CardDraft[] = [
     match: c => c.tags.has(LarryTag.RemovesCounters),
   }],
 }, {
-  name: `The Phasing of Zhalfir`,
+  name: `Planar Collapse`,
   types: [CardType.Enchantment],
-  mc: '4',
+  mc: '2',
   category: LarryCategory.Disk,
-  notes: [`Only hits creatures`],
+  notes: [`Triggers on upkeep`, `Only hits creatures`],
   tags: [LarryTag.IsBouncable],
 }, {
   name: `Scourglass`,
@@ -139,10 +137,25 @@ const LarryDraft: CardDraft[] = [
   category: LarryCategory.Disk,
   notes: [`Triggers on upkeep`, `Only hits non-land, non-artifact`],
   tags: [LarryTag.DestroysNonArtifacts],
+}, {
+  name: `Serenity`,
+  types: [CardType.Enchantment],
+  mc: '2',
+  category: LarryCategory.Disk,
+  notes: [`Triggers on upkeep`, `Doesn't hit creatures`],
+  tags: [LarryTag.IsBouncable, LarryTag.DestroysArtifactEnchantment, LarryTag.DestroysOnlyArtifactEnchantment],
+}, {
+  name: `The Phasing of Zhalfir`,
+  types: [CardType.Enchantment],
+  mc: '4',
+  category: LarryCategory.Disk,
+  notes: [`Only hits creatures`],
+  tags: [LarryTag.IsBouncable],
 },
 
 // Bounce
 {
+  pending: true,
   name: `Capsize`,
   types: [CardType.Instant],
   mc: '4UU',
@@ -152,6 +165,12 @@ const LarryDraft: CardDraft[] = [
   name: `Heidar, Rimewind Master`,
   types: [CardType.Creature],
   mc: '4U',
+  category: LarryCategory.Bouncer,
+  tags: [LarryTag.Bounces],
+}, {
+  name: `Vedalken Mastermind`,
+  types: [CardType.Creature],
+  mc: 'UU',
   category: LarryCategory.Bouncer,
   tags: [LarryTag.Bounces],
 },
@@ -170,6 +189,7 @@ const LarryDraft: CardDraft[] = [
   category: LarryCategory.Protection,
   tags: [LarryTag.HasIndestructible, LarryTag.GivesIndestructible],
 }, {
+  pending: true,
   name: `Shield of Kaldra`,
   types: [CardType.Artifact, CardType.Equipment],
   mc: '4',
@@ -216,6 +236,13 @@ const LarryDraft: CardDraft[] = [
   category: LarryCategory.Recursion,
   notes: [`Activates via Landfall (Loop Bounceland)`],
   tags: [LarryTag.ReanimatesArtifacts, LarryTag.ReanimatesEnchantments, LarryTag.ReanimatesCreatures],
+}, {
+  name: `Emry, Lurker of the Loch`,
+  types: [CardType.Creature],
+  mc: '2U',
+  category: LarryCategory.Recursion,
+  notes: [`Activates via tapping`],
+  tags: [LarryTag.ReanimatesArtifacts],
 }, {
   name: `Hanna, Ship's Navigator`,
   types: [CardType.Creature],
@@ -292,8 +319,7 @@ const LarryDraft: CardDraft[] = [
   category: LarryCategory.Recursion,
   notes: [`Requires card draw to not softlock self`],
   tags: [LarryTag.ReanimatesEnchantments],
-},
-{
+}, {
   name: `Academy Ruins`,
   types: [CardType.Land],
   category: LarryCategory.Recursion,
