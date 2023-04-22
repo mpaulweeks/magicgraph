@@ -12,6 +12,7 @@ interface DisplayBin {
   neighbors: Cardlike[];
 }
 const EdgeBinView = (props: {
+  parent: Cardlike;
   bin: DisplayBin;
 }) => (
   <div style={{
@@ -21,8 +22,8 @@ const EdgeBinView = (props: {
       {props.bin.relationship}
     </b></div>
     <br/>
-    {props.bin.neighbors.map((card, ci) => (
-      <div key={ci} style={{
+    {props.bin.neighbors.map(card => (
+      <div key={`${props.parent.id}-${card.id}`} style={{
         marginBottom: '0.3em',
         textDecoration: card.pending ? 'line-through' : undefined,
       }}>
@@ -92,7 +93,7 @@ export const CardView = (props: {
           display: 'flex',
         }}>
           {edgeBins.map((bin, bi) => (
-            <EdgeBinView key={bi} bin={bin} />
+            <EdgeBinView key={bi} parent={card} bin={bin} />
           ))}
         </div>
       </section>

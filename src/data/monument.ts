@@ -27,6 +27,7 @@ export enum MonTag {
   Enrage = 'Enrage',
 
   TargetsCreatures = 'Targets Creatures',
+  TargetsTribal = 'Targets Tribal',
   CaresAboutTargeting = 'Cares About Targeting',
   AnimatesLand = 'Animates Land',
 }
@@ -229,12 +230,10 @@ const MonumentDraft: CardDraft[] = (
     {
       name: `Tyrite Sanctum`,
       types: [CardType.Land],
-      tags: [MonTag.HasAbilityCounters, MonTag.TargetsCreatures],
-      combos: [
-        {
-          edgeType: MonumentEdge.CombosWith,
-          match: other => other.subtypes.has('Changeling'),
-        },
+      tags: [
+        MonTag.HasAbilityCounters,
+        MonTag.TargetsCreatures,
+        MonTag.TargetsTribal,
       ],
     },
     {
@@ -323,6 +322,18 @@ const MonumentDraft: CardDraft[] = (
     },
     {
       pending: true,
+      name: `Yavimaya Hollow`,
+      types: [CardType.Land],
+      tags: [MonTag.TargetsCreatures],
+    },
+    {
+      pending: true,
+      name: `Swarmyard`,
+      types: [CardType.Land],
+      tags: [MonTag.TargetsTribal],
+    },
+    {
+      pending: true,
       name: `Okina, Temple to the Grandfathers`,
       types: [CardType.Land],
       tags: [MonTag.TargetsCreatures],
@@ -352,6 +363,18 @@ const MonumentDraft: CardDraft[] = (
     {
       name: `Willbreaker`,
       types: [CardType.Creature],
+      tags: [MonTag.CaresAboutTargeting],
+    },
+    {
+      pending: true,
+      name: `Cowardice`,
+      types: [CardType.Enchantment],
+      tags: [MonTag.CaresAboutTargeting],
+    },
+    {
+      pending: true,
+      name: `Fractured Loyalty`,
+      types: [CardType.Enchantment],
       tags: [MonTag.CaresAboutTargeting],
     },
     {
@@ -433,6 +456,11 @@ const MonMatchers: Matcher[] = [
     isMatch: (a, b) =>
       a.tags.has(MonTag.TargetsCreatures) &&
       b.tags.has(MonTag.CaresAboutTargeting),
+  },
+  {
+    relationship: MonumentEdge.CombosWith,
+    isMatch: (a, b) =>
+      a.tags.has(MonTag.TargetsTribal) && b.subtypes.has('Changeling'),
   },
 ];
 
