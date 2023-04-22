@@ -22,6 +22,8 @@ export enum MonTag {
 
   DonatesSelf = 'Donates Self',
 
+  CloneableLand = 'Cloneable Land',
+
   DealsDamageToPlayers = 'Damages Players',
   DealsDamageToCreatures = 'Damages Creatures',
   Enrage = 'Enrage',
@@ -29,7 +31,9 @@ export enum MonTag {
   TargetsCreatures = 'Targets Creatures',
   TargetsTribal = 'Targets Tribal',
   CaresAboutTargeting = 'Cares About Targeting',
+
   AnimatesLand = 'Animates Land',
+  LandWithProtection = 'Land With Protection',
 }
 
 enum MonumentEdge {
@@ -249,7 +253,7 @@ const MonumentDraft: CardDraft[] = (
     {
       name: `Glacial Chasm`,
       types: [CardType.Land],
-      tags: [MonTag.HasCumulativeUpkeep, MonTag.CannotTapForMana],
+      tags: [MonTag.HasCumulativeUpkeep, MonTag.CannotTapForMana, MonTag.CloneableLand],
       combos: [
         {
           edgeType: MonumentEdge.CombosWith,
@@ -403,18 +407,65 @@ const MonumentDraft: CardDraft[] = (
       tags: [MonTag.SacrificesLands],
     },
     {
+      name: `Thespian's Stage`,
+      types: [CardType.Land],
+      combos: [{
+        edgeType: MonumentEdge.CombosWith,
+        match: b => b.tags.has(MonTag.CloneableLand),
+      }],
+    },
+    {
+      name: `Dowsing Dagger // Lost Vale`,
+      nick: `Dowsing Dagger`,
+      types: [CardType.Artifact],
+      tags: [MonTag.CloneableLand],
+    },
+    {
+      name: `Conqueror's Galleon // Conqueror's Foothold`,
+      nick: `Conqueror's Galleon`,
+      types: [CardType.Artifact],
+      tags: [MonTag.CloneableLand],
+    },
+    {
+      name: `Thaumatic Compass // Spires of Orazca`,
+      nick: `Thaumatic Compass`,
+      types: [CardType.Artifact],
+      tags: [MonTag.CloneableLand],
+    },
+    {
+      name: `Cascading Cataracts`,
+      types: [CardType.Land],
+      tags: [MonTag.LandWithProtection],
+    },
+    {
+      name: `Tanglepool Bridge`,
+      types: [CardType.Land],
+      tags: [MonTag.LandWithProtection],
+    },
+    {
+      name: `Slagwoods Bridge`,
+      types: [CardType.Land],
+      tags: [MonTag.LandWithProtection],
+    },
+    {
       name: `Silverbluff Bridge`,
       types: [CardType.Land],
-      combos: [
-        {
-          edgeType: MonumentEdge.CombosWith,
-          match: other => other.tags.has(MonTag.AnimatesLand),
-        },
-      ],
+      tags: [MonTag.LandWithProtection],
+    },
+    {
+      pending: true,
+      name: `Lotus Field`,
+      types: [CardType.Land],
+      tags: [MonTag.LandWithProtection, MonTag.CloneableLand],
     },
     {
       name: `Awakening of Vitu-Ghazi`,
       types: [CardType.Instant],
+      tags: [MonTag.AnimatesLand],
+    },
+    {
+      name: `Spawning Grounds`,
+      types: [CardType.Enchantment],
       tags: [MonTag.AnimatesLand],
     },
     {
@@ -460,6 +511,10 @@ const MonMatchers: Matcher[] = [
     isMatch: (a, b) =>
       a.tags.has(MonTag.TargetsTribal) && b.subtypes.has('Changeling'),
   },
+    {
+      relationship: MonumentEdge.CombosWith,
+      isMatch: (a, b) => a.tags.has(MonTag.LandWithProtection) && b.tags.has(MonTag.AnimatesLand),
+    },
 ];
 
 export const MonumentData: DeckData = {
