@@ -3,6 +3,7 @@ import { Deck } from "../lib/deck";
 import { sort, unique, uniqueBy } from "../util/list";
 import { CardView } from "./CardView";
 import { GraphVis } from "./GraphVis";
+import styles from './App.module.css';
 
 export const DeckView = (props: {
   deck: Deck,
@@ -87,12 +88,7 @@ export const DeckView = (props: {
           ))}
         </div>
       </section>
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        margin: '1em 0',
-      }}>
+      <div className={styles.CardGallery}>
         {toRender.map((card) => (
           <CardView
             key={card.id}

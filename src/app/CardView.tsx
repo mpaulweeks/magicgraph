@@ -5,6 +5,7 @@ import { CardEdge, Cardlike } from "../types";
 import { groupBy, sortBy, unique } from "../util/list";
 import { AutoCard } from "./AutoCard";
 import { CardLink } from "./CardLink";
+import styles from './App.module.css';
 
 interface DisplayBin {
   relationship: string;
@@ -23,6 +24,7 @@ const EdgeBinView = (props: {
     {props.bin.neighbors.map((card, ci) => (
       <div key={ci} style={{
         marginBottom: '0.3em',
+        textDecoration: card.pending ? 'line-through' : undefined,
       }}>
         <CardLink card={card} />
       </div>
@@ -59,21 +61,16 @@ export const CardView = (props: {
   }[card.category] ?? 'lightgrey';
 
   return (
-    <div id={card.id} style={{
-      flex: '1',
-      minWidth: '500px',
-      border: '1px solid black',
-      margin: '0 1em 1em 0',
-    }}>
+    <div id={card.id} className={styles.CardView}>
       <header style={{
         padding: '1em',
         backgroundColor: bgColor,
       }}>
         <div style={{
-          fontSize: '2em',
+          fontSize: '1.6em',
+          textDecoration: card.pending ? 'line-through' : undefined,
         }}>
           <AutoCard card={card}/>
-          {card.pending && ' (not in deck)'}
         </div>
         <div>
           {card.category}
@@ -90,7 +87,6 @@ export const CardView = (props: {
             </div>
           ))}
         </div>
-        <br/>
 
         <div style={{
           display: 'flex',

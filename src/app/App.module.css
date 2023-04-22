@@ -1,0 +1,23 @@
+.CardGallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1em 0;
+  gap: 1em;
+}
+
+.CardView {
+  flex: 1;
+  min-width: 500px;
+  border: 1px solid black;
+}
+
+@media (max-width: 550px) {
+  html, body {
+    font-size: 0.9em;
+  }
+
+  .CardView {
+    min-width: 300px;
+  }
+}
