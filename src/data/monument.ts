@@ -264,7 +264,6 @@ const MonumentDraft: CardDraft[] = (
       tags: [MonTag.DealsDamageToPlayers],
     },
     {
-      pending: true,
       name: `Desert`,
       types: [CardType.Land],
       tags: [MonTag.DealsDamageToCreatures, MonTag.TargetsCreatures],
@@ -345,7 +344,6 @@ const MonumentDraft: CardDraft[] = (
       tags: [MonTag.TargetsCreatures],
     },
     {
-      pending: true,
       name: `Shinka, the Bloodsoaked Keep`,
       types: [CardType.Land],
       tags: [MonTag.TargetsCreatures],
