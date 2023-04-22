@@ -1,4 +1,4 @@
-import { CardEdge, Cardlike, Matcher } from "../types";
+import { CardEdge, Cardlike, Matcher } from '../types';
 
 export class Graph {
   // return edges with each pair sorted by priority
@@ -8,7 +8,9 @@ export class Graph {
     // check for unique combos first
     allCards.forEach(a => {
       allCards.forEach(b => {
-        if (a.id === b.id) { return; }
+        if (a.id === b.id) {
+          return;
+        }
         a.combos.forEach(combo => {
           if (combo.match(b)) {
             edges.push({

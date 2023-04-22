@@ -1,7 +1,6 @@
 import { LarryCategory, LarryInverseEdge, OrderedEdges } from "../data/larry";
 import { MonCat, MonumentEdges, MonumentInverseEdge } from "../data/monument";
 import { CardImpl } from "../lib/card";
-import { Deck } from "../lib/deck";
 import { CardEdge, Cardlike } from "../types";
 import { groupBy, sortBy, unique } from "../util/list";
 import { AutoCard } from "./AutoCard";

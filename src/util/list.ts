@@ -10,19 +10,19 @@ export function uniqueBy<T, K>(arr: T[], cb: (elm: T) => K) {
     if (matches.length === 0) {
       out.push(elm);
     }
-  })
+  });
   return out;
 }
 
 export function sort<T>(arr: T[]): T[] {
   const copy = arr.concat();
-  copy.sort((a,b) => a < b ? -1 : 1);
+  copy.sort((a, b) => (a < b ? -1 : 1));
   return copy;
 }
 
 export function sortBy<T, S>(arr: T[], cb: (elm: T) => S): T[] {
   const copy = arr.concat();
-  copy.sort((a,b) => cb(a) < cb(b) ? -1 : 1);
+  copy.sort((a, b) => (cb(a) < cb(b) ? -1 : 1));
   return copy;
 }
 

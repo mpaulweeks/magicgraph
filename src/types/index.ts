@@ -1,4 +1,4 @@
-import { Interset } from "../util/interset";
+import { Interset } from '../util/interset';
 
 export enum CardType {
   Land = 'Land',
@@ -60,4 +60,4 @@ export type DeckData = {
   url?: string;
   cardDrafts: CardDraft[];
   matchers: Matcher[];
-}
+};

@@ -1,5 +1,5 @@
-import { CardDraft, Cardlike } from "../types";
-import { Interset } from "../util/interset";
+import { CardDraft, Cardlike } from '../types';
+import { Interset } from '../util/interset';
 
 export class CardImpl implements Cardlike {
   readonly id: string;
@@ -31,9 +31,12 @@ export class CardImpl implements Cardlike {
     this.pending = !!draft.pending;
 
     this.id = this.name.split(' ').join('').toLowerCase();
-    this.mv = this.mc.split('').map(c => {
-      const parsed = parseFloat(c);
-      return isNaN(parsed) ? 1 : parsed;
-    }).reduce((sum, cur) => sum + cur, 0);
+    this.mv = this.mc
+      .split('')
+      .map(c => {
+        const parsed = parseFloat(c);
+        return isNaN(parsed) ? 1 : parsed;
+      })
+      .reduce((sum, cur) => sum + cur, 0);
   }
 }

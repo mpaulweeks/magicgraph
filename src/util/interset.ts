@@ -12,6 +12,8 @@ export class Interset<T> {
     return other.some(c => this.set.has(c));
   }
   equals(...other: T[]): boolean {
-    return other.every(c => this.set.has(c)) && (new Set(other)).size === this.set.size;
+    return (
+      other.every(c => this.set.has(c)) && new Set(other).size === this.set.size
+    );
   }
 }
