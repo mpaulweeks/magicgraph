@@ -57,14 +57,19 @@ export const CardView = (props: {
     [LarryCategory.Recursion]: 'lightgreen',
     [LarryCategory.Bouncer]: 'lightblue',
     [LarryCategory.Protection]: 'khaki',
-    [MonCat.Land]: 'khaki',
-    [MonCat.NonLand]: 'lightblue',
-  }[card.category] ?? 'lightgrey';
+    [MonCat.Land]: 'lightgrey',
+    [MonCat.NonLand]: 'grey',
+    [MonCat.Threat]: 'salmon',
+    [MonCat.Lifegain]: 'lightyellow',
+    [MonCat.Buff]: 'Orchid',
+    [MonCat.Interaction]: '#FFB010',
+    [MonCat.Draw]: 'lightblue',
+    [MonCat.Ramp]: 'lightgreen',
+  }[card.category] ?? 'black';
 
   return (
     <div id={card.id} className={styles.CardView}>
-      <header style={{
-        padding: '1em',
+      <header className={styles.CardHeader} style={{
         backgroundColor: bgColor,
       }}>
         <div style={{

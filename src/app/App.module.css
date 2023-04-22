@@ -12,6 +12,14 @@
   border: 1px solid black;
 }
 
+.CardHeader {
+  padding: 1em;
+}
+
+.CardHeader a {
+  color: black;
+}
+
 @media (max-width: 550px) {
   html, body {
     font-size: 0.9em;

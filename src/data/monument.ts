@@ -3,6 +3,12 @@ import { CardDraft, CardType, DeckData, Matcher } from '../types';
 export enum MonCat {
   Land = 'Tutorable Land',
   NonLand = 'Non Land',
+  Threat = 'Threat',
+  Lifegain = 'Lifegain',
+  Buff = 'Buff',
+  Interaction = 'Interaction',
+  Draw = 'Draw',
+  Ramp = 'Ramp',
 }
 
 export enum MonTag {
@@ -67,6 +73,9 @@ export const MonumentEdges: string[] = [
   // dont care
 ];
 
+interface CardDraftDraft extends Omit<CardDraft, 'category'> {
+  category?: string;
+};
 const MonumentDraft: CardDraft[] = (
   [
     {
@@ -100,74 +109,87 @@ const MonumentDraft: CardDraft[] = (
       name: `Kiora Bests the Sea God`,
       types: [CardType.Enchantment],
       subtypes: ['Saga'],
+      category: MonCat.Threat,
     },
     {
       name: `The World Spell`,
       types: [CardType.Enchantment],
       subtypes: ['Saga'],
+      category: MonCat.Draw,
     },
     {
       name: `Myojin of Life's Web`,
       types: [CardType.Creature],
       tags: [MonTag.HasLimitedUseCounters],
+      category: MonCat.Threat,
     },
     {
       name: `Myojin of Seeing Winds`,
       types: [CardType.Creature],
       tags: [MonTag.HasLimitedUseCounters],
+      category: MonCat.Draw,
     },
     {
       name: `Myojin of Towering Might`,
       types: [CardType.Creature],
       tags: [MonTag.HasAbilityCounters],
+      category: MonCat.Threat,
     },
     {
       pending: true,
       name: `Myojin of Cryptic Dreams`,
       types: [CardType.Creature],
       tags: [MonTag.HasAbilityCounters],
+      category: MonCat.Draw,
     },
     {
       pending: true,
       name: `Myojin of Roaring Blades`,
       types: [CardType.Creature],
       tags: [MonTag.HasAbilityCounters],
+      category: MonCat.Threat,
     },
     {
       pending: true,
       name: `Scavenged Brawler`,
       types: [CardType.Creature, CardType.Artifact],
       tags: [MonTag.HasAbilityCounters, MonTag.Flashback],
+      category: MonCat.Buff,
     },
     {
       pending: true,
       name: `Slippery Bogbonder`,
       types: [CardType.Creature],
       tags: [MonTag.HasAbilityCounters],
+      category: MonCat.Buff,
     },
     {
       pending: true,
       name: `Transmogrifying Wand`,
       types: [CardType.Artifact],
       tags: [MonTag.HasLimitedUseCounters],
+      category: MonCat.Interaction,
     },
     {
       pending: true,
       name: `Starke of Rath`,
       types: [CardType.Creature],
       tags: [MonTag.DonatesSelf],
+      category: MonCat.Interaction,
     },
     {
       pending: true,
       name: `Humble Defector`,
       types: [CardType.Creature],
       tags: [MonTag.DonatesSelf],
+      category: MonCat.Draw,
     },
     {
       pending: true,
       name: `Khârn the Betrayer`,
       types: [CardType.Creature],
       tags: [MonTag.DonatesSelf],
+      category: MonCat.Draw,
     },
     {
       pending: true,
@@ -220,16 +242,19 @@ const MonumentDraft: CardDraft[] = (
       name: `Fortitude`,
       types: [CardType.Land],
       tags: [MonTag.CaresAboutForests, MonTag.SacrificesLands],
+      category: MonCat.Buff,
     },
     {
       name: `Lifetap`,
       types: [CardType.Enchantment],
       tags: [MonTag.CaresAboutForests],
+      category: MonCat.Lifegain,
     },
     {
       name: `Roots of Life`,
       types: [CardType.Land],
       tags: [MonTag.CaresAboutSwamps],
+      category: MonCat.Lifegain,
     },
     {
       name: `Tyrite Sanctum`,
@@ -244,11 +269,13 @@ const MonumentDraft: CardDraft[] = (
       name: `Shapesharer`,
       types: [CardType.Creature],
       subtypes: ['Changeling'],
+      category: MonCat.Threat,
     },
     {
       name: `Taurean Mauler`,
       types: [CardType.Creature],
       subtypes: ['Changeling'],
+      category: MonCat.Threat,
     },
     {
       name: `Glacial Chasm`,
@@ -266,6 +293,7 @@ const MonumentDraft: CardDraft[] = (
       name: `Heartless Hidetsugu`,
       types: [CardType.Creature],
       tags: [MonTag.DealsDamageToPlayers],
+      category: MonCat.Threat,
     },
     {
       name: `Desert`,
@@ -282,22 +310,26 @@ const MonumentDraft: CardDraft[] = (
       name: `Apex Altisaur`,
       types: [CardType.Creature],
       tags: [MonTag.Enrage],
+      category: MonCat.Interaction,
     },
     {
       name: `Polyraptor`,
       types: [CardType.Creature],
       tags: [MonTag.Enrage],
+      category: MonCat.Threat,
     },
     {
       pending: true,
       name: `Ranging Raptors`,
       types: [CardType.Creature],
       tags: [MonTag.Enrage],
+      category: MonCat.Ramp,
     },
     {
       name: `Vigor`,
       types: [CardType.Creature],
       tags: [MonTag.Enrage],
+      category: MonCat.Threat,
     },
     {
       name: `Hanweir Battlements // Hanweir, the Writhing Township`,
@@ -361,24 +393,28 @@ const MonumentDraft: CardDraft[] = (
       name: `Dismiss into Dream`,
       types: [CardType.Enchantment],
       tags: [MonTag.CaresAboutTargeting],
+      category: MonCat.Interaction,
     },
     {
       name: `Willbreaker`,
       types: [CardType.Creature],
       tags: [MonTag.CaresAboutTargeting],
+      category: MonCat.Interaction,
     },
     {
       pending: true,
       name: `Cowardice`,
       types: [CardType.Enchantment],
       tags: [MonTag.CaresAboutTargeting],
+      category: MonCat.Interaction,
     },
-    {
-      pending: true,
-      name: `Fractured Loyalty`,
-      types: [CardType.Enchantment],
-      tags: [MonTag.CaresAboutTargeting],
-    },
+    // {
+    //   pending: true,
+    //   name: `Fractured Loyalty`,
+    //   types: [CardType.Enchantment],
+    //   tags: [MonTag.CaresAboutTargeting],
+    //   category: MonCat.Interaction,
+    // },
     {
       pending: true,
       name: `Drownyard Temple`,
@@ -394,17 +430,20 @@ const MonumentDraft: CardDraft[] = (
       name: `Constant Mists`,
       types: [CardType.Instant],
       tags: [MonTag.SacrificesLands],
+      category: MonCat.Lifegain,
     },
     {
       name: `Elvish Reclaimer`,
       types: [CardType.Land],
       tags: [MonTag.SacrificesLands],
+      category: MonCat.Draw,
     },
     {
       pending: true,
       name: `World Breaker`,
       types: [CardType.Land],
       tags: [MonTag.SacrificesLands],
+      category: MonCat.Interaction,
     },
     {
       name: `Thespian's Stage`,
@@ -419,18 +458,21 @@ const MonumentDraft: CardDraft[] = (
       nick: `Dowsing Dagger`,
       types: [CardType.Artifact],
       tags: [MonTag.CloneableLand],
+      category: MonCat.Ramp,
     },
     {
       name: `Conqueror's Galleon // Conqueror's Foothold`,
       nick: `Conqueror's Galleon`,
       types: [CardType.Artifact],
       tags: [MonTag.CloneableLand],
+      category: MonCat.Draw,
     },
     {
       name: `Thaumatic Compass // Spires of Orazca`,
       nick: `Thaumatic Compass`,
       types: [CardType.Artifact],
       tags: [MonTag.CloneableLand],
+      category: MonCat.Interaction,
     },
     {
       name: `Cascading Cataracts`,
@@ -462,16 +504,19 @@ const MonumentDraft: CardDraft[] = (
       name: `Awakening of Vitu-Ghazi`,
       types: [CardType.Instant],
       tags: [MonTag.AnimatesLand],
+      category: MonCat.Threat,
     },
     {
       name: `Spawning Grounds`,
       types: [CardType.Enchantment],
       tags: [MonTag.AnimatesLand],
+      category: MonCat.Threat,
     },
     {
       name: `Druid Class`,
       types: [CardType.Enchantment],
       tags: [MonTag.AnimatesLand],
+      category: MonCat.Threat,
     },
     {
       name: `Maze of Ith`,
@@ -483,10 +528,14 @@ const MonumentDraft: CardDraft[] = (
       types: [CardType.Land],
       tags: [MonTag.CannotTapForMana],
     },
-  ] as Omit<CardDraft, 'category'>[]
+  ] as CardDraftDraft[]
 ).map(card => ({
   ...card,
-  category: card.types.includes(CardType.Land) ? MonCat.Land : MonCat.NonLand,
+  category: card.category ?? (
+    card.types.includes(CardType.Land)
+    ? MonCat.Land
+    : MonCat.NonLand
+  ),
 }));
 
 const MonMatchers: Matcher[] = [
