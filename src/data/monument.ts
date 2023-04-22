@@ -252,7 +252,7 @@ const MonumentDraft: CardDraft[] = (
     },
     {
       name: `Roots of Life`,
-      types: [CardType.Land],
+      types: [CardType.Enchantment],
       tags: [MonTag.CaresAboutSwamps],
       category: MonCat.Lifegain,
     },
@@ -434,7 +434,7 @@ const MonumentDraft: CardDraft[] = (
     },
     {
       name: `Elvish Reclaimer`,
-      types: [CardType.Land],
+      types: [CardType.Creature],
       tags: [MonTag.SacrificesLands],
       category: MonCat.Draw,
     },
@@ -529,14 +529,22 @@ const MonumentDraft: CardDraft[] = (
       tags: [MonTag.CannotTapForMana],
     },
   ] as CardDraftDraft[]
-).map(card => ({
-  ...card,
-  category: card.category ?? (
-    card.types.includes(CardType.Land)
-    ? MonCat.Land
-    : MonCat.NonLand
-  ),
-}));
+).map(card => {
+  const isLand = card.types.includes(CardType.Land);
+  return {
+    ...card,
+    category: card.category ?? (
+      isLand
+      ? MonCat.Land
+      : MonCat.NonLand
+    ),
+    tags: (card.tags ?? []).concat(
+      isLand
+      ? 'Is Land'
+      : 'Is Not Land'
+    ),
+  };
+});
 
 const MonMatchers: Matcher[] = [
   {
