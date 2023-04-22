@@ -1,16 +1,16 @@
-import { LarryDraft, LarryMatchers } from './data/larry';
+import { LarryData } from './data/larry';
 import { DeckView } from './app/DeckView';
 import { Deck } from './lib/deck';
+import { MonumentData } from './data/monument';
 
 function App() {
   const queryParsm = new URLSearchParams(window.location.search);
 
-  let deck: Deck | undefined;
-
-  if (queryParsm.get('larry')) {
-    deck = new Deck('Larry Loops', LarryDraft, LarryMatchers);
-  }
-
+  const deck = (
+    (queryParsm.get('larry') && new Deck(LarryData)) ||
+    (queryParsm.get('monument') && new Deck(MonumentData)) ||
+    undefined
+  );
   if (deck) {
     return (
       <DeckView deck={deck} />
@@ -21,9 +21,16 @@ function App() {
     <div>
       <h1>Choose deck</h1>
       <div>
-        <button onClick={() => window.location.href = './?larry=1'}>
-          Larry Loops
-        </button>
+        <a href="?larry=1">
+          <button>
+            {LarryData.name}
+          </button>
+        </a>
+        <a href="?monument=1">
+          <button>
+            {MonumentData.name}
+          </button>
+        </a>
       </div>
     </div>
   )

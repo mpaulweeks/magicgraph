@@ -52,3 +52,9 @@ export interface CardEdge {
   relationship: string;
   related: Cardlike[];
 }
+
+export type DeckData = {
+  name: string;
+  cardDrafts: CardDraft[];
+  matchers: Matcher[];
+}

@@ -1,4 +1,4 @@
-import { CardDraft, Cardlike, CardType, Matcher } from "../types";
+import { CardDraft, Cardlike, CardType, DeckData, Matcher } from "../types";
 
 export enum LarryCategory {
   Disk = 'Disk',
@@ -79,7 +79,7 @@ export const OrderedEdges: string[] = [
   LarryEdge.ReanimatedBy,
 ];
 
-export const LarryDraft: CardDraft[] = [
+const LarryDraft: CardDraft[] = [
 // Disks
 {
   name: `Magus of the Disk`,
@@ -364,7 +364,7 @@ const protects = (a: Cardlike, b: Cardlike) => (
 );
 
 // ordering matters, only looks for first match
-export const LarryMatchers: Matcher[] = [{
+const LarryMatchers: Matcher[] = [{
   relationship: LarryEdge.TwoCardCombo,
   isMatch: (a, b) => protects(a, b) &&
     b.category === LarryCategory.Disk,
@@ -390,3 +390,9 @@ export const LarryMatchers: Matcher[] = [{
   relationship: LarryEdge.Reanimates,
   isMatch: (a, b) => matchRecursion(a, b),
 }];
+
+export const LarryData: DeckData = {
+  name: 'Larry Loops',
+  cardDrafts: LarryDraft,
+  matchers: LarryMatchers,
+}
