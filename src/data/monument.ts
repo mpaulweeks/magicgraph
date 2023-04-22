@@ -304,6 +304,24 @@ const MonumentDraft: CardDraft[] = ([
   tags: [MonTag.TargetsCreatures],
 },
 {
+  pending: true,
+  name: `Okina, Temple to the Grandfathers`,
+  types: [CardType.Land],
+  tags: [MonTag.TargetsCreatures],
+},
+{
+  pending: true,
+  name: `Minamo, School at Water's Edge`,
+  types: [CardType.Land],
+  tags: [MonTag.TargetsCreatures],
+},
+{
+  pending: true,
+  name: `Shinka, the Bloodsoaked Keep`,
+  types: [CardType.Land],
+  tags: [MonTag.TargetsCreatures],
+},
+{
   name: `Kessig Wolf Run`,
   types: [CardType.Land],
   tags: [MonTag.TargetsCreatures],
