@@ -267,7 +267,6 @@ const MonumentDraft: CardDraft[] = (
       category: MonCat.Interaction,
     },
     {
-      pending: true,
       name: `Nightmare Lash`,
       types: [CardType.Artifact],
       tags: [MonTag.CaresAboutSwamps],
