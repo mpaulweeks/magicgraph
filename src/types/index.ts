@@ -25,6 +25,7 @@ export interface Cardlike {
   readonly notes: string[];
   readonly combos: CardCombo[];
   readonly pending: boolean;
+  readonly rejected: boolean;
 }
 
 export interface CardCombo {
@@ -48,6 +49,7 @@ export interface CardDraft {
   notes?: string[];
   combos?: CardCombo[];
   pending?: boolean;
+  rejected?: boolean;
 }
 
 export interface CardEdge {

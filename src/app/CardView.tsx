@@ -25,7 +25,8 @@ const EdgeBinView = (props: {
     {props.bin.neighbors.map(card => (
       <div key={`${props.parent.id}-${card.id}`} style={{
         marginBottom: '0.3em',
-        textDecoration: card.pending ? 'line-through' : undefined,
+        fontStyle: card.pending ? 'italic' : undefined,
+        textDecoration: card.rejected ? 'line-through' : undefined,
       }}>
         <CardLink card={card} />
       </div>
@@ -74,7 +75,8 @@ export const CardView = (props: {
       }}>
         <div style={{
           fontSize: '1.6em',
-          textDecoration: card.pending ? 'line-through' : undefined,
+          fontStyle: card.pending ? 'italic' : undefined,
+          textDecoration: card.rejected ? 'line-through' : undefined,
         }}>
           <AutoCard card={card}/>
         </div>

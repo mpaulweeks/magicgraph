@@ -13,6 +13,7 @@ export class CardImpl implements Cardlike {
   readonly tags: Interset<string>;
   readonly notes: string[];
   readonly pending: boolean;
+  readonly rejected: boolean;
   readonly combos: {
     edgeType: string;
     match: (other: Cardlike) => boolean;
@@ -29,6 +30,7 @@ export class CardImpl implements Cardlike {
     this.notes = draft.notes ?? [];
     this.combos = draft.combos ?? [];
     this.pending = !!draft.pending;
+    this.rejected = !!draft.rejected;
 
     this.id = this.name.split(' ').join('').toLowerCase();
     this.mv = this.mc

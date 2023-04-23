@@ -43,6 +43,9 @@ export enum MonTag {
 
   CaresAboutGettingLandTapped = 'Cares About Getting Land Tapped',
   TapsTargetLand = 'Taps Target Land',
+
+  UntapsLand = 'Untaps Land',
+  CaresAboutGettingUntapped = 'Cares About Getting Untapped',
 }
 
 enum MonumentEdge {
@@ -318,7 +321,11 @@ const MonumentDraft: CardDraft[] = (
     {
       name: `Desert`,
       types: [CardType.Land],
-      tags: [MonTag.DealsDamageToCreatures, MonTag.TargetsCreatures],
+      tags: [
+        MonTag.DealsDamageToCreatures,
+        MonTag.TargetsCreatures,
+        MonTag.CaresAboutGettingUntapped,
+      ],
     },
     {
       pending: true,
@@ -328,6 +335,7 @@ const MonumentDraft: CardDraft[] = (
         MonTag.DealsDamageToCreatures,
         MonTag.CannotTapForMana,
         MonTag.CaresAboutGettingLandTapped,
+        MonTag.CaresAboutGettingUntapped,
       ],
     },
     {
@@ -432,13 +440,13 @@ const MonumentDraft: CardDraft[] = (
       tags: [MonTag.CaresAboutTargeting],
       category: MonCat.Interaction,
     },
-    // {
-    //   pending: true,
-    //   name: `Fractured Loyalty`,
-    //   types: [CardType.Enchantment],
-    //   tags: [MonTag.CaresAboutTargeting],
-    //   category: MonCat.Interaction,
-    // },
+    {
+      rejected: true,
+      name: `Fractured Loyalty`,
+      types: [CardType.Enchantment],
+      tags: [MonTag.CaresAboutTargeting],
+      category: MonCat.Interaction,
+    },
     {
       pending: true,
       name: `Drownyard Temple`,
@@ -524,7 +532,17 @@ const MonumentDraft: CardDraft[] = (
       pending: true,
       name: `Lotus Field`,
       types: [CardType.Land],
-      tags: [MonTag.LandWithProtection, MonTag.CloneableLand],
+      tags: [
+        MonTag.LandWithProtection,
+        MonTag.CloneableLand,
+        MonTag.CaresAboutGettingUntapped,
+      ],
+    },
+    {
+      name: `Simic Growth Chamber`,
+      nick: `Bouncelands`,
+      types: [CardType.Land],
+      tags: [MonTag.CloneableLand, MonTag.CaresAboutGettingUntapped],
     },
     {
       name: `Awakening of Vitu-Ghazi`,
@@ -535,7 +553,7 @@ const MonumentDraft: CardDraft[] = (
     {
       name: `Spawning Grounds`,
       types: [CardType.Enchantment],
-      tags: [MonTag.AnimatesLand],
+      tags: [MonTag.AnimatesLand, MonTag.CaresAboutGettingUntapped],
       category: MonCat.Threat,
     },
     {
@@ -552,13 +570,19 @@ const MonumentDraft: CardDraft[] = (
     {
       name: `Thawing Glaciers`,
       types: [CardType.Land],
-      tags: [MonTag.CannotTapForMana],
+      tags: [MonTag.CannotTapForMana, MonTag.CaresAboutGettingUntapped],
     },
     {
       pending: true,
       name: `Rishadan Port`,
       types: [CardType.Land],
       tags: [MonTag.TapsTargetLand],
+    },
+    {
+      pending: true,
+      name: `Vizier of Tumbling Sands`,
+      types: [CardType.Land],
+      tags: [MonTag.UntapsLand],
     },
   ] as CardDraftDraft[]
 ).map(card => {

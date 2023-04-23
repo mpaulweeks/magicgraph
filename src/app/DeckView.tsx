@@ -11,6 +11,7 @@ export const DeckView = (props: {
   const { deck } = props;
   const queryParsm = new URLSearchParams(window.location.search);
   const [includePending, setIncludePending] = useState<boolean>(!!queryParsm.get('pending'));
+  const [includeRejected, setIncludeRejected] = useState<boolean>(!!queryParsm.get('rejected'));
   const [filter, setFilter] = useState<string>();
   const [showGraph, setShowGraph] = useState(false);
 
@@ -37,6 +38,7 @@ export const DeckView = (props: {
   const tags = unique(deck.cards.map(c => c.tags.asArray).flat());
   const toRender = deck.cards
     .filter(c => includePending || !c.pending)
+    .filter(c => includeRejected || !c.rejected)
     .filter(c => !filter || c.category === filter || c.tags.has(filter));
   const edges = uniqueBy(
     deck.edges.filter(e => includePending || e.related.every(c => !c.pending)),
