@@ -263,13 +263,14 @@ const MonumentDraft: CardDraft[] = (
       category: MonCat.Lifegain,
     },
     {
-      pending: true,
+      rejected: true,
       name: `Spreading Algae`,
       types: [CardType.Enchantment],
       tags: [MonTag.CaresAboutSwamps, MonTag.CaresAboutGettingLandTapped],
       category: MonCat.Interaction,
     },
     {
+      rejected: true,
       name: `Nightmare Lash`,
       types: [CardType.Artifact],
       tags: [MonTag.CaresAboutSwamps],
@@ -312,7 +313,7 @@ const MonumentDraft: CardDraft[] = (
       ],
     },
     {
-      pending: true,
+      rejected: true,
       name: `Heartless Hidetsugu`,
       types: [CardType.Creature],
       tags: [MonTag.DealsDamageToPlayers],
@@ -358,6 +359,7 @@ const MonumentDraft: CardDraft[] = (
       category: MonCat.Ramp,
     },
     {
+      rejected: true,
       name: `Vigor`,
       types: [CardType.Creature],
       tags: [MonTag.Enrage],
@@ -388,7 +390,7 @@ const MonumentDraft: CardDraft[] = (
       tags: [MonTag.TargetsCreatures],
     },
     {
-      pending: true,
+      rejected: true,
       name: `Yavimaya Hollow`,
       types: [CardType.Land],
       tags: [MonTag.TargetsCreatures],
@@ -406,7 +408,7 @@ const MonumentDraft: CardDraft[] = (
       tags: [MonTag.TargetsCreatures],
     },
     {
-      pending: true,
+      rejected: true,
       name: `Minamo, School at Water's Edge`,
       types: [CardType.Land],
       tags: [MonTag.TargetsCreatures],
@@ -488,6 +490,7 @@ const MonumentDraft: CardDraft[] = (
       ],
     },
     {
+      rejected: true,
       name: `Dowsing Dagger // Lost Vale`,
       nick: `Dowsing Dagger`,
       types: [CardType.Artifact],
@@ -495,6 +498,7 @@ const MonumentDraft: CardDraft[] = (
       category: MonCat.Ramp,
     },
     {
+      rejected: true,
       name: `Conqueror's Galleon // Conqueror's Foothold`,
       nick: `Conqueror's Galleon`,
       types: [CardType.Artifact],
@@ -509,6 +513,7 @@ const MonumentDraft: CardDraft[] = (
       category: MonCat.Interaction,
     },
     {
+      rejected: true,
       name: `Cascading Cataracts`,
       types: [CardType.Land],
       tags: [MonTag.LandWithProtection],
@@ -573,7 +578,7 @@ const MonumentDraft: CardDraft[] = (
       tags: [MonTag.CannotTapForMana, MonTag.CaresAboutGettingUntapped],
     },
     {
-      pending: true,
+      rejected: true,
       name: `Rishadan Port`,
       types: [CardType.Land],
       tags: [MonTag.TapsTargetLand],
