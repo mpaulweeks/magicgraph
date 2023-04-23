@@ -627,6 +627,12 @@ const MonMatchers: Matcher[] = [
       a.tags.has(MonTag.TapsTargetLand) &&
       b.tags.has(MonTag.CaresAboutGettingLandTapped),
   },
+  {
+    relationship: MonumentEdge.CombosWith,
+    isMatch: (a, b) =>
+      a.tags.has(MonTag.UntapsLand) &&
+      b.tags.has(MonTag.CaresAboutGettingUntapped),
+  },
 ];
 
 export const MonumentData: DeckData = {
