@@ -581,8 +581,23 @@ const MonumentDraft: CardDraft[] = (
     {
       pending: true,
       name: `Vizier of Tumbling Sands`,
-      types: [CardType.Land],
+      types: [CardType.Creature],
       tags: [MonTag.UntapsLand],
+      category: MonCat.Ramp,
+    },
+    {
+      pending: true,
+      name: `Clever Conjurer`,
+      types: [CardType.Creature],
+      tags: [MonTag.UntapsLand],
+      category: MonCat.Ramp,
+    },
+    {
+      pending: true,
+      name: `Nimbleclaw Adept`,
+      types: [CardType.Creature],
+      tags: [MonTag.UntapsLand],
+      category: MonCat.Ramp,
     },
   ] as CardDraftDraft[]
 ).map(card => {
