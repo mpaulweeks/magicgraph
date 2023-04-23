@@ -40,6 +40,9 @@ export enum MonTag {
 
   AnimatesLand = 'Animates Land',
   LandWithProtection = 'Land With Protection',
+
+  CaresAboutGettingLandTapped = 'Cares About Getting Land Tapped',
+  TapsTargetLand = 'Taps Target Land',
 }
 
 enum MonumentEdge {
@@ -75,7 +78,7 @@ export const MonumentEdges: string[] = [
 
 interface CardDraftDraft extends Omit<CardDraft, 'category'> {
   category?: string;
-};
+}
 const MonumentDraft: CardDraft[] = (
   [
     {
@@ -257,6 +260,20 @@ const MonumentDraft: CardDraft[] = (
       category: MonCat.Lifegain,
     },
     {
+      pending: true,
+      name: `Spreading Algae`,
+      types: [CardType.Enchantment],
+      tags: [MonTag.CaresAboutSwamps, MonTag.CaresAboutGettingLandTapped],
+      category: MonCat.Interaction,
+    },
+    {
+      pending: true,
+      name: `Nightmare Lash`,
+      types: [CardType.Artifact],
+      tags: [MonTag.CaresAboutSwamps],
+      category: MonCat.Buff,
+    },
+    {
       name: `Tyrite Sanctum`,
       types: [CardType.Land],
       tags: [
@@ -280,7 +297,11 @@ const MonumentDraft: CardDraft[] = (
     {
       name: `Glacial Chasm`,
       types: [CardType.Land],
-      tags: [MonTag.HasCumulativeUpkeep, MonTag.CannotTapForMana, MonTag.CloneableLand],
+      tags: [
+        MonTag.HasCumulativeUpkeep,
+        MonTag.CannotTapForMana,
+        MonTag.CloneableLand,
+      ],
       combos: [
         {
           edgeType: MonumentEdge.CombosWith,
@@ -304,7 +325,11 @@ const MonumentDraft: CardDraft[] = (
       pending: true,
       name: `Sorrow's Path`,
       types: [CardType.Land],
-      tags: [MonTag.DealsDamageToCreatures, MonTag.CannotTapForMana],
+      tags: [
+        MonTag.DealsDamageToCreatures,
+        MonTag.CannotTapForMana,
+        MonTag.CaresAboutGettingLandTapped,
+      ],
     },
     {
       name: `Apex Altisaur`,
@@ -448,10 +473,12 @@ const MonumentDraft: CardDraft[] = (
     {
       name: `Thespian's Stage`,
       types: [CardType.Land],
-      combos: [{
-        edgeType: MonumentEdge.CombosWith,
-        match: b => b.tags.has(MonTag.CloneableLand),
-      }],
+      combos: [
+        {
+          edgeType: MonumentEdge.CombosWith,
+          match: b => b.tags.has(MonTag.CloneableLand),
+        },
+      ],
     },
     {
       name: `Dowsing Dagger // Lost Vale`,
@@ -528,21 +555,19 @@ const MonumentDraft: CardDraft[] = (
       types: [CardType.Land],
       tags: [MonTag.CannotTapForMana],
     },
+    {
+      pending: true,
+      name: `Rishadan Port`,
+      types: [CardType.Land],
+      tags: [MonTag.TapsTargetLand],
+    },
   ] as CardDraftDraft[]
 ).map(card => {
   const isLand = card.types.includes(CardType.Land);
   return {
     ...card,
-    category: card.category ?? (
-      isLand
-      ? MonCat.Land
-      : MonCat.NonLand
-    ),
-    tags: (card.tags ?? []).concat(
-      isLand
-      ? 'Is Land'
-      : 'Is Not Land'
-    ),
+    category: card.category ?? (isLand ? MonCat.Land : MonCat.NonLand),
+    tags: (card.tags ?? []).concat(isLand ? 'Is Land' : 'Is Not Land'),
   };
 });
 
@@ -568,10 +593,17 @@ const MonMatchers: Matcher[] = [
     isMatch: (a, b) =>
       a.tags.has(MonTag.TargetsTribal) && b.subtypes.has('Changeling'),
   },
-    {
-      relationship: MonumentEdge.CombosWith,
-      isMatch: (a, b) => a.tags.has(MonTag.LandWithProtection) && b.tags.has(MonTag.AnimatesLand),
-    },
+  {
+    relationship: MonumentEdge.CombosWith,
+    isMatch: (a, b) =>
+      a.tags.has(MonTag.LandWithProtection) && b.tags.has(MonTag.AnimatesLand),
+  },
+  {
+    relationship: MonumentEdge.CombosWith,
+    isMatch: (a, b) =>
+      a.tags.has(MonTag.TapsTargetLand) &&
+      b.tags.has(MonTag.CaresAboutGettingLandTapped),
+  },
 ];
 
 export const MonumentData: DeckData = {
