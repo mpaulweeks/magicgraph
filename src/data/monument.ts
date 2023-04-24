@@ -50,9 +50,11 @@ export enum MonTag {
 
 enum MonumentEdge {
   CombosWith = 'Combos With',
+  TribalSynergy = 'Tribal Synergy',
+  LandTypeMatters = 'Land Type Matters',
 
   ManipulatesCounters = 'Manipulates Counters',
-  CountersManipulatedBy = 'Counters Manipulated By',
+  CountersManipulatedBy = 'Counters Used By',
 
   EnablesMana = 'Enables Mana',
   EnabledBy = 'Enabled By',
@@ -65,15 +67,26 @@ enum MonumentEdge {
 
   Fuels = 'Fuels',
   FueledBy = 'Fueled By',
+
+  Untaps = 'Untaps',
+  UntappedBy = 'Untapper',
+
+  Protects = 'Protects',
+  ProtectedBy = 'Protection',
 }
 export const MonumentInverseEdge = (edge: string) =>
   ({
     [MonumentEdge.CombosWith]: MonumentEdge.CombosWith,
+    [MonumentEdge.TribalSynergy]: MonumentEdge.TribalSynergy,
+    [MonumentEdge.LandTypeMatters]: MonumentEdge.LandTypeMatters,
+
     [MonumentEdge.ManipulatesCounters]: MonumentEdge.CountersManipulatedBy,
     [MonumentEdge.EnablesMana]: MonumentEdge.EnabledBy,
     [MonumentEdge.Damages]: MonumentEdge.DamagedBy,
     [MonumentEdge.Targets]: MonumentEdge.TargetedBy,
     [MonumentEdge.Fuels]: MonumentEdge.FueledBy,
+    [MonumentEdge.Untaps]: MonumentEdge.UntappedBy,
+    [MonumentEdge.Protects]: MonumentEdge.ProtectedBy,
   }[edge]);
 export const MonumentEdges: string[] = [
   // dont care
@@ -227,7 +240,7 @@ const MonumentDraft: CardDraft[] = (
       tags: [MonTag.GrantsLandTypes],
       combos: [
         {
-          edgeType: MonumentEdge.CombosWith,
+          edgeType: MonumentEdge.LandTypeMatters,
           match: other => other.tags.has(MonTag.CaresAboutForests),
         },
       ],
@@ -238,7 +251,7 @@ const MonumentDraft: CardDraft[] = (
       tags: [MonTag.GrantsLandTypes],
       combos: [
         {
-          edgeType: MonumentEdge.CombosWith,
+          edgeType: MonumentEdge.LandTypeMatters,
           match: other => other.tags.has(MonTag.CaresAboutSwamps),
         },
       ],
@@ -643,12 +656,12 @@ const MonMatchers: Matcher[] = [
       b.tags.has(MonTag.CaresAboutTargeting),
   },
   {
-    relationship: MonumentEdge.CombosWith,
+    relationship: MonumentEdge.TribalSynergy,
     isMatch: (a, b) =>
       a.tags.has(MonTag.TargetsTribal) && b.subtypes.has('Changeling'),
   },
   {
-    relationship: MonumentEdge.CombosWith,
+    relationship: MonumentEdge.Protects,
     isMatch: (a, b) =>
       a.tags.has(MonTag.LandWithProtection) && b.tags.has(MonTag.AnimatesLand),
   },
@@ -659,7 +672,7 @@ const MonMatchers: Matcher[] = [
       b.tags.has(MonTag.CaresAboutGettingLandTapped),
   },
   {
-    relationship: MonumentEdge.CombosWith,
+    relationship: MonumentEdge.Untaps,
     isMatch: (a, b) =>
       a.tags.has(MonTag.UntapsLand) &&
       b.tags.has(MonTag.CaresAboutGettingUntapped),
