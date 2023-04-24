@@ -1,4 +1,10 @@
-import { CardDraft, CardListStatus, CardType, DeckData, Matcher } from '../types';
+import {
+  CardDraft,
+  CardListStatus,
+  CardType,
+  DeckData,
+  Matcher,
+} from '../types';
 
 export enum MonCat {
   Land = 'Tutorable Land',

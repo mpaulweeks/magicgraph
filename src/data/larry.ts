@@ -1,4 +1,11 @@
-import { CardDraft, Cardlike, CardListStatus, CardType, DeckData, Matcher } from '../types';
+import {
+  CardDraft,
+  Cardlike,
+  CardListStatus,
+  CardType,
+  DeckData,
+  Matcher,
+} from '../types';
 
 export enum LarryCategory {
   Disk = 'Disk',
