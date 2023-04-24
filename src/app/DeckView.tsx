@@ -41,7 +41,9 @@ export const DeckView = (props: {
     .filter(c => includeRejected || !c.rejected)
     .filter(c => !filter || c.category === filter || c.tags.has(filter));
   const edges = uniqueBy(
-    deck.edges.filter(e => includePending || e.related.every(c => !c.pending)),
+    deck.edges
+      .filter(e => includePending || e.related.every(c => !c.pending))
+      .filter(e => includeRejected || e.related.every(c => !c.rejected)),
     elm => sort(elm.related.map(c => c.id)).join('|')
   );
 
@@ -60,11 +62,19 @@ export const DeckView = (props: {
       </p> */}
       <section>
         <div>
-          Show cards not in deck?
+          Show pending?
           <input
             type="checkbox"
             checked={includePending}
             onClick={() => setIncludePending(!includePending)}
+          />
+        </div>
+        <div>
+          Show removed?
+          <input
+            type="checkbox"
+            checked={includeRejected}
+            onClick={() => setIncludeRejected(!includeRejected)}
           />
         </div>
         <div>

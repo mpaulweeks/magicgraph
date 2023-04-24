@@ -584,8 +584,19 @@ const MonumentDraft: CardDraft[] = (
       tags: [MonTag.TapsTargetLand],
     },
     {
-      pending: true,
       name: `Vizier of Tumbling Sands`,
+      types: [CardType.Creature],
+      tags: [MonTag.UntapsLand],
+      category: MonCat.Ramp,
+    },
+    {
+      name: `Fatestitcher`,
+      types: [CardType.Creature],
+      tags: [MonTag.UntapsLand],
+      category: MonCat.Ramp,
+    },
+    {
+      name: `Kiora's Follower`,
       types: [CardType.Creature],
       tags: [MonTag.UntapsLand],
       category: MonCat.Ramp,
