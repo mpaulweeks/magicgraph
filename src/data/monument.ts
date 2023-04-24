@@ -6,7 +6,7 @@ import {
   Matcher,
 } from '../types';
 
-export enum MonCat {
+enum MonCat {
   Land = 'Tutorable Land',
   NonLand = 'Non Land',
   Threat = 'Threat',
@@ -16,8 +16,18 @@ export enum MonCat {
   Draw = 'Draw',
   Ramp = 'Ramp',
 }
+const CategoryColorMap = {
+  [MonCat.Land]: 'lightgrey',
+  [MonCat.NonLand]: 'grey',
+  [MonCat.Threat]: 'salmon',
+  [MonCat.Lifegain]: 'lightyellow',
+  [MonCat.Buff]: 'Orchid',
+  [MonCat.Interaction]: '#FFB010',
+  [MonCat.Draw]: 'lightblue',
+  [MonCat.Ramp]: 'lightgreen',
+};
 
-export enum MonTag {
+enum MonTag {
   HasCumulativeUpkeep = 'Cumulative Upkeep',
   HasAbilityCounters = 'Ability Counters',
   HasLimitedUseCounters = 'Divinity Counters',
@@ -92,25 +102,24 @@ enum MonumentEdge {
   ForcesTap = 'Forces Tap',
   TappedBy = 'Tapped By',
 }
-export const MonumentInverseEdge = (edge: string) =>
-  ({
-    [MonumentEdge.CombosWith]: MonumentEdge.CombosWith,
-    [MonumentEdge.TribalSynergy]: MonumentEdge.TribalSynergy,
-    [MonumentEdge.LandTypeMatters]: MonumentEdge.LandTypeMatters,
+const MonumentInverseEdge = {
+  [MonumentEdge.CombosWith]: MonumentEdge.CombosWith,
+  [MonumentEdge.TribalSynergy]: MonumentEdge.TribalSynergy,
+  [MonumentEdge.LandTypeMatters]: MonumentEdge.LandTypeMatters,
 
-    [MonumentEdge.ManipulatesCounters]: MonumentEdge.CountersManipulatedBy,
-    [MonumentEdge.EnablesMana]: MonumentEdge.EnabledBy,
-    [MonumentEdge.Damages]: MonumentEdge.DamagedBy,
-    [MonumentEdge.Targets]: MonumentEdge.TargetedBy,
-    [MonumentEdge.Fuels]: MonumentEdge.FueledBy,
-    [MonumentEdge.Untaps]: MonumentEdge.UntappedBy,
-    [MonumentEdge.Protects]: MonumentEdge.ProtectedBy,
-    [MonumentEdge.Clones]: MonumentEdge.ClonedBy,
-    [MonumentEdge.Bins]: MonumentEdge.BinnedBy,
-    [MonumentEdge.Retrieves]: MonumentEdge.RetrievedBy,
-    [MonumentEdge.ForcesTap]: MonumentEdge.TappedBy,
-  }[edge]);
-export const MonumentEdges: string[] = [
+  [MonumentEdge.ManipulatesCounters]: MonumentEdge.CountersManipulatedBy,
+  [MonumentEdge.EnablesMana]: MonumentEdge.EnabledBy,
+  [MonumentEdge.Damages]: MonumentEdge.DamagedBy,
+  [MonumentEdge.Targets]: MonumentEdge.TargetedBy,
+  [MonumentEdge.Fuels]: MonumentEdge.FueledBy,
+  [MonumentEdge.Untaps]: MonumentEdge.UntappedBy,
+  [MonumentEdge.Protects]: MonumentEdge.ProtectedBy,
+  [MonumentEdge.Clones]: MonumentEdge.ClonedBy,
+  [MonumentEdge.Bins]: MonumentEdge.BinnedBy,
+  [MonumentEdge.Retrieves]: MonumentEdge.RetrievedBy,
+  [MonumentEdge.ForcesTap]: MonumentEdge.TappedBy,
+};
+const MonumentEdges: string[] = [
   // dont care
 ];
 
@@ -706,4 +715,7 @@ export const MonumentData: DeckData = {
   url: 'https://tappedout.net/mtg-decks/monument-to-hubris/',
   cardDrafts: MonumentDraft,
   matchers: MonMatchers,
+  categoryColorMap: CategoryColorMap,
+  relationshipInverse: MonumentInverseEdge,
+  relationshipOrder: MonumentEdges,
 };

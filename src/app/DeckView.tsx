@@ -105,6 +105,7 @@ export const DeckView = (props: {
         {toRender.map((card) => (
           <CardView
             key={card.id}
+            deck={deck}
             edges={edges}
             card={card}
           />

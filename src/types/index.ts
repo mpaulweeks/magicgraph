@@ -67,4 +67,7 @@ export type DeckData = {
   url?: string;
   cardDrafts: CardDraft[];
   matchers: Matcher[];
+  categoryColorMap: Record<string, string>;
+  relationshipInverse: Record<string, string>;
+  relationshipOrder: string[];
 };

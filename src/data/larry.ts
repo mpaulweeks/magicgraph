@@ -7,13 +7,20 @@ import {
   Matcher,
 } from '../types';
 
-export enum LarryCategory {
+enum LarryCategory {
   Disk = 'Disk',
   Recursion = 'Recursion',
   Bouncer = 'Bouncer',
   Protection = 'Protection',
   Other = 'Other',
 }
+
+const CategoryColorMap = {
+  [LarryCategory.Disk]: 'salmon',
+  [LarryCategory.Recursion]: 'lightgreen',
+  [LarryCategory.Bouncer]: 'lightblue',
+  [LarryCategory.Protection]: 'khaki',
+};
 
 enum LarryTag {
   Bounces = 'Bounces',
@@ -55,22 +62,21 @@ enum LarryEdge {
   ReanimatedBy = 'Reanimated By',
   BounceLoopedBy = 'Bounce Looped By',
 }
-export const LarryInverseEdge = (edge: string) =>
-  ({
-    [LarryEdge.TwoCardCombo]: LarryEdge.TwoCardCombo,
+const LarryInverseEdge = {
+  [LarryEdge.TwoCardCombo]: LarryEdge.TwoCardCombo,
 
-    [LarryEdge.SurvivesWith]: LarryEdge.Protects,
-    [LarryEdge.LoopsETBWith]: LarryEdge.LoopsETB,
-    [LarryEdge.Reanimates]: LarryEdge.ReanimatedBy,
-    [LarryEdge.BounceLoops]: LarryEdge.BounceLoopedBy,
+  [LarryEdge.SurvivesWith]: LarryEdge.Protects,
+  [LarryEdge.LoopsETBWith]: LarryEdge.LoopsETB,
+  [LarryEdge.Reanimates]: LarryEdge.ReanimatedBy,
+  [LarryEdge.BounceLoops]: LarryEdge.BounceLoopedBy,
 
-    [LarryEdge.Protects]: LarryEdge.SurvivesWith,
-    [LarryEdge.LoopsETB]: LarryEdge.LoopsETBWith,
-    [LarryEdge.ReanimatedBy]: LarryEdge.Reanimates,
-    [LarryEdge.BounceLoopedBy]: LarryEdge.BounceLoops,
-  }[edge]);
+  [LarryEdge.Protects]: LarryEdge.SurvivesWith,
+  [LarryEdge.LoopsETB]: LarryEdge.LoopsETBWith,
+  [LarryEdge.ReanimatedBy]: LarryEdge.Reanimates,
+  [LarryEdge.BounceLoopedBy]: LarryEdge.BounceLoops,
+};
 
-export const OrderedEdges: string[] = [
+const OrderedEdges: string[] = [
   LarryEdge.TwoCardCombo,
 
   LarryEdge.BounceLoops,
@@ -507,4 +513,7 @@ export const LarryData: DeckData = {
   url: 'https://tappedout.net/mtg-decks/tutorless-larry/',
   cardDrafts: LarryDraft,
   matchers: LarryMatchers,
+  categoryColorMap: CategoryColorMap,
+  relationshipInverse: LarryInverseEdge,
+  relationshipOrder: OrderedEdges,
 };
