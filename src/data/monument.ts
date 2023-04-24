@@ -222,7 +222,6 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
-    status: CardListStatus.Pending,
     name: `Sorrow's Path`,
     tags: [
       MonTag.DealsDamageToCreatures,
@@ -232,12 +231,12 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
+    status: CardListStatus.Rejected,
     name: `Hanweir Battlements // Hanweir, the Writhing Township`,
     nick: `Hanweir Battlements`,
     tags: [MonTag.TargetsCreatures],
   },
   {
-    status: CardListStatus.Pending,
     name: `Flamekin Village`,
     tags: [MonTag.TargetsCreatures],
   },
@@ -280,7 +279,6 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.TargetsCreatures],
   },
   {
-    status: CardListStatus.Pending,
     name: `Drownyard Temple`,
     combos: [
       {
@@ -375,35 +373,30 @@ const NonLands: CardDraft[] = [
     category: MonCat.Threat,
   },
   {
-    status: CardListStatus.Pending,
     name: `Myojin of Cryptic Dreams`,
     types: [CardType.Creature],
     tags: [MonTag.HasAbilityCounters],
     category: MonCat.Draw,
   },
   {
-    status: CardListStatus.Pending,
     name: `Myojin of Roaring Blades`,
     types: [CardType.Creature],
     tags: [MonTag.HasAbilityCounters],
     category: MonCat.Threat,
   },
   {
-    status: CardListStatus.Pending,
     name: `Scavenged Brawler`,
     types: [CardType.Creature, CardType.Artifact],
     tags: [MonTag.HasAbilityCounters, MonTag.Flashback],
     category: MonCat.Buff,
   },
   {
-    status: CardListStatus.Pending,
     name: `Slippery Bogbonder`,
     types: [CardType.Creature],
     tags: [MonTag.HasAbilityCounters],
     category: MonCat.Buff,
   },
   {
-    status: CardListStatus.Pending,
     name: `Transmogrifying Wand`,
     types: [CardType.Artifact],
     tags: [MonTag.HasLimitedUseCounters],
@@ -431,7 +424,6 @@ const NonLands: CardDraft[] = [
     category: MonCat.Draw,
   },
   {
-    status: CardListStatus.Pending,
     name: `Fortitude`,
     types: [CardType.Enchantment],
     tags: [MonTag.CaresAboutForests, MonTag.SacrificesLands],
@@ -495,7 +487,6 @@ const NonLands: CardDraft[] = [
     category: MonCat.Threat,
   },
   {
-    status: CardListStatus.Pending,
     name: `Ranging Raptors`,
     types: [CardType.Creature],
     tags: [MonTag.Enrage],
@@ -676,7 +667,7 @@ export const MonumentData: DeckData = {
     ...Lands.map(c => ({
       ...c,
       types: [CardType.Land],
-      category: 'Land',
+      category: MonCat.Land,
       tags: (c.tags ?? []).concat('Is Land'),
     })),
     ...NonLands.map(c => ({
