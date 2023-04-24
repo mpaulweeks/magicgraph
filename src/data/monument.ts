@@ -123,551 +123,510 @@ const MonumentEdges: string[] = [
   // dont care
 ];
 
-interface CardDraftDraft extends Omit<CardDraft, 'category'> {
-  category?: string;
-}
-const MonumentDraft: CardDraft[] = (
-  [
-    {
-      name: `Nesting Grounds`,
-      types: [CardType.Land],
-      tags: [MonTag.TargetsCreatures],
-      combos: [
-        {
-          edgeType: MonumentEdge.ManipulatesCounters,
-          match: other =>
-            other.tags.has(MonTag.HasAbilityCounters) ||
-            other.tags.has(MonTag.HasCumulativeUpkeep) ||
-            other.subtypes.has('Saga'),
-        },
-      ],
-    },
-    {
-      name: `Karn's Bastion`,
-      types: [CardType.Land],
-      combos: [
-        {
-          edgeType: MonumentEdge.ManipulatesCounters,
-          match: other =>
-            other.tags.has(MonTag.HasAbilityCounters) ||
-            other.tags.has(MonTag.HasLimitedUseCounters) ||
-            other.subtypes.has('Saga'),
-        },
-      ],
-    },
-    {
-      name: `Kiora Bests the Sea God`,
-      types: [CardType.Enchantment],
-      subtypes: ['Saga'],
-      category: MonCat.Threat,
-    },
-    {
-      name: `The World Spell`,
-      types: [CardType.Enchantment],
-      subtypes: ['Saga'],
-      category: MonCat.Draw,
-    },
-    {
-      name: `Myojin of Life's Web`,
-      types: [CardType.Creature],
-      tags: [MonTag.HasLimitedUseCounters],
-      category: MonCat.Threat,
-    },
-    {
-      name: `Myojin of Seeing Winds`,
-      types: [CardType.Creature],
-      tags: [MonTag.HasLimitedUseCounters],
-      category: MonCat.Draw,
-    },
-    {
-      name: `Myojin of Towering Might`,
-      types: [CardType.Creature],
-      tags: [MonTag.HasAbilityCounters],
-      category: MonCat.Threat,
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Myojin of Cryptic Dreams`,
-      types: [CardType.Creature],
-      tags: [MonTag.HasAbilityCounters],
-      category: MonCat.Draw,
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Myojin of Roaring Blades`,
-      types: [CardType.Creature],
-      tags: [MonTag.HasAbilityCounters],
-      category: MonCat.Threat,
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Scavenged Brawler`,
-      types: [CardType.Creature, CardType.Artifact],
-      tags: [MonTag.HasAbilityCounters, MonTag.Flashback],
-      category: MonCat.Buff,
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Slippery Bogbonder`,
-      types: [CardType.Creature],
-      tags: [MonTag.HasAbilityCounters],
-      category: MonCat.Buff,
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Transmogrifying Wand`,
-      types: [CardType.Artifact],
-      tags: [MonTag.HasLimitedUseCounters],
-      category: MonCat.Interaction,
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Starke of Rath`,
-      types: [CardType.Creature],
-      tags: [MonTag.DonatesSelf],
-      category: MonCat.Interaction,
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Humble Defector`,
-      types: [CardType.Creature],
-      tags: [MonTag.DonatesSelf],
-      category: MonCat.Draw,
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Khârn the Betrayer`,
-      types: [CardType.Creature],
-      tags: [MonTag.DonatesSelf],
-      category: MonCat.Draw,
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Homeward Path`,
-      types: [CardType.Land],
-      combos: [
-        {
-          edgeType: MonumentEdge.Retrieves,
-          match: other =>
-            other.types.has(CardType.Creature) &&
-            other.tags.has(MonTag.DonatesSelf),
-        },
-      ],
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Desolate Lighthouse`,
-      types: [CardType.Land],
-      combos: [
-        {
-          edgeType: MonumentEdge.Bins,
-          match: other => other.tags.has(MonTag.Flashback),
-        },
-      ],
-    },
-    {
-      name: `Yavimaya, Cradle of Growth`,
-      types: [CardType.Land],
-      tags: [MonTag.GrantsLandTypes],
-      combos: [
-        {
-          edgeType: MonumentEdge.LandTypeMatters,
-          match: other => other.tags.has(MonTag.CaresAboutForests),
-        },
-      ],
-    },
-    {
-      name: `Urborg, Tomb of Yawgmoth`,
-      types: [CardType.Land],
-      tags: [MonTag.GrantsLandTypes],
-      combos: [
-        {
-          edgeType: MonumentEdge.LandTypeMatters,
-          match: other => other.tags.has(MonTag.CaresAboutSwamps),
-        },
-      ],
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Fortitude`,
-      types: [CardType.Land],
-      tags: [MonTag.CaresAboutForests, MonTag.SacrificesLands],
-      category: MonCat.Buff,
-    },
-    {
-      name: `Lifetap`,
-      types: [CardType.Enchantment],
-      tags: [MonTag.CaresAboutForests],
-      category: MonCat.Lifegain,
-    },
-    {
-      name: `Roots of Life`,
-      types: [CardType.Enchantment],
-      tags: [MonTag.CaresAboutSwamps],
-      category: MonCat.Lifegain,
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Spreading Algae`,
-      types: [CardType.Enchantment],
-      tags: [MonTag.CaresAboutSwamps, MonTag.CaresAboutGettingLandTapped],
-      category: MonCat.Interaction,
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Nightmare Lash`,
-      types: [CardType.Artifact],
-      tags: [MonTag.CaresAboutSwamps],
-      category: MonCat.Buff,
-    },
-    {
-      name: `Tyrite Sanctum`,
-      types: [CardType.Land],
-      tags: [
-        MonTag.HasAbilityCounters,
-        MonTag.TargetsCreatures,
-        MonTag.TargetsTribal,
-      ],
-    },
-    {
-      name: `Shapesharer`,
-      types: [CardType.Creature],
-      subtypes: ['Changeling'],
-      category: MonCat.Threat,
-    },
-    {
-      name: `Taurean Mauler`,
-      types: [CardType.Creature],
-      subtypes: ['Changeling'],
-      category: MonCat.Threat,
-    },
-    {
-      name: `Glacial Chasm`,
-      types: [CardType.Land],
-      tags: [
-        MonTag.HasCumulativeUpkeep,
-        MonTag.CannotTapForMana,
-        MonTag.CloneableLand,
-      ],
-      combos: [
-        {
-          edgeType: MonumentEdge.CombosWith,
-          match: other => other.tags.has(MonTag.DealsDamageToPlayers),
-        },
-      ],
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Heartless Hidetsugu`,
-      types: [CardType.Creature],
-      tags: [MonTag.DealsDamageToPlayers],
-      category: MonCat.Threat,
-    },
-    {
-      name: `Desert`,
-      types: [CardType.Land],
-      tags: [
-        MonTag.DealsDamageToCreatures,
-        MonTag.TargetsCreatures,
-        MonTag.CaresAboutGettingUntapped,
-      ],
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Sorrow's Path`,
-      types: [CardType.Land],
-      tags: [
-        MonTag.DealsDamageToCreatures,
-        MonTag.CannotTapForMana,
-        MonTag.CaresAboutGettingLandTapped,
-        MonTag.CaresAboutGettingUntapped,
-      ],
-    },
-    {
-      name: `Apex Altisaur`,
-      types: [CardType.Creature],
-      tags: [MonTag.Enrage],
-      category: MonCat.Interaction,
-    },
-    {
-      name: `Polyraptor`,
-      types: [CardType.Creature],
-      tags: [MonTag.Enrage],
-      category: MonCat.Threat,
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Ranging Raptors`,
-      types: [CardType.Creature],
-      tags: [MonTag.Enrage],
-      category: MonCat.Ramp,
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Vigor`,
-      types: [CardType.Creature],
-      tags: [MonTag.Enrage],
-      category: MonCat.Threat,
-    },
-    {
-      name: `Hanweir Battlements // Hanweir, the Writhing Township`,
-      nick: `Hanweir Battlements`,
-      types: [CardType.Land],
-      tags: [MonTag.TargetsCreatures],
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Flamekin Village`,
-      types: [CardType.Land],
-      tags: [MonTag.TargetsCreatures],
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Hammerheim`,
-      types: [CardType.Land],
-      tags: [MonTag.TargetsCreatures],
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Tolaria`,
-      types: [CardType.Land],
-      tags: [MonTag.TargetsCreatures],
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Yavimaya Hollow`,
-      types: [CardType.Land],
-      tags: [MonTag.TargetsCreatures],
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Swarmyard`,
-      types: [CardType.Land],
-      tags: [MonTag.TargetsTribal],
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Okina, Temple to the Grandfathers`,
-      types: [CardType.Land],
-      tags: [MonTag.TargetsCreatures],
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Minamo, School at Water's Edge`,
-      types: [CardType.Land],
-      tags: [MonTag.TargetsCreatures],
-    },
-    {
-      name: `Shinka, the Bloodsoaked Keep`,
-      types: [CardType.Land],
-      tags: [MonTag.TargetsCreatures],
-    },
-    {
-      name: `Kessig Wolf Run`,
-      types: [CardType.Land],
-      tags: [MonTag.TargetsCreatures],
-    },
-    {
-      name: `Dismiss into Dream`,
-      types: [CardType.Enchantment],
-      tags: [MonTag.CaresAboutTargeting],
-      category: MonCat.Interaction,
-    },
-    {
-      name: `Willbreaker`,
-      types: [CardType.Creature],
-      tags: [MonTag.CaresAboutTargeting],
-      category: MonCat.Interaction,
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Cowardice`,
-      types: [CardType.Enchantment],
-      tags: [MonTag.CaresAboutTargeting],
-      category: MonCat.Interaction,
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Fractured Loyalty`,
-      types: [CardType.Enchantment],
-      tags: [MonTag.CaresAboutTargeting],
-      category: MonCat.Interaction,
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Drownyard Temple`,
-      types: [CardType.Land],
-      combos: [
-        {
-          edgeType: MonumentEdge.Fuels,
-          match: other => other.tags.has(MonTag.SacrificesLands),
-        },
-      ],
-    },
-    {
-      name: `Constant Mists`,
-      types: [CardType.Instant],
-      tags: [MonTag.SacrificesLands],
-      category: MonCat.Lifegain,
-    },
-    {
-      name: `Elvish Reclaimer`,
-      types: [CardType.Creature],
-      tags: [MonTag.SacrificesLands],
-      category: MonCat.Draw,
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `World Breaker`,
-      types: [CardType.Land],
-      tags: [MonTag.SacrificesLands],
-      category: MonCat.Interaction,
-    },
-    {
-      name: `Thespian's Stage`,
-      types: [CardType.Land],
-      combos: [
-        {
-          edgeType: MonumentEdge.Clones,
-          match: b => b.tags.has(MonTag.CloneableLand),
-        },
-      ],
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Dowsing Dagger // Lost Vale`,
-      nick: `Dowsing Dagger`,
-      types: [CardType.Artifact],
-      tags: [MonTag.CloneableLand],
-      category: MonCat.Ramp,
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Conqueror's Galleon // Conqueror's Foothold`,
-      nick: `Conqueror's Galleon`,
-      types: [CardType.Artifact],
-      tags: [MonTag.CloneableLand],
-      category: MonCat.Draw,
-    },
-    {
-      name: `Thaumatic Compass // Spires of Orazca`,
-      nick: `Thaumatic Compass`,
-      types: [CardType.Artifact],
-      tags: [MonTag.CloneableLand],
-      category: MonCat.Interaction,
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Cascading Cataracts`,
-      types: [CardType.Land],
-      tags: [MonTag.LandWithProtection],
-    },
-    {
-      name: `Tanglepool Bridge`,
-      types: [CardType.Land],
-      tags: [MonTag.LandWithProtection],
-    },
-    {
-      name: `Slagwoods Bridge`,
-      types: [CardType.Land],
-      tags: [MonTag.LandWithProtection],
-    },
-    {
-      name: `Silverbluff Bridge`,
-      types: [CardType.Land],
-      tags: [MonTag.LandWithProtection],
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Lotus Field`,
-      types: [CardType.Land],
-      tags: [
-        MonTag.LandWithProtection,
-        MonTag.CloneableLand,
-        MonTag.CaresAboutGettingUntapped,
-      ],
-    },
-    {
-      name: `Simic Growth Chamber`,
-      nick: `Bouncelands`,
-      types: [CardType.Land],
-      tags: [MonTag.CloneableLand, MonTag.CaresAboutGettingUntapped],
-    },
-    {
-      name: `Awakening of Vitu-Ghazi`,
-      types: [CardType.Instant],
-      tags: [MonTag.AnimatesLand],
-      category: MonCat.Threat,
-    },
-    {
-      name: `Spawning Grounds`,
-      types: [CardType.Enchantment],
-      tags: [MonTag.AnimatesLand, MonTag.CaresAboutGettingUntapped],
-      category: MonCat.Threat,
-    },
-    {
-      name: `Druid Class`,
-      types: [CardType.Enchantment],
-      tags: [MonTag.AnimatesLand],
-      category: MonCat.Threat,
-    },
-    {
-      name: `Maze of Ith`,
-      types: [CardType.Land],
-      tags: [MonTag.CannotTapForMana, MonTag.TargetsCreatures],
-    },
-    {
-      name: `Thawing Glaciers`,
-      types: [CardType.Land],
-      tags: [MonTag.CannotTapForMana, MonTag.CaresAboutGettingUntapped],
-    },
-    {
-      status: CardListStatus.Rejected,
-      name: `Rishadan Port`,
-      types: [CardType.Land],
-      tags: [MonTag.TapsTargetLand],
-    },
-    {
-      name: `Vizier of Tumbling Sands`,
-      types: [CardType.Creature],
-      tags: [MonTag.UntapsLand],
-      category: MonCat.Ramp,
-    },
-    {
-      name: `Fatestitcher`,
-      types: [CardType.Creature],
-      tags: [MonTag.UntapsLand],
-      category: MonCat.Ramp,
-    },
-    {
-      name: `Kiora's Follower`,
-      types: [CardType.Creature],
-      tags: [MonTag.UntapsLand],
-      category: MonCat.Ramp,
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Clever Conjurer`,
-      types: [CardType.Creature],
-      tags: [MonTag.UntapsLand],
-      category: MonCat.Ramp,
-    },
-    {
-      status: CardListStatus.Pending,
-      name: `Nimbleclaw Adept`,
-      types: [CardType.Creature],
-      tags: [MonTag.UntapsLand],
-      category: MonCat.Ramp,
-    },
-  ] as CardDraftDraft[]
-).map(card => {
-  const isLand = card.types.includes(CardType.Land);
-  return {
-    ...card,
-    category: card.category ?? (isLand ? MonCat.Land : MonCat.NonLand),
-    tags: (card.tags ?? []).concat(isLand ? 'Is Land' : 'Is Not Land'),
-  };
-});
+const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
+  {
+    name: `Nesting Grounds`,
+    tags: [MonTag.TargetsCreatures],
+    combos: [
+      {
+        edgeType: MonumentEdge.ManipulatesCounters,
+        match: other =>
+          other.tags.has(MonTag.HasAbilityCounters) ||
+          other.tags.has(MonTag.HasCumulativeUpkeep) ||
+          other.subtypes.has('Saga'),
+      },
+    ],
+  },
+  {
+    name: `Karn's Bastion`,
+    combos: [
+      {
+        edgeType: MonumentEdge.ManipulatesCounters,
+        match: other =>
+          other.tags.has(MonTag.HasAbilityCounters) ||
+          other.tags.has(MonTag.HasLimitedUseCounters) ||
+          other.subtypes.has('Saga'),
+      },
+    ],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Homeward Path`,
+    combos: [
+      {
+        edgeType: MonumentEdge.Retrieves,
+        match: other =>
+          other.types.has(CardType.Creature) &&
+          other.tags.has(MonTag.DonatesSelf),
+      },
+    ],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Desolate Lighthouse`,
+    combos: [
+      {
+        edgeType: MonumentEdge.Bins,
+        match: other => other.tags.has(MonTag.Flashback),
+      },
+    ],
+  },
+  {
+    name: `Yavimaya, Cradle of Growth`,
+    tags: [MonTag.GrantsLandTypes],
+    combos: [
+      {
+        edgeType: MonumentEdge.LandTypeMatters,
+        match: other => other.tags.has(MonTag.CaresAboutForests),
+      },
+    ],
+  },
+  {
+    name: `Urborg, Tomb of Yawgmoth`,
+    tags: [MonTag.GrantsLandTypes],
+    combos: [
+      {
+        edgeType: MonumentEdge.LandTypeMatters,
+        match: other => other.tags.has(MonTag.CaresAboutSwamps),
+      },
+    ],
+  },
+  {
+    name: `Tyrite Sanctum`,
+    tags: [
+      MonTag.HasAbilityCounters,
+      MonTag.TargetsCreatures,
+      MonTag.TargetsTribal,
+    ],
+  },
+  {
+    name: `Glacial Chasm`,
+    tags: [
+      MonTag.HasCumulativeUpkeep,
+      MonTag.CannotTapForMana,
+      MonTag.CloneableLand,
+    ],
+    combos: [
+      {
+        edgeType: MonumentEdge.CombosWith,
+        match: other => other.tags.has(MonTag.DealsDamageToPlayers),
+      },
+    ],
+  },
+  {
+    name: `Desert`,
+    tags: [
+      MonTag.DealsDamageToCreatures,
+      MonTag.TargetsCreatures,
+      MonTag.CaresAboutGettingUntapped,
+    ],
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Sorrow's Path`,
+    tags: [
+      MonTag.DealsDamageToCreatures,
+      MonTag.CannotTapForMana,
+      MonTag.CaresAboutGettingLandTapped,
+      MonTag.CaresAboutGettingUntapped,
+    ],
+  },
+  {
+    name: `Hanweir Battlements // Hanweir, the Writhing Township`,
+    nick: `Hanweir Battlements`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Flamekin Village`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Hammerheim`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Tolaria`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Yavimaya Hollow`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Swarmyard`,
+    tags: [MonTag.TargetsTribal],
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Okina, Temple to the Grandfathers`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Minamo, School at Water's Edge`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    name: `Shinka, the Bloodsoaked Keep`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    name: `Kessig Wolf Run`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Drownyard Temple`,
+    combos: [
+      {
+        edgeType: MonumentEdge.Fuels,
+        match: other => other.tags.has(MonTag.SacrificesLands),
+      },
+    ],
+  },
+  {
+    name: `Thespian's Stage`,
+    combos: [
+      {
+        edgeType: MonumentEdge.Clones,
+        match: b => b.tags.has(MonTag.CloneableLand),
+      },
+    ],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Cascading Cataracts`,
+    tags: [MonTag.LandWithProtection],
+  },
+  {
+    name: `Tanglepool Bridge`,
+    tags: [MonTag.LandWithProtection],
+  },
+  {
+    name: `Slagwoods Bridge`,
+    tags: [MonTag.LandWithProtection],
+  },
+  {
+    name: `Silverbluff Bridge`,
+    tags: [MonTag.LandWithProtection],
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Lotus Field`,
+    tags: [
+      MonTag.LandWithProtection,
+      MonTag.CloneableLand,
+      MonTag.CaresAboutGettingUntapped,
+    ],
+  },
+  {
+    name: `Simic Growth Chamber`,
+    nick: `Bouncelands`,
+    tags: [MonTag.CloneableLand, MonTag.CaresAboutGettingUntapped],
+  },
+  {
+    name: `Maze of Ith`,
+    tags: [MonTag.CannotTapForMana, MonTag.TargetsCreatures],
+  },
+  {
+    name: `Thawing Glaciers`,
+    tags: [MonTag.CannotTapForMana, MonTag.CaresAboutGettingUntapped],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Rishadan Port`,
+    tags: [MonTag.TapsTargetLand],
+  },
+];
+const NonLands: CardDraft[] = [
+  {
+    name: `Kiora Bests the Sea God`,
+    types: [CardType.Enchantment],
+    subtypes: ['Saga'],
+    category: MonCat.Threat,
+  },
+  {
+    name: `The World Spell`,
+    types: [CardType.Enchantment],
+    subtypes: ['Saga'],
+    category: MonCat.Draw,
+  },
+  {
+    name: `Myojin of Life's Web`,
+    types: [CardType.Creature],
+    tags: [MonTag.HasLimitedUseCounters],
+    category: MonCat.Threat,
+  },
+  {
+    name: `Myojin of Seeing Winds`,
+    types: [CardType.Creature],
+    tags: [MonTag.HasLimitedUseCounters],
+    category: MonCat.Draw,
+  },
+  {
+    name: `Myojin of Towering Might`,
+    types: [CardType.Creature],
+    tags: [MonTag.HasAbilityCounters],
+    category: MonCat.Threat,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Myojin of Cryptic Dreams`,
+    types: [CardType.Creature],
+    tags: [MonTag.HasAbilityCounters],
+    category: MonCat.Draw,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Myojin of Roaring Blades`,
+    types: [CardType.Creature],
+    tags: [MonTag.HasAbilityCounters],
+    category: MonCat.Threat,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Scavenged Brawler`,
+    types: [CardType.Creature, CardType.Artifact],
+    tags: [MonTag.HasAbilityCounters, MonTag.Flashback],
+    category: MonCat.Buff,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Slippery Bogbonder`,
+    types: [CardType.Creature],
+    tags: [MonTag.HasAbilityCounters],
+    category: MonCat.Buff,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Transmogrifying Wand`,
+    types: [CardType.Artifact],
+    tags: [MonTag.HasLimitedUseCounters],
+    category: MonCat.Interaction,
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Starke of Rath`,
+    types: [CardType.Creature],
+    tags: [MonTag.DonatesSelf],
+    category: MonCat.Interaction,
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Humble Defector`,
+    types: [CardType.Creature],
+    tags: [MonTag.DonatesSelf],
+    category: MonCat.Draw,
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Khârn the Betrayer`,
+    types: [CardType.Creature],
+    tags: [MonTag.DonatesSelf],
+    category: MonCat.Draw,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Fortitude`,
+    types: [CardType.Enchantment],
+    tags: [MonTag.CaresAboutForests, MonTag.SacrificesLands],
+    category: MonCat.Buff,
+  },
+  {
+    name: `Lifetap`,
+    types: [CardType.Enchantment],
+    tags: [MonTag.CaresAboutForests],
+    category: MonCat.Lifegain,
+  },
+  {
+    name: `Roots of Life`,
+    types: [CardType.Enchantment],
+    tags: [MonTag.CaresAboutSwamps],
+    category: MonCat.Lifegain,
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Spreading Algae`,
+    types: [CardType.Enchantment],
+    tags: [MonTag.CaresAboutSwamps, MonTag.CaresAboutGettingLandTapped],
+    category: MonCat.Interaction,
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Nightmare Lash`,
+    types: [CardType.Artifact],
+    tags: [MonTag.CaresAboutSwamps],
+    category: MonCat.Buff,
+  },
+  {
+    name: `Shapesharer`,
+    types: [CardType.Creature],
+    subtypes: ['Changeling'],
+    category: MonCat.Threat,
+  },
+  {
+    name: `Taurean Mauler`,
+    types: [CardType.Creature],
+    subtypes: ['Changeling'],
+    category: MonCat.Threat,
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Heartless Hidetsugu`,
+    types: [CardType.Creature],
+    tags: [MonTag.DealsDamageToPlayers],
+    category: MonCat.Threat,
+  },
+  {
+    name: `Apex Altisaur`,
+    types: [CardType.Creature],
+    tags: [MonTag.Enrage],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Polyraptor`,
+    types: [CardType.Creature],
+    tags: [MonTag.Enrage],
+    category: MonCat.Threat,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Ranging Raptors`,
+    types: [CardType.Creature],
+    tags: [MonTag.Enrage],
+    category: MonCat.Ramp,
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Vigor`,
+    types: [CardType.Creature],
+    tags: [MonTag.Enrage],
+    category: MonCat.Threat,
+  },
+  {
+    name: `Dismiss into Dream`,
+    types: [CardType.Enchantment],
+    tags: [MonTag.CaresAboutTargeting],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Willbreaker`,
+    types: [CardType.Creature],
+    tags: [MonTag.CaresAboutTargeting],
+    category: MonCat.Interaction,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Cowardice`,
+    types: [CardType.Enchantment],
+    tags: [MonTag.CaresAboutTargeting],
+    category: MonCat.Interaction,
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Fractured Loyalty`,
+    types: [CardType.Enchantment],
+    tags: [MonTag.CaresAboutTargeting],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Constant Mists`,
+    types: [CardType.Instant],
+    tags: [MonTag.SacrificesLands],
+    category: MonCat.Lifegain,
+  },
+  {
+    name: `Elvish Reclaimer`,
+    types: [CardType.Creature],
+    tags: [MonTag.SacrificesLands],
+    category: MonCat.Draw,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `World Breaker`,
+    types: [CardType.Creature],
+    tags: [MonTag.SacrificesLands],
+    category: MonCat.Interaction,
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Dowsing Dagger // Lost Vale`,
+    nick: `Dowsing Dagger`,
+    types: [CardType.Artifact],
+    tags: [MonTag.CloneableLand],
+    category: MonCat.Ramp,
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Conqueror's Galleon // Conqueror's Foothold`,
+    nick: `Conqueror's Galleon`,
+    types: [CardType.Artifact],
+    tags: [MonTag.CloneableLand],
+    category: MonCat.Draw,
+  },
+  {
+    name: `Thaumatic Compass // Spires of Orazca`,
+    nick: `Thaumatic Compass`,
+    types: [CardType.Artifact],
+    tags: [MonTag.CloneableLand],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Awakening of Vitu-Ghazi`,
+    types: [CardType.Instant],
+    tags: [MonTag.AnimatesLand],
+    category: MonCat.Threat,
+  },
+  {
+    name: `Spawning Grounds`,
+    types: [CardType.Enchantment],
+    tags: [MonTag.AnimatesLand, MonTag.CaresAboutGettingUntapped],
+    category: MonCat.Threat,
+  },
+  {
+    name: `Druid Class`,
+    types: [CardType.Enchantment],
+    tags: [MonTag.AnimatesLand],
+    category: MonCat.Threat,
+  },
+  {
+    name: `Vizier of Tumbling Sands`,
+    types: [CardType.Creature],
+    tags: [MonTag.UntapsLand],
+    category: MonCat.Ramp,
+  },
+  {
+    name: `Fatestitcher`,
+    types: [CardType.Creature],
+    tags: [MonTag.UntapsLand],
+    category: MonCat.Ramp,
+  },
+  {
+    name: `Kiora's Follower`,
+    types: [CardType.Creature],
+    tags: [MonTag.UntapsLand],
+    category: MonCat.Ramp,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Clever Conjurer`,
+    types: [CardType.Creature],
+    tags: [MonTag.UntapsLand],
+    category: MonCat.Ramp,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Nimbleclaw Adept`,
+    types: [CardType.Creature],
+    tags: [MonTag.UntapsLand],
+    category: MonCat.Ramp,
+  },
+];
 
 const MonMatchers: Matcher[] = [
   {
@@ -713,7 +672,18 @@ const MonMatchers: Matcher[] = [
 export const MonumentData: DeckData = {
   name: 'Monument.dec',
   url: 'https://tappedout.net/mtg-decks/monument-to-hubris/',
-  cardDrafts: MonumentDraft,
+  cardDrafts: [
+    ...Lands.map(c => ({
+      ...c,
+      types: [CardType.Land],
+      category: 'Land',
+      tags: (c.tags ?? []).concat('Is Land'),
+    })),
+    ...NonLands.map(c => ({
+      ...c,
+      tags: (c.tags ?? []).concat('Is Not Land'),
+    })),
+  ],
   matchers: MonMatchers,
   categoryColorMap: CategoryColorMap,
   relationshipInverse: MonumentInverseEdge,
