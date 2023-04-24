@@ -4,6 +4,7 @@ import { sort, unique, uniqueBy } from "../util/list";
 import { CardView } from "./CardView";
 import { GraphVis } from "./GraphVis";
 import styles from './App.module.css';
+import { AutoCard } from "./AutoCard";
 
 export const DeckView = (props: {
   deck: Deck,
@@ -109,6 +110,38 @@ export const DeckView = (props: {
           />
         ))}
       </div>
+      <section style={{ display: 'flex', gap: '1em' }}>
+        {(includePending || includeRejected) && (
+          <div>
+            <h3>Played Cards</h3>
+            {toRender.filter(card => !card.pending && !card.rejected).map(card => (
+              <div>
+                <AutoCard key={card.id} card={card} />
+              </div>
+            ))}
+          </div>
+        )}
+        {includePending && (
+          <div>
+            <h3>Pending Cards</h3>
+            {toRender.filter(card => card.pending).map(card => (
+              <div>
+                <AutoCard key={card.id} card={card} />
+              </div>
+            ))}
+          </div>
+        )}
+        {includeRejected && (
+          <div>
+            <h3>Rejected Cards</h3>
+            {toRender.filter(card => card.rejected).map(card => (
+              <div>
+                <AutoCard key={card.id} card={card} />
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
     </div>
   );
 };

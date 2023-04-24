@@ -1,4 +1,4 @@
-import { CardDraft, Cardlike } from '../types';
+import { CardDraft, CardListStatus, Cardlike } from '../types';
 import { Interset } from '../util/interset';
 
 export class CardImpl implements Cardlike {
@@ -29,8 +29,8 @@ export class CardImpl implements Cardlike {
     this.tags = new Interset(draft.tags ?? []);
     this.notes = draft.notes ?? [];
     this.combos = draft.combos ?? [];
-    this.pending = !!draft.pending;
-    this.rejected = !!draft.rejected;
+    this.pending = draft.status === CardListStatus.Pending;
+    this.rejected = draft.status === CardListStatus.Rejected;
 
     this.id = this.name.split(' ').join('').toLowerCase();
     this.mv = this.mc

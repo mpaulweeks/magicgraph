@@ -1,4 +1,4 @@
-import { CardDraft, Cardlike, CardType, DeckData, Matcher } from '../types';
+import { CardDraft, Cardlike, CardListStatus, CardType, DeckData, Matcher } from '../types';
 
 export enum LarryCategory {
   Disk = 'Disk',
@@ -175,7 +175,7 @@ const LarryDraft: CardDraft[] = [
 
   // Bounce
   {
-    pending: true,
+    status: CardListStatus.Pending,
     name: `Capsize`,
     types: [CardType.Instant],
     mc: '4UU',
@@ -213,7 +213,7 @@ const LarryDraft: CardDraft[] = [
     tags: [LarryTag.HasIndestructible, LarryTag.GivesIndestructible],
   },
   {
-    pending: true,
+    status: CardListStatus.Pending,
     name: `Shield of Kaldra`,
     types: [CardType.Artifact, CardType.Equipment],
     mc: '4',
@@ -258,7 +258,7 @@ const LarryDraft: CardDraft[] = [
 
   // Recursion
   {
-    pending: true,
+    status: CardListStatus.Pending,
     name: `Emeria Shepherd`,
     types: [CardType.Creature],
     mc: '5WW',
@@ -331,7 +331,7 @@ const LarryDraft: CardDraft[] = [
     ],
   },
   {
-    pending: true,
+    status: CardListStatus.Pending,
     name: `Twilight Shepherd`,
     types: [CardType.Creature],
     mc: '4WW',
@@ -352,7 +352,7 @@ const LarryDraft: CardDraft[] = [
     ],
   },
   {
-    pending: true,
+    status: CardListStatus.Pending,
     name: `Norika Yamazaki, the Poet`,
     types: [CardType.Creature],
     mc: '2W',
@@ -389,7 +389,7 @@ const LarryDraft: CardDraft[] = [
     tags: [LarryTag.BouncesWizards],
   },
   {
-    pending: true,
+    status: CardListStatus.Pending,
     name: `Enchanted Evening`,
     types: [CardType.Enchantment],
     mc: '3WU',
@@ -402,7 +402,7 @@ const LarryDraft: CardDraft[] = [
     ],
   },
   {
-    pending: true,
+    status: CardListStatus.Pending,
     name: `Mycosynth Lattice`,
     types: [CardType.Artifact],
     mc: '6',
@@ -417,7 +417,7 @@ const LarryDraft: CardDraft[] = [
 
   // Speculative
   {
-    pending: true,
+    status: CardListStatus.Pending,
     name: `Volrath's Stronghold`,
     types: [CardType.Land],
     category: LarryCategory.Recursion,

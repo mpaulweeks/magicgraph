@@ -12,7 +12,7 @@ export const CardLink = (props: {
   card: Cardlike;
 }) => (
   <CardLinkContainer>
-    <a href={'#' + props.card.id}>{'>>'}</a>
+    <a href={'#' + props.card.id}>{'[go]'}</a>
     {' '}
     <AutoCard card={props.card} />
   </CardLinkContainer>

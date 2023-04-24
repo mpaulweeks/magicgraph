@@ -1,4 +1,4 @@
-import { CardDraft, CardType, DeckData, Matcher } from '../types';
+import { CardDraft, CardListStatus, CardType, DeckData, Matcher } from '../types';
 
 export enum MonCat {
   Land = 'Tutorable Land',
@@ -142,63 +142,63 @@ const MonumentDraft: CardDraft[] = (
       category: MonCat.Threat,
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Myojin of Cryptic Dreams`,
       types: [CardType.Creature],
       tags: [MonTag.HasAbilityCounters],
       category: MonCat.Draw,
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Myojin of Roaring Blades`,
       types: [CardType.Creature],
       tags: [MonTag.HasAbilityCounters],
       category: MonCat.Threat,
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Scavenged Brawler`,
       types: [CardType.Creature, CardType.Artifact],
       tags: [MonTag.HasAbilityCounters, MonTag.Flashback],
       category: MonCat.Buff,
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Slippery Bogbonder`,
       types: [CardType.Creature],
       tags: [MonTag.HasAbilityCounters],
       category: MonCat.Buff,
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Transmogrifying Wand`,
       types: [CardType.Artifact],
       tags: [MonTag.HasLimitedUseCounters],
       category: MonCat.Interaction,
     },
     {
-      pending: true,
+      status: CardListStatus.Rejected,
       name: `Starke of Rath`,
       types: [CardType.Creature],
       tags: [MonTag.DonatesSelf],
       category: MonCat.Interaction,
     },
     {
-      pending: true,
+      status: CardListStatus.Rejected,
       name: `Humble Defector`,
       types: [CardType.Creature],
       tags: [MonTag.DonatesSelf],
       category: MonCat.Draw,
     },
     {
-      pending: true,
+      status: CardListStatus.Rejected,
       name: `Khârn the Betrayer`,
       types: [CardType.Creature],
       tags: [MonTag.DonatesSelf],
       category: MonCat.Draw,
     },
     {
-      pending: true,
+      status: CardListStatus.Rejected,
       name: `Homeward Path`,
       types: [CardType.Land],
       combos: [
@@ -211,7 +211,7 @@ const MonumentDraft: CardDraft[] = (
       ],
     },
     {
-      pending: true,
+      status: CardListStatus.Rejected,
       name: `Desolate Lighthouse`,
       types: [CardType.Land],
       combos: [
@@ -244,7 +244,7 @@ const MonumentDraft: CardDraft[] = (
       ],
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Fortitude`,
       types: [CardType.Land],
       tags: [MonTag.CaresAboutForests, MonTag.SacrificesLands],
@@ -263,14 +263,14 @@ const MonumentDraft: CardDraft[] = (
       category: MonCat.Lifegain,
     },
     {
-      rejected: true,
+      status: CardListStatus.Rejected,
       name: `Spreading Algae`,
       types: [CardType.Enchantment],
       tags: [MonTag.CaresAboutSwamps, MonTag.CaresAboutGettingLandTapped],
       category: MonCat.Interaction,
     },
     {
-      rejected: true,
+      status: CardListStatus.Rejected,
       name: `Nightmare Lash`,
       types: [CardType.Artifact],
       tags: [MonTag.CaresAboutSwamps],
@@ -313,7 +313,7 @@ const MonumentDraft: CardDraft[] = (
       ],
     },
     {
-      rejected: true,
+      status: CardListStatus.Rejected,
       name: `Heartless Hidetsugu`,
       types: [CardType.Creature],
       tags: [MonTag.DealsDamageToPlayers],
@@ -329,7 +329,7 @@ const MonumentDraft: CardDraft[] = (
       ],
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Sorrow's Path`,
       types: [CardType.Land],
       tags: [
@@ -352,14 +352,14 @@ const MonumentDraft: CardDraft[] = (
       category: MonCat.Threat,
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Ranging Raptors`,
       types: [CardType.Creature],
       tags: [MonTag.Enrage],
       category: MonCat.Ramp,
     },
     {
-      rejected: true,
+      status: CardListStatus.Rejected,
       name: `Vigor`,
       types: [CardType.Creature],
       tags: [MonTag.Enrage],
@@ -372,43 +372,43 @@ const MonumentDraft: CardDraft[] = (
       tags: [MonTag.TargetsCreatures],
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Flamekin Village`,
       types: [CardType.Land],
       tags: [MonTag.TargetsCreatures],
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Hammerheim`,
       types: [CardType.Land],
       tags: [MonTag.TargetsCreatures],
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Tolaria`,
       types: [CardType.Land],
       tags: [MonTag.TargetsCreatures],
     },
     {
-      rejected: true,
+      status: CardListStatus.Rejected,
       name: `Yavimaya Hollow`,
       types: [CardType.Land],
       tags: [MonTag.TargetsCreatures],
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Swarmyard`,
       types: [CardType.Land],
       tags: [MonTag.TargetsTribal],
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Okina, Temple to the Grandfathers`,
       types: [CardType.Land],
       tags: [MonTag.TargetsCreatures],
     },
     {
-      rejected: true,
+      status: CardListStatus.Rejected,
       name: `Minamo, School at Water's Edge`,
       types: [CardType.Land],
       tags: [MonTag.TargetsCreatures],
@@ -436,21 +436,21 @@ const MonumentDraft: CardDraft[] = (
       category: MonCat.Interaction,
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Cowardice`,
       types: [CardType.Enchantment],
       tags: [MonTag.CaresAboutTargeting],
       category: MonCat.Interaction,
     },
     {
-      rejected: true,
+      status: CardListStatus.Rejected,
       name: `Fractured Loyalty`,
       types: [CardType.Enchantment],
       tags: [MonTag.CaresAboutTargeting],
       category: MonCat.Interaction,
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Drownyard Temple`,
       types: [CardType.Land],
       combos: [
@@ -473,7 +473,7 @@ const MonumentDraft: CardDraft[] = (
       category: MonCat.Draw,
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `World Breaker`,
       types: [CardType.Land],
       tags: [MonTag.SacrificesLands],
@@ -490,7 +490,7 @@ const MonumentDraft: CardDraft[] = (
       ],
     },
     {
-      rejected: true,
+      status: CardListStatus.Rejected,
       name: `Dowsing Dagger // Lost Vale`,
       nick: `Dowsing Dagger`,
       types: [CardType.Artifact],
@@ -498,7 +498,7 @@ const MonumentDraft: CardDraft[] = (
       category: MonCat.Ramp,
     },
     {
-      rejected: true,
+      status: CardListStatus.Rejected,
       name: `Conqueror's Galleon // Conqueror's Foothold`,
       nick: `Conqueror's Galleon`,
       types: [CardType.Artifact],
@@ -513,7 +513,7 @@ const MonumentDraft: CardDraft[] = (
       category: MonCat.Interaction,
     },
     {
-      rejected: true,
+      status: CardListStatus.Rejected,
       name: `Cascading Cataracts`,
       types: [CardType.Land],
       tags: [MonTag.LandWithProtection],
@@ -534,7 +534,7 @@ const MonumentDraft: CardDraft[] = (
       tags: [MonTag.LandWithProtection],
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Lotus Field`,
       types: [CardType.Land],
       tags: [
@@ -578,7 +578,7 @@ const MonumentDraft: CardDraft[] = (
       tags: [MonTag.CannotTapForMana, MonTag.CaresAboutGettingUntapped],
     },
     {
-      rejected: true,
+      status: CardListStatus.Rejected,
       name: `Rishadan Port`,
       types: [CardType.Land],
       tags: [MonTag.TapsTargetLand],
@@ -602,14 +602,14 @@ const MonumentDraft: CardDraft[] = (
       category: MonCat.Ramp,
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Clever Conjurer`,
       types: [CardType.Creature],
       tags: [MonTag.UntapsLand],
       category: MonCat.Ramp,
     },
     {
-      pending: true,
+      status: CardListStatus.Pending,
       name: `Nimbleclaw Adept`,
       types: [CardType.Creature],
       tags: [MonTag.UntapsLand],

@@ -1,5 +1,11 @@
 import { Interset } from '../util/interset';
 
+export enum CardListStatus {
+  Default = 1,
+  Pending,
+  Rejected,
+}
+
 export enum CardType {
   Land = 'Land',
   Creature = 'Creature',
@@ -39,6 +45,7 @@ export interface Matcher {
 }
 
 export interface CardDraft {
+  status?: CardListStatus;
   name: string;
   nick?: string;
   types: string[];
@@ -48,8 +55,6 @@ export interface CardDraft {
   tags?: string[];
   notes?: string[];
   combos?: CardCombo[];
-  pending?: boolean;
-  rejected?: boolean;
 }
 
 export interface CardEdge {
