@@ -424,6 +424,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Draw,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Fortitude`,
     types: [CardType.Enchantment],
     tags: [MonTag.CaresAboutForests, MonTag.SacrificesLands],
@@ -536,6 +537,12 @@ const NonLands: CardDraft[] = [
     types: [CardType.Creature],
     tags: [MonTag.SacrificesLands],
     category: MonCat.Draw,
+  },
+  {
+    name: `Dreamscape Artist`,
+    types: [CardType.Creature],
+    tags: [MonTag.SacrificesLands, MonTag.CaresAboutGettingUntapped],
+    category: MonCat.Ramp,
   },
   {
     status: CardListStatus.Pending,
