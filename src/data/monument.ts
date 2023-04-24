@@ -63,7 +63,7 @@ enum MonumentEdge {
   CountersManipulatedBy = 'Counters Used By',
 
   EnablesMana = 'Enables Mana',
-  EnabledBy = 'Enabled By',
+  EnabledBy = 'Mana Ability',
 
   Damages = 'Damages',
   DamagedBy = 'Damaged By',
@@ -79,6 +79,18 @@ enum MonumentEdge {
 
   Protects = 'Protects',
   ProtectedBy = 'Protection',
+
+  Clones = 'Clones',
+  ClonedBy = 'Cloned By',
+
+  Bins = 'Bins',
+  BinnedBy = 'Binned By',
+
+  Retrieves = 'Retrieves',
+  RetrievedBy = 'Retrieved By',
+
+  ForcesTap = 'Forces Tap',
+  TappedBy = 'Tapped By',
 }
 export const MonumentInverseEdge = (edge: string) =>
   ({
@@ -93,6 +105,10 @@ export const MonumentInverseEdge = (edge: string) =>
     [MonumentEdge.Fuels]: MonumentEdge.FueledBy,
     [MonumentEdge.Untaps]: MonumentEdge.UntappedBy,
     [MonumentEdge.Protects]: MonumentEdge.ProtectedBy,
+    [MonumentEdge.Clones]: MonumentEdge.ClonedBy,
+    [MonumentEdge.Bins]: MonumentEdge.BinnedBy,
+    [MonumentEdge.Retrieves]: MonumentEdge.RetrievedBy,
+    [MonumentEdge.ForcesTap]: MonumentEdge.TappedBy,
   }[edge]);
 export const MonumentEdges: string[] = [
   // dont care
@@ -222,7 +238,7 @@ const MonumentDraft: CardDraft[] = (
       types: [CardType.Land],
       combos: [
         {
-          edgeType: MonumentEdge.CombosWith,
+          edgeType: MonumentEdge.Retrieves,
           match: other =>
             other.types.has(CardType.Creature) &&
             other.tags.has(MonTag.DonatesSelf),
@@ -235,7 +251,7 @@ const MonumentDraft: CardDraft[] = (
       types: [CardType.Land],
       combos: [
         {
-          edgeType: MonumentEdge.CombosWith,
+          edgeType: MonumentEdge.Bins,
           match: other => other.tags.has(MonTag.Flashback),
         },
       ],
@@ -503,7 +519,7 @@ const MonumentDraft: CardDraft[] = (
       types: [CardType.Land],
       combos: [
         {
-          edgeType: MonumentEdge.CombosWith,
+          edgeType: MonumentEdge.Clones,
           match: b => b.tags.has(MonTag.CloneableLand),
         },
       ],
@@ -672,7 +688,7 @@ const MonMatchers: Matcher[] = [
       a.tags.has(MonTag.LandWithProtection) && b.tags.has(MonTag.AnimatesLand),
   },
   {
-    relationship: MonumentEdge.CombosWith,
+    relationship: MonumentEdge.ForcesTap,
     isMatch: (a, b) =>
       a.tags.has(MonTag.TapsTargetLand) &&
       b.tags.has(MonTag.CaresAboutGettingLandTapped),
