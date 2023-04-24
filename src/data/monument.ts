@@ -561,13 +561,6 @@ const NonLands: CardDraft[] = [
     category: MonCat.Draw,
   },
   {
-    name: `Thaumatic Compass // Spires of Orazca`,
-    nick: `Thaumatic Compass`,
-    types: [CardType.Artifact],
-    tags: [MonTag.CloneableLand],
-    category: MonCat.Interaction,
-  },
-  {
     name: `Awakening of Vitu-Ghazi`,
     types: [CardType.Instant],
     tags: [MonTag.AnimatesLand],
