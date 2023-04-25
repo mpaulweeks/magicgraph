@@ -1,5 +1,4 @@
 import { Interset } from '../util/interset';
-import { CardListStatus } from './enum';
 
 export interface Cardlike {
   readonly id: string;
@@ -17,40 +16,17 @@ export interface Cardlike {
   readonly rejected: boolean;
 }
 
-export interface CardCombo {
+export type CardCombo = {
   relationship: string;
   isMatch: (other: Cardlike) => boolean;
-}
+};
 
-export interface Matcher {
+export type Matcher = {
   relationship: string;
   isMatch(a: Cardlike, b: Cardlike): boolean;
-}
+};
 
-export interface CardDraft {
-  status?: CardListStatus;
-  name: string;
-  nick?: string;
-  types: string[];
-  subtypes?: string[];
-  mc?: string;
-  category: string;
-  tags?: string[];
-  notes?: string[];
-  combos?: CardCombo[];
-}
-
-export interface CardEdge {
+export type CardEdge = {
   relationship: string;
   related: Cardlike[];
-}
-
-export type DeckData = {
-  name: string;
-  url?: string;
-  cardDrafts: CardDraft[];
-  matchers: Matcher[];
-  categoryColorMap: Record<string, string>;
-  relationshipInverse: Record<string, string>;
-  relationshipOrder: string[];
 };

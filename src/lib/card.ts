@@ -1,4 +1,4 @@
-import { CardDraft, CardListStatus, Cardlike } from '../types';
+import { CardCombo, CardDraft, CardListStatus, Cardlike } from '../types';
 import { Interset } from '../util/interset';
 
 export class CardImpl implements Cardlike {
@@ -14,10 +14,7 @@ export class CardImpl implements Cardlike {
   readonly notes: string[];
   readonly pending: boolean;
   readonly rejected: boolean;
-  readonly combos: {
-    edgeType: string;
-    match: (other: Cardlike) => boolean;
-  }[];
+  readonly combos: CardCombo[];
 
   constructor(draft: CardDraft) {
     this.name = draft.name;
