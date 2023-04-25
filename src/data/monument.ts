@@ -323,7 +323,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
-    name: `Simic Growth Chamber`,
+    name: `Izzet Boilerworks`,
     nick: `Bouncelands`,
     tags: [MonTag.CloneableLand, MonTag.CaresAboutGettingUntapped],
   },
@@ -355,12 +355,26 @@ const NonLands: CardDraft[] = [
     category: MonCat.Draw,
   },
   {
+    name: `The Akroan War`,
+    types: [CardType.Enchantment],
+    subtypes: ['Saga'],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Battle of Frost and Fire`,
+    types: [CardType.Enchantment],
+    subtypes: ['Saga'],
+    category: MonCat.Draw,
+  },
+  {
+    status: CardListStatus.Rejected,
     name: `Myojin of Life's Web`,
     types: [CardType.Creature],
     tags: [MonTag.HasLimitedUseCounters],
     category: MonCat.Threat,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Myojin of Seeing Winds`,
     types: [CardType.Creature],
     tags: [MonTag.HasLimitedUseCounters],
@@ -380,6 +394,13 @@ const NonLands: CardDraft[] = [
   },
   {
     name: `Myojin of Roaring Blades`,
+    types: [CardType.Creature],
+    tags: [MonTag.HasAbilityCounters],
+    category: MonCat.Threat,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Solphim, Mayhem Dominus`,
     types: [CardType.Creature],
     tags: [MonTag.HasAbilityCounters],
     category: MonCat.Threat,
