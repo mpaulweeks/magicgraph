@@ -10,12 +10,33 @@
   flex: 1;
   min-width: 500px;
   border: 1px solid black;
+
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.CardView main {
+  flex: 1;
+}
+.CardView main .CardViewEdges {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+.CardView aside {
+  font-size: 0;
+}
+.CardView aside auto-card-image img {
+  height: 300px;
+  width: auto;
 }
 
 .CardHeader {
   padding: 1em;
 }
-
 .CardHeader a {
   color: black;
 }
@@ -27,5 +48,10 @@
 
   .CardView {
     min-width: 300px;
+  }
+
+  .CardView aside auto-card-image img {
+    height: 150px;
+    width: auto;
   }
 }

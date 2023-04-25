@@ -5,6 +5,7 @@ import { AutoCard } from "./AutoCard";
 import { CardLink } from "./CardLink";
 import styles from './App.module.css';
 import { Deck } from "../lib/deck";
+import { AutoCardImage } from "./AutoCardImage";
 
 interface DisplayBin {
   relationship: string;
@@ -16,7 +17,6 @@ const EdgeBinView = (props: {
 }) => (
   <div style={{
     minWidth: '10em',
-    marginRight: '2em',
   }}>
     <div><b>
       {props.bin.relationship}
@@ -61,43 +61,46 @@ export const CardView = (props: {
 
   return (
     <div id={card.id} className={styles.CardView}>
-      <header className={styles.CardHeader} style={{
-        backgroundColor: bgColor,
-      }}>
-        <div style={{
-          fontSize: '1.6em',
-          textDecoration: (
-            (card.pending && 'line-through') ||
-            (card.rejected && 'line-through wavy') ||
-            undefined
-          ),
+      <main>
+        <header className={styles.CardHeader} style={{
+          backgroundColor: bgColor,
         }}>
-          <AutoCard card={card}/>
-        </div>
-        <div>
-          {card.category}
-        </div>
-      </header>
+          <div style={{
+            fontSize: '1.6em',
+            textDecoration: (
+              (card.pending && 'line-through') ||
+              (card.rejected && 'line-through wavy') ||
+              undefined
+            ),
+          }}>
+            <AutoCard card={card}/>
+          </div>
+          <div>
+            {card.category}
+          </div>
+        </header>
 
-      <section style={{
-        padding: '1em',
-      }}>
-        <div>
-          {card.notes.map((note, ni) => (
-            <div key={ni}>
-              {note}
-            </div>
-          ))}
-        </div>
-
-        <div style={{
-          display: 'flex',
+        <section style={{
+          padding: '1em',
         }}>
-          {edgeBins.map((bin, bi) => (
-            <EdgeBinView key={bi} parent={card} bin={bin} />
-          ))}
-        </div>
-      </section>
+          <div>
+            {card.notes.map((note, ni) => (
+              <div key={ni}>
+                {note}
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.CardViewEdges}>
+            {edgeBins.map((bin, bi) => (
+              <EdgeBinView key={bi} parent={card} bin={bin} />
+            ))}
+          </div>
+        </section>
+      </main>
+      <aside>
+        <AutoCardImage card={card} />
+      </aside>
     </div>
   )
 }
