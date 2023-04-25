@@ -619,6 +619,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Ramp,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Kiora's Follower`,
     types: [CardType.Creature],
     tags: [MonTag.UntapsLand],
