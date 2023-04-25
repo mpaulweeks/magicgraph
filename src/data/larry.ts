@@ -144,8 +144,8 @@ const LarryDraft: CardDraft[] = [
     ],
     combos: [
       {
-        edgeType: LarryEdge.TwoCardCombo,
-        match: c => c.tags.has(LarryTag.RemovesCounters),
+        relationship: LarryEdge.TwoCardCombo,
+        isMatch: c => c.tags.has(LarryTag.RemovesCounters),
       },
     ],
   },
@@ -357,8 +357,8 @@ const LarryDraft: CardDraft[] = [
     ],
     combos: [
       {
-        edgeType: LarryEdge.LoopsETBWith,
-        match: c =>
+        relationship: LarryEdge.LoopsETBWith,
+        isMatch: c =>
           c.tags.has(LarryTag.RemovesCounters) ||
           c.tags.has(LarryTag.GivesFalseDeath),
       },
@@ -409,8 +409,8 @@ const LarryDraft: CardDraft[] = [
     category: LarryCategory.Other,
     combos: [
       {
-        edgeType: LarryEdge.TwoCardCombo,
-        match: c => c.tags.has(LarryTag.DestroysArtifactEnchantment),
+        relationship: LarryEdge.TwoCardCombo,
+        isMatch: c => c.tags.has(LarryTag.DestroysArtifactEnchantment),
       },
     ],
   },
@@ -422,8 +422,8 @@ const LarryDraft: CardDraft[] = [
     category: LarryCategory.Other,
     combos: [
       {
-        edgeType: LarryEdge.TwoCardCombo,
-        match: c => c.tags.has(LarryTag.DestroysArtifactEnchantment),
+        relationship: LarryEdge.TwoCardCombo,
+        isMatch: c => c.tags.has(LarryTag.DestroysArtifactEnchantment),
       },
     ],
   },

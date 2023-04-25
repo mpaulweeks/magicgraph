@@ -12,9 +12,9 @@ export class Graph {
           return;
         }
         a.combos.forEach(combo => {
-          if (combo.match(b)) {
+          if (combo.isMatch(b)) {
             edges.push({
-              relationship: combo.edgeType,
+              relationship: combo.relationship,
               related: [a, b],
             });
           }

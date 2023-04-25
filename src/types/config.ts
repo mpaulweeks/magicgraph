@@ -18,8 +18,8 @@ export interface Cardlike {
 }
 
 export interface CardCombo {
-  edgeType: string;
-  match: (other: Cardlike) => boolean;
+  relationship: string;
+  isMatch: (other: Cardlike) => boolean;
 }
 
 export interface Matcher {

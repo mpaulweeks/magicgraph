@@ -129,8 +129,8 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.TargetsCreatures],
     combos: [
       {
-        edgeType: MonumentEdge.ManipulatesCounters,
-        match: other =>
+        relationship: MonumentEdge.ManipulatesCounters,
+        isMatch: other =>
           other.tags.has(MonTag.HasAbilityCounters) ||
           other.tags.has(MonTag.HasCumulativeUpkeep) ||
           other.subtypes.has('Saga'),
@@ -141,8 +141,8 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     name: `Karn's Bastion`,
     combos: [
       {
-        edgeType: MonumentEdge.ManipulatesCounters,
-        match: other =>
+        relationship: MonumentEdge.ManipulatesCounters,
+        isMatch: other =>
           other.tags.has(MonTag.HasAbilityCounters) ||
           other.tags.has(MonTag.HasLimitedUseCounters) ||
           other.subtypes.has('Saga'),
@@ -154,8 +154,8 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     name: `Homeward Path`,
     combos: [
       {
-        edgeType: MonumentEdge.Retrieves,
-        match: other =>
+        relationship: MonumentEdge.Retrieves,
+        isMatch: other =>
           other.types.has(CardType.Creature) &&
           other.tags.has(MonTag.DonatesSelf),
       },
@@ -166,8 +166,8 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     name: `Desolate Lighthouse`,
     combos: [
       {
-        edgeType: MonumentEdge.Bins,
-        match: other => other.tags.has(MonTag.Flashback),
+        relationship: MonumentEdge.Bins,
+        isMatch: other => other.tags.has(MonTag.Flashback),
       },
     ],
   },
@@ -176,8 +176,8 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.GrantsLandTypes],
     combos: [
       {
-        edgeType: MonumentEdge.LandTypeMatters,
-        match: other => other.tags.has(MonTag.CaresAboutForests),
+        relationship: MonumentEdge.LandTypeMatters,
+        isMatch: other => other.tags.has(MonTag.CaresAboutForests),
       },
     ],
   },
@@ -186,8 +186,8 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.GrantsLandTypes],
     combos: [
       {
-        edgeType: MonumentEdge.LandTypeMatters,
-        match: other => other.tags.has(MonTag.CaresAboutSwamps),
+        relationship: MonumentEdge.LandTypeMatters,
+        isMatch: other => other.tags.has(MonTag.CaresAboutSwamps),
       },
     ],
   },
@@ -208,8 +208,8 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
     combos: [
       {
-        edgeType: MonumentEdge.CombosWith,
-        match: other => other.tags.has(MonTag.DealsDamageToPlayers),
+        relationship: MonumentEdge.CombosWith,
+        isMatch: other => other.tags.has(MonTag.DealsDamageToPlayers),
       },
     ],
   },
@@ -282,8 +282,8 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     name: `Drownyard Temple`,
     combos: [
       {
-        edgeType: MonumentEdge.Fuels,
-        match: other => other.tags.has(MonTag.SacrificesLands),
+        relationship: MonumentEdge.Fuels,
+        isMatch: other => other.tags.has(MonTag.SacrificesLands),
       },
     ],
   },
@@ -291,8 +291,8 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     name: `Thespian's Stage`,
     combos: [
       {
-        edgeType: MonumentEdge.Clones,
-        match: b => b.tags.has(MonTag.CloneableLand),
+        relationship: MonumentEdge.Clones,
+        isMatch: b => b.tags.has(MonTag.CloneableLand),
       },
     ],
   },
