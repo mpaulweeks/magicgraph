@@ -361,6 +361,13 @@ const NonLands: CardDraft[] = [
     category: MonCat.Interaction,
   },
   {
+    name: `The Phasing of Zhalfir`,
+    types: [CardType.Enchantment],
+    subtypes: ['Saga'],
+    category: MonCat.Interaction,
+  },
+  {
+    status: CardListStatus.Rejected,
     name: `Battle of Frost and Fire`,
     types: [CardType.Enchantment],
     subtypes: ['Saga'],
