@@ -256,7 +256,6 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.TargetsCreatures],
   },
   {
-    status: CardListStatus.Pending,
     name: `Swarmyard`,
     tags: [MonTag.TargetsTribal],
   },
@@ -314,7 +313,6 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.LandWithProtection],
   },
   {
-    status: CardListStatus.Pending,
     name: `Lotus Field`,
     tags: [
       MonTag.LandWithProtection,
@@ -323,6 +321,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
+    status: CardListStatus.Rejected,
     name: `Izzet Boilerworks`,
     nick: `Bouncelands`,
     tags: [MonTag.CloneableLand, MonTag.CaresAboutGettingUntapped],
