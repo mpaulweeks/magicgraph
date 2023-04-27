@@ -43,6 +43,7 @@ enum MonTag {
   Flashback = 'Flashback',
 
   DonatesSelf = 'Donates Self',
+  ExchangesForCreature = 'Exchanges For Creature',
 
   CloneableLand = 'Cloneable Land',
 
@@ -150,14 +151,14 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
-    status: CardListStatus.Rejected,
     name: `Homeward Path`,
     combos: [
       {
         relationship: MonumentEdge.Retrieves,
         isMatch: other =>
-          other.types.has(CardType.Creature) &&
-          other.tags.has(MonTag.DonatesSelf),
+          other.tags.has(MonTag.ExchangesForCreature) ||
+          (other.types.has(CardType.Creature) &&
+            other.tags.has(MonTag.DonatesSelf)),
       },
     ],
   },
@@ -437,18 +438,30 @@ const NonLands: CardDraft[] = [
     category: MonCat.Interaction,
   },
   {
-    status: CardListStatus.Rejected,
+    status: CardListStatus.Pending,
     name: `Humble Defector`,
     types: [CardType.Creature],
     tags: [MonTag.DonatesSelf],
     category: MonCat.Draw,
   },
   {
-    status: CardListStatus.Rejected,
+    status: CardListStatus.Pending,
     name: `Khârn the Betrayer`,
     types: [CardType.Creature],
     tags: [MonTag.DonatesSelf],
     category: MonCat.Draw,
+  },
+  {
+    name: `Perplexing Chimera`,
+    types: [CardType.Creature, CardType.Enchantment],
+    tags: [MonTag.DonatesSelf],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Puca's Mischief`,
+    types: [CardType.Enchantment],
+    tags: [MonTag.ExchangesForCreature],
+    category: MonCat.Interaction,
   },
   {
     status: CardListStatus.Rejected,
