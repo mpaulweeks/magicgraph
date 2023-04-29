@@ -310,7 +310,9 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.LandWithProtection],
   },
   {
+    status: CardListStatus.Rejected,
     name: `Silverbluff Bridge`,
+    nick: 'Bridge Lands',
     tags: [MonTag.LandWithProtection],
   },
   {
@@ -419,6 +421,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Buff,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Slippery Bogbonder`,
     types: [CardType.Creature],
     tags: [MonTag.HasAbilityCounters],
@@ -579,6 +582,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Draw,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Dreamscape Artist`,
     types: [CardType.Creature],
     tags: [MonTag.SacrificesLands, MonTag.CaresAboutGettingUntapped],
@@ -608,18 +612,21 @@ const NonLands: CardDraft[] = [
     category: MonCat.Draw,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Awakening of Vitu-Ghazi`,
     types: [CardType.Instant],
     tags: [MonTag.AnimatesLand],
     category: MonCat.Threat,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Spawning Grounds`,
     types: [CardType.Enchantment],
     tags: [MonTag.AnimatesLand, MonTag.CaresAboutGettingUntapped],
     category: MonCat.Threat,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Druid Class`,
     types: [CardType.Enchantment],
     tags: [MonTag.AnimatesLand],
@@ -632,6 +639,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Ramp,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Fatestitcher`,
     types: [CardType.Creature],
     tags: [MonTag.UntapsLand],
@@ -645,7 +653,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Ramp,
   },
   {
-    status: CardListStatus.Pending,
+    status: CardListStatus.Rejected,
     name: `Clever Conjurer`,
     types: [CardType.Creature],
     tags: [MonTag.UntapsLand],
