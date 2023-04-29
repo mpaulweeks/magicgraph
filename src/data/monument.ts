@@ -45,6 +45,7 @@ enum MonTag {
   DonatesSelf = 'Donates Self',
   ExchangesForCreature = 'Exchanges For Creature',
 
+  ClonesLands = 'Clones Lands',
   CloneableLand = 'Cloneable Land',
 
   DealsDamageToPlayers = 'Damages Players',
@@ -261,6 +262,14 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.TargetsTribal],
   },
   {
+    name: `Riptide Laboratory`,
+    tags: [MonTag.TargetsTribal],
+    combos: [{
+      relationship: MonumentEdge.TribalSynergy,
+      isMatch: b => b.subtypes.has('Wizard'),
+    }],
+  },
+  {
     status: CardListStatus.Pending,
     name: `Okina, Temple to the Grandfathers`,
     tags: [MonTag.TargetsCreatures],
@@ -289,24 +298,11 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   },
   {
     name: `Thespian's Stage`,
-    combos: [
-      {
-        relationship: MonumentEdge.Clones,
-        isMatch: b => b.tags.has(MonTag.CloneableLand),
-      },
-    ],
+    tags: [MonTag.ClonesLands],
   },
   {
     status: CardListStatus.Rejected,
     name: `Cascading Cataracts`,
-    tags: [MonTag.LandWithProtection],
-  },
-  {
-    name: `Tanglepool Bridge`,
-    tags: [MonTag.LandWithProtection],
-  },
-  {
-    name: `Slagwoods Bridge`,
     tags: [MonTag.LandWithProtection],
   },
   {
@@ -500,6 +496,12 @@ const NonLands: CardDraft[] = [
     category: MonCat.Buff,
   },
   {
+    name: `Dualcaster Mage`,
+    types: [CardType.Creature],
+    subtypes: ['Wizard'],
+    category: MonCat.Draw,
+  },
+  {
     name: `Shapesharer`,
     types: [CardType.Creature],
     subtypes: ['Changeling'],
@@ -510,6 +512,19 @@ const NonLands: CardDraft[] = [
     types: [CardType.Creature],
     subtypes: ['Changeling'],
     category: MonCat.Threat,
+  },
+  {
+    name: `Moritte of the Frost`,
+    types: [CardType.Creature],
+    subtypes: ['Changeling'],
+    tags:  [MonTag.ClonesLands],
+    category: MonCat.Threat,
+  },
+  {
+    name: `Maskwood Nexus`,
+    types: [CardType.Artifact],
+    subtypes: ['Changeling'],
+    category: MonCat.NonLand,
   },
   {
     status: CardListStatus.Rejected,
@@ -639,6 +654,18 @@ const NonLands: CardDraft[] = [
     category: MonCat.Ramp,
   },
   {
+    name: `Stone-Seeder Hierophant`,
+    types: [CardType.Creature],
+    tags: [MonTag.UntapsLand],
+    category: MonCat.Ramp,
+  },
+  {
+    name: `Wilderness Reclamation`,
+    types: [CardType.Enchantment],
+    tags: [MonTag.UntapsLand],
+    category: MonCat.Ramp,
+  },
+  {
     status: CardListStatus.Rejected,
     name: `Fatestitcher`,
     types: [CardType.Creature],
@@ -706,6 +733,10 @@ const MonMatchers: Matcher[] = [
     isMatch: (a, b) =>
       a.tags.has(MonTag.UntapsLand) &&
       b.tags.has(MonTag.CaresAboutGettingUntapped),
+  },
+  {
+    relationship: MonumentEdge.Clones,
+    isMatch: (a, b) => a.tags.has(MonTag.ClonesLands) && b.tags.has(MonTag.CloneableLand),
   },
 ];
 
