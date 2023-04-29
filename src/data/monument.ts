@@ -264,10 +264,12 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   {
     name: `Riptide Laboratory`,
     tags: [MonTag.TargetsTribal],
-    combos: [{
-      relationship: MonumentEdge.TribalSynergy,
-      isMatch: b => b.subtypes.has('Wizard'),
-    }],
+    combos: [
+      {
+        relationship: MonumentEdge.TribalSynergy,
+        isMatch: b => b.subtypes.has('Wizard'),
+      },
+    ],
   },
   {
     status: CardListStatus.Pending,
@@ -517,7 +519,7 @@ const NonLands: CardDraft[] = [
     name: `Moritte of the Frost`,
     types: [CardType.Creature],
     subtypes: ['Changeling'],
-    tags:  [MonTag.ClonesLands],
+    tags: [MonTag.ClonesLands],
     category: MonCat.Threat,
   },
   {
@@ -736,7 +738,8 @@ const MonMatchers: Matcher[] = [
   },
   {
     relationship: MonumentEdge.Clones,
-    isMatch: (a, b) => a.tags.has(MonTag.ClonesLands) && b.tags.has(MonTag.CloneableLand),
+    isMatch: (a, b) =>
+      a.tags.has(MonTag.ClonesLands) && b.tags.has(MonTag.CloneableLand),
   },
 ];
 
