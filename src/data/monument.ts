@@ -355,6 +355,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Draw,
   },
   {
+    status: CardListStatus.Rejected,
     name: `The Akroan War`,
     types: [CardType.Enchantment],
     subtypes: ['Saga'],
@@ -372,6 +373,12 @@ const NonLands: CardDraft[] = [
     types: [CardType.Enchantment],
     subtypes: ['Saga'],
     category: MonCat.Draw,
+  },
+  {
+    name: `Spike Weaver`,
+    types: [CardType.Creature],
+    tags: [MonTag.HasLimitedUseCounters],
+    category: MonCat.Lifegain,
   },
   {
     status: CardListStatus.Rejected,
