@@ -433,6 +433,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Buff,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Transmogrifying Wand`,
     types: [CardType.Artifact],
     tags: [MonTag.HasLimitedUseCounters],
