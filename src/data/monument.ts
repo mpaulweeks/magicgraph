@@ -465,6 +465,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Interaction,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Puca's Mischief`,
     types: [CardType.Enchantment],
     tags: [MonTag.ExchangesForCreature],
@@ -513,6 +514,18 @@ const NonLands: CardDraft[] = [
   },
   {
     name: `Cyclone Summoner`,
+    types: [CardType.Creature],
+    subtypes: ['Wizard'],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Radiant Performer`,
+    types: [CardType.Creature],
+    subtypes: ['Wizard'],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Sower of Temptation`,
     types: [CardType.Creature],
     subtypes: ['Wizard'],
     category: MonCat.Interaction,
