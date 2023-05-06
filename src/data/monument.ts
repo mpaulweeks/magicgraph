@@ -244,12 +244,10 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.TargetsCreatures],
   },
   {
-    status: CardListStatus.Pending,
     name: `Hammerheim`,
     tags: [MonTag.TargetsCreatures],
   },
   {
-    status: CardListStatus.Pending,
     name: `Tolaria`,
     tags: [MonTag.TargetsCreatures],
   },
@@ -448,14 +446,12 @@ const NonLands: CardDraft[] = [
     category: MonCat.Interaction,
   },
   {
-    status: CardListStatus.Pending,
     name: `Humble Defector`,
     types: [CardType.Creature],
     tags: [MonTag.DonatesSelf],
     category: MonCat.Draw,
   },
   {
-    status: CardListStatus.Pending,
     name: `Khârn the Betrayer`,
     types: [CardType.Creature],
     tags: [MonTag.DonatesSelf],
@@ -513,6 +509,12 @@ const NonLands: CardDraft[] = [
     types: [CardType.Creature],
     subtypes: ['Wizard'],
     category: MonCat.Draw,
+  },
+  {
+    name: `Cyclone Summoner`,
+    types: [CardType.Creature],
+    subtypes: ['Wizard'],
+    category: MonCat.Interaction,
   },
   {
     name: `Shapesharer`,
@@ -585,7 +587,6 @@ const NonLands: CardDraft[] = [
     category: MonCat.Interaction,
   },
   {
-    status: CardListStatus.Pending,
     name: `Cowardice`,
     types: [CardType.Enchantment],
     tags: [MonTag.CaresAboutTargeting],
@@ -618,7 +619,6 @@ const NonLands: CardDraft[] = [
     category: MonCat.Ramp,
   },
   {
-    status: CardListStatus.Pending,
     name: `World Breaker`,
     types: [CardType.Creature],
     tags: [MonTag.SacrificesLands],
