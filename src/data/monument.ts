@@ -184,6 +184,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
+    status: CardListStatus.Rejected,
     name: `Urborg, Tomb of Yawgmoth`,
     tags: [MonTag.GrantsLandTypes],
     combos: [
@@ -420,6 +421,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Threat,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Scavenged Brawler`,
     types: [CardType.Creature, CardType.Artifact],
     tags: [MonTag.HasAbilityCounters, MonTag.Flashback],
@@ -485,6 +487,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Lifegain,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Roots of Life`,
     types: [CardType.Enchantment],
     tags: [MonTag.CaresAboutSwamps],
@@ -505,6 +508,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Buff,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Dualcaster Mage`,
     types: [CardType.Creature],
     subtypes: ['Wizard'],
@@ -555,6 +559,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Threat,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Ranging Raptors`,
     types: [CardType.Creature],
     tags: [MonTag.Enrage],
