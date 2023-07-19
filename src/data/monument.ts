@@ -164,33 +164,12 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
-    status: CardListStatus.Rejected,
-    name: `Desolate Lighthouse`,
-    combos: [
-      {
-        relationship: MonumentEdge.Bins,
-        isMatch: other => other.tags.has(MonTag.Flashback),
-      },
-    ],
-  },
-  {
     name: `Yavimaya, Cradle of Growth`,
     tags: [MonTag.GrantsLandTypes],
     combos: [
       {
         relationship: MonumentEdge.LandTypeMatters,
         isMatch: other => other.tags.has(MonTag.CaresAboutForests),
-      },
-    ],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Urborg, Tomb of Yawgmoth`,
-    tags: [MonTag.GrantsLandTypes],
-    combos: [
-      {
-        relationship: MonumentEdge.LandTypeMatters,
-        isMatch: other => other.tags.has(MonTag.CaresAboutSwamps),
       },
     ],
   },
@@ -217,46 +196,11 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
-    status: CardListStatus.Rejected,
-    name: `Desert`,
-    tags: [
-      MonTag.DealsDamageToCreatures,
-      MonTag.TargetsCreatures,
-      MonTag.CaresAboutGettingUntapped,
-    ],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Sorrow's Path`,
-    tags: [
-      MonTag.DealsDamageToCreatures,
-      MonTag.CannotTapForMana,
-      MonTag.CaresAboutGettingLandTapped,
-      MonTag.CaresAboutGettingUntapped,
-    ],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Hanweir Battlements // Hanweir, the Writhing Township`,
-    nick: `Hanweir Battlements`,
-    tags: [MonTag.TargetsCreatures],
-  },
-  {
     name: `Flamekin Village`,
     tags: [MonTag.TargetsCreatures],
   },
   {
     name: `Hammerheim`,
-    tags: [MonTag.TargetsCreatures],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Tolaria`,
-    tags: [MonTag.TargetsCreatures],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Yavimaya Hollow`,
     tags: [MonTag.TargetsCreatures],
   },
   {
@@ -272,21 +216,6 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
         isMatch: b => b.subtypes.has('Wizard'),
       },
     ],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Okina, Temple to the Grandfathers`,
-    tags: [MonTag.TargetsCreatures],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Minamo, School at Water's Edge`,
-    tags: [MonTag.TargetsCreatures],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Shinka, the Bloodsoaked Keep`,
-    tags: [MonTag.TargetsCreatures],
   },
   {
     name: `Kessig Wolf Run`,
@@ -306,17 +235,6 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.ClonesLands],
   },
   {
-    status: CardListStatus.Rejected,
-    name: `Cascading Cataracts`,
-    tags: [MonTag.LandWithProtection],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Silverbluff Bridge`,
-    nick: 'Bridge Lands',
-    tags: [MonTag.LandWithProtection],
-  },
-  {
     name: `Lotus Field`,
     tags: [
       MonTag.LandWithProtection,
@@ -325,23 +243,12 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
-    status: CardListStatus.Rejected,
-    name: `Izzet Boilerworks`,
-    nick: `Bouncelands`,
-    tags: [MonTag.CloneableLand, MonTag.CaresAboutGettingUntapped],
-  },
-  {
     name: `Maze of Ith`,
     tags: [MonTag.CannotTapForMana, MonTag.TargetsCreatures],
   },
   {
     name: `Thawing Glaciers`,
     tags: [MonTag.CannotTapForMana, MonTag.CaresAboutGettingUntapped],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Rishadan Port`,
-    tags: [MonTag.TapsTargetLand],
   },
 ];
 const NonLands: CardDraft[] = [
@@ -489,6 +396,103 @@ const NonLands: CardDraft[] = [
     types: [CardType.Creature],
     tags: [MonTag.UntapsLand],
     category: MonCat.Ramp,
+  },
+];
+
+// rejected
+const LandsRejected: Omit<CardDraft, 'types' | 'category'>[] = [
+  {
+    status: CardListStatus.Rejected,
+    name: `Desolate Lighthouse`,
+    combos: [
+      {
+        relationship: MonumentEdge.Bins,
+        isMatch: other => other.tags.has(MonTag.Flashback),
+      },
+    ],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Urborg, Tomb of Yawgmoth`,
+    tags: [MonTag.GrantsLandTypes],
+    combos: [
+      {
+        relationship: MonumentEdge.LandTypeMatters,
+        isMatch: other => other.tags.has(MonTag.CaresAboutSwamps),
+      },
+    ],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Desert`,
+    tags: [
+      MonTag.DealsDamageToCreatures,
+      MonTag.TargetsCreatures,
+      MonTag.CaresAboutGettingUntapped,
+    ],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Sorrow's Path`,
+    tags: [
+      MonTag.DealsDamageToCreatures,
+      MonTag.CannotTapForMana,
+      MonTag.CaresAboutGettingLandTapped,
+      MonTag.CaresAboutGettingUntapped,
+    ],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Hanweir Battlements // Hanweir, the Writhing Township`,
+    nick: `Hanweir Battlements`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Tolaria`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Yavimaya Hollow`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Okina, Temple to the Grandfathers`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Minamo, School at Water's Edge`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Shinka, the Bloodsoaked Keep`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Cascading Cataracts`,
+    tags: [MonTag.LandWithProtection],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Silverbluff Bridge`,
+    nick: 'Bridge Lands',
+    tags: [MonTag.LandWithProtection],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Izzet Boilerworks`,
+    nick: `Bouncelands`,
+    tags: [MonTag.CloneableLand, MonTag.CaresAboutGettingUntapped],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Rishadan Port`,
+    tags: [MonTag.TapsTargetLand],
   },
 ];
 const NonLandRejected: CardDraft[] = [
@@ -784,7 +788,7 @@ export const MonumentData: DeckData = {
   name: 'Monument.dec',
   url: 'https://tappedout.net/mtg-decks/monument-to-hubris/',
   cardDrafts: [
-    ...Lands.map(c => ({
+    ...[...Lands, ...LandsRejected].map(c => ({
       ...c,
       types: [CardType.Land],
       category: MonCat.Land,
