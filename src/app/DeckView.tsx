@@ -114,7 +114,7 @@ export const DeckView = (props: {
       <section style={{ display: 'flex', gap: '1em' }}>
         {(includePending || includeRejected) && (
           <div>
-            <h3>Played Cards</h3>
+            <h3>{toRender.filter(card => !card.pending && !card.rejected).length} Played Cards</h3>
             {toRender.filter(card => !card.pending && !card.rejected).map(card => (
               <div>
                 <AutoCard key={card.id} card={card} />
@@ -124,7 +124,7 @@ export const DeckView = (props: {
         )}
         {includePending && (
           <div>
-            <h3>Pending Cards</h3>
+            <h3>{toRender.filter(card => card.pending).length} Pending Cards</h3>
             {toRender.filter(card => card.pending).map(card => (
               <div>
                 <AutoCard key={card.id} card={card} />
@@ -134,7 +134,7 @@ export const DeckView = (props: {
         )}
         {includeRejected && (
           <div>
-            <h3>Rejected Cards</h3>
+            <h3>{toRender.filter(card => card.rejected).length} Rejected Cards</h3>
             {toRender.filter(card => card.rejected).map(card => (
               <div>
                 <AutoCard key={card.id} card={card} />
