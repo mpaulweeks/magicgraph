@@ -9,11 +9,22 @@ export class Deck {
   readonly edges: CardEdge[];
 
   constructor(readonly data: DeckData) {
+    Deck.validate(data);
     this.name = data.name;
     this.cards = sortBy(
       data.cardDrafts.map(d => new CardImpl(d)),
       c => c.name,
     );
     this.edges = new Graph().getEdges(this.cards, data.matchers);
+  }
+
+  private static validate(data: DeckData) {
+    const unique = new Set<string>();
+    data.cardDrafts.forEach(d => {
+      if (unique.has(d.name)) {
+        throw new Error('duplicate card! ' + d.name);
+      }
+      unique.add(d.name);
+    });
   }
 }
