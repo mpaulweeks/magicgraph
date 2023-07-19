@@ -217,6 +217,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
+    status: CardListStatus.Rejected,
     name: `Desert`,
     tags: [
       MonTag.DealsDamageToCreatures,
@@ -225,6 +226,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
+    status: CardListStatus.Rejected,
     name: `Sorrow's Path`,
     tags: [
       MonTag.DealsDamageToCreatures,
@@ -248,6 +250,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.TargetsCreatures],
   },
   {
+    status: CardListStatus.Rejected,
     name: `Tolaria`,
     tags: [MonTag.TargetsCreatures],
   },
@@ -271,7 +274,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
-    status: CardListStatus.Pending,
+    status: CardListStatus.Rejected,
     name: `Okina, Temple to the Grandfathers`,
     tags: [MonTag.TargetsCreatures],
   },
@@ -281,6 +284,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.TargetsCreatures],
   },
   {
+    status: CardListStatus.Rejected,
     name: `Shinka, the Bloodsoaked Keep`,
     tags: [MonTag.TargetsCreatures],
   },
@@ -374,6 +378,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Draw,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Spike Weaver`,
     types: [CardType.Creature],
     tags: [MonTag.HasLimitedUseCounters],
@@ -412,7 +417,6 @@ const NonLands: CardDraft[] = [
     category: MonCat.Threat,
   },
   {
-    status: CardListStatus.Pending,
     name: `Solphim, Mayhem Dominus`,
     types: [CardType.Creature],
     tags: [MonTag.HasAbilityCounters],
@@ -519,6 +523,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Interaction,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Radiant Performer`,
     types: [CardType.Creature],
     subtypes: ['Wizard'],
@@ -563,12 +568,14 @@ const NonLands: CardDraft[] = [
     category: MonCat.Threat,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Apex Altisaur`,
     types: [CardType.Creature],
     tags: [MonTag.Enrage],
     category: MonCat.Interaction,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Polyraptor`,
     types: [CardType.Creature],
     tags: [MonTag.Enrage],
@@ -682,12 +689,14 @@ const NonLands: CardDraft[] = [
     category: MonCat.Ramp,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Stone-Seeder Hierophant`,
     types: [CardType.Creature],
     tags: [MonTag.UntapsLand],
     category: MonCat.Ramp,
   },
   {
+    status: CardListStatus.Rejected,
     name: `Wilderness Reclamation`,
     types: [CardType.Enchantment],
     tags: [MonTag.UntapsLand],
@@ -715,7 +724,7 @@ const NonLands: CardDraft[] = [
     category: MonCat.Ramp,
   },
   {
-    status: CardListStatus.Pending,
+    status: CardListStatus.Rejected,
     name: `Nimbleclaw Adept`,
     types: [CardType.Creature],
     tags: [MonTag.UntapsLand],
