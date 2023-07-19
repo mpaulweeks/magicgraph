@@ -6,6 +6,12 @@ import {
   Matcher,
 } from '../types';
 
+// todo
+// forbidden orchard
+// ward of bones
+// sundial of the infinite
+// seedborn muse
+
 enum MonCat {
   Land = 'Tutorable Land',
   NonLand = 'Non Land',
@@ -64,6 +70,8 @@ enum MonTag {
 
   UntapsLand = 'Untaps Land',
   CaresAboutGettingUntapped = 'Cares About Getting Untapped',
+
+  VulnerableAttacker = 'Vulnerable Attacker',
 }
 
 enum MonumentEdge {
@@ -91,6 +99,7 @@ enum MonumentEdge {
 
   Protects = 'Protects',
   ProtectedBy = 'Protection',
+  RemovesAttacker = 'Removes Attacker',
 
   Clones = 'Clones',
   ClonedBy = 'Cloned By',
@@ -116,6 +125,7 @@ const MonumentInverseEdge = {
   [MonumentEdge.Fuels]: MonumentEdge.FueledBy,
   [MonumentEdge.Untaps]: MonumentEdge.UntappedBy,
   [MonumentEdge.Protects]: MonumentEdge.ProtectedBy,
+  [MonumentEdge.RemovesAttacker]: MonumentEdge.ProtectedBy,
   [MonumentEdge.Clones]: MonumentEdge.ClonedBy,
   [MonumentEdge.Bins]: MonumentEdge.BinnedBy,
   [MonumentEdge.Retrieves]: MonumentEdge.RetrievedBy,
@@ -205,7 +215,12 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   },
   {
     name: `Swarmyard`,
-    tags: [MonTag.TargetsTribal],
+    combos: [
+      {
+        relationship: MonumentEdge.Protects,
+        isMatch: other => other.subtypes.has('Changeling', 'Insect', 'Rat', 'Spider', 'Squirrel'),
+      },
+    ],
   },
   {
     name: `Riptide Laboratory`,
@@ -245,6 +260,12 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   {
     name: `Maze of Ith`,
     tags: [MonTag.CannotTapForMana, MonTag.TargetsCreatures],
+    combos: [
+      {
+        relationship: MonumentEdge.RemovesAttacker,
+        isMatch: other => other.tags.has(MonTag.VulnerableAttacker),
+      },
+    ],
   },
   {
     name: `Thawing Glaciers`,
@@ -395,6 +416,31 @@ const NonLands: CardDraft[] = [
     name: `Vizier of Tumbling Sands`,
     types: [CardType.Creature],
     tags: [MonTag.UntapsLand],
+    category: MonCat.Ramp,
+  },
+  {
+    name: `Dragonlair Spider`,
+    types: [CardType.Creature],
+    subtypes: ['Spider'],
+    category: MonCat.Threat,
+  },
+  {
+    name: `Nacatl War-Pride`,
+    types: [CardType.Creature],
+    tags: [MonTag.VulnerableAttacker],
+    category: MonCat.Threat,
+  },
+  {
+    name: `Primeval Herald`,
+    types: [CardType.Creature],
+    tags: [MonTag.VulnerableAttacker],
+    category: MonCat.Ramp,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Sword of the Animist`,
+    types: [CardType.Equipment],
+    tags: [MonTag.VulnerableAttacker],
     category: MonCat.Ramp,
   },
 ];
