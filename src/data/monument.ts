@@ -47,8 +47,15 @@ enum MonTag {
   DonatesSelf = 'Donates Self',
   ExchangesForCreature = 'Exchanges For Creature',
 
-  ClonesLands = 'Clones Lands',
-  CloneableLand = 'Cloneable Land',
+  CopiesCreatures = 'CopiesCreatures',
+  CopiesArtifacts = 'CopiesArtifacts',
+  CopiesLands = 'CopiesLands',
+  CopiesWithCast = 'CopiesWithCast',
+  CopiesWithETB = 'CopiesWithETB',
+  CopiesWithMirror = 'CopiesWithMirror',
+  LikesBeingCopiedWithCast = 'LikesBeingCopiedWithCast',
+  LikesBeingCopiedWithETB = 'LikesBeingCopiedWithETB',
+  LikesBeingCopiedWithMirror = 'LikesBeingCopiedWithMirror',
 
   DealsDamageToPlayers = 'Damages Players',
   DealsDamageToCreatures = 'Damages Creatures',
@@ -204,7 +211,9 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [
       MonTag.HasAgeCounters,
       MonTag.CannotTapForMana,
-      MonTag.CloneableLand,
+      MonTag.LikesBeingCopiedWithCast,
+      MonTag.LikesBeingCopiedWithETB,
+      MonTag.LikesBeingCopiedWithMirror,
     ],
     combos: [
       {
@@ -259,13 +268,16 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   },
   {
     name: `Thespian's Stage`,
-    tags: [MonTag.ClonesLands],
+    tags: [
+      MonTag.CopiesLands,
+      MonTag.CopiesWithMirror,
+    ],
   },
   {
     name: `Lotus Field`,
     tags: [
       MonTag.CaresAboutGettingUntapped,
-      MonTag.CloneableLand,
+      MonTag.LikesBeingCopiedWithMirror,
       MonTag.LandWithProtection,
       MonTag.SundialFriendly,
     ],
@@ -314,14 +326,16 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   {
     name: `The Mycosynth Gardens`,
     subtypes: ['Sphere'],
-    combos: [
-      {
-        relationship: MonumentEdge.CombosWith,
-        isMatch: other => (
-          other.types.has(CardType.Artifact) &&
-          !other.types.has(CardType.Legendary)
-        ),
-      }
+    tags: [
+      MonTag.CopiesArtifacts,
+      MonTag.CopiesWithMirror,
+    ],
+  },
+  {
+    name: `Littjara Mirrorlake`,
+    tags: [
+      MonTag.CopiesCreatures,
+      MonTag.CopiesWithETB,
     ],
   },
   {
@@ -361,6 +375,18 @@ const NonLands: CardDraft[] = [
     name: `Pendant of Prosperity`,
     types: [CardType.Artifact],
     category: MonCat.Draw,
+    tags: [MonTag.LikesBeingCopiedWithMirror],
+  },
+  {
+    name: `Mirage Mirror`,
+    types: [CardType.Artifact],
+    category: MonCat.Interaction,
+    tags: [
+      MonTag.CopiesCreatures,
+      MonTag.CopiesArtifacts,
+      MonTag.CopiesLands,
+      MonTag.CopiesWithMirror,
+    ],
   },
   {
     name: `Kiora Bests the Sea God`,
@@ -383,19 +409,29 @@ const NonLands: CardDraft[] = [
   {
     name: `Myojin of Towering Might`,
     types: [CardType.Creature],
-    tags: [MonTag.HasAbilityCounters, MonTag.HasPlusCounters],
+    tags: [
+      MonTag.LikesBeingCopiedWithCast,
+      MonTag.HasAbilityCounters,
+      MonTag.HasPlusCounters,
+    ],
     category: MonCat.Threat,
   },
   {
     name: `Myojin of Cryptic Dreams`,
     types: [CardType.Creature],
-    tags: [MonTag.HasAbilityCounters],
+    tags: [
+      MonTag.LikesBeingCopiedWithCast,
+      MonTag.HasAbilityCounters,
+    ],
     category: MonCat.Draw,
   },
   {
     name: `Myojin of Roaring Blades`,
     types: [CardType.Creature],
-    tags: [MonTag.HasAbilityCounters],
+    tags: [
+      MonTag.LikesBeingCopiedWithCast,
+      MonTag.HasAbilityCounters,
+    ],
     category: MonCat.Threat,
   },
   {
@@ -433,6 +469,7 @@ const NonLands: CardDraft[] = [
     types: [CardType.Creature],
     subtypes: ['Wizard'],
     category: MonCat.Interaction,
+    tags: [MonTag.LikesBeingCopiedWithCast],
   },
   {
     name: `Sower of Temptation`,
@@ -450,7 +487,13 @@ const NonLands: CardDraft[] = [
     name: `Moritte of the Frost`,
     types: [CardType.Creature],
     subtypes: ['Changeling'],
-    tags: [MonTag.ClonesLands, MonTag.HasPlusCounters],
+    tags: [
+      MonTag.CopiesCreatures,
+      MonTag.CopiesArtifacts,
+      MonTag.CopiesLands,
+      MonTag.CopiesWithCast,
+      MonTag.HasPlusCounters,
+    ],
     category: MonCat.Threat,
   },
   {
@@ -529,6 +572,9 @@ const NonLands: CardDraft[] = [
       MonTag.VulnerableAttacker,
       MonTag.SundialFriendly,
       MonTag.CaresAboutOpponentCreatures,
+      MonTag.LikesBeingCopiedWithCast,
+      MonTag.LikesBeingCopiedWithETB,
+      MonTag.LikesBeingCopiedWithMirror,
     ],
     category: MonCat.Threat,
   },
@@ -613,7 +659,12 @@ const NonLands: CardDraft[] = [
     status: CardListStatus.Pending,
     name: `Utvara Hellkite`,
     types: [CardType.Creature],
-    tags: [MonTag.TargetsTribal],
+    tags: [
+      MonTag.TargetsTribal,
+      MonTag.LikesBeingCopiedWithCast,
+      MonTag.LikesBeingCopiedWithETB,
+      MonTag.LikesBeingCopiedWithMirror,
+    ],
     category: MonCat.Threat,
   },
 ];
@@ -706,7 +757,10 @@ const LandsRejected: Omit<CardDraft, 'types' | 'category'>[] = [
     status: CardListStatus.Rejected,
     name: `Izzet Boilerworks`,
     nick: `Bouncelands`,
-    tags: [MonTag.CloneableLand, MonTag.CaresAboutGettingUntapped],
+    tags: [
+      MonTag.LikesBeingCopiedWithMirror,
+      MonTag.CaresAboutGettingUntapped,
+    ],
   },
   {
     status: CardListStatus.Rejected,
@@ -888,7 +942,11 @@ const NonLandRejected: CardDraft[] = [
     name: `Dowsing Dagger // Lost Vale`,
     nick: `Dowsing Dagger`,
     types: [CardType.Artifact],
-    tags: [MonTag.CloneableLand],
+    tags: [
+      MonTag.LikesBeingCopiedWithCast,
+      MonTag.LikesBeingCopiedWithETB,
+      MonTag.LikesBeingCopiedWithMirror,
+    ],
     category: MonCat.Ramp,
   },
   {
@@ -896,7 +954,11 @@ const NonLandRejected: CardDraft[] = [
     name: `Conqueror's Galleon // Conqueror's Foothold`,
     nick: `Conqueror's Galleon`,
     types: [CardType.Artifact],
-    tags: [MonTag.CloneableLand],
+    tags: [
+      MonTag.LikesBeingCopiedWithCast,
+      MonTag.LikesBeingCopiedWithETB,
+      MonTag.LikesBeingCopiedWithMirror,
+    ],
     category: MonCat.Draw,
   },
   {
@@ -999,8 +1061,19 @@ const MonMatchers: Matcher[] = [
   },
   {
     relationship: MonumentEdge.Clones,
-    isMatch: (a, b) =>
-      a.tags.has(MonTag.ClonesLands) && b.tags.has(MonTag.CloneableLand),
+    isMatch: (a, b) => {
+      const canTarget = [
+        a.tags.has(MonTag.CopiesCreatures) && b.types.has(CardType.Creature),
+        a.tags.has(MonTag.CopiesArtifacts) && b.types.has(CardType.Artifact),
+        a.tags.has(MonTag.CopiesLands) && b.types.has(CardType.Land),
+      ].some(b => b);
+      const copyType = [
+        a.tags.has(MonTag.CopiesWithCast) && b.tags.has(MonTag.LikesBeingCopiedWithCast),
+        a.tags.has(MonTag.CopiesWithETB) && b.tags.has(MonTag.LikesBeingCopiedWithETB),
+        a.tags.has(MonTag.CopiesWithMirror) && b.tags.has(MonTag.LikesBeingCopiedWithMirror),
+      ].some(b => b);
+      return canTarget && copyType;
+    },
   },
   {
     relationship: MonumentEdge.ManipulatesCounters,
