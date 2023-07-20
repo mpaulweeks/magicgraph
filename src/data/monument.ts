@@ -990,6 +990,7 @@ export const MonumentData: DeckData = {
       types: [CardType.Land],
       category: MonCat.Land,
       tags: (c.tags ?? []).concat('Is Land'),
+      emphasize: true,
     })),
     ...[...NonLands, ...NonLandRejected].map(c => ({
       ...c,

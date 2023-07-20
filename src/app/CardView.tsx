@@ -7,6 +7,20 @@ import styles from './App.module.css';
 import { Deck } from "../lib/deck";
 import { AutoCardImage } from "./AutoCardImage";
 
+function CardStyle(card: Cardlike): React.CSSProperties {
+  return {
+    fontWeight: (
+      (card.styling.emphasize && 'bold') ||
+      undefined
+    ),
+    textDecoration: (
+      (card.pending && 'line-through') ||
+      (card.rejected && 'line-through wavy') ||
+      undefined
+    ),
+  }
+}
+
 interface DisplayBin {
   relationship: string;
   neighbors: Cardlike[];
@@ -25,13 +39,8 @@ const EdgeBinView = (props: {
     {props.bin.neighbors.map(card => (
       <div key={`${props.parent.id}-${card.id}`} style={{
         marginBottom: '0.3em',
-        textDecoration: (
-          (card.pending && 'line-through') ||
-          (card.rejected && 'line-through wavy') ||
-          undefined
-        ),
       }}>
-        <CardLink card={card} />
+        <CardLink card={card} style={CardStyle(card)} />
       </div>
     ))}
   </div>
@@ -66,12 +75,8 @@ export const CardView = (props: {
           backgroundColor: bgColor,
         }}>
           <div style={{
+            ...CardStyle(card),
             fontSize: '1.6em',
-            textDecoration: (
-              (card.pending && 'line-through') ||
-              (card.rejected && 'line-through wavy') ||
-              undefined
-            ),
           }}>
             <AutoCard card={card}/>
           </div>
@@ -84,7 +89,7 @@ export const CardView = (props: {
           padding: '1em',
         }}>
           <div>
-            {card.notes.map((note, ni) => (
+            {card.styling.notes.map((note, ni) => (
               <div key={ni}>
                 {note}
               </div>

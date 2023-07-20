@@ -1,3 +1,4 @@
+import { CSSProperties } from "react";
 import { Cardlike } from "../types"
 import { AutoCard } from "./AutoCard";
 import styled from 'styled-components';
@@ -10,10 +11,13 @@ const CardLinkContainer = styled.span`
 
 export const CardLink = (props: {
   card: Cardlike;
+  style?: CSSProperties;
 }) => (
   <CardLinkContainer>
     <a href={'#' + props.card.id}>{'[go]'}</a>
     {' '}
-    <AutoCard card={props.card} />
+    <span style={props.style ?? {}}>
+      <AutoCard card={props.card} />
+    </span>
   </CardLinkContainer>
 );

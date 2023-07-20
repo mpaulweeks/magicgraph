@@ -10,10 +10,15 @@ export interface Cardlike {
   readonly mv: number;
   readonly category: string;
   readonly tags: Interset<string>;
-  readonly notes: string[];
   readonly combos: CardCombo[];
   readonly pending: boolean;
   readonly rejected: boolean;
+  readonly styling: CardStyling;
+}
+
+export type CardStyling = {
+  emphasize: boolean;
+  notes: string[];
 }
 
 export type CardCombo = {

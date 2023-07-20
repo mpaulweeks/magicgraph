@@ -10,8 +10,9 @@ export type CardDraft = {
   mc?: string;
   category: string;
   tags?: string[];
-  notes?: string[];
   combos?: CardCombo[];
+  emphasize?: boolean;
+  notes?: string[];
 };
 
 export type DeckData = {
