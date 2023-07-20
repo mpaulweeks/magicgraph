@@ -28,7 +28,9 @@ const CategoryColorMap = {
 };
 
 enum MonTag {
-  HasCumulativeUpkeep = 'Cumulative Upkeep',
+  HasPlusCounters = '+1/+1 Counters',
+  HasMinusCounters = '-1/-1 Counters',
+  HasAgeCounters = 'Age Counters',
   HasAbilityCounters = 'Ability Counters',
   HasLimitedUseCounters = 'Divinity Counters',
 
@@ -62,6 +64,7 @@ enum MonTag {
   CaresAboutGettingLandTapped = 'Cares About Getting Land Tapped',
   TapsTargetLand = 'Taps Target Land',
 
+  UntapsCreature = 'Untaps Creature',
   UntapsLand = 'Untaps Land',
   CaresAboutGettingUntapped = 'Cares About Getting Untapped',
   UntapsAllLands = 'Untaps Lands',
@@ -82,7 +85,6 @@ enum MonumentEdge {
   LandTypeMatters = 'Land Type Matters',
 
   ManipulatesCounters = 'Manipulates Counters',
-  CountersManipulatedBy = 'Counters Used By',
 
   EnablesMana = 'Enables Mana',
   EnabledBy = 'Mana Ability',
@@ -101,7 +103,7 @@ enum MonumentEdge {
 
   Protects = 'Protects',
   ProtectedBy = 'Protection',
-  RemovesAttacker = 'Removes Attacker',
+  ProtectsAttacker = 'Protects Attacker',
 
   Clones = 'Clones',
   ClonedBy = 'Cloned By',
@@ -119,15 +121,16 @@ const MonumentInverseEdge = {
   [MonumentEdge.CombosWith]: MonumentEdge.CombosWith,
   [MonumentEdge.TribalSynergy]: MonumentEdge.TribalSynergy,
   [MonumentEdge.LandTypeMatters]: MonumentEdge.LandTypeMatters,
+  [MonumentEdge.ManipulatesCounters]: MonumentEdge.ManipulatesCounters,
 
-  [MonumentEdge.ManipulatesCounters]: MonumentEdge.CountersManipulatedBy,
   [MonumentEdge.EnablesMana]: MonumentEdge.EnabledBy,
   [MonumentEdge.Damages]: MonumentEdge.DamagedBy,
   [MonumentEdge.Targets]: MonumentEdge.TargetedBy,
   [MonumentEdge.Fuels]: MonumentEdge.FueledBy,
+  [MonumentEdge.FueledBy]: MonumentEdge.Fuels,
   [MonumentEdge.Untaps]: MonumentEdge.UntappedBy,
   [MonumentEdge.Protects]: MonumentEdge.ProtectedBy,
-  [MonumentEdge.RemovesAttacker]: MonumentEdge.ProtectedBy,
+  [MonumentEdge.ProtectsAttacker]: MonumentEdge.ProtectedBy,
   [MonumentEdge.Clones]: MonumentEdge.ClonedBy,
   [MonumentEdge.Bins]: MonumentEdge.BinnedBy,
   [MonumentEdge.Retrieves]: MonumentEdge.RetrievedBy,
@@ -145,8 +148,10 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
       {
         relationship: MonumentEdge.ManipulatesCounters,
         isMatch: other =>
+          other.tags.has(MonTag.HasPlusCounters) ||
+          other.tags.has(MonTag.HasMinusCounters) ||
           other.tags.has(MonTag.HasAbilityCounters) ||
-          other.tags.has(MonTag.HasCumulativeUpkeep) ||
+          other.tags.has(MonTag.HasAgeCounters) ||
           other.subtypes.has('Saga'),
       },
     ],
@@ -188,6 +193,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   {
     name: `Tyrite Sanctum`,
     tags: [
+      MonTag.HasPlusCounters,
       MonTag.HasAbilityCounters,
       MonTag.TargetsCreatures,
       MonTag.TargetsTribal,
@@ -196,7 +202,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   {
     name: `Glacial Chasm`,
     tags: [
-      MonTag.HasCumulativeUpkeep,
+      MonTag.HasAgeCounters,
       MonTag.CannotTapForMana,
       MonTag.CloneableLand,
     ],
@@ -216,10 +222,14 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.TargetsCreatures],
   },
   {
+    name: `Oran-Rief, the Vastwood`,
+    tags: [MonTag.HasPlusCounters],
+  },
+  {
     name: `Swarmyard`,
     combos: [
       {
-        relationship: MonumentEdge.Protects,
+        relationship: MonumentEdge.TribalSynergy,
         isMatch: other => other.subtypes.has('Changeling', 'Insect', 'Rat', 'Spider', 'Squirrel'),
       },
     ],
@@ -265,7 +275,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.CannotTapForMana, MonTag.TargetsCreatures],
     combos: [
       {
-        relationship: MonumentEdge.RemovesAttacker,
+        relationship: MonumentEdge.ProtectsAttacker,
         isMatch: other => other.tags.has(MonTag.VulnerableAttacker),
       },
     ],
@@ -298,7 +308,18 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   },
   {
     name: `Mirrex`,
+    subtypes: ['Sphere'],
     tags: [MonTag.MakesTokens],
+  },
+  {
+    name: `The Mycosynth Gardens`,
+    subtypes: ['Sphere'],
+    combos: [
+      {
+        relationship: MonumentEdge.CombosWith,
+        isMatch: other => other.types.has(CardType.Artifact) && !other.types.has(CardType.Creature),
+      }
+    ],
   },
   {
     status: CardListStatus.Pending,
@@ -317,6 +338,22 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   },
 ];
 const NonLands: CardDraft[] = [
+  {
+    name: `Monument to Perfection`,
+    types: [CardType.Artifact],
+    category: MonCat.Draw,
+    combos: [
+      {
+        relationship: MonumentEdge.CombosWith,
+        isMatch: other => other.subtypes.has('Sphere'),
+      },
+    ],
+  },
+  {
+    name: `Pendant of Prosperity`,
+    types: [CardType.Artifact],
+    category: MonCat.Draw,
+  },
   {
     name: `Kiora Bests the Sea God`,
     types: [CardType.Enchantment],
@@ -338,7 +375,7 @@ const NonLands: CardDraft[] = [
   {
     name: `Myojin of Towering Might`,
     types: [CardType.Creature],
-    tags: [MonTag.HasAbilityCounters],
+    tags: [MonTag.HasAbilityCounters, MonTag.HasPlusCounters],
     category: MonCat.Threat,
   },
   {
@@ -362,7 +399,7 @@ const NonLands: CardDraft[] = [
   {
     name: `Humble Defector`,
     types: [CardType.Creature],
-    tags: [MonTag.DonatesSelf],
+    tags: [MonTag.DonatesSelf, MonTag.CaresAboutGettingUntapped],
     category: MonCat.Draw,
   },
   {
@@ -405,7 +442,7 @@ const NonLands: CardDraft[] = [
     name: `Moritte of the Frost`,
     types: [CardType.Creature],
     subtypes: ['Changeling'],
-    tags: [MonTag.ClonesLands],
+    tags: [MonTag.ClonesLands, MonTag.HasPlusCounters],
     category: MonCat.Threat,
   },
   {
@@ -423,6 +460,7 @@ const NonLands: CardDraft[] = [
   {
     name: `Willbreaker`,
     types: [CardType.Creature],
+    subtypes: ['Wizard'],
     tags: [MonTag.CaresAboutTargeting, MonTag.ThreatensCreatures],
     category: MonCat.Interaction,
   },
@@ -453,7 +491,7 @@ const NonLands: CardDraft[] = [
   {
     name: `Vizier of Tumbling Sands`,
     types: [CardType.Creature],
-    tags: [MonTag.UntapsLand],
+    tags: [MonTag.UntapsLand, MonTag.UntapsCreature],
     category: MonCat.Ramp,
   },
   {
@@ -515,6 +553,15 @@ const NonLands: CardDraft[] = [
     types: [CardType.Artifact],
     tags: [MonTag.CaresAboutOpponentCreatures],
     category: MonCat.Interaction,
+  },
+  {
+    name: `Cauldron of Souls`,
+    types: [CardType.Artifact],
+    category: MonCat.Buff,
+    tags: [
+      MonTag.HasMinusCounters,
+      MonTag.TargetsCreatures,
+    ],
   },
   {
     name: `Skullclamp`,
@@ -912,12 +959,25 @@ const MonMatchers: Matcher[] = [
     relationship: MonumentEdge.Untaps,
     isMatch: (a, b) =>
       a.tags.has(MonTag.UntapsLand) &&
+      b.types.has(CardType.Land) &&
+      b.tags.has(MonTag.CaresAboutGettingUntapped),
+  },
+  {
+    relationship: MonumentEdge.Untaps,
+    isMatch: (a, b) =>
+      a.tags.has(MonTag.UntapsCreature) &&
+      b.types.has(CardType.Creature) &&
       b.tags.has(MonTag.CaresAboutGettingUntapped),
   },
   {
     relationship: MonumentEdge.Clones,
     isMatch: (a, b) =>
       a.tags.has(MonTag.ClonesLands) && b.tags.has(MonTag.CloneableLand),
+  },
+  {
+    relationship: MonumentEdge.ManipulatesCounters,
+    isMatch: (a, b) =>
+      a.tags.has(MonTag.HasMinusCounters) && b.tags.has(MonTag.HasPlusCounters),
   },
 ];
 
