@@ -6,12 +6,6 @@ import {
   Matcher,
 } from '../types';
 
-// todo
-// forbidden orchard
-// ward of bones
-// sundial of the infinite
-// seedborn muse
-
 enum MonCat {
   Land = 'Tutorable Land',
   NonLand = 'Non Land',
@@ -70,8 +64,16 @@ enum MonTag {
 
   UntapsLand = 'Untaps Land',
   CaresAboutGettingUntapped = 'Cares About Getting Untapped',
+  UntapsAllLands = 'Untaps Lands',
 
   VulnerableAttacker = 'Vulnerable Attacker',
+
+  SundialFriendly = 'Sundial Friendly',
+
+  CaresAboutOpponentCreatures = 'Cares Abou tOpponent Creatures',
+
+  ThreatensCreatures = 'Threatens Creatures',
+  MakesTokens = 'Makes Tokens',
 }
 
 enum MonumentEdge {
@@ -252,9 +254,10 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   {
     name: `Lotus Field`,
     tags: [
-      MonTag.LandWithProtection,
-      MonTag.CloneableLand,
       MonTag.CaresAboutGettingUntapped,
+      MonTag.CloneableLand,
+      MonTag.LandWithProtection,
+      MonTag.SundialFriendly,
     ],
   },
   {
@@ -269,7 +272,48 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   },
   {
     name: `Thawing Glaciers`,
-    tags: [MonTag.CannotTapForMana, MonTag.CaresAboutGettingUntapped],
+    tags: [
+      MonTag.CannotTapForMana,
+      MonTag.CaresAboutGettingUntapped,
+      MonTag.SundialFriendly,
+    ],
+  },
+  {
+    name: `Alchemist's Refuge`,
+    combos: [
+      {
+        relationship: MonumentEdge.CombosWith,
+        isMatch: other => other.tags.has(MonTag.UntapsAllLands),
+      },
+    ],
+  },
+  {
+    name: `Forbidden Orchard`,
+    combos: [
+      {
+        relationship: MonumentEdge.Fuels,
+        isMatch: other => other.tags.has(MonTag.CaresAboutOpponentCreatures),
+      },
+    ],
+  },
+  {
+    name: `Mirrex`,
+    tags: [MonTag.MakesTokens],
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `High Market`,
+    combos: [
+      {
+        relationship: MonumentEdge.Fuels,
+        isMatch: other => other.tags.has(MonTag.ThreatensCreatures),
+      },
+    ],
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Kher Keep`,
+    tags: [MonTag.MakesTokens],
   },
 ];
 const NonLands: CardDraft[] = [
@@ -352,12 +396,6 @@ const NonLands: CardDraft[] = [
     category: MonCat.Interaction,
   },
   {
-    name: `Shapesharer`,
-    types: [CardType.Creature],
-    subtypes: ['Changeling'],
-    category: MonCat.Threat,
-  },
-  {
     name: `Taurean Mauler`,
     types: [CardType.Creature],
     subtypes: ['Changeling'],
@@ -385,7 +423,7 @@ const NonLands: CardDraft[] = [
   {
     name: `Willbreaker`,
     types: [CardType.Creature],
-    tags: [MonTag.CaresAboutTargeting],
+    tags: [MonTag.CaresAboutTargeting, MonTag.ThreatensCreatures],
     category: MonCat.Interaction,
   },
   {
@@ -419,29 +457,89 @@ const NonLands: CardDraft[] = [
     category: MonCat.Ramp,
   },
   {
+    name: `Seedborn Muse`,
+    types: [CardType.Creature],
+    tags: [MonTag.UntapsAllLands],
+    category: MonCat.Ramp,
+  },
+  {
+    name: `Scute Swarm`,
+    types: [CardType.Creature],
+    subtypes: ['Insect'],
+    tags: [MonTag.MakesTokens],
+    category: MonCat.Threat,
+  },
+  {
     name: `Dragonlair Spider`,
     types: [CardType.Creature],
     subtypes: ['Spider'],
+    tags: [MonTag.MakesTokens],
     category: MonCat.Threat,
   },
   {
     name: `Nacatl War-Pride`,
     types: [CardType.Creature],
-    tags: [MonTag.VulnerableAttacker],
+    tags: [
+      MonTag.VulnerableAttacker,
+      MonTag.SundialFriendly,
+      MonTag.CaresAboutOpponentCreatures,
+    ],
     category: MonCat.Threat,
   },
   {
     name: `Primeval Herald`,
     types: [CardType.Creature],
-    tags: [MonTag.VulnerableAttacker],
+    tags: [MonTag.VulnerableAttacker, MonTag.SundialFriendly],
     category: MonCat.Ramp,
   },
   {
     status: CardListStatus.Pending,
     name: `Sword of the Animist`,
     types: [CardType.Equipment],
-    tags: [MonTag.VulnerableAttacker],
+    tags: [MonTag.VulnerableAttacker, MonTag.SundialFriendly],
     category: MonCat.Ramp,
+  },
+  {
+    name: `Sundial of the Infinite`,
+    types: [CardType.Artifact],
+    category: MonCat.NonLand,
+    combos: [
+      {
+        relationship: MonumentEdge.CombosWith,
+        isMatch: other => other.tags.has(MonTag.SundialFriendly),
+      },
+    ],
+  },
+  {
+    name: `Ward of Bones`,
+    types: [CardType.Artifact],
+    tags: [MonTag.CaresAboutOpponentCreatures],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Skullclamp`,
+    types: [CardType.Equipment],
+    category: MonCat.Draw,
+    combos: [
+      {
+        relationship: MonumentEdge.FueledBy,
+        isMatch: other => other.tags.has(MonTag.MakesTokens),
+      },
+    ],
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Overtaker`,
+    types: [CardType.Creature],
+    tags: [MonTag.ThreatensCreatures],
+    category: MonCat.Interaction,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Callous Oppressor`,
+    types: [CardType.Creature],
+    tags: [MonTag.ThreatensCreatures],
+    category: MonCat.Interaction,
   },
 ];
 
@@ -590,6 +688,13 @@ const NonLandRejected: CardDraft[] = [
     types: [CardType.Creature],
     tags: [MonTag.HasAbilityCounters],
     category: MonCat.Buff,
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Shapesharer`,
+    types: [CardType.Creature],
+    subtypes: ['Changeling'],
+    category: MonCat.Threat,
   },
   {
     status: CardListStatus.Rejected,
@@ -751,7 +856,7 @@ const NonLandRejected: CardDraft[] = [
     status: CardListStatus.Rejected,
     name: `Wilderness Reclamation`,
     types: [CardType.Enchantment],
-    tags: [MonTag.UntapsLand],
+    tags: [MonTag.UntapsAllLands],
     category: MonCat.Ramp,
   },
   {
@@ -764,20 +869,6 @@ const NonLandRejected: CardDraft[] = [
   {
     status: CardListStatus.Rejected,
     name: `Kiora's Follower`,
-    types: [CardType.Creature],
-    tags: [MonTag.UntapsLand],
-    category: MonCat.Ramp,
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Clever Conjurer`,
-    types: [CardType.Creature],
-    tags: [MonTag.UntapsLand],
-    category: MonCat.Ramp,
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Nimbleclaw Adept`,
     types: [CardType.Creature],
     tags: [MonTag.UntapsLand],
     category: MonCat.Ramp,
