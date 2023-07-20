@@ -14,4 +14,5 @@ export enum CardType {
   Instant = 'Instant',
   Sorcery = 'Sorcery',
   Planeswalker = 'Planeswalker',
+  Legendary = 'Legendary',
 }

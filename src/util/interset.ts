@@ -8,6 +8,7 @@ export class Interset<T> {
     return Array.from(this.set.values());
   }
 
+  // true if any args match
   has(...other: T[]): boolean {
     return other.some(c => this.set.has(c));
   }

@@ -317,7 +317,10 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     combos: [
       {
         relationship: MonumentEdge.CombosWith,
-        isMatch: other => other.types.has(CardType.Artifact) && !other.types.has(CardType.Creature),
+        isMatch: other => (
+          other.types.has(CardType.Artifact) &&
+          !other.types.has(CardType.Legendary)
+        ),
       }
     ],
   },
@@ -335,6 +338,11 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     status: CardListStatus.Pending,
     name: `Kher Keep`,
     tags: [MonTag.MakesTokens],
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Mutavault`,
+    subtypes: ['Changeling'],
   },
 ];
 const NonLands: CardDraft[] = [
@@ -576,6 +584,19 @@ const NonLands: CardDraft[] = [
   },
   {
     status: CardListStatus.Pending,
+    name: `Realmbreaker, the Invasion Tree`,
+    types: [CardType.Artifact, CardType.Legendary],
+    category: MonCat.Ramp,
+    combos: [{
+      relationship: MonumentEdge.TribalSynergy,
+      isMatch: other => (
+        other.types.has('Creature') &&
+        other.subtypes.has('Changeling')
+      ),
+    }],
+  },
+  {
+    status: CardListStatus.Pending,
     name: `Overtaker`,
     types: [CardType.Creature],
     tags: [MonTag.ThreatensCreatures],
@@ -587,6 +608,13 @@ const NonLands: CardDraft[] = [
     types: [CardType.Creature],
     tags: [MonTag.ThreatensCreatures],
     category: MonCat.Interaction,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Utvara Hellkite`,
+    types: [CardType.Creature],
+    tags: [MonTag.TargetsTribal],
+    category: MonCat.Threat,
   },
 ];
 
