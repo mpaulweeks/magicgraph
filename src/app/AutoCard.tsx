@@ -6,5 +6,5 @@ export const AutoCard = (props: {
 }) => {
   return React.createElement('auto-card', {
     name: props.card.name,
-  }, props.card.nick ?? props.card.name);
+  }, props.card.displayName);
 }

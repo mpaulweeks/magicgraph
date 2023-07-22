@@ -13,7 +13,7 @@ export class Deck {
     this.name = data.name;
     this.cards = sortBy(
       data.cardDrafts.map(d => new CardImpl(d)),
-      c => c.name,
+      c => c.displayName,
     );
     this.edges = new Graph().getEdges(this.cards, data.matchers);
   }

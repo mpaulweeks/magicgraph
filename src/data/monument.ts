@@ -75,6 +75,7 @@ enum MonTag {
   UntapsLand = 'Untaps Land',
   CaresAboutGettingUntapped = 'Cares About Getting Untapped',
   UntapsAllLands = 'Untaps Lands',
+  ManaSink = 'Mana Sink',
 
   VulnerableAttacker = 'Vulnerable Attacker',
 
@@ -255,10 +256,11 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   },
   {
     name: `Kessig Wolf Run`,
-    tags: [MonTag.TargetsCreatures],
+    tags: [MonTag.TargetsCreatures, MonTag.ManaSink],
   },
   {
     name: `Drownyard Temple`,
+    tags: [MonTag.ManaSink],
     combos: [
       {
         relationship: MonumentEdge.Fuels,
@@ -283,6 +285,15 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
+    name: `Izzet Boilerworks`,
+    nick: `Bouncelands`,
+    tags: [
+      MonTag.CaresAboutGettingUntapped,
+      MonTag.LikesBeingCopiedWithMirror,
+      MonTag.SundialFriendly,
+    ],
+  },
+  {
     name: `Maze of Ith`,
     tags: [MonTag.CannotTapForMana, MonTag.TargetsCreatures],
     combos: [
@@ -302,12 +313,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   },
   {
     name: `Alchemist's Refuge`,
-    combos: [
-      {
-        relationship: MonumentEdge.CombosWith,
-        isMatch: other => other.tags.has(MonTag.UntapsAllLands),
-      },
-    ],
+    tags: [MonTag.ManaSink],
   },
   {
     name: `Forbidden Orchard`,
@@ -321,7 +327,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   {
     name: `Mirrex`,
     subtypes: ['Sphere'],
-    tags: [MonTag.MakesTokens],
+    tags: [MonTag.MakesTokens, MonTag.ManaSink],
   },
   {
     name: `The Mycosynth Gardens`,
@@ -399,12 +405,6 @@ const NonLands: CardDraft[] = [
     types: [CardType.Enchantment],
     subtypes: ['Saga'],
     category: MonCat.Draw,
-  },
-  {
-    name: `The Phasing of Zhalfir`,
-    types: [CardType.Enchantment],
-    subtypes: ['Saga'],
-    category: MonCat.Interaction,
   },
   {
     name: `Myojin of Towering Might`,
@@ -534,12 +534,6 @@ const NonLands: CardDraft[] = [
     category: MonCat.Draw,
   },
   {
-    name: `World Breaker`,
-    types: [CardType.Creature],
-    tags: [MonTag.SacrificesLands],
-    category: MonCat.Interaction,
-  },
-  {
     name: `Vizier of Tumbling Sands`,
     types: [CardType.Creature],
     tags: [MonTag.UntapsLand, MonTag.UntapsCreature],
@@ -627,6 +621,25 @@ const NonLands: CardDraft[] = [
         isMatch: other => other.tags.has(MonTag.MakesTokens),
       },
     ],
+  },
+  {
+    name: `Manascape Refractor`,
+    types: [CardType.Artifact],
+    category: MonCat.Ramp,
+    tags: [MonTag.CopiesLands, MonTag.CopiesWithMirror],
+  },
+  {
+    name: `Battle of Frost and Fire`,
+    types: [CardType.Enchantment],
+    subtypes: ['Saga'],
+    category: MonCat.Interaction,
+    tags: [MonTag.TargetsTribal],
+  },
+  {
+    name: `Wilderness Reclamation`,
+    types: [CardType.Enchantment],
+    tags: [MonTag.UntapsAllLands],
+    category: MonCat.Ramp,
   },
   {
     status: CardListStatus.Pending,
@@ -755,15 +768,6 @@ const LandsRejected: Omit<CardDraft, 'types' | 'category'>[] = [
   },
   {
     status: CardListStatus.Rejected,
-    name: `Izzet Boilerworks`,
-    nick: `Bouncelands`,
-    tags: [
-      MonTag.LikesBeingCopiedWithMirror,
-      MonTag.CaresAboutGettingUntapped,
-    ],
-  },
-  {
-    status: CardListStatus.Rejected,
     name: `Rishadan Port`,
     tags: [MonTag.TapsTargetLand],
   },
@@ -775,13 +779,6 @@ const NonLandRejected: CardDraft[] = [
     types: [CardType.Enchantment],
     subtypes: ['Saga'],
     category: MonCat.Interaction,
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Battle of Frost and Fire`,
-    types: [CardType.Enchantment],
-    subtypes: ['Saga'],
-    category: MonCat.Draw,
   },
   {
     status: CardListStatus.Rejected,
@@ -991,13 +988,6 @@ const NonLandRejected: CardDraft[] = [
   },
   {
     status: CardListStatus.Rejected,
-    name: `Wilderness Reclamation`,
-    types: [CardType.Enchantment],
-    tags: [MonTag.UntapsAllLands],
-    category: MonCat.Ramp,
-  },
-  {
-    status: CardListStatus.Rejected,
     name: `Fatestitcher`,
     types: [CardType.Creature],
     tags: [MonTag.UntapsLand],
@@ -1009,6 +999,20 @@ const NonLandRejected: CardDraft[] = [
     types: [CardType.Creature],
     tags: [MonTag.UntapsLand],
     category: MonCat.Ramp,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `The Phasing of Zhalfir`,
+    types: [CardType.Enchantment],
+    subtypes: ['Saga'],
+    category: MonCat.Interaction,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `World Breaker`,
+    types: [CardType.Creature],
+    tags: [MonTag.SacrificesLands],
+    category: MonCat.Interaction,
   },
 ];
 
@@ -1079,6 +1083,12 @@ const MonMatchers: Matcher[] = [
     relationship: MonumentEdge.ManipulatesCounters,
     isMatch: (a, b) =>
       a.tags.has(MonTag.HasMinusCounters) && b.tags.has(MonTag.HasPlusCounters),
+  },
+  {
+    relationship: MonumentEdge.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(MonTag.UntapsAllLands) &&
+      (b.types.has(CardType.Land) && b.tags.has(MonTag.ManaSink)),
   },
 ];
 
