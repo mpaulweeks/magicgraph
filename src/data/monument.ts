@@ -245,16 +245,6 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
-    name: `Riptide Laboratory`,
-    tags: [MonTag.TargetsTribal],
-    combos: [
-      {
-        relationship: MonumentEdge.TribalSynergy,
-        isMatch: b => b.subtypes.has('Wizard'),
-      },
-    ],
-  },
-  {
     name: `Kessig Wolf Run`,
     tags: [MonTag.TargetsCreatures, MonTag.ManaSink],
   },
@@ -355,7 +345,6 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
-    status: CardListStatus.Pending,
     name: `Kher Keep`,
     tags: [MonTag.MakesTokens],
   },
@@ -463,19 +452,6 @@ const NonLands: CardDraft[] = [
     types: [CardType.Enchantment],
     tags: [MonTag.CaresAboutForests],
     category: MonCat.Lifegain,
-  },
-  {
-    name: `Cyclone Summoner`,
-    types: [CardType.Creature],
-    subtypes: ['Wizard'],
-    category: MonCat.Interaction,
-    tags: [MonTag.LikesBeingCopiedWithCast],
-  },
-  {
-    name: `Sower of Temptation`,
-    types: [CardType.Creature],
-    subtypes: ['Wizard'],
-    category: MonCat.Interaction,
   },
   {
     name: `Taurean Mauler`,
@@ -642,6 +618,17 @@ const NonLands: CardDraft[] = [
     category: MonCat.Ramp,
   },
   {
+    name: `Krenko, Tin Street Kingpin`,
+    types: [CardType.Creature],
+    tags: [MonTag.MakesTokens, MonTag.VulnerableAttacker],
+    category: MonCat.Threat,
+  },
+  {
+    name: `Lithoform Engine`,
+    types: [CardType.Artifact],
+    category: MonCat.NonLand,
+  },
+  {
     status: CardListStatus.Pending,
     name: `Realmbreaker, the Invasion Tree`,
     types: [CardType.Artifact, CardType.Legendary],
@@ -770,6 +757,17 @@ const LandsRejected: Omit<CardDraft, 'types' | 'category'>[] = [
     status: CardListStatus.Rejected,
     name: `Rishadan Port`,
     tags: [MonTag.TapsTargetLand],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Riptide Laboratory`,
+    tags: [MonTag.TargetsTribal],
+    combos: [
+      {
+        relationship: MonumentEdge.TribalSynergy,
+        isMatch: b => b.subtypes.has('Wizard'),
+      },
+    ],
   },
 ];
 const NonLandRejected: CardDraft[] = [
@@ -1001,17 +999,32 @@ const NonLandRejected: CardDraft[] = [
     category: MonCat.Ramp,
   },
   {
-    status: CardListStatus.Pending,
+    status: CardListStatus.Rejected,
     name: `The Phasing of Zhalfir`,
     types: [CardType.Enchantment],
     subtypes: ['Saga'],
     category: MonCat.Interaction,
   },
   {
-    status: CardListStatus.Pending,
+    status: CardListStatus.Rejected,
     name: `World Breaker`,
     types: [CardType.Creature],
     tags: [MonTag.SacrificesLands],
+    category: MonCat.Interaction,
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Cyclone Summoner`,
+    types: [CardType.Creature],
+    subtypes: ['Wizard'],
+    category: MonCat.Interaction,
+    tags: [MonTag.LikesBeingCopiedWithCast],
+  },
+  {
+    status: CardListStatus.Rejected,
+    name: `Sower of Temptation`,
+    types: [CardType.Creature],
+    subtypes: ['Wizard'],
     category: MonCat.Interaction,
   },
 ];
