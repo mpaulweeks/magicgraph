@@ -2,6 +2,7 @@ import { LarryData } from './data/larry';
 import { DeckView } from './app/DeckView';
 import { Deck } from './lib/deck';
 import { MonumentData } from './data/monument';
+import { RoccoData } from './data/rocco';
 
 function App() {
   const queryParsm = new URLSearchParams(window.location.search);
@@ -9,6 +10,7 @@ function App() {
   const deck = (
     (queryParsm.get('larry') && new Deck(LarryData)) ||
     (queryParsm.get('monument') && new Deck(MonumentData)) ||
+    (queryParsm.get('rocco') && new Deck(RoccoData)) ||
     undefined
   );
   if (deck) {
@@ -29,6 +31,11 @@ function App() {
         <a href="?monument=1">
           <button>
             {MonumentData.name}
+          </button>
+        </a>
+        <a href="?rocco=1">
+          <button>
+            {RoccoData.name}
           </button>
         </a>
       </div>
