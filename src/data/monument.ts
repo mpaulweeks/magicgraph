@@ -232,10 +232,6 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     tags: [MonTag.TargetsCreatures],
   },
   {
-    name: `Oran-Rief, the Vastwood`,
-    tags: [MonTag.HasPlusCounters],
-  },
-  {
     name: `Swarmyard`,
     combos: [
       {
@@ -302,19 +298,6 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
-    name: `Alchemist's Refuge`,
-    tags: [MonTag.ManaSink],
-  },
-  {
-    name: `Forbidden Orchard`,
-    combos: [
-      {
-        relationship: MonumentEdge.Fuels,
-        isMatch: other => other.tags.has(MonTag.CaresAboutOpponentCreatures),
-      },
-    ],
-  },
-  {
     name: `Mirrex`,
     subtypes: ['Sphere'],
     tags: [MonTag.MakesTokens, MonTag.ManaSink],
@@ -335,23 +318,8 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
-    status: CardListStatus.Pending,
-    name: `High Market`,
-    combos: [
-      {
-        relationship: MonumentEdge.Fuels,
-        isMatch: other => other.tags.has(MonTag.ThreatensCreatures),
-      },
-    ],
-  },
-  {
     name: `Kher Keep`,
     tags: [MonTag.MakesTokens],
-  },
-  {
-    status: CardListStatus.Pending,
-    name: `Mutavault`,
-    subtypes: ['Changeling'],
   },
 ];
 const NonLands: CardDraft[] = [
@@ -365,12 +333,6 @@ const NonLands: CardDraft[] = [
         isMatch: other => other.subtypes.has('Sphere'),
       },
     ],
-  },
-  {
-    name: `Pendant of Prosperity`,
-    types: [CardType.Artifact],
-    category: MonCat.Draw,
-    tags: [MonTag.LikesBeingCopiedWithMirror],
   },
   {
     name: `Mirage Mirror`,
@@ -492,34 +454,10 @@ const NonLands: CardDraft[] = [
     category: MonCat.Interaction,
   },
   {
-    name: `Cowardice`,
-    types: [CardType.Enchantment],
-    tags: [MonTag.CaresAboutTargeting],
-    category: MonCat.Interaction,
-  },
-  {
-    name: `Constant Mists`,
-    types: [CardType.Instant],
-    tags: [MonTag.SacrificesLands],
-    category: MonCat.Lifegain,
-  },
-  {
     name: `Elvish Reclaimer`,
     types: [CardType.Creature],
     tags: [MonTag.SacrificesLands],
     category: MonCat.Draw,
-  },
-  {
-    name: `Vizier of Tumbling Sands`,
-    types: [CardType.Creature],
-    tags: [MonTag.UntapsLand, MonTag.UntapsCreature],
-    category: MonCat.Ramp,
-  },
-  {
-    name: `Seedborn Muse`,
-    types: [CardType.Creature],
-    tags: [MonTag.UntapsAllLands],
-    category: MonCat.Ramp,
   },
   {
     name: `Scute Swarm`,
@@ -536,32 +474,6 @@ const NonLands: CardDraft[] = [
     category: MonCat.Threat,
   },
   {
-    name: `Nacatl War-Pride`,
-    types: [CardType.Creature],
-    tags: [
-      MonTag.VulnerableAttacker,
-      MonTag.SundialFriendly,
-      MonTag.CaresAboutOpponentCreatures,
-      MonTag.LikesBeingCopiedWithCast,
-      MonTag.LikesBeingCopiedWithETB,
-      MonTag.LikesBeingCopiedWithMirror,
-    ],
-    category: MonCat.Threat,
-  },
-  {
-    name: `Primeval Herald`,
-    types: [CardType.Creature],
-    tags: [MonTag.VulnerableAttacker, MonTag.SundialFriendly],
-    category: MonCat.Ramp,
-  },
-  {
-    status: CardListStatus.Pending,
-    name: `Sword of the Animist`,
-    types: [CardType.Equipment],
-    tags: [MonTag.VulnerableAttacker, MonTag.SundialFriendly],
-    category: MonCat.Ramp,
-  },
-  {
     name: `Sundial of the Infinite`,
     types: [CardType.Artifact],
     category: MonCat.NonLand,
@@ -571,12 +483,6 @@ const NonLands: CardDraft[] = [
         isMatch: other => other.tags.has(MonTag.SundialFriendly),
       },
     ],
-  },
-  {
-    name: `Ward of Bones`,
-    types: [CardType.Artifact],
-    tags: [MonTag.CaresAboutOpponentCreatures],
-    category: MonCat.Interaction,
   },
   {
     name: `Cauldron of Souls`,
@@ -599,17 +505,241 @@ const NonLands: CardDraft[] = [
     ],
   },
   {
-    name: `Manascape Refractor`,
-    types: [CardType.Artifact],
-    category: MonCat.Ramp,
-    tags: [MonTag.CopiesLands, MonTag.CopiesWithMirror],
-  },
-  {
     name: `Battle of Frost and Fire`,
     types: [CardType.Enchantment],
     subtypes: ['Saga'],
     category: MonCat.Interaction,
     tags: [MonTag.TargetsTribal],
+  },
+  {
+    name: `Lithoform Engine`,
+    types: [CardType.Artifact],
+    category: MonCat.NonLand,
+  },
+];
+
+// rejected
+const LandsRejected: Omit<CardDraft,
+  'status' | 'types' | 'category'
+>[] = [
+  {
+    name: `Alchemist's Refuge`,
+    tags: [MonTag.ManaSink],
+  },
+  {
+    name: `Oran-Rief, the Vastwood`,
+    tags: [MonTag.HasPlusCounters],
+  },
+  {
+    name: `High Market`,
+    combos: [
+      {
+        relationship: MonumentEdge.Fuels,
+        isMatch: other => other.tags.has(MonTag.ThreatensCreatures),
+      },
+    ],
+  },
+  {
+    name: `Mutavault`,
+    subtypes: ['Changeling'],
+  },
+  {
+    name: `Forbidden Orchard`,
+    combos: [
+      {
+        relationship: MonumentEdge.Fuels,
+        isMatch: other => other.tags.has(MonTag.CaresAboutOpponentCreatures),
+      },
+    ],
+  },
+  {
+    name: `Desolate Lighthouse`,
+    combos: [
+      {
+        relationship: MonumentEdge.Bins,
+        isMatch: other => other.tags.has(MonTag.Flashback),
+      },
+    ],
+  },
+  {
+    name: `Urborg, Tomb of Yawgmoth`,
+    tags: [MonTag.GrantsLandTypes],
+    combos: [
+      {
+        relationship: MonumentEdge.LandTypeMatters,
+        isMatch: other => other.tags.has(MonTag.CaresAboutSwamps),
+      },
+    ],
+  },
+  {
+    name: `Desert`,
+    tags: [
+      MonTag.DealsDamageToCreatures,
+      MonTag.TargetsCreatures,
+      MonTag.CaresAboutGettingUntapped,
+    ],
+  },
+  {
+    name: `Sorrow's Path`,
+    tags: [
+      MonTag.DealsDamageToCreatures,
+      MonTag.CannotTapForMana,
+      MonTag.CaresAboutGettingLandTapped,
+      MonTag.CaresAboutGettingUntapped,
+    ],
+  },
+  {
+    name: `Hanweir Battlements // Hanweir, the Writhing Township`,
+    nick: `Hanweir Battlements`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    name: `Tolaria`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    name: `Yavimaya Hollow`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    name: `Okina, Temple to the Grandfathers`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    name: `Minamo, School at Water's Edge`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    name: `Shinka, the Bloodsoaked Keep`,
+    tags: [MonTag.TargetsCreatures],
+  },
+  {
+    name: `Cascading Cataracts`,
+    tags: [MonTag.LandWithProtection],
+  },
+  {
+    name: `Silverbluff Bridge`,
+    nick: 'Bridge Lands',
+    tags: [MonTag.LandWithProtection],
+  },
+  {
+    name: `Rishadan Port`,
+    tags: [MonTag.TapsTargetLand],
+  },
+  {
+    name: `Riptide Laboratory`,
+    tags: [MonTag.TargetsTribal],
+    combos: [
+      {
+        relationship: MonumentEdge.TribalSynergy,
+        isMatch: b => b.subtypes.has('Wizard'),
+      },
+    ],
+  },
+];
+const NonLandRejected: CardDraft[] = [
+  {
+    name: `Pendant of Prosperity`,
+    types: [CardType.Artifact],
+    category: MonCat.Draw,
+    tags: [MonTag.LikesBeingCopiedWithMirror],
+  },
+  {
+    name: `Cowardice`,
+    types: [CardType.Enchantment],
+    tags: [MonTag.CaresAboutTargeting],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Constant Mists`,
+    types: [CardType.Instant],
+    tags: [MonTag.SacrificesLands],
+    category: MonCat.Lifegain,
+  },
+  {
+    name: `Nacatl War-Pride`,
+    types: [CardType.Creature],
+    tags: [
+      MonTag.VulnerableAttacker,
+      MonTag.SundialFriendly,
+      MonTag.CaresAboutOpponentCreatures,
+      MonTag.LikesBeingCopiedWithCast,
+      MonTag.LikesBeingCopiedWithETB,
+      MonTag.LikesBeingCopiedWithMirror,
+    ],
+    category: MonCat.Threat,
+  },
+  {
+    name: `Ward of Bones`,
+    types: [CardType.Artifact],
+    tags: [MonTag.CaresAboutOpponentCreatures],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Realmbreaker, the Invasion Tree`,
+    types: [CardType.Artifact, CardType.Legendary],
+    category: MonCat.Ramp,
+    combos: [{
+      relationship: MonumentEdge.TribalSynergy,
+      isMatch: other => (
+        other.types.has('Creature') &&
+        other.subtypes.has('Changeling')
+      ),
+    }],
+  },
+  {
+    name: `Overtaker`,
+    types: [CardType.Creature],
+    tags: [MonTag.ThreatensCreatures],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Callous Oppressor`,
+    types: [CardType.Creature],
+    tags: [MonTag.ThreatensCreatures],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Utvara Hellkite`,
+    types: [CardType.Creature],
+    tags: [
+      MonTag.TargetsTribal,
+      MonTag.LikesBeingCopiedWithCast,
+      MonTag.LikesBeingCopiedWithETB,
+      MonTag.LikesBeingCopiedWithMirror,
+    ],
+    category: MonCat.Threat,
+  },
+  {
+    name: `Primeval Herald`,
+    types: [CardType.Creature],
+    tags: [MonTag.VulnerableAttacker, MonTag.SundialFriendly],
+    category: MonCat.Ramp,
+  },
+  {
+    status: CardListStatus.Pending,
+    name: `Sword of the Animist`,
+    types: [CardType.Equipment],
+    tags: [MonTag.VulnerableAttacker, MonTag.SundialFriendly],
+    category: MonCat.Ramp,
+  },
+  {
+    name: `Vizier of Tumbling Sands`,
+    types: [CardType.Creature],
+    tags: [MonTag.UntapsLand, MonTag.UntapsCreature],
+    category: MonCat.Ramp,
+  },
+  {
+    name: `Seedborn Muse`,
+    types: [CardType.Creature],
+    tags: [MonTag.UntapsAllLands],
+    category: MonCat.Ramp,
+  },
+  {
+    name: `Manascape Refractor`,
+    types: [CardType.Artifact],
+    category: MonCat.Ramp,
+    tags: [MonTag.CopiesLands, MonTag.CopiesWithMirror],
   },
   {
     name: `Wilderness Reclamation`,
@@ -624,316 +754,144 @@ const NonLands: CardDraft[] = [
     category: MonCat.Threat,
   },
   {
-    name: `Lithoform Engine`,
-    types: [CardType.Artifact],
-    category: MonCat.NonLand,
-  },
-  {
-    status: CardListStatus.Pending,
-    name: `Realmbreaker, the Invasion Tree`,
-    types: [CardType.Artifact, CardType.Legendary],
-    category: MonCat.Ramp,
-    combos: [{
-      relationship: MonumentEdge.TribalSynergy,
-      isMatch: other => (
-        other.types.has('Creature') &&
-        other.subtypes.has('Changeling')
-      ),
-    }],
-  },
-  {
-    status: CardListStatus.Pending,
-    name: `Overtaker`,
-    types: [CardType.Creature],
-    tags: [MonTag.ThreatensCreatures],
-    category: MonCat.Interaction,
-  },
-  {
-    status: CardListStatus.Pending,
-    name: `Callous Oppressor`,
-    types: [CardType.Creature],
-    tags: [MonTag.ThreatensCreatures],
-    category: MonCat.Interaction,
-  },
-  {
-    status: CardListStatus.Pending,
-    name: `Utvara Hellkite`,
-    types: [CardType.Creature],
-    tags: [
-      MonTag.TargetsTribal,
-      MonTag.LikesBeingCopiedWithCast,
-      MonTag.LikesBeingCopiedWithETB,
-      MonTag.LikesBeingCopiedWithMirror,
-    ],
-    category: MonCat.Threat,
-  },
-];
-
-// rejected
-const LandsRejected: Omit<CardDraft, 'types' | 'category'>[] = [
-  {
-    status: CardListStatus.Rejected,
-    name: `Desolate Lighthouse`,
-    combos: [
-      {
-        relationship: MonumentEdge.Bins,
-        isMatch: other => other.tags.has(MonTag.Flashback),
-      },
-    ],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Urborg, Tomb of Yawgmoth`,
-    tags: [MonTag.GrantsLandTypes],
-    combos: [
-      {
-        relationship: MonumentEdge.LandTypeMatters,
-        isMatch: other => other.tags.has(MonTag.CaresAboutSwamps),
-      },
-    ],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Desert`,
-    tags: [
-      MonTag.DealsDamageToCreatures,
-      MonTag.TargetsCreatures,
-      MonTag.CaresAboutGettingUntapped,
-    ],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Sorrow's Path`,
-    tags: [
-      MonTag.DealsDamageToCreatures,
-      MonTag.CannotTapForMana,
-      MonTag.CaresAboutGettingLandTapped,
-      MonTag.CaresAboutGettingUntapped,
-    ],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Hanweir Battlements // Hanweir, the Writhing Township`,
-    nick: `Hanweir Battlements`,
-    tags: [MonTag.TargetsCreatures],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Tolaria`,
-    tags: [MonTag.TargetsCreatures],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Yavimaya Hollow`,
-    tags: [MonTag.TargetsCreatures],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Okina, Temple to the Grandfathers`,
-    tags: [MonTag.TargetsCreatures],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Minamo, School at Water's Edge`,
-    tags: [MonTag.TargetsCreatures],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Shinka, the Bloodsoaked Keep`,
-    tags: [MonTag.TargetsCreatures],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Cascading Cataracts`,
-    tags: [MonTag.LandWithProtection],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Silverbluff Bridge`,
-    nick: 'Bridge Lands',
-    tags: [MonTag.LandWithProtection],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Rishadan Port`,
-    tags: [MonTag.TapsTargetLand],
-  },
-  {
-    status: CardListStatus.Rejected,
-    name: `Riptide Laboratory`,
-    tags: [MonTag.TargetsTribal],
-    combos: [
-      {
-        relationship: MonumentEdge.TribalSynergy,
-        isMatch: b => b.subtypes.has('Wizard'),
-      },
-    ],
-  },
-];
-const NonLandRejected: CardDraft[] = [
-  {
-    status: CardListStatus.Rejected,
     name: `The Akroan War`,
     types: [CardType.Enchantment],
     subtypes: ['Saga'],
     category: MonCat.Interaction,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Spike Weaver`,
     types: [CardType.Creature],
     tags: [MonTag.HasLimitedUseCounters],
     category: MonCat.Lifegain,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Myojin of Life's Web`,
     types: [CardType.Creature],
     tags: [MonTag.HasLimitedUseCounters],
     category: MonCat.Threat,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Myojin of Seeing Winds`,
     types: [CardType.Creature],
     tags: [MonTag.HasLimitedUseCounters],
     category: MonCat.Draw,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Scavenged Brawler`,
     types: [CardType.Creature, CardType.Artifact],
     tags: [MonTag.HasAbilityCounters, MonTag.Flashback],
     category: MonCat.Buff,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Slippery Bogbonder`,
     types: [CardType.Creature],
     tags: [MonTag.HasAbilityCounters],
     category: MonCat.Buff,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Shapesharer`,
     types: [CardType.Creature],
     subtypes: ['Changeling'],
     category: MonCat.Threat,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Transmogrifying Wand`,
     types: [CardType.Artifact],
     tags: [MonTag.HasLimitedUseCounters],
     category: MonCat.Interaction,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Starke of Rath`,
     types: [CardType.Creature],
     tags: [MonTag.DonatesSelf],
     category: MonCat.Interaction,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Puca's Mischief`,
     types: [CardType.Enchantment],
     tags: [MonTag.ExchangesForCreature],
     category: MonCat.Interaction,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Fortitude`,
     types: [CardType.Enchantment],
     tags: [MonTag.CaresAboutForests, MonTag.SacrificesLands],
     category: MonCat.Buff,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Roots of Life`,
     types: [CardType.Enchantment],
     tags: [MonTag.CaresAboutSwamps],
     category: MonCat.Lifegain,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Spreading Algae`,
     types: [CardType.Enchantment],
     tags: [MonTag.CaresAboutSwamps, MonTag.CaresAboutGettingLandTapped],
     category: MonCat.Interaction,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Nightmare Lash`,
     types: [CardType.Artifact],
     tags: [MonTag.CaresAboutSwamps],
     category: MonCat.Buff,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Dualcaster Mage`,
     types: [CardType.Creature],
     subtypes: ['Wizard'],
     category: MonCat.Draw,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Radiant Performer`,
     types: [CardType.Creature],
     subtypes: ['Wizard'],
     category: MonCat.Interaction,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Heartless Hidetsugu`,
     types: [CardType.Creature],
     tags: [MonTag.DealsDamageToPlayers],
     category: MonCat.Threat,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Apex Altisaur`,
     types: [CardType.Creature],
     tags: [MonTag.Enrage],
     category: MonCat.Interaction,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Polyraptor`,
     types: [CardType.Creature],
     tags: [MonTag.Enrage],
     category: MonCat.Threat,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Ranging Raptors`,
     types: [CardType.Creature],
     tags: [MonTag.Enrage],
     category: MonCat.Ramp,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Vigor`,
     types: [CardType.Creature],
     tags: [MonTag.Enrage],
     category: MonCat.Threat,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Fractured Loyalty`,
     types: [CardType.Enchantment],
     tags: [MonTag.CaresAboutTargeting],
     category: MonCat.Interaction,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Dreamscape Artist`,
     types: [CardType.Creature],
     tags: [MonTag.SacrificesLands, MonTag.CaresAboutGettingUntapped],
     category: MonCat.Ramp,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Dowsing Dagger // Lost Vale`,
     nick: `Dowsing Dagger`,
     types: [CardType.Artifact],
@@ -945,7 +903,6 @@ const NonLandRejected: CardDraft[] = [
     category: MonCat.Ramp,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Conqueror's Galleon // Conqueror's Foothold`,
     nick: `Conqueror's Galleon`,
     types: [CardType.Artifact],
@@ -957,63 +914,54 @@ const NonLandRejected: CardDraft[] = [
     category: MonCat.Draw,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Awakening of Vitu-Ghazi`,
     types: [CardType.Instant],
     tags: [MonTag.AnimatesLand],
     category: MonCat.Threat,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Spawning Grounds`,
     types: [CardType.Enchantment],
     tags: [MonTag.AnimatesLand, MonTag.CaresAboutGettingUntapped],
     category: MonCat.Threat,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Druid Class`,
     types: [CardType.Enchantment],
     tags: [MonTag.AnimatesLand],
     category: MonCat.Threat,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Stone-Seeder Hierophant`,
     types: [CardType.Creature],
     tags: [MonTag.UntapsLand],
     category: MonCat.Ramp,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Fatestitcher`,
     types: [CardType.Creature],
     tags: [MonTag.UntapsLand],
     category: MonCat.Ramp,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Kiora's Follower`,
     types: [CardType.Creature],
     tags: [MonTag.UntapsLand],
     category: MonCat.Ramp,
   },
   {
-    status: CardListStatus.Rejected,
     name: `The Phasing of Zhalfir`,
     types: [CardType.Enchantment],
     subtypes: ['Saga'],
     category: MonCat.Interaction,
   },
   {
-    status: CardListStatus.Rejected,
     name: `World Breaker`,
     types: [CardType.Creature],
     tags: [MonTag.SacrificesLands],
     category: MonCat.Interaction,
   },
   {
-    status: CardListStatus.Rejected,
     name: `Cyclone Summoner`,
     types: [CardType.Creature],
     subtypes: ['Wizard'],
@@ -1021,7 +969,6 @@ const NonLandRejected: CardDraft[] = [
     tags: [MonTag.LikesBeingCopiedWithCast],
   },
   {
-    status: CardListStatus.Rejected,
     name: `Sower of Temptation`,
     types: [CardType.Creature],
     subtypes: ['Wizard'],
@@ -1109,14 +1056,26 @@ export const MonumentData: DeckData = {
   name: 'Monument.dec',
   url: 'https://tappedout.net/mtg-decks/monument-to-hubris/',
   cardDrafts: [
-    ...[...Lands, ...LandsRejected].map(c => ({
+    ...[
+      ...Lands,
+      ...LandsRejected.map(c => ({
+        ...c,
+        status: CardListStatus.Rejected,
+      })),
+    ].map(c => ({
       ...c,
       types: [CardType.Land],
       category: MonCat.Land,
       tags: (c.tags ?? []).concat('Is Land'),
       emphasize: true,
     })),
-    ...[...NonLands, ...NonLandRejected].map(c => ({
+    ...[
+      ...NonLands,
+      ...NonLandRejected.map(c => ({
+        ...c,
+        status: CardListStatus.Rejected,
+      })),
+    ].map(c => ({
       ...c,
       tags: (c.tags ?? []).concat('Is Not Land'),
     })),
