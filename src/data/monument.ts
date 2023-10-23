@@ -34,6 +34,7 @@ enum MonTag {
   HasAbilityCounters = 'Ability Counters',
   HasLimitedUseCounters = 'Divinity Counters',
   HasIndestructible = 'Has Indestructible',
+  Proliferates = 'Proliferates',
 
   GrantsLandTypes = 'Grants Land Types',
   CannotTapForMana = 'Cannot Tap For Mana',
@@ -86,11 +87,14 @@ enum MonTag {
 
   ThreatensCreatures = 'Threatens Creatures',
   MakesTokens = 'Makes Tokens',
+  UsesZombies = 'Uses Zombies',
 
   CaresAboutTrinkets = 'Trinkets',
   UsesTokens = 'Uses Tokens',
   CaresAboutBasics = 'Cares About Basics',
   DestroysAll = 'Destroys All',
+  HasLandfall = 'Has Landfall',
+  TriggersLandfall = 'Triggers Landfall',
 }
 
 enum MonumentEdge {
@@ -172,27 +176,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   },
   {
     name: `Karn's Bastion`,
-    combos: [
-      {
-        relationship: MonumentEdge.ManipulatesCounters,
-        isMatch: other =>
-          other.tags.has(MonTag.HasAbilityCounters) ||
-          other.tags.has(MonTag.HasLimitedUseCounters) ||
-          other.subtypes.has('Saga'),
-      },
-    ],
-  },
-  {
-    name: `Homeward Path`,
-    combos: [
-      {
-        relationship: MonumentEdge.Retrieves,
-        isMatch: other =>
-          other.tags.has(MonTag.ExchangesForCreature) ||
-          (other.types.has(CardType.Creature) &&
-            other.tags.has(MonTag.DonatesSelf)),
-      },
-    ],
+    tags: [MonTag.Proliferates],
   },
   {
     name: `Yavimaya, Cradle of Growth`,
@@ -215,6 +199,12 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
+    name: `Contested Cliffs`,
+    tags: [
+      MonTag.TargetsTribal,
+    ],
+  },
+  {
     name: `Glacial Chasm`,
     tags: [
       MonTag.HasAgeCounters,
@@ -222,6 +212,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
       MonTag.LikesBeingCopiedWithCast,
       MonTag.LikesBeingCopiedWithETB,
       MonTag.LikesBeingCopiedWithMirror,
+      MonTag.SacrificesLands,
     ],
     combos: [
       {
@@ -284,6 +275,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
       MonTag.CaresAboutGettingUntapped,
       MonTag.LikesBeingCopiedWithMirror,
       MonTag.SundialFriendly,
+      MonTag.TriggersLandfall,
     ],
   },
   {
@@ -303,6 +295,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
       MonTag.CaresAboutGettingUntapped,
       MonTag.SundialFriendly,
       MonTag.CaresAboutBasics,
+      MonTag.TriggersLandfall,
     ],
   },
   {
@@ -319,19 +312,13 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     ],
   },
   {
-    name: `Littjara Mirrorlake`,
-    tags: [
-      MonTag.CopiesCreatures,
-      MonTag.CopiesWithETB,
-    ],
-  },
-  {
     name: `Kher Keep`,
     tags: [MonTag.MakesTokens],
   },
   {
     name: `Field of the Dead`,
     tags: [MonTag.MakesTokens],
+    subtypes: ['Zombie'],
   },
   {
     name: `Urza's Saga`,
@@ -381,6 +368,18 @@ const NonLands: CardDraft[] = [
     category: MonCat.Draw,
   },
   {
+    name: `Waking the Trolls`,
+    types: [CardType.Enchantment],
+    subtypes: ['Saga'],
+    category: MonCat.Threat,
+  },
+  {
+    name: `The Bath Song`,
+    types: [CardType.Enchantment],
+    subtypes: ['Saga'],
+    category: MonCat.Draw,
+  },
+  {
     name: `Myojin of Towering Might`,
     types: [CardType.Creature],
     tags: [
@@ -421,6 +420,24 @@ const NonLands: CardDraft[] = [
     category: MonCat.Threat,
   },
   {
+    name: `Pendant of Prosperity`,
+    types: [CardType.Artifact],
+    category: MonCat.Draw,
+    tags: [MonTag.LikesBeingCopiedWithMirror],
+  },
+  {
+    name: `Omnath, Locus of Rage`,
+    types: [CardType.Creature],
+    tags: [MonTag.HasLandfall, MonTag.MakesTokens],
+    category: MonCat.Threat,
+  },
+  {
+    name: `Tatyova, Benthic Druid`,
+    types: [CardType.Creature],
+    tags: [MonTag.HasLandfall],
+    category: MonCat.Draw,
+  },
+  {
     name: `Humble Defector`,
     types: [CardType.Creature],
     tags: [MonTag.DonatesSelf, MonTag.CaresAboutGettingUntapped],
@@ -431,12 +448,6 @@ const NonLands: CardDraft[] = [
     types: [CardType.Creature],
     tags: [MonTag.DonatesSelf],
     category: MonCat.Draw,
-  },
-  {
-    name: `Perplexing Chimera`,
-    types: [CardType.Creature, CardType.Enchantment],
-    tags: [MonTag.DonatesSelf],
-    category: MonCat.Interaction,
   },
   {
     name: `Lifetap`,
@@ -467,7 +478,22 @@ const NonLands: CardDraft[] = [
     name: `Maskwood Nexus`,
     types: [CardType.Artifact],
     subtypes: ['Changeling'],
-    category: MonCat.NonLand,
+    tags: [MonTag.MakesTokens],
+    category: MonCat.Buff,
+  },
+  {
+    name: `Runed Stalactite`,
+    mc: '1',
+    types: [CardType.Artifact, CardType.Equipment],
+    subtypes: ['Changeling'],
+    category: MonCat.Buff,
+  },
+  {
+    name: `Animation Module`,
+    mc: '1',
+    types: [CardType.Artifact],
+    tags: [MonTag.Proliferates, MonTag.MakesTokens],
+    category: MonCat.Buff,
   },
   {
     name: `Dismiss into Dream`,
@@ -548,11 +574,6 @@ const NonLands: CardDraft[] = [
     tags: [MonTag.TargetsTribal],
   },
   {
-    name: `Lithoform Engine`,
-    types: [CardType.Artifact],
-    category: MonCat.NonLand,
-  },
-  {
     name: `Transmogrifying Wand`,
     types: [CardType.Artifact],
     tags: [MonTag.HasLimitedUseCounters],
@@ -577,10 +598,34 @@ const NonLands: CardDraft[] = [
     category: MonCat.Interaction,
   },
   {
+    name: `Jalira, Master Polymorphist`,
+    types: [CardType.Creature],
+    tags: [MonTag.UsesTokens],
+    category: MonCat.Draw,
+  },
+  {
+    name: `Reality Scramble`,
+    types: [CardType.Sorcery],
+    tags: [MonTag.UsesTokens],
+    category: MonCat.Draw,
+  },
+  {
     name: `Kindred Discovery`,
     types: [CardType.Enchantment],
     category: MonCat.Draw,
     tags: [MonTag.TargetsTribal, MonTag.UsesTokens],
+  },
+  {
+    name: `Hordewing Skaab`,
+    types: [CardType.Creature],
+    category: MonCat.Draw,
+    tags: [MonTag.TargetsTribal, MonTag.UsesZombies],
+  },
+  {
+    name: `Djinn of Infinite Deceits`,
+    types: [CardType.Creature],
+    tags: [MonTag.UsesTokens],
+    category: MonCat.Interaction,
   },
   {
     name: `Rootpath Purifier`,
@@ -590,6 +635,18 @@ const NonLands: CardDraft[] = [
       {
         relationship: MonumentEdge.CombosWith,
         isMatch: other => other.tags.has(MonTag.CaresAboutBasics),
+      },
+    ],
+  },
+  {
+    name: `Aven Courier`,
+    types: [CardType.Creature],
+    category: MonCat.NonLand,
+    combos: [
+      {
+        relationship: MonumentEdge.ManipulatesCounters,
+        isMatch: other =>
+          other.tags.has(MonTag.HasAbilityCounters),
       },
     ],
   },
@@ -666,6 +723,25 @@ const LandsRejected: Omit<CardDraft,
     ],
   },
   {
+    name: `Homeward Path`,
+    combos: [
+      {
+        relationship: MonumentEdge.Retrieves,
+        isMatch: other =>
+          other.tags.has(MonTag.ExchangesForCreature) ||
+          (other.types.has(CardType.Creature) &&
+            other.tags.has(MonTag.DonatesSelf)),
+      },
+    ],
+  },
+  {
+    name: `Littjara Mirrorlake`,
+    tags: [
+      MonTag.CopiesCreatures,
+      MonTag.CopiesWithETB,
+    ],
+  },
+  {
     name: `Hanweir Battlements // Hanweir, the Writhing Township`,
     nick: `Hanweir Battlements`,
     tags: [MonTag.TargetsCreatures],
@@ -715,12 +791,6 @@ const LandsRejected: Omit<CardDraft,
   },
 ];
 const NonLandRejected: CardDraft[] = [
-  {
-    name: `Pendant of Prosperity`,
-    types: [CardType.Artifact],
-    category: MonCat.Draw,
-    tags: [MonTag.LikesBeingCopiedWithMirror],
-  },
   {
     name: `Cowardice`,
     types: [CardType.Enchantment],
@@ -883,6 +953,17 @@ const NonLandRejected: CardDraft[] = [
     types: [CardType.Enchantment],
     tags: [MonTag.ExchangesForCreature],
     category: MonCat.Interaction,
+  },
+  {
+    name: `Perplexing Chimera`,
+    types: [CardType.Creature, CardType.Enchantment],
+    tags: [MonTag.DonatesSelf],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Lithoform Engine`,
+    types: [CardType.Artifact],
+    category: MonCat.NonLand,
   },
   {
     name: `Fortitude`,
@@ -1070,6 +1151,11 @@ const MonMatchers: Matcher[] = [
       a.tags.has(MonTag.TargetsTribal) && b.subtypes.has('Changeling'),
   },
   {
+    relationship: MonumentEdge.TribalSynergy,
+    isMatch: (a, b) =>
+      a.tags.has(MonTag.UsesZombies) && b.subtypes.has('Zombie'),
+  },
+  {
     relationship: MonumentEdge.Protects,
     isMatch: (a, b) =>
       a.tags.has(MonTag.LandWithProtection) && b.tags.has(MonTag.AnimatesLand),
@@ -1128,7 +1214,7 @@ const MonMatchers: Matcher[] = [
       (b.types.has(CardType.Artifact) && b.mc === '1'),
   },
   {
-    relationship: MonumentEdge.CombosWith,
+    relationship: MonumentEdge.FueledBy,
     isMatch: (a,b) =>
       a.tags.has(MonTag.UsesTokens) &&
       b.tags.has(MonTag.MakesTokens),
@@ -1138,6 +1224,21 @@ const MonMatchers: Matcher[] = [
     isMatch: (a,b) =>
       a.tags.has(MonTag.DestroysAll) &&
       b.tags.has(MonTag.HasIndestructible),
+  },
+  {
+    relationship: MonumentEdge.Fuels,
+    isMatch: (a,b) =>
+      a.tags.has(MonTag.TriggersLandfall) &&
+      b.tags.has(MonTag.HasLandfall),
+  },
+  {
+    relationship: MonumentEdge.ManipulatesCounters,
+    isMatch: (a,b) =>
+      a.tags.has(MonTag.Proliferates) && (
+        b.tags.has(MonTag.HasAbilityCounters) ||
+        b.tags.has(MonTag.HasLimitedUseCounters) ||
+        b.subtypes.has('Saga')
+      ),
   },
 ];
 
