@@ -33,6 +33,7 @@ enum MonTag {
   HasAgeCounters = 'Age Counters',
   HasAbilityCounters = 'Ability Counters',
   HasLimitedUseCounters = 'Divinity Counters',
+  HasIndestructible = 'Has Indestructible',
 
   GrantsLandTypes = 'Grants Land Types',
   CannotTapForMana = 'Cannot Tap For Mana',
@@ -85,6 +86,11 @@ enum MonTag {
 
   ThreatensCreatures = 'Threatens Creatures',
   MakesTokens = 'Makes Tokens',
+
+  CaresAboutTrinkets = 'Trinkets',
+  UsesTokens = 'Uses Tokens',
+  CaresAboutBasics = 'Cares About Basics',
+  DestroysAll = 'Destroys All',
 }
 
 enum MonumentEdge {
@@ -205,6 +211,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
       MonTag.HasAbilityCounters,
       MonTag.TargetsCreatures,
       MonTag.TargetsTribal,
+      MonTag.HasIndestructible,
     ],
   },
   {
@@ -295,6 +302,7 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
       MonTag.CannotTapForMana,
       MonTag.CaresAboutGettingUntapped,
       MonTag.SundialFriendly,
+      MonTag.CaresAboutBasics,
     ],
   },
   {
@@ -321,18 +329,33 @@ const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
     name: `Kher Keep`,
     tags: [MonTag.MakesTokens],
   },
+  {
+    name: `Field of the Dead`,
+    tags: [MonTag.MakesTokens],
+  },
+  {
+    name: `Urza's Saga`,
+    tags: [MonTag.CaresAboutTrinkets],
+  },
 ];
 const NonLands: CardDraft[] = [
   {
     name: `Monument to Perfection`,
     types: [CardType.Artifact],
     category: MonCat.Draw,
+    tags: [MonTag.CaresAboutBasics],
     combos: [
       {
         relationship: MonumentEdge.CombosWith,
         isMatch: other => other.subtypes.has('Sphere'),
       },
     ],
+  },
+  {
+    name: `Thaumatic Compass // Spires of Orazca`,
+    types: [CardType.Artifact],
+    category: MonCat.Draw,
+    tags: [MonTag.CaresAboutBasics],
   },
   {
     name: `Mirage Mirror`,
@@ -364,6 +387,7 @@ const NonLands: CardDraft[] = [
       MonTag.LikesBeingCopiedWithCast,
       MonTag.HasAbilityCounters,
       MonTag.HasPlusCounters,
+      MonTag.HasIndestructible,
     ],
     category: MonCat.Threat,
   },
@@ -373,6 +397,7 @@ const NonLands: CardDraft[] = [
     tags: [
       MonTag.LikesBeingCopiedWithCast,
       MonTag.HasAbilityCounters,
+      MonTag.HasIndestructible,
     ],
     category: MonCat.Draw,
   },
@@ -382,13 +407,17 @@ const NonLands: CardDraft[] = [
     tags: [
       MonTag.LikesBeingCopiedWithCast,
       MonTag.HasAbilityCounters,
+      MonTag.HasIndestructible,
     ],
     category: MonCat.Threat,
   },
   {
     name: `Solphim, Mayhem Dominus`,
     types: [CardType.Creature],
-    tags: [MonTag.HasAbilityCounters],
+    tags: [
+      MonTag.HasAbilityCounters,
+      MonTag.HasIndestructible,
+    ],
     category: MonCat.Threat,
   },
   {
@@ -460,6 +489,12 @@ const NonLands: CardDraft[] = [
     category: MonCat.Draw,
   },
   {
+    name: `Expedition Map`,
+    types: [CardType.Artifact],
+    mc: '1',
+    category: MonCat.Draw,
+  },
+  {
     name: `Scute Swarm`,
     types: [CardType.Creature],
     subtypes: ['Insect'],
@@ -495,8 +530,9 @@ const NonLands: CardDraft[] = [
   },
   {
     name: `Skullclamp`,
-    types: [CardType.Equipment],
+    types: [CardType.Artifact, CardType.Equipment],
     category: MonCat.Draw,
+    mc: '1',
     combos: [
       {
         relationship: MonumentEdge.FueledBy,
@@ -515,6 +551,47 @@ const NonLands: CardDraft[] = [
     name: `Lithoform Engine`,
     types: [CardType.Artifact],
     category: MonCat.NonLand,
+  },
+  {
+    name: `Transmogrifying Wand`,
+    types: [CardType.Artifact],
+    tags: [MonTag.HasLimitedUseCounters],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Nevinyrral's Disk`,
+    types: [CardType.Artifact],
+    tags: [MonTag.DestroysAll],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Boompile`,
+    types: [CardType.Artifact],
+    tags: [MonTag.DestroysAll],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Proteus Staff`,
+    types: [CardType.Artifact],
+    tags: [MonTag.UsesTokens],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Kindred Discovery`,
+    types: [CardType.Enchantment],
+    category: MonCat.Draw,
+    tags: [MonTag.TargetsTribal, MonTag.UsesTokens],
+  },
+  {
+    name: `Rootpath Purifier`,
+    types: [CardType.Creature],
+    category: MonCat.Draw,
+    combos: [
+      {
+        relationship: MonumentEdge.CombosWith,
+        isMatch: other => other.tags.has(MonTag.CaresAboutBasics),
+      },
+    ],
   },
 ];
 
@@ -796,12 +873,6 @@ const NonLandRejected: CardDraft[] = [
     category: MonCat.Threat,
   },
   {
-    name: `Transmogrifying Wand`,
-    types: [CardType.Artifact],
-    tags: [MonTag.HasLimitedUseCounters],
-    category: MonCat.Interaction,
-  },
-  {
     name: `Starke of Rath`,
     types: [CardType.Creature],
     tags: [MonTag.DonatesSelf],
@@ -1049,6 +1120,24 @@ const MonMatchers: Matcher[] = [
     isMatch: (a,b) =>
       a.tags.has(MonTag.UntapsAllLands) &&
       (b.types.has(CardType.Land) && b.tags.has(MonTag.ManaSink)),
+  },
+  {
+    relationship: MonumentEdge.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(MonTag.CaresAboutTrinkets) &&
+      (b.types.has(CardType.Artifact) && b.mc === '1'),
+  },
+  {
+    relationship: MonumentEdge.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(MonTag.UsesTokens) &&
+      b.tags.has(MonTag.MakesTokens),
+  },
+  {
+    relationship: MonumentEdge.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(MonTag.DestroysAll) &&
+      b.tags.has(MonTag.HasIndestructible),
   },
 ];
 
