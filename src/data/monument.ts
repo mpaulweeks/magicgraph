@@ -420,12 +420,6 @@ const NonLands: CardDraft[] = [
     category: MonCat.Threat,
   },
   {
-    name: `Pendant of Prosperity`,
-    types: [CardType.Artifact],
-    category: MonCat.Draw,
-    tags: [MonTag.LikesBeingCopiedWithMirror],
-  },
-  {
     name: `Omnath, Locus of Rage`,
     types: [CardType.Creature],
     tags: [MonTag.HasLandfall, MonTag.MakesTokens],
@@ -435,18 +429,6 @@ const NonLands: CardDraft[] = [
     name: `Tatyova, Benthic Druid`,
     types: [CardType.Creature],
     tags: [MonTag.HasLandfall],
-    category: MonCat.Draw,
-  },
-  {
-    name: `Humble Defector`,
-    types: [CardType.Creature],
-    tags: [MonTag.DonatesSelf, MonTag.CaresAboutGettingUntapped],
-    category: MonCat.Draw,
-  },
-  {
-    name: `Khârn the Betrayer`,
-    types: [CardType.Creature],
-    tags: [MonTag.DonatesSelf],
     category: MonCat.Draw,
   },
   {
@@ -555,18 +537,6 @@ const NonLands: CardDraft[] = [
     ],
   },
   {
-    name: `Skullclamp`,
-    types: [CardType.Artifact, CardType.Equipment],
-    category: MonCat.Draw,
-    mc: '1',
-    combos: [
-      {
-        relationship: MonumentEdge.FueledBy,
-        isMatch: other => other.tags.has(MonTag.MakesTokens),
-      },
-    ],
-  },
-  {
     name: `Battle of Frost and Fire`,
     types: [CardType.Enchantment],
     subtypes: ['Saga'],
@@ -576,6 +546,12 @@ const NonLands: CardDraft[] = [
   {
     name: `Transmogrifying Wand`,
     types: [CardType.Artifact],
+    tags: [MonTag.HasLimitedUseCounters],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Nissa, Ascended Animist`,
+    types: [CardType.Planeswalker],
     tags: [MonTag.HasLimitedUseCounters],
     category: MonCat.Interaction,
   },
@@ -626,6 +602,24 @@ const NonLands: CardDraft[] = [
     types: [CardType.Creature],
     tags: [MonTag.UsesTokens],
     category: MonCat.Interaction,
+  },
+  {
+    name: `Helm of Possession`,
+    types: [CardType.Artifact],
+    tags: [MonTag.UsesTokens],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Barrin, Master Wizard`,
+    types: [CardType.Creature],
+    tags: [MonTag.UsesTokens],
+    category: MonCat.Interaction,
+  },
+  {
+    name: `Perilous Forays`,
+    types: [CardType.Enchantment],
+    tags: [MonTag.UsesTokens, MonTag.CaresAboutBasics],
+    category: MonCat.Ramp,
   },
   {
     name: `Rootpath Purifier`,
@@ -1125,6 +1119,36 @@ const NonLandRejected: CardDraft[] = [
     types: [CardType.Creature],
     subtypes: ['Wizard'],
     category: MonCat.Interaction,
+  },
+  {
+    name: `Pendant of Prosperity`,
+    types: [CardType.Artifact],
+    category: MonCat.Draw,
+    tags: [MonTag.LikesBeingCopiedWithMirror],
+  },
+  {
+    name: `Skullclamp`,
+    types: [CardType.Artifact, CardType.Equipment],
+    category: MonCat.Draw,
+    mc: '1',
+    combos: [
+      {
+        relationship: MonumentEdge.FueledBy,
+        isMatch: other => other.tags.has(MonTag.MakesTokens),
+      },
+    ],
+  },
+  {
+    name: `Humble Defector`,
+    types: [CardType.Creature],
+    tags: [MonTag.DonatesSelf, MonTag.CaresAboutGettingUntapped],
+    category: MonCat.Draw,
+  },
+  {
+    name: `Khârn the Betrayer`,
+    types: [CardType.Creature],
+    tags: [MonTag.DonatesSelf],
+    category: MonCat.Draw,
   },
 ];
 
