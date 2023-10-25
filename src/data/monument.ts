@@ -8,7 +8,7 @@ import {
 
 enum MonCat {
   Land = 'Tutorable Land',
-  NonLand = 'Non Land',
+  Misc = 'Misc',
   Threat = 'Threat',
   Lifegain = 'Lifegain',
   Buff = 'Buff',
@@ -18,7 +18,7 @@ enum MonCat {
 }
 const CategoryColorMap = {
   [MonCat.Land]: 'lightgrey',
-  [MonCat.NonLand]: 'grey',
+  [MonCat.Misc]: 'grey',
   [MonCat.Threat]: 'salmon',
   [MonCat.Lifegain]: 'lightyellow',
   [MonCat.Buff]: 'Orchid',
@@ -519,7 +519,7 @@ const NonLands: CardDraft[] = [
   {
     name: `Sundial of the Infinite`,
     types: [CardType.Artifact],
-    category: MonCat.NonLand,
+    category: MonCat.Misc,
     combos: [
       {
         relationship: MonumentEdge.CombosWith,
@@ -635,7 +635,7 @@ const NonLands: CardDraft[] = [
   {
     name: `Aven Courier`,
     types: [CardType.Creature],
-    category: MonCat.NonLand,
+    category: MonCat.Misc,
     combos: [
       {
         relationship: MonumentEdge.ManipulatesCounters,
@@ -957,7 +957,7 @@ const NonLandRejected: CardDraft[] = [
   {
     name: `Lithoform Engine`,
     types: [CardType.Artifact],
-    category: MonCat.NonLand,
+    category: MonCat.Misc,
   },
   {
     name: `Fortitude`,

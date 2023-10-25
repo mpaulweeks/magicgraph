@@ -5,7 +5,6 @@ import { CardView } from "./CardView";
 import { GraphVis } from "./GraphVis";
 import styles from './App.module.css';
 import { AutoCard } from "./AutoCard";
-import { types } from "util";
 
 export const DeckView = (props: {
   deck: Deck,
@@ -39,14 +38,14 @@ export const DeckView = (props: {
   const cardTypes = unique(deck.cards.map(c => c.types.asArray).flat());
   const categories = unique(deck.cards.map(c => c.category));
   const tags = unique(deck.cards.map(c => c.tags.asArray).flat());
-  const toRender = deck.cards
+  const filtered = deck.cards
+    .filter(c => !filter || c.filterBy.has(filter));
+  const current = filtered.filter(c => c.current);
+  const pending = filtered.filter(c => c.pending);
+  const rejected = filtered.filter(c => c.rejected);
+  const toRender = filtered
     .filter(c => includePending || !c.pending)
     .filter(c => includeRejected || !c.rejected)
-    .filter(c => !filter ||
-      c.types.has(filter) ||
-      c.category === filter ||
-      c.tags.has(filter)
-    );
   const edges = uniqueBy(
     deck.edges
       .filter(e => includePending || e.related.every(c => !c.pending))
@@ -93,7 +92,7 @@ export const DeckView = (props: {
         <div>
           Types:
           {cardTypes.map((t, ti) => (
-            <button key={ti} onClick={() => setFilter(t)}>
+            <button key={ti} onClick={() => setFilter(`type:${t}`)}>
               {t}
             </button>
           ))}
@@ -101,7 +100,7 @@ export const DeckView = (props: {
         <div>
           Category:
           {categories.map((t, ti) => (
-            <button key={ti} onClick={() => setFilter(t)}>
+            <button key={ti} onClick={() => setFilter(`category:${t}`)}>
               {t}
             </button>
           ))}
@@ -109,7 +108,7 @@ export const DeckView = (props: {
         <div>
           Tags:
           {tags.map((t, ti) => (
-            <button key={ti} onClick={() => setFilter(t)}>
+            <button key={ti} onClick={() => setFilter(`tag:${t}`)}>
               {t}
             </button>
           ))}
@@ -126,36 +125,30 @@ export const DeckView = (props: {
         ))}
       </div>
       <section style={{ display: 'flex', gap: '1em' }}>
-        {(includePending || includeRejected) && (
-          <div>
-            <h3>{toRender.filter(card => !card.pending && !card.rejected).length} Played Cards</h3>
-            {toRender.filter(card => !card.pending && !card.rejected).map(card => (
-              <div>
-                <AutoCard key={card.id} card={card} />
-              </div>
-            ))}
-          </div>
-        )}
-        {includePending && (
-          <div>
-            <h3>{toRender.filter(card => card.pending).length} Pending Cards</h3>
-            {toRender.filter(card => card.pending).map(card => (
-              <div>
-                <AutoCard key={card.id} card={card} />
-              </div>
-            ))}
-          </div>
-        )}
-        {includeRejected && (
-          <div>
-            <h3>{toRender.filter(card => card.rejected).length} Rejected Cards</h3>
-            {toRender.filter(card => card.rejected).map(card => (
-              <div>
-                <AutoCard key={card.id} card={card} />
-              </div>
-            ))}
-          </div>
-        )}
+        <div>
+          <h3>{current.length} Played Cards</h3>
+          {current.map(card => (
+            <div>
+              <AutoCard key={card.id} card={card} />
+            </div>
+          ))}
+        </div>
+        <div>
+          <h3>{pending.length} Pending Cards</h3>
+          {pending.map(card => (
+            <div>
+              <AutoCard key={card.id} card={card} />
+            </div>
+          ))}
+        </div>
+        <div>
+          <h3>{rejected.length} Rejected Cards</h3>
+          {rejected.map(card => (
+            <div>
+              <AutoCard key={card.id} card={card} />
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );
