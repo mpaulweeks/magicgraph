@@ -5,6 +5,7 @@ import { CardView } from "./CardView";
 import { GraphVis } from "./GraphVis";
 import styles from './App.module.css';
 import { AutoCard } from "./AutoCard";
+import { types } from "util";
 
 export const DeckView = (props: {
   deck: Deck,
@@ -35,12 +36,17 @@ export const DeckView = (props: {
     );
   }
 
+  const cardTypes = unique(deck.cards.map(c => c.types.asArray).flat());
   const categories = unique(deck.cards.map(c => c.category));
   const tags = unique(deck.cards.map(c => c.tags.asArray).flat());
   const toRender = deck.cards
     .filter(c => includePending || !c.pending)
     .filter(c => includeRejected || !c.rejected)
-    .filter(c => !filter || c.category === filter || c.tags.has(filter));
+    .filter(c => !filter ||
+      c.types.has(filter) ||
+      c.category === filter ||
+      c.tags.has(filter)
+    );
   const edges = uniqueBy(
     deck.edges
       .filter(e => includePending || e.related.every(c => !c.pending))
@@ -83,6 +89,14 @@ export const DeckView = (props: {
           <button onClick={() => setFilter(undefined)}>
             reset
           </button>
+        </div>
+        <div>
+          Types:
+          {cardTypes.map((t, ti) => (
+            <button key={ti} onClick={() => setFilter(t)}>
+              {t}
+            </button>
+          ))}
         </div>
         <div>
           Category:
