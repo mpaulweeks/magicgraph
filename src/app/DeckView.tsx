@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { Deck } from "../lib/deck";
 import { sort, unique, uniqueBy } from "../util/list";
-import { CardView } from "./CardView";
-import { GraphVis } from "./GraphVis";
 import styles from './App.module.css';
 import { AutoCard } from "./AutoCard";
+import { CardView } from "./CardView";
+import { GraphVis } from "./GraphVis";
 
 export const DeckView = (props: {
   deck: Deck,
 }) => {
   const { deck } = props;
   const queryParsm = new URLSearchParams(window.location.search);
+  const [includeCurrent, setIncludeCurrent] = useState<boolean>(true);
   const [includePending, setIncludePending] = useState<boolean>(!!queryParsm.get('pending'));
   const [includeRejected, setIncludeRejected] = useState<boolean>(!!queryParsm.get('rejected'));
   const [filter, setFilter] = useState<string>();
@@ -44,6 +45,7 @@ export const DeckView = (props: {
   const pending = filtered.filter(c => c.pending);
   const rejected = filtered.filter(c => c.rejected);
   const toRender = filtered
+    .filter(c => includeCurrent || !c.current)
     .filter(c => includePending || !c.pending)
     .filter(c => includeRejected || !c.rejected)
   const edges = uniqueBy(
@@ -68,9 +70,19 @@ export const DeckView = (props: {
       </p> */}
       <section>
         <div>
+          Show current?
+          <input
+            type="checkbox"
+            readOnly={true}
+            checked={includeCurrent}
+            onClick={() => setIncludeCurrent(!includeCurrent)}
+          />
+        </div>
+        <div>
           Show pending?
           <input
             type="checkbox"
+            readOnly={true}
             checked={includePending}
             onClick={() => setIncludePending(!includePending)}
           />
@@ -79,6 +91,7 @@ export const DeckView = (props: {
           Show removed?
           <input
             type="checkbox"
+            readOnly={true}
             checked={includeRejected}
             onClick={() => setIncludeRejected(!includeRejected)}
           />
@@ -128,24 +141,24 @@ export const DeckView = (props: {
         <div>
           <h3>{current.length} Played Cards</h3>
           {current.map(card => (
-            <div>
-              <AutoCard key={card.id} card={card} />
+            <div key={card.id}>
+              <AutoCard card={card} />
             </div>
           ))}
         </div>
         <div>
           <h3>{pending.length} Pending Cards</h3>
           {pending.map(card => (
-            <div>
-              <AutoCard key={card.id} card={card} />
+            <div key={card.id}>
+              <AutoCard card={card} />
             </div>
           ))}
         </div>
         <div>
           <h3>{rejected.length} Rejected Cards</h3>
           {rejected.map(card => (
-            <div>
-              <AutoCard key={card.id} card={card} />
+            <div key={card.id}>
+              <AutoCard card={card} />
             </div>
           ))}
         </div>

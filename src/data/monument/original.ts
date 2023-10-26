@@ -186,7 +186,6 @@ const rejected = parseList(`
   The Akroan War
   The Phasing of Zhalfir
   Tolaria
-  Urborg, Tomb of Yawgmoth
   Utvara Hellkite
   Vigor
   Vizier of Tumbling Sands
@@ -214,6 +213,10 @@ const sorted = [
   ...allCards.filter(c => current.has(c.name)).map(c => ({
     ...c,
     status: CardListStatus.Default,
+  })),
+  ...allCards.filter(c => pending.has(c.name)).map(c => ({
+    ...c,
+    status: CardListStatus.Pending,
   })),
   ...allCards.filter(c => rejected.has(c.name)).map(c => ({
     ...c,
