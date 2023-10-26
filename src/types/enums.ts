@@ -1,7 +1,8 @@
 export enum CardListStatus {
-  Default = 1,
+  Current = 1,
   Pending,
   Rejected,
+  Cuts,
 }
 
 export enum CardType {

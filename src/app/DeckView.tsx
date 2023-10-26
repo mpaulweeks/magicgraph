@@ -14,6 +14,7 @@ export const DeckView = (props: {
   const [includeCurrent, setIncludeCurrent] = useState<boolean>(queryParsm.get('current') === null);
   const [includePending, setIncludePending] = useState<boolean>(!!queryParsm.get('pending'));
   const [includeRejected, setIncludeRejected] = useState<boolean>(!!queryParsm.get('rejected'));
+  const [includeCuts, setIncludeCuts] = useState<boolean>(!!queryParsm.get('cuts'));
   const [filter, setFilter] = useState<string>();
   const [showGraph, setShowGraph] = useState(false);
 
@@ -44,10 +45,12 @@ export const DeckView = (props: {
   const current = filtered.filter(c => c.current);
   const pending = filtered.filter(c => c.pending);
   const rejected = filtered.filter(c => c.rejected);
+  const cuts = filtered.filter(c => c.cuts);
   const toRender = filtered
     .filter(c => includeCurrent || !c.current)
     .filter(c => includePending || !c.pending)
     .filter(c => includeRejected || !c.rejected)
+    .filter(c => includeCuts || !c.cuts)
   const edges = uniqueBy(
     deck.edges
       .filter(e => includePending || e.related.every(c => !c.pending))
@@ -94,6 +97,15 @@ export const DeckView = (props: {
             readOnly={true}
             checked={includeRejected}
             onClick={() => setIncludeRejected(!includeRejected)}
+          />
+        </div>
+        <div>
+          Show soon to be cut?
+          <input
+            type="checkbox"
+            readOnly={true}
+            checked={includeCuts}
+            onClick={() => setIncludeCuts(!includeCuts)}
           />
         </div>
         <div>
@@ -157,6 +169,14 @@ export const DeckView = (props: {
         <div>
           <h3>{rejected.length} Rejected Cards</h3>
           {rejected.map(card => (
+            <div key={card.id}>
+              <AutoCard card={card} />
+            </div>
+          ))}
+        </div>
+        <div>
+          <h3>{cuts.length} Soon to be Cut</h3>
+          {cuts.map(card => (
             <div key={card.id}>
               <AutoCard card={card} />
             </div>

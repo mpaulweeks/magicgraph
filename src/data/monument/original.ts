@@ -17,27 +17,19 @@ const current = parseList(`
   Animation Module
   Aven Courier
   Barrin, Master Wizard
-  Battle of Frost and Fire
   Boompile
-  Bouncelands
   Cauldron of Souls
-  Contested Cliffs
   Dismiss into Dream
   Djinn of Infinite Deceits
-  Dragonlair Spider
   Drownyard Temple
   Elvish Reclaimer
   Expedition Map
   Field of the Dead
-  Flamekin Village
   Glacial Chasm
-  Hammerheim
   Helm of Possession
   Hordewing Skaab
   Jalira, Master Polymorphist
   Karn's Bastion
-  Kessig Wolf Run
-  Kher Keep
   Kindred Discovery
   Kiora Bests the Sea God
   Lifetap
@@ -49,23 +41,17 @@ const current = parseList(`
   Monument to Perfection
   Moritte of the Frost
   Myojin of Cryptic Dreams
-  Myojin of Roaring Blades
   Myojin of Towering Might
   Nesting Grounds
   Nevinyrral's Disk
   Nissa, Ascended Animist
-  Omnath, Locus of Rage
   Perilous Forays
   Proteus Staff
-  Reality Scramble
   Rootpath Purifier
   Runed Stalactite
   Scute Swarm
-  Solphim, Mayhem Dominus
   Sundial of the Infinite
   Swarmyard
-  Tatyova, Benthic Druid
-  Taurean Mauler
   Thaumatic Compass // Spires of Orazca
   Thawing Glaciers
   The Bath Song
@@ -75,9 +61,27 @@ const current = parseList(`
   Transmogrifying Wand
   Tyrite Sanctum
   Urza's Saga
-  Waking the Trolls
   Willbreaker
   Yavimaya, Cradle of Growth
+`);
+
+const cuts = parseList(`
+  Tatyova, Benthic Druid
+  Bouncelands
+
+  Battle of Frost and Fire
+  Contested Cliffs
+  Dragonlair Spider
+  Flamekin Village
+  Kessig Wolf Run
+  Hammerheim
+  Kher Keep
+  Myojin of Roaring Blades
+  Omnath, Locus of Rage
+  Reality Scramble
+  Solphim, Mayhem Dominus
+  Taurean Mauler
+  Waking the Trolls
 `);
 
 const pending = parseList(`
@@ -213,7 +217,7 @@ const allCards: CardDraft[] = [
 const sorted = [
   ...allCards.filter(c => current.has(c.name)).map(c => ({
     ...c,
-    status: CardListStatus.Default,
+    status: CardListStatus.Current,
   })),
   ...allCards.filter(c => pending.has(c.name)).map(c => ({
     ...c,
@@ -222,6 +226,10 @@ const sorted = [
   ...allCards.filter(c => rejected.has(c.name)).map(c => ({
     ...c,
     status: CardListStatus.Rejected,
+  })),
+  ...allCards.filter(c => cuts.has(c.name)).map(c => ({
+    ...c,
+    status: CardListStatus.Cuts,
   })),
 ];
 
