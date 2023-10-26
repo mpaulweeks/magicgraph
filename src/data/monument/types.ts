@@ -25,6 +25,7 @@ export enum MonumentTag {
   CaresAboutSwamps = 'Cares About Swamps',
 
   SacrificesLands = 'Sacrifices Lands',
+  WantsToBeSacrificed = 'Wants to be Sacrificed',
 
   Flashback = 'Flashback',
 
@@ -48,6 +49,7 @@ export enum MonumentTag {
   TargetsCreatures = 'Targets Creatures',
   TargetsTribal = 'Targets Tribal',
   CaresAboutTargeting = 'Cares About Targeting',
+  ManLand = 'Man Land',
 
   AnimatesLand = 'Animates Land',
   LandWithProtection = 'Land With Protection',

@@ -86,13 +86,7 @@ export const Lands: Omit<CardDraft, 'types' | 'category'>[] = [{
 },
 {
   name: `Drownyard Temple`,
-  tags: [MT.ManaSink],
-  combos: [
-    {
-      relationship: ME.Fuels,
-      isMatch: other => other.tags.has(MT.SacrificesLands),
-    },
-  ],
+  tags: [MT.ManaSink, MT.WantsToBeSacrificed],
 },
 {
   name: `Thespian's Stage`,
@@ -298,4 +292,59 @@ export const Lands: Omit<CardDraft, 'types' | 'category'>[] = [{
       isMatch: b => b.subtypes.has('Wizard'),
     },
   ],
-}];
+},
+{
+  name: `Celestial Colonnade`,
+  tags: [MT.ManLand],
+},
+{
+  name: `Flagstones of Trokair`,
+  tags: [MT.WantsToBeSacrificed],
+},
+{
+  name: `Hall of Heliod's Generosity`,
+},
+{
+  name: `Kjeldoran Outpost`,
+  tags: [MT.MakesTokens],
+},
+{
+  name: `Kor Haven`,
+},
+{
+  name: `Moorland Haunt`,
+  tags: [MT.MakesTokens],
+},
+{
+  name: `The Fair Basilica`,
+  subtypes: ['Sphere'],
+},
+{
+  name: `Wirewood Lodge`,
+  tags: [MT.TargetsTribal],
+},
+{
+  name: `Riftstone Portal`,
+  tags: [MT.WantsToBeSacrificed],
+},
+{
+  name: `Gavony Township`,
+  tags: [MT.HasPlusCounters],
+},
+{
+  name: `Hall of the Band Lord`,
+  tags: [MT.CannotTapForMana],
+},
+{
+  name: `Krosan Verge`,
+  tags: [MT.WantsToBeSacrificed, MT.CaresAboutForests],
+},
+{
+  name: `Canopy Vista`,
+  subtypes: ['Forest', 'Plains'],
+},
+{
+  name: `Prairie Stream`,
+  subtypes: ['Plains', 'Island'],
+},
+];

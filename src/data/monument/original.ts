@@ -80,6 +80,43 @@ const current = parseList(`
   Yavimaya, Cradle of Growth
 `);
 
+const pending = parseList(`
+  Celestial Colonnade
+  Flagstones of Trokair
+  Hall of Heliod's Generosity
+  Kjeldoran Outpost
+  Kor Haven
+  Moorland Haunt
+  The Fair Basilica
+  Urborg, Tomb of Yawgmoth
+  Wirewood Lodge
+  Riftstone Portal
+  Gavony Township
+  Hall of the Band Lord
+  Krosan Verge
+  Canopy Vista
+  Prairie Stream
+
+  Arwen, Mortal Queen
+  Luminous Broodmoth
+  Mondrak, Glory Dominus
+  Myojin of Blooming Dawn
+  Weathered Wayfarer
+  Karma
+  Wargate
+  Selvala, Explorer Returned
+  Oath of Lieges
+  Rubinia Soulsinger
+  Novablast Wurm
+  Magus of the Disk
+  War of the Last Alliance
+  Tale of Tinuviel
+  Emeria Shepherd
+  Twilight Shepherd
+  Mirror Entity
+  Myojin of Cleansing Fire
+`);
+
 const rejected = parseList(`
   Alchemist's Refuge
   Apex Altisaur
