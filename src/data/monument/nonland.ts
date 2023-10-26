@@ -682,4 +682,14 @@ export const NonLands: CardDraft[] = [{
   types: [CardType.Creature],
   tags: [MT.DonatesSelf],
   category: MC.Draw,
-}];
+},
+{
+  name: `Sun Titan`,
+  types: [CardType.Creature],
+  category: MC.Draw,
+  combos: [{
+    relationship: ME.FueledBy,
+    isMatch: other => other.mv <= 3 && other.tags.has(MT.SacrificesSelf),
+  }]
+},
+];

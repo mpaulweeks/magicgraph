@@ -120,4 +120,16 @@ export const MonMatchers: Matcher[] = [
       a.types.has(MT.WantsToBeSacrificed) &&
       b.tags.has(MT.SacrificesLands),
   },
+  {
+    relationship: ME.Fuels,
+    isMatch: (a,b) =>
+      a.subtypes.has('Forest') &&
+      b.tags.has(MT.TutorsForest),
+  },
+  {
+    relationship: ME.Fuels,
+    isMatch: (a,b) =>
+      a.subtypes.has('Plains') &&
+      b.tags.has(MT.TutorsPlains),
+  },
 ];

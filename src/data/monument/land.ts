@@ -299,7 +299,7 @@ export const Lands: Omit<CardDraft, 'types' | 'category'>[] = [{
 },
 {
   name: `Flagstones of Trokair`,
-  tags: [MT.WantsToBeSacrificed],
+  tags: [MT.WantsToBeSacrificed, MT.TutorsPlains],
 },
 {
   name: `Hall of Heliod's Generosity`,
@@ -332,12 +332,12 @@ export const Lands: Omit<CardDraft, 'types' | 'category'>[] = [{
   tags: [MT.HasPlusCounters],
 },
 {
-  name: `Hall of the Band Lord`,
+  name: `Hall of the Bandit Lord`,
   tags: [MT.CannotTapForMana],
 },
 {
   name: `Krosan Verge`,
-  tags: [MT.WantsToBeSacrificed, MT.CaresAboutForests],
+  tags: [MT.TutorsForest, MT.TutorsPlains, MT.SacrificesSelf],
 },
 {
   name: `Canopy Vista`,

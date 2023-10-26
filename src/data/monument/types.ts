@@ -23,7 +23,10 @@ export enum MonumentTag {
 
   CaresAboutForests = 'Cares About Forests',
   CaresAboutSwamps = 'Cares About Swamps',
+  TutorsForest = 'Tutors Forest',
+  TutorsPlains = 'Tutors Plains',
 
+  SacrificesSelf = 'Sacrifices Self',
   SacrificesLands = 'Sacrifices Lands',
   WantsToBeSacrificed = 'Wants to be Sacrificed',
 

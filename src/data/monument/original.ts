@@ -97,6 +97,8 @@ const pending = parseList(`
   Canopy Vista
   Prairie Stream
 
+  Sun Titan
+
   Arwen, Mortal Queen
   Luminous Broodmoth
   Mondrak, Glory Dominus
