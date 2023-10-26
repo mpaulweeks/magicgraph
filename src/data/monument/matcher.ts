@@ -1,115 +1,115 @@
 import { CardType, Matcher } from "../../types";
-import { MonTag, MonumentEdge } from "./types";
+import { MonumentEdge as ME, MonumentTag as MTG } from "./types";
 
 export const MonMatchers: Matcher[] = [
   {
-    relationship: MonumentEdge.EnablesMana,
+    relationship: ME.EnablesMana,
     isMatch: (a, b) =>
-      a.tags.has(MonTag.GrantsLandTypes) && b.tags.has(MonTag.CannotTapForMana),
+      a.tags.has(MTG.GrantsLandTypes) && b.tags.has(MTG.CannotTapForMana),
   },
   {
-    relationship: MonumentEdge.Damages,
+    relationship: ME.Damages,
     isMatch: (a, b) =>
-      a.tags.has(MonTag.DealsDamageToCreatures) && b.tags.has(MonTag.Enrage),
+      a.tags.has(MTG.DealsDamageToCreatures) && b.tags.has(MTG.Enrage),
   },
   {
-    relationship: MonumentEdge.Targets,
+    relationship: ME.Targets,
     isMatch: (a, b) =>
-      a.tags.has(MonTag.TargetsCreatures) &&
-      b.tags.has(MonTag.CaresAboutTargeting),
+      a.tags.has(MTG.TargetsCreatures) &&
+      b.tags.has(MTG.CaresAboutTargeting),
   },
   {
-    relationship: MonumentEdge.TribalSynergy,
+    relationship: ME.TribalSynergy,
     isMatch: (a, b) =>
-      a.tags.has(MonTag.TargetsTribal) && b.subtypes.has('Changeling'),
+      a.tags.has(MTG.TargetsTribal) && b.subtypes.has('Changeling'),
   },
   {
-    relationship: MonumentEdge.TribalSynergy,
+    relationship: ME.TribalSynergy,
     isMatch: (a, b) =>
-      a.tags.has(MonTag.UsesZombies) && b.subtypes.has('Zombie'),
+      a.tags.has(MTG.UsesZombies) && b.subtypes.has('Zombie'),
   },
   {
-    relationship: MonumentEdge.Protects,
+    relationship: ME.Protects,
     isMatch: (a, b) =>
-      a.tags.has(MonTag.LandWithProtection) && b.tags.has(MonTag.AnimatesLand),
+      a.tags.has(MTG.LandWithProtection) && b.tags.has(MTG.AnimatesLand),
   },
   {
-    relationship: MonumentEdge.ForcesTap,
+    relationship: ME.ForcesTap,
     isMatch: (a, b) =>
-      a.tags.has(MonTag.TapsTargetLand) &&
-      b.tags.has(MonTag.CaresAboutGettingLandTapped),
+      a.tags.has(MTG.TapsTargetLand) &&
+      b.tags.has(MTG.CaresAboutGettingLandTapped),
   },
   {
-    relationship: MonumentEdge.Untaps,
+    relationship: ME.Untaps,
     isMatch: (a, b) =>
-      a.tags.has(MonTag.UntapsLand) &&
+      a.tags.has(MTG.UntapsLand) &&
       b.types.has(CardType.Land) &&
-      b.tags.has(MonTag.CaresAboutGettingUntapped),
+      b.tags.has(MTG.CaresAboutGettingUntapped),
   },
   {
-    relationship: MonumentEdge.Untaps,
+    relationship: ME.Untaps,
     isMatch: (a, b) =>
-      a.tags.has(MonTag.UntapsCreature) &&
+      a.tags.has(MTG.UntapsCreature) &&
       b.types.has(CardType.Creature) &&
-      b.tags.has(MonTag.CaresAboutGettingUntapped),
+      b.tags.has(MTG.CaresAboutGettingUntapped),
   },
   {
-    relationship: MonumentEdge.Clones,
+    relationship: ME.Clones,
     isMatch: (a, b) => {
       const canTarget = [
-        a.tags.has(MonTag.CopiesCreatures) && b.types.has(CardType.Creature),
-        a.tags.has(MonTag.CopiesArtifacts) && b.types.has(CardType.Artifact),
-        a.tags.has(MonTag.CopiesLands) && b.types.has(CardType.Land),
+        a.tags.has(MTG.CopiesCreatures) && b.types.has(CardType.Creature),
+        a.tags.has(MTG.CopiesArtifacts) && b.types.has(CardType.Artifact),
+        a.tags.has(MTG.CopiesLands) && b.types.has(CardType.Land),
       ].some(b => b);
       const copyType = [
-        a.tags.has(MonTag.CopiesWithCast) && b.tags.has(MonTag.LikesBeingCopiedWithCast),
-        a.tags.has(MonTag.CopiesWithETB) && b.tags.has(MonTag.LikesBeingCopiedWithETB),
-        a.tags.has(MonTag.CopiesWithMirror) && b.tags.has(MonTag.LikesBeingCopiedWithMirror),
+        a.tags.has(MTG.CopiesWithCast) && b.tags.has(MTG.LikesBeingCopiedWithCast),
+        a.tags.has(MTG.CopiesWithETB) && b.tags.has(MTG.LikesBeingCopiedWithETB),
+        a.tags.has(MTG.CopiesWithMirror) && b.tags.has(MTG.LikesBeingCopiedWithMirror),
       ].some(b => b);
       return canTarget && copyType;
     },
   },
   {
-    relationship: MonumentEdge.ManipulatesCounters,
+    relationship: ME.ManipulatesCounters,
     isMatch: (a, b) =>
-      a.tags.has(MonTag.HasMinusCounters) && b.tags.has(MonTag.HasPlusCounters),
+      a.tags.has(MTG.HasMinusCounters) && b.tags.has(MTG.HasPlusCounters),
   },
   {
-    relationship: MonumentEdge.CombosWith,
+    relationship: ME.CombosWith,
     isMatch: (a,b) =>
-      a.tags.has(MonTag.UntapsAllLands) &&
-      (b.types.has(CardType.Land) && b.tags.has(MonTag.ManaSink)),
+      a.tags.has(MTG.UntapsAllLands) &&
+      (b.types.has(CardType.Land) && b.tags.has(MTG.ManaSink)),
   },
   {
-    relationship: MonumentEdge.CombosWith,
+    relationship: ME.CombosWith,
     isMatch: (a,b) =>
-      a.tags.has(MonTag.CaresAboutTrinkets) &&
+      a.tags.has(MTG.CaresAboutTrinkets) &&
       (b.types.has(CardType.Artifact) && b.mc === '1'),
   },
   {
-    relationship: MonumentEdge.FueledBy,
+    relationship: ME.FueledBy,
     isMatch: (a,b) =>
-      a.tags.has(MonTag.UsesTokens) &&
-      b.tags.has(MonTag.MakesTokens),
+      a.tags.has(MTG.UsesTokens) &&
+      b.tags.has(MTG.MakesTokens),
   },
   {
-    relationship: MonumentEdge.CombosWith,
+    relationship: ME.CombosWith,
     isMatch: (a,b) =>
-      a.tags.has(MonTag.DestroysAll) &&
-      b.tags.has(MonTag.HasIndestructible),
+      a.tags.has(MTG.DestroysAll) &&
+      b.tags.has(MTG.HasIndestructible),
   },
   {
-    relationship: MonumentEdge.Fuels,
+    relationship: ME.Fuels,
     isMatch: (a,b) =>
-      a.tags.has(MonTag.TriggersLandfall) &&
-      b.tags.has(MonTag.HasLandfall),
+      a.tags.has(MTG.TriggersLandfall) &&
+      b.tags.has(MTG.HasLandfall),
   },
   {
-    relationship: MonumentEdge.ManipulatesCounters,
+    relationship: ME.ManipulatesCounters,
     isMatch: (a,b) =>
-      a.tags.has(MonTag.Proliferates) && (
-        b.tags.has(MonTag.HasAbilityCounters) ||
-        b.tags.has(MonTag.HasLimitedUseCounters) ||
+      a.tags.has(MTG.Proliferates) && (
+        b.tags.has(MTG.HasAbilityCounters) ||
+        b.tags.has(MTG.HasLimitedUseCounters) ||
         b.subtypes.has('Saga')
       ),
   },

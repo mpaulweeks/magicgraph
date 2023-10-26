@@ -1,4 +1,4 @@
-export enum MonCat {
+export enum MonumentCategory {
   Land = 'Tutorable Land',
   Misc = 'Misc',
   Threat = 'Threat',
@@ -8,18 +8,8 @@ export enum MonCat {
   Draw = 'Draw',
   Ramp = 'Ramp',
 }
-export const CategoryColorMap = {
-  [MonCat.Land]: 'lightgrey',
-  [MonCat.Misc]: 'grey',
-  [MonCat.Threat]: 'salmon',
-  [MonCat.Lifegain]: 'lightyellow',
-  [MonCat.Buff]: 'Orchid',
-  [MonCat.Interaction]: '#FFB010',
-  [MonCat.Draw]: 'lightblue',
-  [MonCat.Ramp]: 'lightgreen',
-};
 
-export enum MonTag {
+export enum MonumentTag {
   HasPlusCounters = '+1/+1 Counters',
   HasMinusCounters = '-1/-1 Counters',
   HasAgeCounters = 'Age Counters',

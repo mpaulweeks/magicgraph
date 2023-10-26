@@ -6,8 +6,18 @@ import {
 import { Lands, LandsRejected } from './land';
 import { MonMatchers } from './matcher';
 import { NonLandRejected, NonLands } from './nonland';
-import { CategoryColorMap, MonCat, MonumentEdges, MonumentInverseEdge } from './types';
+import { MonumentCategory, MonumentEdges, MonumentInverseEdge } from './types';
 
+const CategoryColorMap = {
+  [MonumentCategory.Land]: 'lightgrey',
+  [MonumentCategory.Misc]: 'grey',
+  [MonumentCategory.Threat]: 'salmon',
+  [MonumentCategory.Lifegain]: 'lightyellow',
+  [MonumentCategory.Buff]: 'Orchid',
+  [MonumentCategory.Interaction]: '#FFB010',
+  [MonumentCategory.Draw]: 'lightblue',
+  [MonumentCategory.Ramp]: 'lightgreen',
+};
 export const MonumentData: DeckData = {
   name: 'Monument.dec',
   url: 'https://tappedout.net/mtg-decks/monument-to-hubris/',
@@ -21,7 +31,7 @@ export const MonumentData: DeckData = {
     ].map(c => ({
       ...c,
       types: [CardType.Land],
-      category: MonCat.Land,
+      category: MonumentCategory.Land,
       tags: (c.tags ?? []).concat('Is Land'),
       emphasize: true,
     })),

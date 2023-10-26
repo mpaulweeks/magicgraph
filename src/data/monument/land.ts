@@ -1,171 +1,171 @@
 import { CardDraft, CardType } from "../../types";
-import { MonTag, MonumentEdge } from "./types";
+import { MonumentEdge as ME, MonumentTag as MT } from "./types";
 
 export const Lands: Omit<CardDraft, 'types' | 'category'>[] = [
   {
     name: `Nesting Grounds`,
-    tags: [MonTag.TargetsCreatures],
+    tags: [MT.TargetsCreatures],
     combos: [
       {
-        relationship: MonumentEdge.ManipulatesCounters,
+        relationship: ME.ManipulatesCounters,
         isMatch: other =>
-          other.tags.has(MonTag.HasPlusCounters) ||
-          other.tags.has(MonTag.HasMinusCounters) ||
-          other.tags.has(MonTag.HasAbilityCounters) ||
-          other.tags.has(MonTag.HasAgeCounters) ||
+          other.tags.has(MT.HasPlusCounters) ||
+          other.tags.has(MT.HasMinusCounters) ||
+          other.tags.has(MT.HasAbilityCounters) ||
+          other.tags.has(MT.HasAgeCounters) ||
           other.subtypes.has('Saga'),
       },
     ],
   },
   {
     name: `Karn's Bastion`,
-    tags: [MonTag.Proliferates],
+    tags: [MT.Proliferates],
   },
   {
     name: `Yavimaya, Cradle of Growth`,
-    tags: [MonTag.GrantsLandTypes],
+    tags: [MT.GrantsLandTypes],
     combos: [
       {
-        relationship: MonumentEdge.LandTypeMatters,
-        isMatch: other => other.tags.has(MonTag.CaresAboutForests),
+        relationship: ME.LandTypeMatters,
+        isMatch: other => other.tags.has(MT.CaresAboutForests),
       },
     ],
   },
   {
     name: `Tyrite Sanctum`,
     tags: [
-      MonTag.HasPlusCounters,
-      MonTag.HasAbilityCounters,
-      MonTag.TargetsCreatures,
-      MonTag.TargetsTribal,
-      MonTag.HasIndestructible,
+      MT.HasPlusCounters,
+      MT.HasAbilityCounters,
+      MT.TargetsCreatures,
+      MT.TargetsTribal,
+      MT.HasIndestructible,
     ],
   },
   {
     name: `Contested Cliffs`,
     tags: [
-      MonTag.TargetsTribal,
+      MT.TargetsTribal,
     ],
   },
   {
     name: `Glacial Chasm`,
     tags: [
-      MonTag.HasAgeCounters,
-      MonTag.CannotTapForMana,
-      MonTag.LikesBeingCopiedWithCast,
-      MonTag.LikesBeingCopiedWithETB,
-      MonTag.LikesBeingCopiedWithMirror,
-      MonTag.SacrificesLands,
+      MT.HasAgeCounters,
+      MT.CannotTapForMana,
+      MT.LikesBeingCopiedWithCast,
+      MT.LikesBeingCopiedWithETB,
+      MT.LikesBeingCopiedWithMirror,
+      MT.SacrificesLands,
     ],
     combos: [
       {
-        relationship: MonumentEdge.CombosWith,
-        isMatch: other => other.tags.has(MonTag.DealsDamageToPlayers),
+        relationship: ME.CombosWith,
+        isMatch: other => other.tags.has(MT.DealsDamageToPlayers),
       },
     ],
   },
   {
     name: `Flamekin Village`,
-    tags: [MonTag.TargetsCreatures],
+    tags: [MT.TargetsCreatures],
   },
   {
     name: `Hammerheim`,
-    tags: [MonTag.TargetsCreatures],
+    tags: [MT.TargetsCreatures],
   },
   {
     name: `Swarmyard`,
     combos: [
       {
-        relationship: MonumentEdge.TribalSynergy,
+        relationship: ME.TribalSynergy,
         isMatch: other => other.subtypes.has('Changeling', 'Insect', 'Rat', 'Spider', 'Squirrel'),
       },
     ],
   },
   {
     name: `Kessig Wolf Run`,
-    tags: [MonTag.TargetsCreatures, MonTag.ManaSink],
+    tags: [MT.TargetsCreatures, MT.ManaSink],
   },
   {
     name: `Drownyard Temple`,
-    tags: [MonTag.ManaSink],
+    tags: [MT.ManaSink],
     combos: [
       {
-        relationship: MonumentEdge.Fuels,
-        isMatch: other => other.tags.has(MonTag.SacrificesLands),
+        relationship: ME.Fuels,
+        isMatch: other => other.tags.has(MT.SacrificesLands),
       },
     ],
   },
   {
     name: `Thespian's Stage`,
     tags: [
-      MonTag.CopiesLands,
-      MonTag.CopiesWithMirror,
+      MT.CopiesLands,
+      MT.CopiesWithMirror,
     ],
   },
   {
     name: `Lotus Field`,
     tags: [
-      MonTag.CaresAboutGettingUntapped,
-      MonTag.LikesBeingCopiedWithMirror,
-      MonTag.LandWithProtection,
-      MonTag.SundialFriendly,
+      MT.CaresAboutGettingUntapped,
+      MT.LikesBeingCopiedWithMirror,
+      MT.LandWithProtection,
+      MT.SundialFriendly,
     ],
   },
   {
     name: `Izzet Boilerworks`,
     nick: `Bouncelands`,
     tags: [
-      MonTag.CaresAboutGettingUntapped,
-      MonTag.LikesBeingCopiedWithMirror,
-      MonTag.SundialFriendly,
-      MonTag.TriggersLandfall,
+      MT.CaresAboutGettingUntapped,
+      MT.LikesBeingCopiedWithMirror,
+      MT.SundialFriendly,
+      MT.TriggersLandfall,
     ],
   },
   {
     name: `Maze of Ith`,
-    tags: [MonTag.CannotTapForMana, MonTag.TargetsCreatures],
+    tags: [MT.CannotTapForMana, MT.TargetsCreatures],
     combos: [
       {
-        relationship: MonumentEdge.ProtectsAttacker,
-        isMatch: other => other.tags.has(MonTag.VulnerableAttacker),
+        relationship: ME.ProtectsAttacker,
+        isMatch: other => other.tags.has(MT.VulnerableAttacker),
       },
     ],
   },
   {
     name: `Thawing Glaciers`,
     tags: [
-      MonTag.CannotTapForMana,
-      MonTag.CaresAboutGettingUntapped,
-      MonTag.SundialFriendly,
-      MonTag.CaresAboutBasics,
-      MonTag.TriggersLandfall,
+      MT.CannotTapForMana,
+      MT.CaresAboutGettingUntapped,
+      MT.SundialFriendly,
+      MT.CaresAboutBasics,
+      MT.TriggersLandfall,
     ],
   },
   {
     name: `Mirrex`,
     subtypes: ['Sphere'],
-    tags: [MonTag.MakesTokens, MonTag.ManaSink],
+    tags: [MT.MakesTokens, MT.ManaSink],
   },
   {
     name: `The Mycosynth Gardens`,
     subtypes: ['Sphere'],
     tags: [
-      MonTag.CopiesArtifacts,
-      MonTag.CopiesWithMirror,
+      MT.CopiesArtifacts,
+      MT.CopiesWithMirror,
     ],
   },
   {
     name: `Kher Keep`,
-    tags: [MonTag.MakesTokens],
+    tags: [MT.MakesTokens],
   },
   {
     name: `Field of the Dead`,
-    tags: [MonTag.MakesTokens],
+    tags: [MT.MakesTokens],
     subtypes: ['Zombie'],
   },
   {
     name: `Urza's Saga`,
-    tags: [MonTag.CaresAboutTrinkets],
+    tags: [MT.CaresAboutTrinkets],
   },
 ];
 
@@ -174,18 +174,18 @@ export const LandsRejected: Omit<CardDraft,
 >[] = [
   {
     name: `Alchemist's Refuge`,
-    tags: [MonTag.ManaSink],
+    tags: [MT.ManaSink],
   },
   {
     name: `Oran-Rief, the Vastwood`,
-    tags: [MonTag.HasPlusCounters],
+    tags: [MT.HasPlusCounters],
   },
   {
     name: `High Market`,
     combos: [
       {
-        relationship: MonumentEdge.Fuels,
-        isMatch: other => other.tags.has(MonTag.ThreatensCreatures),
+        relationship: ME.Fuels,
+        isMatch: other => other.tags.has(MT.ThreatensCreatures),
       },
     ],
   },
@@ -197,8 +197,8 @@ export const LandsRejected: Omit<CardDraft,
     name: `Forbidden Orchard`,
     combos: [
       {
-        relationship: MonumentEdge.Fuels,
-        isMatch: other => other.tags.has(MonTag.CaresAboutOpponentCreatures),
+        relationship: ME.Fuels,
+        isMatch: other => other.tags.has(MT.CaresAboutOpponentCreatures),
       },
     ],
   },
@@ -206,101 +206,101 @@ export const LandsRejected: Omit<CardDraft,
     name: `Desolate Lighthouse`,
     combos: [
       {
-        relationship: MonumentEdge.Bins,
-        isMatch: other => other.tags.has(MonTag.Flashback),
+        relationship: ME.Bins,
+        isMatch: other => other.tags.has(MT.Flashback),
       },
     ],
   },
   {
     name: `Urborg, Tomb of Yawgmoth`,
-    tags: [MonTag.GrantsLandTypes],
+    tags: [MT.GrantsLandTypes],
     combos: [
       {
-        relationship: MonumentEdge.LandTypeMatters,
-        isMatch: other => other.tags.has(MonTag.CaresAboutSwamps),
+        relationship: ME.LandTypeMatters,
+        isMatch: other => other.tags.has(MT.CaresAboutSwamps),
       },
     ],
   },
   {
     name: `Desert`,
     tags: [
-      MonTag.DealsDamageToCreatures,
-      MonTag.TargetsCreatures,
-      MonTag.CaresAboutGettingUntapped,
+      MT.DealsDamageToCreatures,
+      MT.TargetsCreatures,
+      MT.CaresAboutGettingUntapped,
     ],
   },
   {
     name: `Sorrow's Path`,
     tags: [
-      MonTag.DealsDamageToCreatures,
-      MonTag.CannotTapForMana,
-      MonTag.CaresAboutGettingLandTapped,
-      MonTag.CaresAboutGettingUntapped,
+      MT.DealsDamageToCreatures,
+      MT.CannotTapForMana,
+      MT.CaresAboutGettingLandTapped,
+      MT.CaresAboutGettingUntapped,
     ],
   },
   {
     name: `Homeward Path`,
     combos: [
       {
-        relationship: MonumentEdge.Retrieves,
+        relationship: ME.Retrieves,
         isMatch: other =>
-          other.tags.has(MonTag.ExchangesForCreature) ||
+          other.tags.has(MT.ExchangesForCreature) ||
           (other.types.has(CardType.Creature) &&
-            other.tags.has(MonTag.DonatesSelf)),
+            other.tags.has(MT.DonatesSelf)),
       },
     ],
   },
   {
     name: `Littjara Mirrorlake`,
     tags: [
-      MonTag.CopiesCreatures,
-      MonTag.CopiesWithETB,
+      MT.CopiesCreatures,
+      MT.CopiesWithETB,
     ],
   },
   {
     name: `Hanweir Battlements // Hanweir, the Writhing Township`,
     nick: `Hanweir Battlements`,
-    tags: [MonTag.TargetsCreatures],
+    tags: [MT.TargetsCreatures],
   },
   {
     name: `Tolaria`,
-    tags: [MonTag.TargetsCreatures],
+    tags: [MT.TargetsCreatures],
   },
   {
     name: `Yavimaya Hollow`,
-    tags: [MonTag.TargetsCreatures],
+    tags: [MT.TargetsCreatures],
   },
   {
     name: `Okina, Temple to the Grandfathers`,
-    tags: [MonTag.TargetsCreatures],
+    tags: [MT.TargetsCreatures],
   },
   {
     name: `Minamo, School at Water's Edge`,
-    tags: [MonTag.TargetsCreatures],
+    tags: [MT.TargetsCreatures],
   },
   {
     name: `Shinka, the Bloodsoaked Keep`,
-    tags: [MonTag.TargetsCreatures],
+    tags: [MT.TargetsCreatures],
   },
   {
     name: `Cascading Cataracts`,
-    tags: [MonTag.LandWithProtection],
+    tags: [MT.LandWithProtection],
   },
   {
     name: `Silverbluff Bridge`,
     nick: 'Bridge Lands',
-    tags: [MonTag.LandWithProtection],
+    tags: [MT.LandWithProtection],
   },
   {
     name: `Rishadan Port`,
-    tags: [MonTag.TapsTargetLand],
+    tags: [MT.TapsTargetLand],
   },
   {
     name: `Riptide Laboratory`,
-    tags: [MonTag.TargetsTribal],
+    tags: [MT.TargetsTribal],
     combos: [
       {
-        relationship: MonumentEdge.TribalSynergy,
+        relationship: ME.TribalSynergy,
         isMatch: b => b.subtypes.has('Wizard'),
       },
     ],
