@@ -1,7 +1,7 @@
 import { LarryData } from './data/larry';
 import { DeckView } from './app/DeckView';
 import { Deck } from './lib/deck';
-import { MonumentData } from './data/monument';
+import { MonumentData } from './data/monument/original';
 import { RoccoData } from './data/rocco';
 
 function App() {
