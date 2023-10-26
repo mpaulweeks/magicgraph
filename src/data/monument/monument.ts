@@ -50,6 +50,7 @@ const current = parseList(`
   Rootpath Purifier
   Runed Stalactite
   Scute Swarm
+  Simic Growth Chamber
   Sundial of the Infinite
   Swarmyard
   Thaumatic Compass // Spires of Orazca
@@ -77,7 +78,6 @@ const cuts = parseList(`
   Myojin of Roaring Blades
   Omnath, Locus of Rage
   Reality Scramble
-  Simic Growth Chamber
   Solphim, Mayhem Dominus
   Tatyova, Benthic Druid
   Taurean Mauler
@@ -96,7 +96,6 @@ const pending = parseList(`
   Hall of Heliod's Generosity
   High Market
   Karma
-  Kjeldoran Outpost
   Kor Haven
   Krosan Verge
   Luminous Broodmoth
@@ -145,6 +144,7 @@ const rejected = parseList(`
   Humble Defector
   Khârn the Betrayer
   Kiora's Follower
+  Kjeldoran Outpost
   Krenko, Tin Street Kingpin
   Lithoform Engine
   Littjara Mirrorlake
