@@ -4,9 +4,9 @@ import {
   CardType,
   DeckData
 } from '../../types';
-import { Lands, LandsRejected } from './land';
+import { Lands } from './land';
 import { MonMatchers } from './matcher';
-import { NonLandRejected, NonLands } from './nonland';
+import { NonLands } from './nonland';
 import { MonumentCategory, MonumentEdges, MonumentInverseEdge } from './types';
 
 function parseList(list: string): Set<string> {
@@ -160,20 +160,14 @@ const rejected = parseList(`
 `);
 
 const allCards: CardDraft[] = [
-  ...[
-    ...Lands,
-    ...LandsRejected,
-  ].map(c => ({
+  ...Lands.map(c => ({
     ...c,
     types: [CardType.Land],
     category: MonumentCategory.Land,
     tags: (c.tags ?? []).concat('Is Land'),
     emphasize: true,
   })),
-  ...[
-    ...NonLands,
-    ...NonLandRejected,
-  ].map(c => ({
+  ...NonLands.map(c => ({
     ...c,
     tags: (c.tags ?? []).concat('Is Not Land'),
   })),
