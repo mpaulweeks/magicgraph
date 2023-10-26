@@ -11,7 +11,7 @@ export const DeckView = (props: {
 }) => {
   const { deck } = props;
   const queryParsm = new URLSearchParams(window.location.search);
-  const [includeCurrent, setIncludeCurrent] = useState<boolean>(true);
+  const [includeCurrent, setIncludeCurrent] = useState<boolean>(queryParsm.get('current') === null);
   const [includePending, setIncludePending] = useState<boolean>(!!queryParsm.get('pending'));
   const [includeRejected, setIncludeRejected] = useState<boolean>(!!queryParsm.get('rejected'));
   const [filter, setFilter] = useState<string>();

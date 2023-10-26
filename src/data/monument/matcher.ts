@@ -117,7 +117,7 @@ export const MonMatchers: Matcher[] = [
     relationship: ME.Fuels,
     isMatch: (a,b) =>
       a.types.has('Land') &&
-      a.types.has(MT.WantsToBeSacrificed) &&
+      a.tags.has(MT.WantsToBeSacrificed) &&
       b.tags.has(MT.SacrificesLands),
   },
   {

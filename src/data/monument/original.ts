@@ -96,9 +96,11 @@ const pending = parseList(`
   Krosan Verge
   Canopy Vista
   Prairie Stream
+  Minamo, School at Water's Edge
+  Riptide Laboratory
+  High Market
 
   Sun Titan
-
   Arwen, Mortal Queen
   Luminous Broodmoth
   Mondrak, Glory Dominus
@@ -117,6 +119,9 @@ const pending = parseList(`
   Twilight Shepherd
   Mirror Entity
   Myojin of Cleansing Fire
+  Cyclone Summoner
+  Sower of Temptation
+  Roots of Life
 `);
 
 const rejected = parseList(`
@@ -129,7 +134,6 @@ const rejected = parseList(`
   Conqueror's Galleon
   Constant Mists
   Cowardice
-  Cyclone Summoner
   Desert
   Desolate Lighthouse
   Dowsing Dagger
@@ -142,7 +146,6 @@ const rejected = parseList(`
   Fractured Loyalty
   Hanweir Battlements
   Heartless Hidetsugu
-  High Market
   Homeward Path
   Humble Defector
   Khârn the Betrayer
@@ -151,7 +154,6 @@ const rejected = parseList(`
   Lithoform Engine
   Littjara Mirrorlake
   Manascape Refractor
-  Minamo, School at Water's Edge
   Mutavault
   Myojin of Life's Web
   Myojin of Seeing Winds
@@ -168,9 +170,7 @@ const rejected = parseList(`
   Radiant Performer
   Ranging Raptors
   Realmbreaker, the Invasion Tree
-  Riptide Laboratory
   Rishadan Port
-  Roots of Life
   Scavenged Brawler
   Seedborn Muse
   Shapesharer
@@ -178,7 +178,6 @@ const rejected = parseList(`
   Skullclamp
   Slippery Bogbonder
   Sorrow's Path
-  Sower of Temptation
   Spawning Grounds
   Spike Weaver
   Spreading Algae
@@ -201,7 +200,7 @@ const allCards: CardDraft[] = [
   ...Lands.map(c => ({
     ...c,
     types: [CardType.Land],
-    category: MonumentCategory.Land,
+    category: c.overrideCategory ?? MonumentCategory.Land,
     tags: (c.tags ?? []).concat('Is Land'),
     emphasize: true,
   })),
@@ -228,6 +227,7 @@ const sorted = [
 
 const CategoryColorMap = {
   [MonumentCategory.Land]: 'lightgrey',
+  [MonumentCategory.Tutor]: '#6ff',
   [MonumentCategory.Misc]: 'grey',
   [MonumentCategory.Threat]: 'salmon',
   [MonumentCategory.Lifegain]: 'lightyellow',

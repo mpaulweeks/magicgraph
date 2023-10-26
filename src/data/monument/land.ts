@@ -1,7 +1,9 @@
 import { CardDraft, CardType } from "../../types";
-import { MonumentEdge as ME, MonumentTag as MT } from "./types";
+import { MonumentCategory as MC, MonumentEdge as ME, MonumentTag as MT } from "./types";
 
-export const Lands: Omit<CardDraft, 'types' | 'category'>[] = [{
+export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
+  overrideCategory?: string;
+})[] = [{
   name: `Nesting Grounds`,
   tags: [MT.TargetsCreatures],
   combos: [
@@ -130,7 +132,7 @@ export const Lands: Omit<CardDraft, 'types' | 'category'>[] = [{
     MT.CannotTapForMana,
     MT.CaresAboutGettingUntapped,
     MT.SundialFriendly,
-    MT.CaresAboutBasics,
+    MT.TutorsBasic,
     MT.TriggersLandfall,
   ],
 },
@@ -252,7 +254,8 @@ export const Lands: Omit<CardDraft, 'types' | 'category'>[] = [{
 },
 {
   name: `Tolaria`,
-  tags: [MT.TargetsCreatures],
+  tags: [MT.TargetsCreatures, MT.TutorsLand],
+  overrideCategory: MC.Tutor,
 },
 {
   name: `Yavimaya Hollow`,
@@ -265,6 +268,12 @@ export const Lands: Omit<CardDraft, 'types' | 'category'>[] = [{
 {
   name: `Minamo, School at Water's Edge`,
   tags: [MT.TargetsCreatures],
+  combos: [{
+    relationship: ME.Untaps,
+    isMatch: other =>
+      other.types.all(CardType.Creature, CardType.Legendary) &&
+      other.tags.has(MT.CaresAboutGettingUntapped),
+  }],
 },
 {
   name: `Shinka, the Bloodsoaked Keep`,
@@ -322,10 +331,17 @@ export const Lands: Omit<CardDraft, 'types' | 'category'>[] = [{
 {
   name: `Wirewood Lodge`,
   tags: [MT.TargetsTribal],
+  combos: [{
+    relationship: ME.Untaps,
+    isMatch: other =>
+      other.types.has(CardType.Creature) &&
+      other.subtypes.has('Elf', 'Changeling') &&
+      other.tags.has(MT.CaresAboutGettingUntapped),
+  }],
 },
 {
   name: `Riftstone Portal`,
-  tags: [MT.WantsToBeSacrificed],
+  tags: [MT.WantsToBeSacrificed, MT.GrantsLandTypes],
 },
 {
   name: `Gavony Township`,

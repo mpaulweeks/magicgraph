@@ -7,6 +7,7 @@ export enum MonumentCategory {
   Interaction = 'Interaction',
   Draw = 'Draw',
   Ramp = 'Ramp',
+  Tutor = 'Tutor',
 }
 
 export enum MonumentTag {
@@ -23,8 +24,10 @@ export enum MonumentTag {
 
   CaresAboutForests = 'Cares About Forests',
   CaresAboutSwamps = 'Cares About Swamps',
+  CaresAboutPlains = 'Cares About Plains',
   TutorsForest = 'Tutors Forest',
   TutorsPlains = 'Tutors Plains',
+  TutorsLand = 'Tutors Land',
 
   SacrificesSelf = 'Sacrifices Self',
   SacrificesLands = 'Sacrifices Lands',
@@ -78,7 +81,7 @@ export enum MonumentTag {
 
   CaresAboutTrinkets = 'Trinkets',
   UsesTokens = 'Uses Tokens',
-  CaresAboutBasics = 'Cares About Basics',
+  TutorsBasic = 'Cares About Basics',
   DestroysAll = 'Destroys All',
   HasLandfall = 'Has Landfall',
   TriggersLandfall = 'Triggers Landfall',

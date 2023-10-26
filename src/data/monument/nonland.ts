@@ -5,7 +5,7 @@ export const NonLands: CardDraft[] = [{
   name: `Monument to Perfection`,
   types: [CardType.Artifact],
   category: MC.Draw,
-  tags: [MT.CaresAboutBasics],
+  tags: [MT.TutorsBasic],
   combos: [
     {
       relationship: ME.CombosWith,
@@ -17,7 +17,7 @@ export const NonLands: CardDraft[] = [{
   name: `Thaumatic Compass // Spires of Orazca`,
   types: [CardType.Artifact],
   category: MC.Draw,
-  tags: [MT.CaresAboutBasics],
+  tags: [MT.TutorsBasic],
 },
 {
   name: `Mirage Mirror`,
@@ -84,6 +84,27 @@ export const NonLands: CardDraft[] = [{
     MT.HasIndestructible,
   ],
   category: MC.Threat,
+},
+{
+  name: `Myojin of Blooming Dawn`,
+  types: [],
+  tags: [
+    MT.LikesBeingCopiedWithCast,
+    MT.HasAbilityCounters,
+    MT.HasIndestructible,
+    MT.MakesTokens,
+  ],
+  category: MC.Threat,
+},
+{
+  name: `Myojin of Cleansing Fire`,
+  types: [],
+  tags: [
+    MT.LikesBeingCopiedWithCast,
+    MT.HasAbilityCounters,
+    MT.HasIndestructible,
+  ],
+  category: MC.Interaction,
 },
 {
   name: `Solphim, Mayhem Dominus`,
@@ -169,13 +190,13 @@ export const NonLands: CardDraft[] = [{
   name: `Elvish Reclaimer`,
   types: [CardType.Creature],
   tags: [MT.SacrificesLands],
-  category: MC.Draw,
+  category: MC.Tutor,
 },
 {
   name: `Expedition Map`,
   types: [CardType.Artifact],
   mc: '1',
-  category: MC.Draw,
+  category: MC.Tutor,
 },
 {
   name: `Scute Swarm`,
@@ -281,7 +302,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Helm of Possession`,
   types: [CardType.Artifact],
-  tags: [MT.UsesTokens],
+  tags: [MT.UsesTokens, MT.ThreatensCreatures],
   category: MC.Interaction,
 },
 {
@@ -293,17 +314,17 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Perilous Forays`,
   types: [CardType.Enchantment],
-  tags: [MT.UsesTokens, MT.CaresAboutBasics],
+  tags: [MT.UsesTokens, MT.TutorsBasic],
   category: MC.Ramp,
 },
 {
   name: `Rootpath Purifier`,
   types: [CardType.Creature],
-  category: MC.Draw,
+  category: MC.Misc,
   combos: [
     {
       relationship: ME.CombosWith,
-      isMatch: other => other.tags.has(MT.CaresAboutBasics),
+      isMatch: other => other.tags.has(MT.TutorsBasic),
     },
   ],
 },
@@ -651,6 +672,7 @@ export const NonLands: CardDraft[] = [{
   name: `Sower of Temptation`,
   types: [CardType.Creature],
   subtypes: ['Wizard'],
+  tags: [MT.ThreatensCreatures],
   category: MC.Interaction,
 },
 {
@@ -691,5 +713,97 @@ export const NonLands: CardDraft[] = [{
     relationship: ME.FueledBy,
     isMatch: other => other.mv <= 3 && other.tags.has(MT.SacrificesSelf),
   }]
+},
+{
+  name: `Arwen, Mortal Queen`,
+  types: [CardType.Creature],
+  tags: [MT.HasIndestructible, MT.HasAbilityCounters],
+  category: MC.Misc,
+},
+{
+  name: `Luminous Broodmoth`,
+  types: [CardType.Creature],
+  tags: [MT.HasAbilityCounters],
+  category: MC.Misc,
+},
+{
+  name: `Mondrak, Glory Dominus`,
+  types: [CardType.Creature],
+  tags: [MT.HasIndestructible, MT.HasAbilityCounters, MT.UsesTokens, MT.MakesTokens],
+  category: MC.Misc,
+},
+{
+  name: `Weathered Wayfarer`,
+  types: [CardType.Creature],
+  tags: [MT.TutorsLand],
+  category: MC.Tutor,
+},
+{
+  name: `Karma`,
+  types: [CardType.Enchantment],
+  tags: [MT.CaresAboutSwamps, MT.DealsDamageToPlayers],
+  category: MC.Misc,
+},
+{
+  name: `Wargate`,
+  types: [CardType.Sorcery],
+  tags: [MT.TutorsLand],
+  category: MC.Tutor,
+},
+{
+  name: `Selvala, Explorer Returned`,
+  types: [CardType.Creature, CardType.Legendary],
+  subtypes: ['Elf'],
+  tags: [MT.CaresAboutGettingUntapped],
+  category: MC.Draw,
+},
+{
+  name: `Oath of Lieges`,
+  types: [CardType.Enchantment],
+  tags: [MT.TutorsBasic],
+  category: MC.Ramp,
+},
+{
+  name: `Rubinia Soulsinger`,
+  types: [CardType.Creature, CardType.Legendary],
+  tags: [MT.ThreatensCreatures, MT.CaresAboutGettingUntapped],
+  category: MC.Interaction,
+},
+{
+  name: `Novablast Wurm`,
+  types: [CardType.Creature],
+  tags: [MT.DestroysAll],
+  category: MC.Interaction,
+},
+{
+  name: `Magus of the Disk`,
+  types: [CardType.Creature],
+  subtypes: ['Wizard'],
+  tags: [MT.DestroysAll],
+  category: MC.Interaction,
+},
+{
+  name: `Tale of Tinuviel`,
+  types: [CardType.Enchantment],
+  subtypes: ['Saga'],
+  category: MC.Misc,
+},
+{
+  name: `Emeria Shepherd`,
+  types: [CardType.Creature],
+  tags: [MT.CaresAboutPlains],
+  category: MC.Draw,
+},
+{
+  name: `Twilight Shepherd`,
+  types: [CardType.Creature],
+  tags: [MT.HasMinusCounters],
+  category: MC.Draw,
+},
+{
+  name: `Mirror Entity`,
+  types: [CardType.Creature],
+  subtypes: ['Changeling'],
+  category: MC.Threat,
 },
 ];
