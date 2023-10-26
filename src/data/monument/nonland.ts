@@ -189,7 +189,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Elvish Reclaimer`,
   types: [CardType.Creature],
-  tags: [MT.SacrificesLands],
+  tags: [MT.SacrificesLands, MT.TriggersLandfall],
   category: MC.Tutor,
 },
 {
@@ -202,7 +202,7 @@ export const NonLands: CardDraft[] = [{
   name: `Scute Swarm`,
   types: [CardType.Creature],
   subtypes: ['Insect'],
-  tags: [MT.MakesTokens],
+  tags: [MT.MakesTokens, MT.HasLandfall],
   category: MC.Threat,
 },
 {
@@ -611,7 +611,7 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
   ],
-  category: MC.Draw,
+  category: MC.Recursion,
 },
 {
   name: `Awakening of Vitu-Ghazi`,
@@ -708,7 +708,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Sun Titan`,
   types: [CardType.Creature],
-  category: MC.Draw,
+  category: MC.Recursion,
   combos: [{
     relationship: ME.FueledBy,
     isMatch: other =>
@@ -726,7 +726,7 @@ export const NonLands: CardDraft[] = [{
   name: `Luminous Broodmoth`,
   types: [CardType.Creature],
   tags: [MT.HasAbilityCounters],
-  category: MC.Misc,
+  category: MC.Recursion,
 },
 {
   name: `Mondrak, Glory Dominus`,
@@ -737,7 +737,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Weathered Wayfarer`,
   types: [CardType.Creature],
-  tags: [MT.TutorsLand],
+  tags: [MT.TutorsLand, MT.TriggersLandfall],
   category: MC.Tutor,
 },
 {
@@ -788,19 +788,19 @@ export const NonLands: CardDraft[] = [{
   name: `Tale of Tinuviel`,
   types: [CardType.Enchantment],
   subtypes: ['Saga'],
-  category: MC.Misc,
+  category: MC.Recursion,
 },
 {
   name: `Emeria Shepherd`,
   types: [CardType.Creature],
-  tags: [MT.CaresAboutPlains],
-  category: MC.Draw,
+  tags: [MT.CaresAboutPlains, MT.HasLandfall],
+  category: MC.Recursion,
 },
 {
   name: `Twilight Shepherd`,
   types: [CardType.Creature],
   tags: [MT.HasMinusCounters],
-  category: MC.Draw,
+  category: MC.Recursion,
 },
 {
   name: `Mirror Entity`,

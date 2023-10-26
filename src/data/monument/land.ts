@@ -156,7 +156,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Field of the Dead`,
-  tags: [MT.MakesTokens],
+  tags: [MT.MakesTokens, MT.HasLandfall],
   subtypes: ['Zombie'],
 },
 {
@@ -312,7 +312,18 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [MT.WantsToBeSacrificed, MT.TutorsPlains],
 },
 {
+  name: `Academy Ruins`,
+  combos: [{
+    relationship: ME.Retrieves,
+    isMatch: other => other.types.has(CardType.Artifact),
+  }]
+},
+{
   name: `Hall of Heliod's Generosity`,
+  combos: [{
+    relationship: ME.Retrieves,
+    isMatch: other => other.types.has(CardType.Enchantment),
+  }]
 },
 {
   name: `Kjeldoran Outpost`,
@@ -326,7 +337,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [MT.MakesTokens],
 },
 {
-  name: `The Fair Basilica`,
+  name: `The Hunter's Maze`,
   nick: `Tap Spheres`,
   subtypes: ['Sphere'],
   tags: [MT.SacrificesSelf],
@@ -356,7 +367,12 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Krosan Verge`,
-  tags: [MT.TutorsForest, MT.TutorsPlains, MT.SacrificesSelf],
+  tags: [
+    MT.TutorsForest,
+    MT.TutorsPlains,
+    MT.SacrificesSelf,
+    MT.TriggersLandfall,
+  ],
 },
 {
   name: `Canopy Vista`,

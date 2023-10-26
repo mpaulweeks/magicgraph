@@ -55,6 +55,7 @@ const current = parseList(`
   Thaumatic Compass // Spires of Orazca
   Thawing Glaciers
   The Bath Song
+  The Hunter's Maze
   The Mycosynth Gardens
   The World Spell
   Thespian's Stage
@@ -63,88 +64,75 @@ const current = parseList(`
   Urza's Saga
   Willbreaker
   Yavimaya, Cradle of Growth
-  Tap Spheres
 `);
 
 const cuts = parseList(`
-  Tatyova, Benthic Druid
-  Simic Growth Chamber
-
   Battle of Frost and Fire
   Contested Cliffs
   Dragonlair Spider
   Flamekin Village
-  Kessig Wolf Run
   Hammerheim
+  Kessig Wolf Run
   Kher Keep
   Myojin of Roaring Blades
   Omnath, Locus of Rage
   Reality Scramble
+  Simic Growth Chamber
   Solphim, Mayhem Dominus
+  Tatyova, Benthic Druid
   Taurean Mauler
   Waking the Trolls
 `);
 
 const pending = parseList(`
+  Academy Ruins
+  Arwen, Mortal Queen
+  Canopy Vista
+  Castle Ardenveil
+  Cyclone Summoner
+  Emeria Shepherd
   Flagstones of Trokair
+  Gavony Township
   Hall of Heliod's Generosity
+  High Market
+  Karma
   Kjeldoran Outpost
   Kor Haven
-  Moorland Haunt
-  Urborg, Tomb of Yawgmoth
-  Riftstone Portal
-  Gavony Township
-  Hall of the Band Lord
   Krosan Verge
-  Canopy Vista
-  Prairie Stream
-  Riptide Laboratory
-  High Market
-  Okina, Temple to the Grandfathers
-  Tolaria
-  The Fair Basilica
-  Castle Ardenveil
-
-  Sun Titan
-  Arwen, Mortal Queen
   Luminous Broodmoth
-  Mondrak, Glory Dominus
-  Myojin of Blooming Dawn
-  Weathered Wayfarer
-  Karma
-  Wargate
   Magus of the Disk
-  War of the Last Alliance
-  Tale of Tinuviel
-  Emeria Shepherd
-  Twilight Shepherd
   Mirror Entity
+  Mondrak, Glory Dominus
+  Moorland Haunt
+  Myojin of Blooming Dawn
   Myojin of Cleansing Fire
-  Cyclone Summoner
-  Sower of Temptation
+  Okina, Temple to the Grandfathers
+  Prairie Stream
+  Riftstone Portal
+  Riptide Laboratory
   Roots of Life
+  Sower of Temptation
+  Sun Titan
+  Tale of Tinuviel
+  Tap Spheres
+  Tolaria
+  Twilight Shepherd
+  Urborg, Tomb of Yawgmoth
+  Wargate
+  Weathered Wayfarer
 `);
 
 const rejected = parseList(`
-  Celestial Colonnade
-  Minamo, School at Water's Edge
-  Rubinia Soulsinger
-  Oath of Lieges
-  Novablast Wurm
-  Wirewood Lodge
-  Selvala, Explorer Returned
   Alchemist's Refuge
   Apex Altisaur
   Awakening of Vitu-Ghazi
-  Bridge Lands
   Callous Oppressor
   Cascading Cataracts
-  Conqueror's Galleon
+  Celestial Colonnade
   Constant Mists
   Cowardice
   Desert
   Desolate Lighthouse
-  Dowsing Dagger
   Dreamscape Artist
   Druid Class
   Dualcaster Mage
@@ -152,7 +140,6 @@ const rejected = parseList(`
   Forbidden Orchard
   Fortitude
   Fractured Loyalty
-  Hanweir Battlements
   Heartless Hidetsugu
   Homeward Path
   Humble Defector
@@ -162,11 +149,14 @@ const rejected = parseList(`
   Lithoform Engine
   Littjara Mirrorlake
   Manascape Refractor
+  Minamo, School at Water's Edge
   Mutavault
   Myojin of Life's Web
   Myojin of Seeing Winds
   Nacatl War-Pride
   Nightmare Lash
+  Novablast Wurm
+  Oath of Lieges
   Oran-Rief, the Vastwood
   Overtaker
   Pendant of Prosperity
@@ -178,8 +168,10 @@ const rejected = parseList(`
   Ranging Raptors
   Realmbreaker, the Invasion Tree
   Rishadan Port
+  Rubinia Soulsinger
   Scavenged Brawler
   Seedborn Muse
+  Selvala, Explorer Returned
   Shapesharer
   Shinka, the Bloodsoaked Keep
   Skullclamp
@@ -198,6 +190,7 @@ const rejected = parseList(`
   Vizier of Tumbling Sands
   Ward of Bones
   Wilderness Reclamation
+  Wirewood Lodge
   World Breaker
   Yavimaya Hollow
 `);
@@ -235,7 +228,7 @@ const sorted = [
   })),
 ];
 
-const CategoryColorMap = {
+const CategoryColorMap: Record<MonumentCategory, string> = {
   [MonumentCategory.Land]: 'lightgrey',
   [MonumentCategory.Tutor]: '#6ff',
   [MonumentCategory.Misc]: 'grey',
@@ -245,6 +238,7 @@ const CategoryColorMap = {
   [MonumentCategory.Interaction]: '#FFB010',
   [MonumentCategory.Draw]: 'lightblue',
   [MonumentCategory.Ramp]: 'lightgreen',
+  [MonumentCategory.Recursion]: 'orange',
 };
 export const MonumentData: DeckData = {
   name: 'Monument.dec',

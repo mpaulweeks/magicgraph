@@ -8,6 +8,7 @@ export enum MonumentCategory {
   Draw = 'Draw',
   Ramp = 'Ramp',
   Tutor = 'Tutor',
+  Recursion = 'Recursion',
 }
 
 export enum MonumentTag {
