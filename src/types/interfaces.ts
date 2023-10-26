@@ -11,6 +11,8 @@ export interface Cardlike {
   readonly category: string;
   readonly tags: Interset<string>;
   readonly combos: CardCombo[];
+  readonly current: boolean;
+  readonly cuts: boolean;
   readonly pending: boolean;
   readonly rejected: boolean;
   readonly styling: CardStyling;

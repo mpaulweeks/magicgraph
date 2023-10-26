@@ -1,11 +1,11 @@
 import { CardImpl } from "../lib/card";
+import { Deck } from "../lib/deck";
 import { CardEdge, Cardlike } from "../types";
 import { groupBy, sortBy, unique } from "../util/list";
-import { AutoCard } from "./AutoCard";
-import { CardLink } from "./CardLink";
 import styles from './App.module.css';
-import { Deck } from "../lib/deck";
+import { AutoCard } from "./AutoCard";
 import { AutoCardImage } from "./AutoCardImage";
+import { CardLink } from "./CardLink";
 
 function CardStyle(card: Cardlike): React.CSSProperties {
   return {
@@ -14,8 +14,12 @@ function CardStyle(card: Cardlike): React.CSSProperties {
       undefined
     ),
     textDecoration: (
-      (card.pending && 'line-through') ||
       (card.rejected && 'line-through wavy') ||
+      (card.cuts && 'line-through') ||
+      undefined
+    ),
+    fontStyle: (
+      (card.pending && 'italic') ||
       undefined
     ),
   }

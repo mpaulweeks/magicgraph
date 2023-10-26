@@ -57,6 +57,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
     MT.SacrificesLands,
+    MT.SundialFriendly,
   ],
   combos: [
     {
@@ -107,7 +108,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   ],
 },
 {
-  name: `Izzet Boilerworks`,
+  name: `Simic Growth Chamber`,
   nick: `Bouncelands`,
   tags: [
     MT.CaresAboutGettingUntapped,
@@ -326,7 +327,9 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `The Fair Basilica`,
+  nick: `Tap Spheres`,
   subtypes: ['Sphere'],
+  tags: [MT.SacrificesSelf],
 },
 {
   name: `Wirewood Lodge`,
@@ -363,4 +366,8 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Prairie Stream`,
   subtypes: ['Plains', 'Island'],
 },
+{
+  name: 'Castle Ardenveil',
+  tags: [MT.MakesTokens],
+}
 ];

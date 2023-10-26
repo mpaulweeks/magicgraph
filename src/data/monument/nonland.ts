@@ -711,7 +711,9 @@ export const NonLands: CardDraft[] = [{
   category: MC.Draw,
   combos: [{
     relationship: ME.FueledBy,
-    isMatch: other => other.mv <= 3 && other.tags.has(MT.SacrificesSelf),
+    isMatch: other =>
+      other.tags.has(MT.SacrificesLands) ||
+      (other.mv <= 3 && other.tags.has(MT.SacrificesSelf)),
   }]
 },
 {
@@ -741,7 +743,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Karma`,
   types: [CardType.Enchantment],
-  tags: [MT.CaresAboutSwamps, MT.DealsDamageToPlayers],
+  tags: [MT.CaresAboutSwamps, MT.DealsDamageToPlayers, MT.SundialFriendly],
   category: MC.Misc,
 },
 {

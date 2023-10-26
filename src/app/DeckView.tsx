@@ -11,10 +11,10 @@ export const DeckView = (props: {
 }) => {
   const { deck } = props;
   const queryParsm = new URLSearchParams(window.location.search);
-  const [includeCurrent, setIncludeCurrent] = useState<boolean>(queryParsm.get('current') === null);
+  const [includeCurrent, setIncludeCurrent] = useState<boolean>(queryParsm.get('current') === null || !!queryParsm.get('current'));
+  const [includeCuts, setIncludeCuts] = useState<boolean>(queryParsm.get('cuts') === null || !!queryParsm.get('cuts'));
   const [includePending, setIncludePending] = useState<boolean>(!!queryParsm.get('pending'));
   const [includeRejected, setIncludeRejected] = useState<boolean>(!!queryParsm.get('rejected'));
-  const [includeCuts, setIncludeCuts] = useState<boolean>(!!queryParsm.get('cuts'));
   const [filter, setFilter] = useState<string>();
   const [showGraph, setShowGraph] = useState(false);
 
@@ -82,6 +82,15 @@ export const DeckView = (props: {
           />
         </div>
         <div>
+          Show soon to be cut?
+          <input
+            type="checkbox"
+            readOnly={true}
+            checked={includeCuts}
+            onClick={() => setIncludeCuts(!includeCuts)}
+          />
+        </div>
+        <div>
           Show pending?
           <input
             type="checkbox"
@@ -97,15 +106,6 @@ export const DeckView = (props: {
             readOnly={true}
             checked={includeRejected}
             onClick={() => setIncludeRejected(!includeRejected)}
-          />
-        </div>
-        <div>
-          Show soon to be cut?
-          <input
-            type="checkbox"
-            readOnly={true}
-            checked={includeCuts}
-            onClick={() => setIncludeCuts(!includeCuts)}
           />
         </div>
         <div>
@@ -159,6 +159,14 @@ export const DeckView = (props: {
           ))}
         </div>
         <div>
+          <h3>{cuts.length} Soon to be Cut</h3>
+          {cuts.map(card => (
+            <div key={card.id}>
+              <AutoCard card={card} />
+            </div>
+          ))}
+        </div>
+        <div>
           <h3>{pending.length} Pending Cards</h3>
           {pending.map(card => (
             <div key={card.id}>
@@ -169,14 +177,6 @@ export const DeckView = (props: {
         <div>
           <h3>{rejected.length} Rejected Cards</h3>
           {rejected.map(card => (
-            <div key={card.id}>
-              <AutoCard card={card} />
-            </div>
-          ))}
-        </div>
-        <div>
-          <h3>{cuts.length} Soon to be Cut</h3>
-          {cuts.map(card => (
             <div key={card.id}>
               <AutoCard card={card} />
             </div>

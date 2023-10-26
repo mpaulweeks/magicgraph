@@ -63,11 +63,12 @@ const current = parseList(`
   Urza's Saga
   Willbreaker
   Yavimaya, Cradle of Growth
+  Tap Spheres
 `);
 
 const cuts = parseList(`
   Tatyova, Benthic Druid
-  Bouncelands
+  Simic Growth Chamber
 
   Battle of Frost and Fire
   Contested Cliffs
@@ -85,24 +86,24 @@ const cuts = parseList(`
 `);
 
 const pending = parseList(`
-  Celestial Colonnade
   Flagstones of Trokair
   Hall of Heliod's Generosity
   Kjeldoran Outpost
   Kor Haven
   Moorland Haunt
-  The Fair Basilica
   Urborg, Tomb of Yawgmoth
-  Wirewood Lodge
   Riftstone Portal
   Gavony Township
   Hall of the Band Lord
   Krosan Verge
   Canopy Vista
   Prairie Stream
-  Minamo, School at Water's Edge
   Riptide Laboratory
   High Market
+  Okina, Temple to the Grandfathers
+  Tolaria
+  The Fair Basilica
+  Castle Ardenveil
 
   Sun Titan
   Arwen, Mortal Queen
@@ -112,10 +113,6 @@ const pending = parseList(`
   Weathered Wayfarer
   Karma
   Wargate
-  Selvala, Explorer Returned
-  Oath of Lieges
-  Rubinia Soulsinger
-  Novablast Wurm
   Magus of the Disk
   War of the Last Alliance
   Tale of Tinuviel
@@ -129,6 +126,13 @@ const pending = parseList(`
 `);
 
 const rejected = parseList(`
+  Celestial Colonnade
+  Minamo, School at Water's Edge
+  Rubinia Soulsinger
+  Oath of Lieges
+  Novablast Wurm
+  Wirewood Lodge
+  Selvala, Explorer Returned
   Alchemist's Refuge
   Apex Altisaur
   Awakening of Vitu-Ghazi
@@ -163,7 +167,6 @@ const rejected = parseList(`
   Myojin of Seeing Winds
   Nacatl War-Pride
   Nightmare Lash
-  Okina, Temple to the Grandfathers
   Oran-Rief, the Vastwood
   Overtaker
   Pendant of Prosperity
@@ -190,7 +193,6 @@ const rejected = parseList(`
   Sword of the Animist
   The Akroan War
   The Phasing of Zhalfir
-  Tolaria
   Utvara Hellkite
   Vigor
   Vizier of Tumbling Sands

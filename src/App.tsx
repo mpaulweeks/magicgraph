@@ -1,8 +1,8 @@
-import { LarryData } from './data/larry';
 import { DeckView } from './app/DeckView';
-import { Deck } from './lib/deck';
-import { MonumentData } from './data/monument/original';
+import { LarryData } from './data/larry';
+import { MonumentData } from './data/monument/monument';
 import { RoccoData } from './data/rocco';
+import { Deck } from './lib/deck';
 
 function App() {
   const queryParsm = new URLSearchParams(window.location.search);
