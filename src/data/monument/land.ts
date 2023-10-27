@@ -337,7 +337,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [MT.MakesTokens],
 },
 {
-  name: `The Hunter's Maze`,
+  name: `The Hunter Maze`,
   nick: `Tap Spheres`,
   subtypes: ['Sphere'],
   tags: [MT.SacrificesSelf],
@@ -383,7 +383,11 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   subtypes: ['Plains', 'Island'],
 },
 {
-  name: 'Castle Ardenveil',
+  name: 'Castle Ardenvale',
+  tags: [MT.MakesTokens],
+},
+{
+  name: `Vitu-Ghazi, the City-Tree`,
   tags: [MT.MakesTokens],
 }
 ];

@@ -897,7 +897,7 @@ export const NonLands: CardDraft[] = [{
   category: MC.Interaction,
 },
 {
-  name: `Tale of Tinuviel`,
+  name: `Tale of Tinúviel`,
   mc: '3WW',
   types: [CardType.Enchantment],
   subtypes: ['Saga'],

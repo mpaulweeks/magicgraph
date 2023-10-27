@@ -56,7 +56,7 @@ const current = parseList(`
   Thaumatic Compass // Spires of Orazca
   Thawing Glaciers
   The Bath Song
-  The Hunter's Maze
+  The Hunter Maze
   The Mycosynth Gardens
   The World Spell
   Thespian's Stage
@@ -88,7 +88,8 @@ const pending = parseList(`
   Academy Ruins
   Arwen, Mortal Queen
   Canopy Vista
-  Castle Ardenveil
+  Castle Ardenvale
+  Vitu-Ghazi, the City-Tree
   Cyclone Summoner
   Emeria Shepherd
   Flagstones of Trokair
@@ -112,7 +113,7 @@ const pending = parseList(`
   Roots of Life
   Sower of Temptation
   Sun Titan
-  Tale of Tinuviel
+  Tale of Tinúviel
   Tap Spheres
   Tolaria
   Twilight Shepherd
