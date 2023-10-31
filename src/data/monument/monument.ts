@@ -4,6 +4,7 @@ import {
   CardType,
   DeckData
 } from '../../types';
+import { unique } from '../../util/list';
 import { Lands } from './land';
 import { MonMatchers } from './matcher';
 import { NonLands } from './nonland';
@@ -15,6 +16,10 @@ function parseList(list: string): Set<string> {
 
 
 const current = parseList(`
+  Spara's Headquarters
+  Tolaria West
+  Deserted Temple
+  Restless Vinestalk
   Animation Module
   Barrin, Master Wizard
   Boompile
@@ -76,10 +81,14 @@ const current = parseList(`
   Sower of Temptation
   Sun Titan
   Tale of Tinúviel
-  Tap Spheres
+  Hall of the Bandit Lord
   Twilight Shepherd
   Urborg, Tomb of Yawgmoth
   Wargate
+  Rubinia Soulsinger
+  The Fall of Lord Konda
+  Staff of Titania
+  Eldrazi Monument
 `);
 
 const cuts = parseList(`
@@ -170,7 +179,6 @@ const rejected = parseList(`
   Ranging Raptors
   Realmbreaker, the Invasion Tree
   Rishadan Port
-  Rubinia Soulsinger
   Scavenged Brawler
   Seedborn Muse
   Selvala, Explorer Returned
@@ -229,6 +237,16 @@ const sorted = [
     status: CardListStatus.Cuts,
   })),
 ];
+
+
+const allDefined = new Set(allCards.map(c => c.name));
+const missing = unique([
+  ...Array.from(current),
+  ...Array.from(pending),
+  ...Array.from(rejected),
+  ...Array.from(cuts),
+]).filter(name => !allDefined.has(name));
+console.log('missing:', missing);
 
 const CategoryColorMap: Record<MonumentCategory, string> = {
   [MonumentCategory.Land]: 'lightgrey',

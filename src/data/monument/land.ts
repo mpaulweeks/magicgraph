@@ -376,11 +376,27 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Canopy Vista`,
-  subtypes: ['Forest', 'Plains'],
+  subtypes: ['Plains', 'Forest'],
 },
 {
   name: `Prairie Stream`,
   subtypes: ['Plains', 'Island'],
+},
+{
+  name: `Spara's Headquarters`,
+  subtypes: ['Plains', 'Island', 'Forest'],
+},
+{
+  name: `Tolaria West`,
+  tags: [MT.TutorsLand],
+},
+{
+  name: `Deserted Temple`,
+  tags: [MT.UntapsLand],
+},
+{
+  name: `Restless Vinestalk`,
+  tags: [MT.TargetsCreatures],
 },
 {
   name: 'Castle Ardenvale',

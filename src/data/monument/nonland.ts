@@ -924,4 +924,25 @@ export const NonLands: CardDraft[] = [{
   subtypes: ['Changeling'],
   category: MC.Threat,
 },
+{
+  name: `The Fall of Lord Konda`,
+  mc: '2W',
+  types: [CardType.Enchantment],
+  subtypes: ['Saga'],
+  category: MC.Interaction,
+},
+{
+  name: `Staff of Titania`,
+  mc: '2',
+  types: [CardType.Artifact, CardType.Equipment],
+  tags: [MT.CaresAboutForests],
+  category: MC.Threat,
+},
+{
+  name: `Eldrazi Monument`,
+  mc: '5',
+  types: [CardType.Artifact],
+  tags: [MT.UsesTokens],
+  category: MC.Buff,
+},
 ];
