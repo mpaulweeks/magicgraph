@@ -13,14 +13,13 @@ function parseList(list: string): Set<string> {
   return new Set(list.split('\n').map(s => s.trim()).filter(s => s));
 }
 
+
 const current = parseList(`
   Animation Module
-  Aven Courier
   Barrin, Master Wizard
   Boompile
   Cauldron of Souls
   Dismiss into Dream
-  Djinn of Infinite Deceits
   Drownyard Temple
   Elvish Reclaimer
   Expedition Map
@@ -36,7 +35,6 @@ const current = parseList(`
   Lotus Field
   Maskwood Nexus
   Maze of Ith
-  Mirage Mirror
   Mirrex
   Monument to Perfection
   Moritte of the Frost
@@ -44,13 +42,10 @@ const current = parseList(`
   Myojin of Towering Might
   Nesting Grounds
   Nevinyrral's Disk
-  Nissa, Ascended Animist
   Perilous Forays
   Proteus Staff
   Rootpath Purifier
   Runed Stalactite
-  Scute Swarm
-  Simic Growth Chamber
   Sundial of the Infinite
   Swarmyard
   Thaumatic Compass // Spires of Orazca
@@ -60,16 +55,56 @@ const current = parseList(`
   The Mycosynth Gardens
   The World Spell
   Thespian's Stage
-  Transmogrifying Wand
   Tyrite Sanctum
   Urza's Saga
   Willbreaker
   Yavimaya, Cradle of Growth
+  Canopy Vista
+  Vitu-Ghazi, the City-Tree
+  Cyclone Summoner
+  Gavony Township
+  High Market
+  Karma
+  Krosan Verge
+  Magus of the Disk
+  Mirror Entity
+  Myojin of Cleansing Fire
+  Prairie Stream
+  Riftstone Portal
+  Riptide Laboratory
+  Roots of Life
+  Sower of Temptation
+  Sun Titan
+  Tale of Tinúviel
+  Tap Spheres
+  Twilight Shepherd
+  Urborg, Tomb of Yawgmoth
+  Wargate
 `);
 
 const cuts = parseList(`
+`);
+
+const pending = parseList(`
+  Hall of Heliod's Generosity
+  Academy Ruins
+  Arwen, Mortal Queen
+  Castle Ardenvale
+  Flagstones of Trokair
+  Kor Haven
+  Luminous Broodmoth
+  Mondrak, Glory Dominus
+  Myojin of Blooming Dawn
+  Weathered Wayfarer
+`);
+
+const rejected = parseList(`
   Battle of Frost and Fire
+  Moorland Haunt
+  Okina, Temple to the Grandfathers
+  Tolaria
   Contested Cliffs
+  Emeria Shepherd
   Dragonlair Spider
   Flamekin Village
   Hammerheim
@@ -82,47 +117,13 @@ const cuts = parseList(`
   Tatyova, Benthic Druid
   Taurean Mauler
   Waking the Trolls
-`);
-
-const pending = parseList(`
-  Academy Ruins
-  Arwen, Mortal Queen
-  Canopy Vista
-  Castle Ardenvale
-  Vitu-Ghazi, the City-Tree
-  Cyclone Summoner
-  Emeria Shepherd
-  Flagstones of Trokair
-  Gavony Township
-  Hall of Heliod's Generosity
-  High Market
-  Karma
-  Kor Haven
-  Krosan Verge
-  Luminous Broodmoth
-  Magus of the Disk
-  Mirror Entity
-  Mondrak, Glory Dominus
-  Moorland Haunt
-  Myojin of Blooming Dawn
-  Myojin of Cleansing Fire
-  Okina, Temple to the Grandfathers
-  Prairie Stream
-  Riftstone Portal
-  Riptide Laboratory
-  Roots of Life
-  Sower of Temptation
-  Sun Titan
-  Tale of Tinúviel
-  Tap Spheres
-  Tolaria
-  Twilight Shepherd
-  Urborg, Tomb of Yawgmoth
-  Wargate
-  Weathered Wayfarer
-`);
-
-const rejected = parseList(`
+  Scute Swarm
+  Simic Growth Chamber
+  Transmogrifying Wand
+  Aven Courier
+  Djinn of Infinite Deceits
+  Mirage Mirror
+  Nissa, Ascended Animist
   Alchemist's Refuge
   Apex Altisaur
   Awakening of Vitu-Ghazi
