@@ -925,7 +925,7 @@ export const NonLands: CardDraft[] = [{
   category: MC.Threat,
 },
 {
-  name: `The Fall of Lord Konda`,
+  name: `The Fall of Lord Konda // Fragment of Konda`,
   mc: '2W',
   types: [CardType.Enchantment],
   subtypes: ['Saga'],

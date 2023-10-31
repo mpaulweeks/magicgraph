@@ -86,7 +86,7 @@ const current = parseList(`
   Urborg, Tomb of Yawgmoth
   Wargate
   Rubinia Soulsinger
-  The Fall of Lord Konda
+  The Fall of Lord Konda // Fragment of Konda
   Staff of Titania
   Eldrazi Monument
 `);
