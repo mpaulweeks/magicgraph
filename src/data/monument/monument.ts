@@ -16,79 +16,79 @@ function parseList(list: string): Set<string> {
 
 
 const current = parseList(`
-  Spara's Headquarters
-  Tolaria West
-  Deserted Temple
-  Restless Vinestalk
   Animation Module
   Barrin, Master Wizard
   Boompile
+  Canopy Vista
   Cauldron of Souls
+  Cyclone Summoner
+  Deserted Temple
   Dismiss into Dream
   Drownyard Temple
+  Eldrazi Monument
   Elvish Reclaimer
   Expedition Map
   Field of the Dead
+  Gavony Township
   Glacial Chasm
+  Hall of the Bandit Lord
   Helm of Possession
+  High Market
   Hordewing Skaab
   Jalira, Master Polymorphist
+  Karma
   Karn's Bastion
   Kindred Discovery
   Kiora Bests the Sea God
+  Krosan Verge
   Lifetap
   Lotus Field
+  Magus of the Disk
   Maskwood Nexus
   Maze of Ith
   Mirrex
+  Mirror Entity
   Monument to Perfection
   Moritte of the Frost
+  Myojin of Cleansing Fire
   Myojin of Cryptic Dreams
   Myojin of Towering Might
   Nesting Grounds
   Nevinyrral's Disk
   Perilous Forays
+  Prairie Stream
   Proteus Staff
+  Restless Vinestalk
+  Riftstone Portal
+  Riptide Laboratory
   Rootpath Purifier
+  Roots of Life
+  Rubinia Soulsinger
   Runed Stalactite
+  Sower of Temptation
+  Spara's Headquarters
+  Staff of Titania
+  Sun Titan
   Sundial of the Infinite
   Swarmyard
+  Tale of Tinúviel
   Thaumatic Compass // Spires of Orazca
   Thawing Glaciers
   The Bath Song
+  The Fall of Lord Konda // Fragment of Konda
   The Hunter Maze
   The Mycosynth Gardens
   The World Spell
   Thespian's Stage
+  Tolaria West
+  Twilight Shepherd
   Tyrite Sanctum
+  Urborg, Tomb of Yawgmoth
   Urza's Saga
+  Vitu-Ghazi, the City-Tree
+  Wargate
   Willbreaker
   Yavimaya, Cradle of Growth
-  Canopy Vista
-  Vitu-Ghazi, the City-Tree
-  Cyclone Summoner
-  Gavony Township
-  High Market
-  Karma
-  Krosan Verge
-  Magus of the Disk
-  Mirror Entity
-  Myojin of Cleansing Fire
-  Prairie Stream
-  Riftstone Portal
-  Riptide Laboratory
-  Roots of Life
-  Sower of Temptation
-  Sun Titan
-  Tale of Tinúviel
-  Hall of the Bandit Lord
-  Twilight Shepherd
-  Urborg, Tomb of Yawgmoth
-  Wargate
-  Rubinia Soulsinger
-  The Fall of Lord Konda // Fragment of Konda
-  Staff of Titania
-  Eldrazi Monument
 `);
 
 const cuts = parseList(`
@@ -108,51 +108,36 @@ const pending = parseList(`
 `);
 
 const rejected = parseList(`
-  Battle of Frost and Fire
-  Moorland Haunt
-  Okina, Temple to the Grandfathers
-  Tolaria
-  Contested Cliffs
-  Emeria Shepherd
-  Dragonlair Spider
-  Flamekin Village
-  Hammerheim
-  Kessig Wolf Run
-  Kher Keep
-  Myojin of Roaring Blades
-  Omnath, Locus of Rage
-  Reality Scramble
-  Solphim, Mayhem Dominus
-  Tatyova, Benthic Druid
-  Taurean Mauler
-  Waking the Trolls
-  Scute Swarm
-  Simic Growth Chamber
-  Transmogrifying Wand
-  Aven Courier
-  Djinn of Infinite Deceits
-  Mirage Mirror
-  Nissa, Ascended Animist
   Alchemist's Refuge
   Apex Altisaur
+  Aven Courier
   Awakening of Vitu-Ghazi
+  Battle of Frost and Fire
   Callous Oppressor
   Cascading Cataracts
   Celestial Colonnade
   Constant Mists
+  Contested Cliffs
   Cowardice
   Desert
   Desolate Lighthouse
+  Djinn of Infinite Deceits
+  Dragonlair Spider
   Dreamscape Artist
   Druid Class
   Dualcaster Mage
+  Emeria Shepherd
   Fatestitcher
+  Flamekin Village
   Forbidden Orchard
   Fortitude
   Fractured Loyalty
+  Hammerheim
   Heartless Hidetsugu
   Homeward Path
   Humble Defector
+  Kessig Wolf Run
+  Kher Keep
   Khârn the Betrayer
   Kiora's Follower
   Kjeldoran Outpost
@@ -161,13 +146,19 @@ const rejected = parseList(`
   Littjara Mirrorlake
   Manascape Refractor
   Minamo, School at Water's Edge
+  Mirage Mirror
+  Moorland Haunt
   Mutavault
   Myojin of Life's Web
+  Myojin of Roaring Blades
   Myojin of Seeing Winds
   Nacatl War-Pride
   Nightmare Lash
+  Nissa, Ascended Animist
   Novablast Wurm
   Oath of Lieges
+  Okina, Temple to the Grandfathers
+  Omnath, Locus of Rage
   Oran-Rief, the Vastwood
   Overtaker
   Pendant of Prosperity
@@ -177,15 +168,19 @@ const rejected = parseList(`
   Puca's Mischief
   Radiant Performer
   Ranging Raptors
+  Reality Scramble
   Realmbreaker, the Invasion Tree
   Rishadan Port
   Scavenged Brawler
+  Scute Swarm
   Seedborn Muse
   Selvala, Explorer Returned
   Shapesharer
   Shinka, the Bloodsoaked Keep
+  Simic Growth Chamber
   Skullclamp
   Slippery Bogbonder
+  Solphim, Mayhem Dominus
   Sorrow's Path
   Spawning Grounds
   Spike Weaver
@@ -193,11 +188,16 @@ const rejected = parseList(`
   Starke of Rath
   Stone-Seeder Hierophant
   Sword of the Animist
+  Tatyova, Benthic Druid
+  Taurean Mauler
   The Akroan War
   The Phasing of Zhalfir
+  Tolaria
+  Transmogrifying Wand
   Utvara Hellkite
   Vigor
   Vizier of Tumbling Sands
+  Waking the Trolls
   Ward of Bones
   Wilderness Reclamation
   Wirewood Lodge

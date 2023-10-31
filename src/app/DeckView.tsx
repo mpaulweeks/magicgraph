@@ -154,7 +154,7 @@ export const DeckView = (props: {
           <h3>{current.length} Played Cards</h3>
           {current.map(card => (
             <div key={card.id}>
-              <AutoCard card={card} />
+              <AutoCard card={card} realName={true} />
             </div>
           ))}
         </div>
@@ -162,7 +162,7 @@ export const DeckView = (props: {
           <h3>{cuts.length} Soon to be Cut</h3>
           {cuts.map(card => (
             <div key={card.id}>
-              <AutoCard card={card} />
+              <AutoCard card={card} realName={true} />
             </div>
           ))}
         </div>
@@ -170,7 +170,7 @@ export const DeckView = (props: {
           <h3>{pending.length} Pending Cards</h3>
           {pending.map(card => (
             <div key={card.id}>
-              <AutoCard card={card} />
+              <AutoCard card={card} realName={true} />
             </div>
           ))}
         </div>
@@ -178,7 +178,7 @@ export const DeckView = (props: {
           <h3>{rejected.length} Rejected Cards</h3>
           {rejected.map(card => (
             <div key={card.id}>
-              <AutoCard card={card} />
+              <AutoCard card={card} realName={true} />
             </div>
           ))}
         </div>
