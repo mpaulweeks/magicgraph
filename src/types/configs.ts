@@ -17,7 +17,7 @@ export type CardDraft = {
 
 export type DeckData = {
   name: string;
-  url?: string;
+  links?: { name: string, url: string, }[];
   cardDrafts: CardDraft[];
   matchers: Matcher[];
   categoryColorMap: Record<string, string>;

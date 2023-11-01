@@ -1,7 +1,7 @@
 export enum MonumentCategory {
   ComboLand = 'Combo Land',
-  ManaLand = 'Mana Land',
-  PillowLand = 'Utility Land',
+  MulticolorLand = 'Multicolor Land',
+  PillowLand = 'Pillowfort Land',
   Misc = 'Misc',
   Threat = 'Threat',
   Lifegain = 'Lifegain',
@@ -131,14 +131,11 @@ export enum MonumentEdge {
 
   ForcesTap = 'Forces Tap',
   TappedBy = 'Tapped By',
+
+  Nonbo = 'Nonbo',
 }
 
 export const MonumentInverseEdge = {
-  [MonumentEdge.CombosWith]: MonumentEdge.CombosWith,
-  [MonumentEdge.TribalSynergy]: MonumentEdge.TribalSynergy,
-  [MonumentEdge.LandTypeMatters]: MonumentEdge.LandTypeMatters,
-  [MonumentEdge.ManipulatesCounters]: MonumentEdge.ManipulatesCounters,
-
   [MonumentEdge.EnablesMana]: MonumentEdge.EnabledBy,
   [MonumentEdge.Damages]: MonumentEdge.DamagedBy,
   [MonumentEdge.Targets]: MonumentEdge.TargetedBy,

@@ -61,7 +61,7 @@ export const CardView = (props: {
     neighbor: edge.related[1],
   }));
   const edgeFrom = edges.filter(e => e.related[1].id === card.id).map(edge => ({
-    relationship: deck.data.relationshipInverse[edge.relationship] ?? 'Unknown Edge',
+    relationship: deck.data.relationshipInverse[edge.relationship] ?? edge.relationship,
     neighbor: edge.related[0],
   }));
 

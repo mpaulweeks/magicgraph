@@ -144,4 +144,10 @@ export const MonMatchers: Matcher[] = [
       a.subtypes.has('Plains') &&
       b.tags.has(MT.TutorsPlains),
   },
+  {
+    relationship: ME.Nonbo,
+    isMatch: (a,b) =>
+      a.types.all(CardType.Land, CardType.Legendary) &&
+      b.tags.has(MT.CopiesLands),
+  },
 ];

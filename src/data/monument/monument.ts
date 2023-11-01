@@ -95,6 +95,7 @@ const cuts = parseList(`
 `);
 
 const pending = parseList(`
+  Vesuva
   Knight of the Reliquary
   Oboro Breezecaller
   Hall of Heliod's Generosity
@@ -210,7 +211,10 @@ const rejected = parseList(`
 const allCards: CardDraft[] = [
   ...Lands.map(c => ({
     ...c,
-    types: [CardType.Land],
+    types: [
+      CardType.Land,
+      ...(c.additionalTypes ?? []),
+    ],
     category: c.overrideCategory ?? MonumentCategory.ComboLand,
     tags: (c.tags ?? []).concat('Is Land'),
     emphasize: true,
@@ -251,9 +255,9 @@ const missing = unique([
 console.log('missing:', missing);
 
 const CategoryColorMap: Record<MonumentCategory, string> = {
-  [MonumentCategory.PillowLand]: '#eee',
-  [MonumentCategory.ManaLand]: '#ddd',
-  [MonumentCategory.ComboLand]: '#ccc',
+  [MonumentCategory.PillowLand]: '#ddf',
+  [MonumentCategory.MulticolorLand]: '#dfd',
+  [MonumentCategory.ComboLand]: '#fdd',
   [MonumentCategory.Tutor]: '#6ff',
   [MonumentCategory.Misc]: 'grey',
   [MonumentCategory.Threat]: 'salmon',
@@ -266,7 +270,13 @@ const CategoryColorMap: Record<MonumentCategory, string> = {
 };
 export const MonumentData: DeckData = {
   name: 'Monument.dec',
-  url: 'https://tappedout.net/mtg-decks/monument-to-hubris/',
+  links: [{
+    name: 'Monument to Hubris (retired)',
+    url: 'https://tappedout.net/mtg-decks/monument-to-hubris/',
+  }, {
+    name: 'Monument to Bant',
+    url: 'https://tappedout.net/mtg-decks/monument-to-bant/',
+  }],
   cardDrafts: sorted,
   matchers: MonMatchers,
   categoryColorMap: CategoryColorMap,

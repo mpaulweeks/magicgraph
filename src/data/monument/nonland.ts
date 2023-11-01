@@ -760,7 +760,7 @@ export const NonLands: CardDraft[] = [{
   types: [CardType.Creature],
   subtypes: ['Wizard'],
   category: MC.Interaction,
-  tags: [MT.LikesBeingCopiedWithCast],
+  tags: [MT.LikesBeingCopiedWithCast, MT.TargetsTribal],
 },
 {
   name: `Sower of Temptation`,

@@ -37,8 +37,8 @@ export const DeckView = (props: {
     );
   }
 
-  const cardTypes = unique(deck.cards.map(c => c.types.asArray).flat());
-  const categories = unique(deck.cards.map(c => c.category));
+  const cardTypes = unique(deck.cards.map(c => c.types.asArray).flat()).sort();
+  const categories = unique(deck.cards.map(c => c.category)).sort();
   const tags = unique(deck.cards.map(c => c.tags.asArray).flat()).sort();
   const filtered = deck.cards
     .filter(c => !filter || c.filterBy.has(filter));
@@ -61,13 +61,13 @@ export const DeckView = (props: {
   return (
     <div>
       <h1>{deck.name}</h1>
-      {deck.data.url && (
-        <div>
-          <a href={deck.data.url}>
-            Link to Decklist
+      {(deck.data.links ?? []).map(link => (
+        <div key={link.url}>
+          <a href={link.url}>
+            {link.name}
           </a>
         </div>
-      )}
+      ))}
       {/* <p>
         <button onClick={() => setShowGraph(true)}>graph</button>
       </p> */}

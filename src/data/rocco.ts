@@ -193,7 +193,10 @@ const RocMatchers: Matcher[] = [{
 
 export const RoccoData: DeckData = {
   name: 'Rocco.dec',
-  url: 'https://tappedout.net/mtg-decks/heartless-rocco/',
+  links: [{
+    name: 'Tapped out',
+    url: 'https://tappedout.net/mtg-decks/heartless-rocco/',
+  }],
   cardDrafts: [
     ...Creatures.map(c => ({
       ...c,

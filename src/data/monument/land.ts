@@ -2,6 +2,7 @@ import { CardDraft, CardType } from "../../types";
 import { MonumentCategory as MC, MonumentEdge as ME, MonumentTag as MT } from "./types";
 
 export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
+  additionalTypes?: string[];
   overrideCategory?: string;
 })[] = [{
   name: `Nesting Grounds`,
@@ -24,6 +25,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Yavimaya, Cradle of Growth`,
+  additionalTypes: [CardType.Legendary],
   tags: [MT.GrantsLandTypes],
   combos: [
     {
@@ -74,6 +76,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Hammerheim`,
+  additionalTypes: [CardType.Legendary],
   tags: [MT.TargetsCreatures],
 },
 {
@@ -95,13 +98,23 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Thespian's Stage`,
+  overrideCategory: MC.MulticolorLand,
   tags: [
     MT.CopiesLands,
     MT.CopiesWithMirror,
   ],
 },
 {
+  name: `Vesuva`,
+  overrideCategory: MC.MulticolorLand,
+  tags: [
+    MT.CopiesLands,
+    MT.CopiesWithETB,
+  ],
+},
+{
   name: `Lotus Field`,
+  overrideCategory: MC.MulticolorLand,
   tags: [
     MT.CaresAboutGettingUntapped,
     MT.LikesBeingCopiedWithMirror,
@@ -112,6 +125,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Simic Growth Chamber`,
   nick: `Bouncelands`,
+  overrideCategory: MC.MulticolorLand,
   tags: [
     MT.CaresAboutGettingUntapped,
     MT.LikesBeingCopiedWithMirror,
@@ -133,6 +147,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Thawing Glaciers`,
+  overrideCategory: MC.MulticolorLand,
   tags: [
     MT.CannotTapForMana,
     MT.CaresAboutGettingUntapped,
@@ -149,6 +164,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `The Mycosynth Gardens`,
+  overrideCategory: MC.MulticolorLand,
   subtypes: ['Sphere'],
   tags: [
     MT.CopiesArtifacts,
@@ -157,6 +173,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Kher Keep`,
+  additionalTypes: [CardType.Legendary],
   tags: [MT.MakesTokens],
 },
 {
@@ -166,6 +183,8 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Urza's Saga`,
+  overrideCategory: MC.Tutor,
+  subtypes: ['Saga'],
   tags: [MT.CaresAboutTrinkets],
 },
 {
@@ -186,6 +205,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Forbidden Orchard`,
+  overrideCategory: MC.MulticolorLand,
   combos: [
     {
       relationship: ME.Fuels,
@@ -204,6 +224,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Urborg, Tomb of Yawgmoth`,
+  additionalTypes: [CardType.Legendary],
   tags: [MT.GrantsLandTypes],
   combos: [
     {
@@ -255,18 +276,22 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Tolaria`,
+  additionalTypes: [CardType.Legendary],
   tags: [MT.TargetsCreatures, MT.TutorsLand],
 },
 {
   name: `Yavimaya Hollow`,
+  additionalTypes: [CardType.Legendary],
   tags: [MT.TargetsCreatures],
 },
 {
   name: `Okina, Temple to the Grandfathers`,
+  additionalTypes: [CardType.Legendary],
   tags: [MT.TargetsCreatures],
 },
 {
   name: `Minamo, School at Water's Edge`,
+  additionalTypes: [CardType.Legendary],
   tags: [MT.TargetsCreatures],
   combos: [{
     relationship: ME.Untaps,
@@ -277,10 +302,12 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Shinka, the Bloodsoaked Keep`,
+  additionalTypes: [CardType.Legendary],
   tags: [MT.TargetsCreatures],
 },
 {
   name: `Cascading Cataracts`,
+  overrideCategory: MC.MulticolorLand,
   tags: [MT.LandWithProtection],
 },
 {
@@ -304,14 +331,21 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Celestial Colonnade`,
+  overrideCategory: MC.MulticolorLand,
   tags: [MT.ManLand],
 },
 {
   name: `Flagstones of Trokair`,
-  tags: [MT.WantsToBeSacrificed, MT.TutorsPlains],
+  additionalTypes: [CardType.Legendary],
+  tags: [
+    MT.WantsToBeSacrificed,
+    MT.TutorsPlains,
+    MT.LikesBeingCopiedWithMirror,
+  ],
 },
 {
   name: `Academy Ruins`,
+  additionalTypes: [CardType.Legendary],
   combos: [{
     relationship: ME.Retrieves,
     isMatch: other => other.types.has(CardType.Artifact),
@@ -319,6 +353,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Hall of Heliod's Generosity`,
+  additionalTypes: [CardType.Legendary],
   combos: [{
     relationship: ME.Retrieves,
     isMatch: other => other.types.has(CardType.Enchantment),
@@ -363,10 +398,12 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Hall of the Bandit Lord`,
+  additionalTypes: [CardType.Legendary],
   tags: [MT.CannotTapForMana],
 },
 {
   name: `Krosan Verge`,
+  overrideCategory: MC.MulticolorLand,
   tags: [
     MT.TutorsForest,
     MT.TutorsPlains,
@@ -376,20 +413,23 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Canopy Vista`,
+  overrideCategory: MC.MulticolorLand,
   subtypes: ['Plains', 'Forest'],
 },
 {
   name: `Prairie Stream`,
+  overrideCategory: MC.MulticolorLand,
   subtypes: ['Plains', 'Island'],
 },
 {
   name: `Spara's Headquarters`,
+  overrideCategory: MC.MulticolorLand,
   subtypes: ['Plains', 'Island', 'Forest'],
 },
 {
   name: `Tolaria West`,
   overrideCategory: MC.Tutor,
-  tags: [MT.TutorsLand],
+  tags: [MT.TutorsLand, MT.LikesBeingBounced],
 },
 {
   name: `Deserted Temple`,
@@ -397,6 +437,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Restless Vinestalk`,
+  overrideCategory: MC.MulticolorLand,
   tags: [MT.TargetsCreatures],
 },
 {
