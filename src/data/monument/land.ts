@@ -50,6 +50,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Glacial Chasm`,
+  overrideCategory: MC.PillowLand,
   tags: [
     MT.HasAgeCounters,
     MT.CannotTapForMana,
@@ -58,6 +59,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.LikesBeingCopiedWithMirror,
     MT.SacrificesLands,
     MT.SundialFriendly,
+    MT.LikesBeingBounced,
   ],
   combos: [
     {
@@ -115,10 +117,12 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.LikesBeingCopiedWithMirror,
     MT.SundialFriendly,
     MT.TriggersLandfall,
+    MT.BouncesLand,
   ],
 },
 {
   name: `Maze of Ith`,
+  overrideCategory: MC.PillowLand,
   tags: [MT.CannotTapForMana, MT.TargetsCreatures],
   combos: [
     {
@@ -135,6 +139,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.SundialFriendly,
     MT.TutorsBasic,
     MT.TriggersLandfall,
+    MT.LikesBeingBounced,
   ],
 },
 {
@@ -173,12 +178,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `High Market`,
-  combos: [
-    {
-      relationship: ME.Fuels,
-      isMatch: other => other.tags.has(MT.ThreatensCreatures),
-    },
-  ],
+  tags: [MT.SacrificeOutlet],
 },
 {
   name: `Mutavault`,
@@ -256,7 +256,6 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Tolaria`,
   tags: [MT.TargetsCreatures, MT.TutorsLand],
-  overrideCategory: MC.Tutor,
 },
 {
   name: `Yavimaya Hollow`,
@@ -331,6 +330,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Kor Haven`,
+  overrideCategory: MC.PillowLand,
 },
 {
   name: `Moorland Haunt`,
@@ -388,6 +388,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Tolaria West`,
+  overrideCategory: MC.Tutor,
   tags: [MT.TutorsLand],
 },
 {

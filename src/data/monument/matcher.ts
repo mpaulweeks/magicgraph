@@ -95,6 +95,12 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.CombosWith,
     isMatch: (a,b) =>
+      a.tags.has(MT.WantsSacrificeOutlet) &&
+      b.tags.has(MT.SacrificeOutlet),
+  },
+  {
+    relationship: ME.CombosWith,
+    isMatch: (a,b) =>
       a.tags.has(MT.DestroysAll) &&
       b.tags.has(MT.HasIndestructible),
   },
@@ -103,6 +109,12 @@ export const MonMatchers: Matcher[] = [
     isMatch: (a,b) =>
       a.tags.has(MT.TriggersLandfall) &&
       b.tags.has(MT.HasLandfall),
+  },
+  {
+    relationship: ME.Fuels,
+    isMatch: (a,b) =>
+      a.tags.has(MT.LikesBeingBounced) &&
+      b.tags.has(MT.BouncesLand),
   },
   {
     relationship: ME.ManipulatesCounters,

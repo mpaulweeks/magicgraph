@@ -204,7 +204,7 @@ export const NonLands: CardDraft[] = [{
   mc: '3UU',
   types: [CardType.Creature],
   subtypes: ['Wizard'],
-  tags: [MT.CaresAboutTargeting, MT.ThreatensCreatures],
+  tags: [MT.CaresAboutTargeting, MT.WantsSacrificeOutlet],
   category: MC.Interaction,
 },
 {
@@ -257,6 +257,7 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.HasMinusCounters,
     MT.TargetsCreatures,
+    MT.WantsSacrificeOutlet,
   ],
 },
 {
@@ -306,14 +307,14 @@ export const NonLands: CardDraft[] = [{
   name: `Jalira, Master Polymorphist`,
   mc: '3U',
   types: [CardType.Creature],
-  tags: [MT.UsesTokens],
+  tags: [MT.UsesTokens, MT.SacrificeOutlet],
   category: MC.Draw,
 },
 {
   name: `Reality Scramble`,
   mc: '2RR',
   types: [CardType.Sorcery],
-  tags: [MT.UsesTokens],
+  tags: [MT.UsesTokens, MT.SacrificeOutlet],
   category: MC.Draw,
 },
 {
@@ -341,21 +342,21 @@ export const NonLands: CardDraft[] = [{
   name: `Helm of Possession`,
   mc: '4',
   types: [CardType.Artifact],
-  tags: [MT.UsesTokens, MT.ThreatensCreatures],
+  tags: [MT.UsesTokens, MT.SacrificeOutlet, MT.WantsSacrificeOutlet],
   category: MC.Interaction,
 },
 {
   name: `Barrin, Master Wizard`,
   mc: '2UU',
   types: [CardType.Creature],
-  tags: [MT.UsesTokens],
+  tags: [MT.UsesTokens, MT.SacrificeOutlet],
   category: MC.Interaction,
 },
 {
   name: `Perilous Forays`,
   mc: '3GG',
   types: [CardType.Enchantment],
-  tags: [MT.UsesTokens, MT.TutorsBasic],
+  tags: [MT.UsesTokens, MT.TutorsBasic, MT.SacrificeOutlet],
   category: MC.Ramp,
 },
 {
@@ -435,14 +436,14 @@ export const NonLands: CardDraft[] = [{
   name: `Overtaker`,
   mc: '3U',
   types: [CardType.Creature],
-  tags: [MT.ThreatensCreatures],
+  tags: [MT.WantsSacrificeOutlet],
   category: MC.Interaction,
 },
 {
   name: `Callous Oppressor`,
   mc: '1UU',
   types: [CardType.Creature],
-  tags: [MT.ThreatensCreatures],
+  tags: [MT.WantsSacrificeOutlet],
   category: MC.Interaction,
 },
 {
@@ -766,7 +767,7 @@ export const NonLands: CardDraft[] = [{
   mc: '2UU',
   types: [CardType.Creature],
   subtypes: ['Wizard'],
-  tags: [MT.ThreatensCreatures],
+  tags: [MT.WantsSacrificeOutlet],
   category: MC.Interaction,
 },
 {
@@ -828,6 +829,7 @@ export const NonLands: CardDraft[] = [{
   name: `Luminous Broodmoth`,
   mc: '3WW',
   types: [CardType.Creature],
+  subtypes: ['Insect'],
   tags: [MT.HasAbilityCounters],
   category: MC.Recursion,
 },
@@ -835,14 +837,21 @@ export const NonLands: CardDraft[] = [{
   name: `Mondrak, Glory Dominus`,
   mc: '2WW',
   types: [CardType.Creature],
-  tags: [MT.HasIndestructible, MT.HasAbilityCounters, MT.UsesTokens, MT.MakesTokens],
+  tags: [MT.HasIndestructible, MT.HasAbilityCounters, MT.UsesTokens, MT.MakesTokens, MT.SacrificeOutlet],
   category: MC.Misc,
 },
 {
   name: `Weathered Wayfarer`,
   mc: 'W',
   types: [CardType.Creature],
-  tags: [MT.TutorsLand, MT.TriggersLandfall],
+  tags: [MT.TutorsLand, MT.TriggersLandfall, MT.CaresAboutGettingUntapped],
+  category: MC.Tutor,
+},
+{
+  name: `Knight of the Reliquary`,
+  mc: '1WG',
+  types: [CardType.Creature],
+  tags: [MT.TutorsLand, MT.TriggersLandfall, MT.SacrificesLands, MT.CaresAboutForests, MT.CaresAboutPlains, MT.CaresAboutGettingUntapped],
   category: MC.Tutor,
 },
 {
@@ -878,7 +887,7 @@ export const NonLands: CardDraft[] = [{
   name: `Rubinia Soulsinger`,
   mc: '2WUG',
   types: [CardType.Creature, CardType.Legendary],
-  tags: [MT.ThreatensCreatures, MT.CaresAboutGettingUntapped],
+  tags: [MT.WantsSacrificeOutlet, MT.CaresAboutGettingUntapped],
   category: MC.Interaction,
 },
 {
@@ -914,7 +923,7 @@ export const NonLands: CardDraft[] = [{
   name: `Twilight Shepherd`,
   mc: '3WWW',
   types: [CardType.Creature],
-  tags: [MT.HasMinusCounters],
+  tags: [MT.HasMinusCounters, MT.WantsSacrificeOutlet],
   category: MC.Recursion,
 },
 {
@@ -945,4 +954,11 @@ export const NonLands: CardDraft[] = [{
   tags: [MT.UsesTokens],
   category: MC.Buff,
 },
+{
+  name: `Oboro Breezecaller`,
+  mc: '1U',
+  types: [CardType.Creature],
+  tags: [MT.BouncesLand, MT.TriggersLandfall, MT.UntapsLand],
+  category: MC.Misc,
+}
 ];

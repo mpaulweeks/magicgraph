@@ -39,7 +39,7 @@ export const DeckView = (props: {
 
   const cardTypes = unique(deck.cards.map(c => c.types.asArray).flat());
   const categories = unique(deck.cards.map(c => c.category));
-  const tags = unique(deck.cards.map(c => c.tags.asArray).flat());
+  const tags = unique(deck.cards.map(c => c.tags.asArray).flat()).sort();
   const filtered = deck.cards
     .filter(c => !filter || c.filterBy.has(filter));
   const current = filtered.filter(c => c.current);

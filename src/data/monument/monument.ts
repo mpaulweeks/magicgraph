@@ -95,6 +95,8 @@ const cuts = parseList(`
 `);
 
 const pending = parseList(`
+  Knight of the Reliquary
+  Oboro Breezecaller
   Hall of Heliod's Generosity
   Academy Ruins
   Arwen, Mortal Queen
@@ -209,7 +211,7 @@ const allCards: CardDraft[] = [
   ...Lands.map(c => ({
     ...c,
     types: [CardType.Land],
-    category: c.overrideCategory ?? MonumentCategory.Land,
+    category: c.overrideCategory ?? MonumentCategory.ComboLand,
     tags: (c.tags ?? []).concat('Is Land'),
     emphasize: true,
   })),
@@ -249,7 +251,9 @@ const missing = unique([
 console.log('missing:', missing);
 
 const CategoryColorMap: Record<MonumentCategory, string> = {
-  [MonumentCategory.Land]: 'lightgrey',
+  [MonumentCategory.PillowLand]: '#eee',
+  [MonumentCategory.ManaLand]: '#ddd',
+  [MonumentCategory.ComboLand]: '#ccc',
   [MonumentCategory.Tutor]: '#6ff',
   [MonumentCategory.Misc]: 'grey',
   [MonumentCategory.Threat]: 'salmon',

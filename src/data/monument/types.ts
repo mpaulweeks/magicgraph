@@ -1,5 +1,7 @@
 export enum MonumentCategory {
-  Land = 'Tutorable Land',
+  ComboLand = 'Combo Land',
+  ManaLand = 'Mana Land',
+  PillowLand = 'Utility Land',
   Misc = 'Misc',
   Threat = 'Threat',
   Lifegain = 'Lifegain',
@@ -12,6 +14,9 @@ export enum MonumentCategory {
 }
 
 export enum MonumentTag {
+  SacrificeOutlet = 'Sacrifice Outlet',
+  WantsSacrificeOutlet = 'Wants Sacrifice Outlet',
+
   HasPlusCounters = '+1/+1 Counters',
   HasMinusCounters = '-1/-1 Counters',
   HasAgeCounters = 'Age Counters',
@@ -48,6 +53,8 @@ export enum MonumentTag {
   LikesBeingCopiedWithCast = 'LikesBeingCopiedWithCast',
   LikesBeingCopiedWithETB = 'LikesBeingCopiedWithETB',
   LikesBeingCopiedWithMirror = 'LikesBeingCopiedWithMirror',
+  LikesBeingBounced = 'Likes Being Bounced',
+  BouncesLand = 'Bounces Land',
 
   DealsDamageToPlayers = 'Damages Players',
   DealsDamageToCreatures = 'Damages Creatures',
@@ -76,7 +83,6 @@ export enum MonumentTag {
 
   CaresAboutOpponentCreatures = 'Cares Abou tOpponent Creatures',
 
-  ThreatensCreatures = 'Threatens Creatures',
   MakesTokens = 'Makes Tokens',
   UsesZombies = 'Uses Zombies',
 
