@@ -84,16 +84,17 @@ const current = parseList(`
   Knight of the Reliquary
   Tameshi, Reality Architect
   Zopandrel, Hunger Dominus
+  Avarice Totem
 `);
 
 const cuts = parseList(`
   The Fall of Lord Konda // Fragment of Konda
   The Bath Song
-  Rubinia Soulsinger
   Jalira, Master Polymorphist
 `);
 
 const pending = parseList(`
+  Retrofitter Foundry
   Oboro Breezecaller
   Hall of Heliod's Generosity
   Academy Ruins
@@ -108,6 +109,7 @@ const pending = parseList(`
 `);
 
 const rejected = parseList(`
+Rubinia Soulsinger
   Canopy Vista
   Dismiss into Dream
   High Market

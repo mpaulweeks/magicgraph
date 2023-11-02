@@ -81,7 +81,7 @@ export const MonMatchers: Matcher[] = [
       (b.types.has(CardType.Land) && b.tags.has(MT.ManaSink)),
   },
   {
-    relationship: ME.CombosWith,
+    relationship: ME.Retrieves,
     isMatch: (a,b) =>
       a.tags.has(MT.CaresAboutTrinkets) &&
       (b.types.has(CardType.Artifact) && b.mc === '1'),

@@ -988,4 +988,18 @@ export const NonLands: CardDraft[] = [{
   ],
   category: MC.Threat,
 },
+{
+  name: `Avarice Totem`,
+  mc: '1',
+  types: [CardType.Artifact],
+  tags: [MT.UsesTokens],
+  category: MC.Interaction,
+},
+{
+  name: `Retrofitter Foundry`,
+  mc: '1',
+  types: [CardType.Artifact],
+  tags: [MT.TargetsTribal, MT.MakesTokens],
+  category: MC.Threat,
+},
 ];
