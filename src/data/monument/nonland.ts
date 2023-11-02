@@ -809,14 +809,14 @@ export const NonLands: CardDraft[] = [{
   types: [CardType.Creature],
   category: MC.Recursion,
   combos: [{
-    relationship: ME.FueledBy,
+    relationship: ME.Retrieves,
     isMatch: other =>
       other.tags.has(MT.SacrificesLands) ||
       (other.mv <= 3 && (
         other.subtypes.has('Saga') ||
         other.tags.has(MT.SacrificesSelf)
       )),
-  }]
+  }],
 },
 {
   name: `Arwen, Mortal Queen`,
@@ -860,13 +860,6 @@ export const NonLands: CardDraft[] = [{
   types: [CardType.Enchantment],
   tags: [MT.CaresAboutSwamps, MT.DealsDamageToPlayers, MT.SundialFriendly],
   category: MC.Misc,
-},
-{
-  name: `Wargate`,
-  mc: 'WUG',
-  types: [CardType.Sorcery],
-  tags: [MT.TutorsLand],
-  category: MC.Tutor,
 },
 {
   name: `Selvala, Explorer Returned`,
@@ -960,5 +953,39 @@ export const NonLands: CardDraft[] = [{
   types: [CardType.Creature],
   tags: [MT.BouncesLand, MT.TriggersLandfall, MT.UntapsLand],
   category: MC.Misc,
-}
+},
+{
+  name: `Aura Shards`,
+  mc: '1WG',
+  types: [CardType.Enchantment],
+  tags: [MT.UsesTokens],
+  category: MC.Interaction,
+},
+{
+  name: `Tameshi, Reality Architect`,
+  mc: '2U',
+  types: [CardType.Creature],
+  tags: [MT.BouncesLand],
+  category: MC.Recursion,
+  combos: [{
+    relationship: ME.Retrieves,
+    isMatch: other =>
+      other.types.has(CardType.Artifact, CardType.Enchantment) && (
+        other.subtypes.has('Saga') ||
+        other.tags.has(MT.SacrificesSelf)
+      ),
+  }],
+},
+{
+  name: `Zopandrel, Hunger Dominus`,
+  mc: '5GG',
+  types: [CardType.Creature],
+  tags: [
+    MT.HasAbilityCounters,
+    MT.HasIndestructible,
+    MT.UsesTokens,
+    MT.SacrificeOutlet,
+  ],
+  category: MC.Threat,
+},
 ];

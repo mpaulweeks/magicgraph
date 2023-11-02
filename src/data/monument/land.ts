@@ -123,7 +123,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   ],
 },
 {
-  name: `Simic Growth Chamber`,
+  name: `Selesnya Sanctuary`,
   nick: `Bouncelands`,
   overrideCategory: MC.MulticolorLand,
   tags: [

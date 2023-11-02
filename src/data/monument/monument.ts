@@ -19,11 +19,9 @@ const current = parseList(`
   Animation Module
   Barrin, Master Wizard
   Boompile
-  Canopy Vista
   Cauldron of Souls
   Cyclone Summoner
   Deserted Temple
-  Dismiss into Dream
   Drownyard Temple
   Eldrazi Monument
   Elvish Reclaimer
@@ -33,9 +31,7 @@ const current = parseList(`
   Glacial Chasm
   Hall of the Bandit Lord
   Helm of Possession
-  High Market
   Hordewing Skaab
-  Jalira, Master Polymorphist
   Karma
   Karn's Bastion
   Kindred Discovery
@@ -56,16 +52,13 @@ const current = parseList(`
   Nesting Grounds
   Nevinyrral's Disk
   Perilous Forays
-  Prairie Stream
   Proteus Staff
   Restless Vinestalk
   Riftstone Portal
   Riptide Laboratory
   Rootpath Purifier
   Roots of Life
-  Rubinia Soulsinger
   Runed Stalactite
-  Sower of Temptation
   Spara's Headquarters
   Staff of Titania
   Sun Titan
@@ -74,8 +67,6 @@ const current = parseList(`
   Tale of Tinúviel
   Thaumatic Compass // Spires of Orazca
   Thawing Glaciers
-  The Bath Song
-  The Fall of Lord Konda // Fragment of Konda
   The Hunter Maze
   The Mycosynth Gardens
   The World Spell
@@ -86,17 +77,23 @@ const current = parseList(`
   Urborg, Tomb of Yawgmoth
   Urza's Saga
   Vitu-Ghazi, the City-Tree
-  Wargate
-  Willbreaker
   Yavimaya, Cradle of Growth
+  Selesnya Sanctuary
+  Vesuva
+  Aura Shards
+  Knight of the Reliquary
+  Tameshi, Reality Architect
+  Zopandrel, Hunger Dominus
 `);
 
 const cuts = parseList(`
+  The Fall of Lord Konda // Fragment of Konda
+  The Bath Song
+  Rubinia Soulsinger
+  Jalira, Master Polymorphist
 `);
 
 const pending = parseList(`
-  Vesuva
-  Knight of the Reliquary
   Oboro Breezecaller
   Hall of Heliod's Generosity
   Academy Ruins
@@ -111,6 +108,12 @@ const pending = parseList(`
 `);
 
 const rejected = parseList(`
+  Canopy Vista
+  Dismiss into Dream
+  High Market
+  Prairie Stream
+  Sower of Temptation
+  Willbreaker
   Alchemist's Refuge
   Apex Altisaur
   Aven Courier
@@ -180,7 +183,6 @@ const rejected = parseList(`
   Selvala, Explorer Returned
   Shapesharer
   Shinka, the Bloodsoaked Keep
-  Simic Growth Chamber
   Skullclamp
   Slippery Bogbonder
   Solphim, Mayhem Dominus
