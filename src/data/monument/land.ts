@@ -442,5 +442,18 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Vitu-Ghazi, the City-Tree`,
   tags: [MT.MakesTokens],
-}
+},
+{
+  name: `Mistveil Plains`,
+  subtypes: ['Plains'],
+  overrideCategory: MC.Recursion,
+  combos: [{
+    relationship: ME.Retrieves,
+    isMatch: other =>
+      other.tags.has(MT.SacrificesLands) || (
+        other.types.has(CardType.Land) &&
+        other.tags.has(MT.SacrificesSelf)
+      ),
+  }],
+},
 ];

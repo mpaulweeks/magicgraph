@@ -131,6 +131,9 @@ export enum MonumentEdge {
   Retrieves = 'Retrieves',
   RetrievedBy = 'Retrieved By',
 
+  Tutors = 'Tutors',
+  TutoredBy = 'Tutored By',
+
   ForcesTap = 'Forces Tap',
   TappedBy = 'Tapped By',
 
@@ -149,6 +152,7 @@ export const MonumentInverseEdge = {
   [MonumentEdge.Clones]: MonumentEdge.ClonedBy,
   [MonumentEdge.Bins]: MonumentEdge.BinnedBy,
   [MonumentEdge.Retrieves]: MonumentEdge.RetrievedBy,
+  [MonumentEdge.Tutors]: MonumentEdge.TutoredBy,
   [MonumentEdge.ForcesTap]: MonumentEdge.TappedBy,
 };
 

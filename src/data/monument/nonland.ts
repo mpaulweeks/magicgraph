@@ -1029,6 +1029,14 @@ export const NonLands: CardDraft[] = [{
   types: [CardType.Enchantment],
   subtypes: ['Saga'],
   category: MC.Recursion,
+  combos: [{
+    relationship: ME.Retrieves,
+    isMatch: other =>
+      other.tags.has(MT.SacrificesLands) || (
+        other.types.has(CardType.Land) &&
+        other.tags.has(MT.SacrificesSelf)
+      ),
+  }],
 },
 {
   name: `Song of Eärendil`,

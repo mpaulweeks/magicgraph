@@ -81,7 +81,7 @@ export const MonMatchers: Matcher[] = [
       (b.types.has(CardType.Land) && b.tags.has(MT.ManaSink)),
   },
   {
-    relationship: ME.Retrieves,
+    relationship: ME.Tutors,
     isMatch: (a,b) =>
       a.tags.has(MT.CaresAboutTrinkets) &&
       (b.types.has(CardType.Artifact) && b.mc === '1'),
@@ -149,13 +149,13 @@ export const MonMatchers: Matcher[] = [
       b.tags.has(MT.SacrificesLands),
   },
   {
-    relationship: ME.Fuels,
+    relationship: ME.TutoredBy,
     isMatch: (a,b) =>
       a.subtypes.has('Forest') &&
       b.tags.has(MT.TutorsForest),
   },
   {
-    relationship: ME.Fuels,
+    relationship: ME.TutoredBy,
     isMatch: (a,b) =>
       a.subtypes.has('Plains') &&
       b.tags.has(MT.TutorsPlains),

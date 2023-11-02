@@ -59,7 +59,6 @@ const current = parseList(`
   Roots of Life
   Runed Stalactite
   Spara's Headquarters
-  Staff of Titania
   Sun Titan
   Sundial of the Infinite
   Swarmyard
@@ -75,7 +74,6 @@ const current = parseList(`
   Tyrite Sanctum
   Urborg, Tomb of Yawgmoth
   Urza's Saga
-  Vitu-Ghazi, the City-Tree
   Yavimaya, Cradle of Growth
   Selesnya Sanctuary
   Vesuva
@@ -84,17 +82,19 @@ const current = parseList(`
   Tameshi, Reality Architect
   Zopandrel, Hunger Dominus
   Avarice Totem
+  Weathered Wayfarer
+  Scholar of New Horizons
+  Elspeth Conquers Death
+  The Mending of Dominaria
+  Mistveil Plains
 `);
 
 const cuts = parseList(`
-  The Fall of Lord Konda // Fragment of Konda
-  The Bath Song
-  Jalira, Master Polymorphist
   Krosan Verge
+  Vitu-Ghazi, the City-Tree
 `);
 
 const pending = parseList(`
-  Elspeth Conquers Death
   Retrofitter Foundry
   Oboro Breezecaller
   Hall of Heliod's Generosity
@@ -106,17 +106,18 @@ const pending = parseList(`
   Luminous Broodmoth
   Mondrak, Glory Dominus
   Myojin of Blooming Dawn
-  Weathered Wayfarer
   Battle at the Helvault
   The Night of the Doctor
-  The Mending of Dominaria
   Song of Eärendil
   Behold the Unspeakable // Vision of the Unspeakable
   The Caves of Androzani
-  Scholar of New Horizons
 `);
 
 const rejected = parseList(`
+  The Fall of Lord Konda // Fragment of Konda
+  The Bath Song
+  Jalira, Master Polymorphist
+  Staff of Titania
   Rubinia Soulsinger
   Canopy Vista
   Dismiss into Dream
