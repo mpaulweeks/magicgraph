@@ -24,6 +24,8 @@ export enum MonumentTag {
   HasLimitedUseCounters = 'Divinity Counters',
   HasIndestructible = 'Has Indestructible',
   Proliferates = 'Proliferates',
+  TransfersCounters = 'Transfers Counters',
+  RemovesCounters = 'Removes Counters',
 
   GrantsLandTypes = 'Grants Land Types',
   CannotTapForMana = 'Cannot Tap For Mana',

@@ -126,6 +126,22 @@ export const MonMatchers: Matcher[] = [
       ),
   },
   {
+    relationship: ME.ManipulatesCounters,
+    isMatch: (a,b) =>
+      a.tags.has(MT.TransfersCounters) && (
+        b.tags.has(MT.HasAbilityCounters)
+      ),
+  },
+  {
+    relationship: ME.ManipulatesCounters,
+    isMatch: (a,b) =>
+      a.tags.has(MT.RemovesCounters) && (
+        b.tags.has(MT.HasMinusCounters) ||
+        b.tags.has(MT.HasAgeCounters) ||
+        b.subtypes.has('Saga')
+      ),
+  },
+  {
     relationship: ME.Fuels,
     isMatch: (a,b) =>
       a.types.has('Land') &&

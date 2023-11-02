@@ -36,7 +36,6 @@ const current = parseList(`
   Karn's Bastion
   Kindred Discovery
   Kiora Bests the Sea God
-  Krosan Verge
   Lifetap
   Lotus Field
   Magus of the Disk
@@ -91,9 +90,11 @@ const cuts = parseList(`
   The Fall of Lord Konda // Fragment of Konda
   The Bath Song
   Jalira, Master Polymorphist
+  Krosan Verge
 `);
 
 const pending = parseList(`
+  Elspeth Conquers Death
   Retrofitter Foundry
   Oboro Breezecaller
   Hall of Heliod's Generosity
@@ -106,10 +107,17 @@ const pending = parseList(`
   Mondrak, Glory Dominus
   Myojin of Blooming Dawn
   Weathered Wayfarer
+  Battle at the Helvault
+  The Night of the Doctor
+  The Mending of Dominaria
+  Song of Eärendil
+  Behold the Unspeakable // Vision of the Unspeakable
+  The Caves of Androzani
+  Scholar of New Horizons
 `);
 
 const rejected = parseList(`
-Rubinia Soulsinger
+  Rubinia Soulsinger
   Canopy Vista
   Dismiss into Dream
   High Market

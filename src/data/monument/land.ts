@@ -6,18 +6,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   overrideCategory?: string;
 })[] = [{
   name: `Nesting Grounds`,
-  tags: [MT.TargetsCreatures],
-  combos: [
-    {
-      relationship: ME.ManipulatesCounters,
-      isMatch: other =>
-        other.tags.has(MT.HasPlusCounters) ||
-        other.tags.has(MT.HasMinusCounters) ||
-        other.tags.has(MT.HasAbilityCounters) ||
-        other.tags.has(MT.HasAgeCounters) ||
-        other.subtypes.has('Saga'),
-    },
-  ],
+  tags: [MT.TargetsCreatures, MT.TransfersCounters, MT.RemovesCounters],
 },
 {
   name: `Karn's Bastion`,
@@ -348,7 +337,9 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CardType.Legendary],
   combos: [{
     relationship: ME.Retrieves,
-    isMatch: other => other.types.has(CardType.Artifact),
+    isMatch: other =>
+      other.types.has(CardType.Artifact) &&
+      other.tags.has(MT.SacrificesSelf, MT.DestroysAll),
   }]
 },
 {
@@ -356,7 +347,11 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CardType.Legendary],
   combos: [{
     relationship: ME.Retrieves,
-    isMatch: other => other.types.has(CardType.Enchantment),
+    isMatch: other =>
+      other.types.has(CardType.Enchantment) && (
+        other.subtypes.has('Saga') ||
+        other.tags.has(MT.SacrificesSelf)
+      ),
   }]
 },
 {

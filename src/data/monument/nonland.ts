@@ -98,7 +98,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Myojin of Blooming Dawn`,
   mc: '5WWW',
-  types: [],
+  types: [CardType.Creature],
   tags: [
     MT.LikesBeingCopiedWithCast,
     MT.HasAbilityCounters,
@@ -110,7 +110,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Myojin of Cleansing Fire`,
   mc: '5WWW',
-  types: [],
+  types: [CardType.Creature],
   tags: [
     MT.LikesBeingCopiedWithCast,
     MT.HasAbilityCounters,
@@ -934,6 +934,13 @@ export const NonLands: CardDraft[] = [{
   category: MC.Interaction,
 },
 {
+  name: `Elspeth Conquers Death`,
+  mc: '3WW',
+  types: [CardType.Enchantment],
+  subtypes: ['Saga'],
+  category: MC.Interaction,
+},
+{
   name: `Staff of Titania`,
   mc: '2',
   types: [CardType.Artifact, CardType.Equipment],
@@ -1001,5 +1008,55 @@ export const NonLands: CardDraft[] = [{
   types: [CardType.Artifact],
   tags: [MT.TargetsTribal, MT.MakesTokens],
   category: MC.Threat,
+},
+{
+  name: `Battle at the Helvault`,
+  mc: '4WW',
+  types: [CardType.Enchantment],
+  subtypes: ['Saga'],
+  category: MC.Interaction,
+},
+{
+  name: `The Night of the Doctor`,
+  mc: '4WW',
+  types: [CardType.Enchantment],
+  subtypes: ['Saga'],
+  category: MC.Interaction,
+},
+{
+  name: `The Mending of Dominaria`,
+  mc: '3GG',
+  types: [CardType.Enchantment],
+  subtypes: ['Saga'],
+  category: MC.Recursion,
+},
+{
+  name: `Song of Eärendil`,
+  mc: '3GU',
+  types: [CardType.Enchantment],
+  subtypes: ['Saga'],
+  category: MC.Draw,
+},
+{
+  name: `Behold the Unspeakable // Vision of the Unspeakable`,
+  mc: '3UU',
+  types: [CardType.Enchantment],
+  subtypes: ['Saga'],
+  category: MC.Draw,
+},
+{
+  name: `The Caves of Androzani`,
+  mc: '3W',
+  types: [CardType.Enchantment],
+  subtypes: ['Saga'],
+  tags: [MT.Proliferates, MT.TargetsTribal],
+  category: MC.Tutor,
+},
+{
+  name: `Scholar of New Horizons`,
+  mc: '1W',
+  types: [CardType.Creature],
+  tags: [MT.RemovesCounters, MT.TutorsPlains],
+  category: MC.Ramp,
 },
 ];
