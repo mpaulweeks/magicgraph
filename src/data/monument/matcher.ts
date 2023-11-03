@@ -122,6 +122,7 @@ export const MonMatchers: Matcher[] = [
       a.tags.has(MT.Proliferates) && (
         b.tags.has(MT.HasAbilityCounters) ||
         b.tags.has(MT.HasLimitedUseCounters) ||
+        b.tags.has(MT.PoisonCounters) ||
         b.subtypes.has('Saga')
       ),
   },

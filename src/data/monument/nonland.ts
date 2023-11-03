@@ -1056,7 +1056,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Phyrexian Swarmlord`,
   types: [CT.Creature],
-  tags: [MT.MakesTokens],
+  tags: [MT.MakesTokens, MT.PoisonCounters],
   category: MC.Threat,
 },
 {

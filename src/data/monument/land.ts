@@ -179,6 +179,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.MakesTokens,
     MT.ManaSink,
     MT.CaresAboutGettingUntapped,
+    MT.PoisonCounters,
   ],
 },
 {
