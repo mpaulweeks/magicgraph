@@ -1,4 +1,4 @@
-import { CardDraft, CardType } from "../../types";
+import { CardDraft, CardType as CT } from "../../types";
 import { MonumentCategory as MC, MonumentEdge as ME, MonumentTag as MT } from "./types";
 
 export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
@@ -22,7 +22,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Yavimaya, Cradle of Growth`,
-  additionalTypes: [CardType.Legendary],
+  additionalTypes: [CT.Legendary],
   tags: [MT.GrantsLandTypes],
   combos: [
     {
@@ -79,7 +79,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Hammerheim`,
-  additionalTypes: [CardType.Legendary],
+  additionalTypes: [CT.Legendary],
   tags: [
     MT.TargetsCreatures,
     MT.CaresAboutGettingUntapped,
@@ -137,6 +137,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Selesnya Sanctuary`,
+  nick: 'Bouncelands',
   overrideCategory: MC.MulticolorLand,
   tags: [
     MT.LikesBeingCopiedWithMirror,
@@ -193,7 +194,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Kher Keep`,
-  additionalTypes: [CardType.Legendary],
+  additionalTypes: [CT.Legendary],
   tags: [
     MT.MakesTokens,
     MT.CaresAboutGettingUntapped,
@@ -262,7 +263,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Urborg, Tomb of Yawgmoth`,
-  additionalTypes: [CardType.Legendary],
+  additionalTypes: [CT.Legendary],
   tags: [MT.GrantsLandTypes],
   combos: [
     {
@@ -292,10 +293,10 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Homeward Path`,
   combos: [
     {
-      relationship: ME.Retrieves,
+      relationship: ME.CombosWith,
       isMatch: other =>
         other.tags.has(MT.ExchangesForCreature) ||
-        (other.types.has(CardType.Creature) &&
+        (other.types.has(CT.Creature) &&
           other.tags.has(MT.DonatesSelf)),
     },
   ],
@@ -317,7 +318,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Tolaria`,
-  additionalTypes: [CardType.Legendary],
+  additionalTypes: [CT.Legendary],
   tags: [
     MT.TargetsCreatures,
     MT.TutorsLand,
@@ -326,7 +327,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Yavimaya Hollow`,
-  additionalTypes: [CardType.Legendary],
+  additionalTypes: [CT.Legendary],
   tags: [
     MT.TargetsCreatures,
     MT.CaresAboutGettingUntapped,
@@ -334,7 +335,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Okina, Temple to the Grandfathers`,
-  additionalTypes: [CardType.Legendary],
+  additionalTypes: [CT.Legendary],
   tags: [
     MT.TargetsCreatures,
     MT.CaresAboutGettingUntapped,
@@ -342,7 +343,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Minamo, School at Water's Edge`,
-  additionalTypes: [CardType.Legendary],
+  additionalTypes: [CT.Legendary],
   tags: [
     MT.TargetsCreatures,
     MT.CaresAboutGettingUntapped,
@@ -350,13 +351,13 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   combos: [{
     relationship: ME.Untaps,
     isMatch: other =>
-      other.types.all(CardType.Creature, CardType.Legendary) &&
+      other.types.all(CT.Creature, CT.Legendary) &&
       other.tags.has(MT.CaresAboutGettingUntapped),
   }],
 },
 {
   name: `Shinka, the Bloodsoaked Keep`,
-  additionalTypes: [CardType.Legendary],
+  additionalTypes: [CT.Legendary],
   tags: [
     MT.TargetsCreatures,
     MT.CaresAboutGettingUntapped,
@@ -370,7 +371,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Silverbluff Bridge`,
   nick: 'Bridge Lands',
-  additionalTypes: [CardType.Artifact],
+  additionalTypes: [CT.Artifact],
   tags: [MT.LandWithProtection],
 },
 {
@@ -400,7 +401,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Flagstones of Trokair`,
-  additionalTypes: [CardType.Legendary],
+  additionalTypes: [CT.Legendary],
   tags: [
     MT.WantsToBeSacrificed,
     MT.TutorsPlains,
@@ -409,27 +410,27 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Academy Ruins`,
-  additionalTypes: [CardType.Legendary],
+  additionalTypes: [CT.Legendary],
   tags: [
     MT.CaresAboutGettingUntapped,
   ],
   combos: [{
-    relationship: ME.Retrieves,
+    relationship: ME.Reanimates,
     isMatch: other =>
-      other.types.has(CardType.Artifact) &&
+      other.types.has(CT.Artifact) &&
       other.tags.has(MT.SacrificesSelf, MT.DestroysAll),
   }]
 },
 {
   name: `Hall of Heliod's Generosity`,
-  additionalTypes: [CardType.Legendary],
+  additionalTypes: [CT.Legendary],
   tags: [
     MT.CaresAboutGettingUntapped,
   ],
   combos: [{
-    relationship: ME.Retrieves,
+    relationship: ME.Reanimates,
     isMatch: other =>
-      other.types.has(CardType.Enchantment) && (
+      other.types.has(CT.Enchantment) && (
         other.subtypes.has('Saga') ||
         other.tags.has(MT.SacrificesSelf)
       ),
@@ -445,7 +446,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Kor Haven`,
-  additionalTypes: [CardType.Legendary],
+  additionalTypes: [CT.Legendary],
   overrideCategory: MC.PillowLand,
   tags: [
     MT.CaresAboutGettingUntapped,
@@ -470,7 +471,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   combos: [{
     relationship: ME.Untaps,
     isMatch: other =>
-      other.types.has(CardType.Creature) &&
+      other.types.has(CT.Creature) &&
       other.subtypes.has('Elf', 'Changeling') &&
       other.tags.has(MT.CaresAboutGettingUntapped),
   }],
@@ -488,7 +489,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Hall of the Bandit Lord`,
-  additionalTypes: [CardType.Legendary],
+  additionalTypes: [CT.Legendary],
   tags: [MT.CannotTapForMana],
 },
 {
@@ -549,13 +550,18 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   subtypes: ['Plains'],
   overrideCategory: MC.Recursion,
   combos: [{
-    relationship: ME.Retrieves,
+    relationship: ME.Reanimates,
     isMatch: other =>
       other.tags.has(MT.SacrificesLands) || (
-        other.types.has(CardType.Land) &&
+        other.types.has(CT.Land) &&
         other.tags.has(MT.SacrificesSelf)
       ),
   }],
+},
+{
+  name: `Grove of the Guardian`,
+  tags: [MT.SacrificesSelf, MT.MakesTokens],
+  overrideCategory: MC.Threat,
 },
 {
   name: `Demolition Field`,

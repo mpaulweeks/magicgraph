@@ -129,8 +129,8 @@ export enum MonumentEdge {
   Bins = 'Bins',
   BinnedBy = 'Binned By',
 
-  Retrieves = 'Retrieves',
-  RetrievedBy = 'Retrieved By',
+  Reanimates = 'Reanimates',
+  ReanimatedBy = 'Reanimated By',
 
   Tutors = 'Tutors',
   TutoredBy = 'Tutored By',
@@ -152,7 +152,7 @@ export const MonumentInverseEdge = {
   [MonumentEdge.ProtectsAttacker]: MonumentEdge.ProtectedBy,
   [MonumentEdge.Clones]: MonumentEdge.ClonedBy,
   [MonumentEdge.Bins]: MonumentEdge.BinnedBy,
-  [MonumentEdge.Retrieves]: MonumentEdge.RetrievedBy,
+  [MonumentEdge.Reanimates]: MonumentEdge.ReanimatedBy,
   [MonumentEdge.Tutors]: MonumentEdge.TutoredBy,
   [MonumentEdge.ForcesTap]: MonumentEdge.TappedBy,
 };

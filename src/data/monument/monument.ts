@@ -82,21 +82,22 @@ const current = parseList(`
   Arwen, Mortal Queen
   Flagstones of Trokair
   Mondrak, Glory Dominus
-  Kjeldoran Outpost
   Retrofitter Foundry
   Sensei's Divining Top
+  Martyr's Cause
+  Phyrexian Swarmlord
+  Grove of the Guardian
+  Castle Ardenvale
 `);
 
 const cuts = parseList(`
   Demolition Field
   Hordewing Skaab
   Myojin of Cryptic Dreams
-  Tameshi, Reality Architect
-  Sundial of the Infinite
-  Mistveil Plains
 `);
 
 const pending = parseList(`
+  Scaretiller
   Dust Bowl
   Myojin of Blooming Dawn
   Battle at the Helvault
@@ -107,12 +108,14 @@ const pending = parseList(`
   Evolutionary Leap
   Glen Elendra Archmage
   Blossoming Tortoise
-  Martyr's Cause
-  Phyrexian Swarmlord
   Woodfall Primus
 `);
 
 const rejected = parseList(`
+  Kjeldoran Outpost
+  Sundial of the Infinite
+  Tameshi, Reality Architect
+  Mistveil Plains
   Oboro Breezecaller
   Luminous Broodmoth
   Hall of the Bandit Lord
@@ -120,7 +123,6 @@ const rejected = parseList(`
   Avarice Totem
   Elspeth Conquers Death
   The Mending of Dominaria
-  Castle Ardenvale
   Kor Haven
   Krosan Verge
   Vitu-Ghazi, the City-Tree

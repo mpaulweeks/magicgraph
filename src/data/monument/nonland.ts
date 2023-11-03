@@ -809,7 +809,7 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Creature],
   category: MC.Recursion,
   combos: [{
-    relationship: ME.Retrieves,
+    relationship: ME.Reanimates,
     isMatch: other =>
       other.tags.has(MT.SacrificesLands) ||
       (other.mv <= 3 && (
@@ -979,7 +979,7 @@ export const NonLands: CardDraft[] = [{
   tags: [MT.BouncesLand],
   category: MC.Recursion,
   combos: [{
-    relationship: ME.Retrieves,
+    relationship: ME.Reanimates,
     isMatch: other =>
       other.types.has(CT.Artifact, CT.Enchantment) && (
         other.subtypes.has('Saga') ||
@@ -1030,12 +1030,14 @@ export const NonLands: CardDraft[] = [{
 },
 {
   name: `Evolutionary Leap`,
+  mc: '1G',
   types: [CT.Enchantment],
   tags: [MT.SacrificeOutlet, MT.UsesTokens],
   category: MC.Draw,
 },
 {
   name: `Glen Elendra Archmage`,
+  mc: '3U',
   types: [CT.Creature],
   subtypes: ['Wizard'],
   tags: [MT.HasMinusCounters],
@@ -1043,24 +1045,51 @@ export const NonLands: CardDraft[] = [{
 },
 {
   name: `Blossoming Tortoise`,
+  mc: '2GG',
   types: [CT.Creature],
   tags: [],
-  category: MC.Interaction,
+  category: MC.Recursion,
+  combos: [{
+    relationship: ME.Reanimates,
+    isMatch: other =>
+      other.tags.has(MT.SacrificesLands) || (
+        other.types.has(CT.Land) &&
+        other.tags.has(MT.SacrificesSelf)
+      ),
+  }],
+},
+{
+  name: `Scaretiller`,
+  mc: '4',
+  types: [CT.Artifact, CT.Creature],
+  category: MC.Recursion,
+  combos: [{
+    relationship: ME.Reanimates,
+    isMatch: other =>
+      other.tags.has(MT.SacrificesLands) || (
+        other.types.has(CT.Land) &&
+        other.tags.has(MT.SacrificesSelf)
+      ),
+  }],
 },
 {
   name: `Martyr's Cause`,
+  mc: '2W',
   types: [CT.Enchantment],
   tags: [MT.SacrificeOutlet, MT.UsesTokens],
   category: MC.Interaction,
 },
 {
   name: `Phyrexian Swarmlord`,
+  mc: '4GG',
   types: [CT.Creature],
+  subtypes: ['Insect', 'Horror'],
   tags: [MT.MakesTokens, MT.PoisonCounters],
   category: MC.Threat,
 },
 {
   name: `Woodfall Primus`,
+  mc: '5GGG',
   types: [CT.Creature],
   tags: [MT.WantsSacrificeOutlet, MT.HasMinusCounters],
   category: MC.Interaction,
@@ -1086,7 +1115,7 @@ export const NonLands: CardDraft[] = [{
   subtypes: ['Saga'],
   category: MC.Recursion,
   combos: [{
-    relationship: ME.Retrieves,
+    relationship: ME.Reanimates,
     isMatch: other =>
       other.tags.has(MT.SacrificesLands) || (
         other.types.has(CT.Land) &&
