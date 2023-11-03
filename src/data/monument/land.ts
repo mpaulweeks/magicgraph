@@ -6,11 +6,19 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   overrideCategory?: string;
 })[] = [{
   name: `Nesting Grounds`,
-  tags: [MT.TargetsCreatures, MT.TransfersCounters, MT.RemovesCounters],
+  tags: [
+    MT.TargetsCreatures,
+    MT.TransfersCounters,
+    MT.RemovesCounters,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Karn's Bastion`,
-  tags: [MT.Proliferates],
+  tags: [
+    MT.Proliferates,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Yavimaya, Cradle of Growth`,
@@ -31,12 +39,15 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.TargetsCreatures,
     MT.TargetsTribal,
     MT.HasIndestructible,
+    MT.SacrificesSelf,
+    MT.CaresAboutGettingUntapped,
   ],
 },
 {
   name: `Contested Cliffs`,
   tags: [
     MT.TargetsTribal,
+    MT.CaresAboutGettingUntapped,
   ],
 },
 {
@@ -61,15 +72,24 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Flamekin Village`,
-  tags: [MT.TargetsCreatures],
+  tags: [
+    MT.TargetsCreatures,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Hammerheim`,
   additionalTypes: [CardType.Legendary],
-  tags: [MT.TargetsCreatures],
+  tags: [
+    MT.TargetsCreatures,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Swarmyard`,
+  tags: [
+    MT.CaresAboutGettingUntapped,
+  ],
   combos: [
     {
       relationship: ME.TribalSynergy,
@@ -79,7 +99,11 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Kessig Wolf Run`,
-  tags: [MT.TargetsCreatures, MT.ManaSink],
+  tags: [
+    MT.TargetsCreatures,
+    MT.ManaSink,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Drownyard Temple`,
@@ -113,10 +137,8 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Selesnya Sanctuary`,
-  nick: `Bouncelands`,
   overrideCategory: MC.MulticolorLand,
   tags: [
-    MT.CaresAboutGettingUntapped,
     MT.LikesBeingCopiedWithMirror,
     MT.SundialFriendly,
     MT.TriggersLandfall,
@@ -126,7 +148,11 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Maze of Ith`,
   overrideCategory: MC.PillowLand,
-  tags: [MT.CannotTapForMana, MT.TargetsCreatures],
+  tags: [
+    MT.CannotTapForMana,
+    MT.TargetsCreatures,
+    MT.CaresAboutGettingUntapped,
+  ],
   combos: [
     {
       relationship: ME.ProtectsAttacker,
@@ -149,7 +175,11 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Mirrex`,
   subtypes: ['Sphere'],
-  tags: [MT.MakesTokens, MT.ManaSink],
+  tags: [
+    MT.MakesTokens,
+    MT.ManaSink,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `The Mycosynth Gardens`,
@@ -163,7 +193,10 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Kher Keep`,
   additionalTypes: [CardType.Legendary],
-  tags: [MT.MakesTokens],
+  tags: [
+    MT.MakesTokens,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Field of the Dead`,
@@ -174,19 +207,31 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Urza's Saga`,
   overrideCategory: MC.Tutor,
   subtypes: ['Saga'],
-  tags: [MT.CaresAboutTrinkets],
+  tags: [
+    MT.CaresAboutTrinkets,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Alchemist's Refuge`,
-  tags: [MT.ManaSink],
+  tags: [
+    MT.ManaSink,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Oran-Rief, the Vastwood`,
-  tags: [MT.HasPlusCounters],
+  tags: [
+    MT.HasPlusCounters,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `High Market`,
-  tags: [MT.SacrificeOutlet],
+  tags: [
+    MT.SacrificeOutlet,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Mutavault`,
@@ -204,6 +249,9 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Desolate Lighthouse`,
+  tags: [
+    MT.CaresAboutGettingUntapped,
+  ],
   combos: [
     {
       relationship: ME.Bins,
@@ -261,27 +309,43 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Hanweir Battlements // Hanweir, the Writhing Township`,
   nick: `Hanweir Battlements`,
-  tags: [MT.TargetsCreatures],
+  tags: [
+    MT.TargetsCreatures,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Tolaria`,
   additionalTypes: [CardType.Legendary],
-  tags: [MT.TargetsCreatures, MT.TutorsLand],
+  tags: [
+    MT.TargetsCreatures,
+    MT.TutorsLand,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Yavimaya Hollow`,
   additionalTypes: [CardType.Legendary],
-  tags: [MT.TargetsCreatures],
+  tags: [
+    MT.TargetsCreatures,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Okina, Temple to the Grandfathers`,
   additionalTypes: [CardType.Legendary],
-  tags: [MT.TargetsCreatures],
+  tags: [
+    MT.TargetsCreatures,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Minamo, School at Water's Edge`,
   additionalTypes: [CardType.Legendary],
-  tags: [MT.TargetsCreatures],
+  tags: [
+    MT.TargetsCreatures,
+    MT.CaresAboutGettingUntapped,
+  ],
   combos: [{
     relationship: ME.Untaps,
     isMatch: other =>
@@ -292,7 +356,10 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Shinka, the Bloodsoaked Keep`,
   additionalTypes: [CardType.Legendary],
-  tags: [MT.TargetsCreatures],
+  tags: [
+    MT.TargetsCreatures,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Cascading Cataracts`,
@@ -302,15 +369,22 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Silverbluff Bridge`,
   nick: 'Bridge Lands',
+  additionalTypes: [CardType.Artifact],
   tags: [MT.LandWithProtection],
 },
 {
   name: `Rishadan Port`,
-  tags: [MT.TapsTargetLand],
+  tags: [
+    MT.TapsTargetLand,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Riptide Laboratory`,
-  tags: [MT.TargetsTribal],
+  tags: [
+    MT.TargetsTribal,
+    MT.CaresAboutGettingUntapped,
+  ],
   combos: [
     {
       relationship: ME.TribalSynergy,
@@ -335,6 +409,9 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Academy Ruins`,
   additionalTypes: [CardType.Legendary],
+  tags: [
+    MT.CaresAboutGettingUntapped,
+  ],
   combos: [{
     relationship: ME.Retrieves,
     isMatch: other =>
@@ -345,6 +422,9 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Hall of Heliod's Generosity`,
   additionalTypes: [CardType.Legendary],
+  tags: [
+    MT.CaresAboutGettingUntapped,
+  ],
   combos: [{
     relationship: ME.Retrieves,
     isMatch: other =>
@@ -356,11 +436,19 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Kjeldoran Outpost`,
-  tags: [MT.MakesTokens],
+  tags: [
+    MT.MakesTokens,
+    MT.CaresAboutPlains,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Kor Haven`,
+  additionalTypes: [CardType.Legendary],
   overrideCategory: MC.PillowLand,
+  tags: [
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Moorland Haunt`,
@@ -374,7 +462,10 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Wirewood Lodge`,
-  tags: [MT.TargetsTribal],
+  tags: [
+    MT.TargetsTribal,
+    MT.CaresAboutGettingUntapped,
+  ],
   combos: [{
     relationship: ME.Untaps,
     isMatch: other =>
@@ -389,7 +480,10 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Gavony Township`,
-  tags: [MT.HasPlusCounters],
+  tags: [
+    MT.HasPlusCounters,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Hall of the Bandit Lord`,
@@ -437,11 +531,17 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: 'Castle Ardenvale',
-  tags: [MT.MakesTokens],
+  tags: [
+    MT.MakesTokens,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Vitu-Ghazi, the City-Tree`,
-  tags: [MT.MakesTokens],
+  tags: [
+    MT.MakesTokens,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 {
   name: `Mistveil Plains`,
@@ -455,5 +555,17 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
         other.tags.has(MT.SacrificesSelf)
       ),
   }],
+},
+{
+  name: `Demolition Field`,
+  tags: [MT.TutorsBasic, MT.SacrificesSelf],
+},
+{
+  name: `Dust Bowl`,
+  overrideCategory: MC.Interaction,
+  tags: [
+    MT.SacrificesLands,
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 ];

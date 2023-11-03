@@ -822,7 +822,11 @@ export const NonLands: CardDraft[] = [{
   name: `Arwen, Mortal Queen`,
   mc: '1WG',
   types: [CardType.Creature],
-  tags: [MT.HasIndestructible, MT.HasAbilityCounters],
+  tags: [
+    MT.HasIndestructible,
+    MT.HasAbilityCounters,
+    MT.HasPlusCounters,
+  ],
   category: MC.Misc,
 },
 {

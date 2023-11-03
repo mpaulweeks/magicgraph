@@ -29,7 +29,6 @@ const current = parseList(`
   Field of the Dead
   Gavony Township
   Glacial Chasm
-  Hall of the Bandit Lord
   Helm of Possession
   Hordewing Skaab
   Karma
@@ -62,7 +61,6 @@ const current = parseList(`
   Sun Titan
   Sundial of the Infinite
   Swarmyard
-  Tale of Tinúviel
   Thaumatic Compass // Spires of Orazca
   Thawing Glaciers
   The Hunter Maze
@@ -81,30 +79,26 @@ const current = parseList(`
   Knight of the Reliquary
   Tameshi, Reality Architect
   Zopandrel, Hunger Dominus
-  Avarice Totem
   Weathered Wayfarer
   Scholar of New Horizons
-  Elspeth Conquers Death
-  The Mending of Dominaria
   Mistveil Plains
-`);
-
-const cuts = parseList(`
-  Krosan Verge
-  Vitu-Ghazi, the City-Tree
-`);
-
-const pending = parseList(`
-  Retrofitter Foundry
-  Oboro Breezecaller
   Hall of Heliod's Generosity
   Academy Ruins
   Arwen, Mortal Queen
-  Castle Ardenvale
   Flagstones of Trokair
-  Kor Haven
-  Luminous Broodmoth
   Mondrak, Glory Dominus
+  Kjeldoran Outpost
+  Demolition Field
+`);
+
+const cuts = parseList(`
+`);
+
+const pending = parseList(`
+  Dust Bowl
+  Retrofitter Foundry
+  Oboro Breezecaller
+  Luminous Broodmoth
   Myojin of Blooming Dawn
   Battle at the Helvault
   The Night of the Doctor
@@ -114,6 +108,15 @@ const pending = parseList(`
 `);
 
 const rejected = parseList(`
+  Hall of the Bandit Lord
+  Tale of Tinúviel
+  Avarice Totem
+  Elspeth Conquers Death
+  The Mending of Dominaria
+  Castle Ardenvale
+  Kor Haven
+  Krosan Verge
+  Vitu-Ghazi, the City-Tree
   The Fall of Lord Konda // Fragment of Konda
   The Bath Song
   Jalira, Master Polymorphist
@@ -157,7 +160,6 @@ const rejected = parseList(`
   Kher Keep
   Khârn the Betrayer
   Kiora's Follower
-  Kjeldoran Outpost
   Krenko, Tin Street Kingpin
   Lithoform Engine
   Littjara Mirrorlake
