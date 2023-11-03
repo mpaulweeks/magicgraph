@@ -5,10 +5,10 @@ import {
   DeckData
 } from '../../types';
 import { unique } from '../../util/list';
-import { Lands } from './land';
-import { MonMatchers } from './matcher';
-import { NonLands } from './nonland';
-import { MonumentCategory, MonumentEdges, MonumentInverseEdge } from './types';
+import { NonLands } from './momunmentNonLand';
+import { Lands } from './monumentLand';
+import { MonMatchers } from './monumentMatcher';
+import { MonumentCategory, MonumentEdges, MonumentInverseEdge } from './monumentTypes';
 
 function parseList(list: string): Set<string> {
   return new Set(list.split('\n').map(s => s.trim()).filter(s => s));

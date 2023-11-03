@@ -7,7 +7,7 @@ import {
   DeckData,
   Matcher,
 } from '../../types';
-import { CategoryColorMap, RocCat, RocEdge, RocEdges, RocInverseEdge, RocTag } from './types';
+import { CategoryColorMap, RocCat, RocEdge, RocEdges, RocInverseEdge, RocTag } from './roccoTypes';
 
 function ReanimatesCombo(cb: (other: Cardlike) => boolean): CardCombo {
   return {

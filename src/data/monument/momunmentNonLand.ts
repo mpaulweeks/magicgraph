@@ -1,5 +1,5 @@
 import { CardDraft, CardType as CT } from "../../types";
-import { MonumentCategory as MC, MonumentEdge as ME, MonumentTag as MT } from "./types";
+import { MonumentCategory as MC, MonumentEdge as ME, MonumentTag as MT } from "./monumentTypes";
 
 export const NonLands: CardDraft[] = [{
   name: `Monument to Perfection`,

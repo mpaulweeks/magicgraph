@@ -1,5 +1,5 @@
 import { CardType, Matcher } from "../../types";
-import { MonumentEdge as ME, MonumentTag as MT } from "./types";
+import { MonumentEdge as ME, MonumentTag as MT } from "./monumentTypes";
 
 export const MonMatchers: Matcher[] = [
   {
