@@ -30,7 +30,6 @@ const current = parseList(`
   Gavony Township
   Glacial Chasm
   Helm of Possession
-  Hordewing Skaab
   Karma
   Karn's Bastion
   Kindred Discovery
@@ -45,7 +44,6 @@ const current = parseList(`
   Monument to Perfection
   Moritte of the Frost
   Myojin of Cleansing Fire
-  Myojin of Cryptic Dreams
   Myojin of Towering Might
   Nesting Grounds
   Nevinyrral's Disk
@@ -59,7 +57,6 @@ const current = parseList(`
   Runed Stalactite
   Spara's Headquarters
   Sun Titan
-  Sundial of the Infinite
   Swarmyard
   Thaumatic Compass // Spires of Orazca
   Thawing Glaciers
@@ -77,37 +74,47 @@ const current = parseList(`
   Vesuva
   Aura Shards
   Knight of the Reliquary
-  Tameshi, Reality Architect
   Zopandrel, Hunger Dominus
   Weathered Wayfarer
   Scholar of New Horizons
-  Mistveil Plains
   Hall of Heliod's Generosity
   Academy Ruins
   Arwen, Mortal Queen
   Flagstones of Trokair
   Mondrak, Glory Dominus
   Kjeldoran Outpost
-  Demolition Field
+  Retrofitter Foundry
+  Sensei's Divining Top
 `);
 
 const cuts = parseList(`
+  Demolition Field
+  Hordewing Skaab
+  Myojin of Cryptic Dreams
+  Tameshi, Reality Architect
+  Sundial of the Infinite
+  Mistveil Plains
 `);
 
 const pending = parseList(`
   Dust Bowl
-  Retrofitter Foundry
-  Oboro Breezecaller
-  Luminous Broodmoth
   Myojin of Blooming Dawn
   Battle at the Helvault
   The Night of the Doctor
   Song of Eärendil
   Behold the Unspeakable // Vision of the Unspeakable
   The Caves of Androzani
+  Evolutionary Leap
+  Glen Elendra Archmage
+  Blossoming Tortoise
+  Martyr's Cause
+  Phyrexian Swarmlord
+  Woodfall Primus
 `);
 
 const rejected = parseList(`
+  Oboro Breezecaller
+  Luminous Broodmoth
   Hall of the Bandit Lord
   Tale of Tinúviel
   Avarice Totem
