@@ -6,53 +6,8 @@ import {
   Cardlike,
   DeckData,
   Matcher,
-} from '../types';
-
-enum RocCat {
-  Creature = 'Creature',
-  NonCreature = 'Non Creature',
-}
-const CategoryColorMap = {
-  [RocCat.Creature]: 'lightgreen',
-  [RocCat.NonCreature]: 'lightblue',
-};
-
-enum RocTag {
-  BlinksSelf = 'BlinksSelf',
-  BouncesSelf = 'BounceSelf',
-  WantsETBs = 'WantsETBs',
-  WantsLTBs = 'WantsLTBs',
-
-  Unblockable = 'Unblockable',
-  WantsEvasion = 'WantsEvasion',
-
-  SelfSacrifice = 'SelfSacrfice',
-
-  NeedsDiscard = 'NeedsDiscard',
-  FuelsDiscard = 'FuelsDiscard',
-}
-
-enum RocEdge {
-  CombosWith = 'Combos With',
-
-  Equipment = 'Equipment',
-  AttachesTo = 'Attaches To',
-
-  Reanimates = 'Reanimates',
-  ReanimatedBy = 'Reanimated By',
-}
-const RocInverseEdge = {
-  [RocEdge.CombosWith]: RocEdge.CombosWith,
-
-  [RocEdge.Equipment]: RocEdge.AttachesTo,
-  [RocEdge.AttachesTo]: RocEdge.Equipment,
-
-  [RocEdge.Reanimates]: RocEdge.ReanimatedBy,
-  [RocEdge.ReanimatedBy]: RocEdge.Reanimates,
-};
-const RocEdges: string[] = [
-  // dont care
-];
+} from '../../types';
+import { CategoryColorMap, RocCat, RocEdge, RocEdges, RocInverseEdge, RocTag } from './types';
 
 function ReanimatesCombo(cb: (other: Cardlike) => boolean): CardCombo {
   return {
