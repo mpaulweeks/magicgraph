@@ -515,6 +515,7 @@ export const LarryData: DeckData = {
     url: 'https://tappedout.net/mtg-decks/tutorless-larry/',
   }],
   cardDrafts: LarryDraft,
+  undefined: [],
   matchers: LarryMatchers,
   categoryColorMap: CategoryColorMap,
   relationshipInverse: LarryInverseEdge,

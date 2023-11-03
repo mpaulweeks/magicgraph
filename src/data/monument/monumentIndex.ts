@@ -1,19 +1,14 @@
+import { collate } from '../../lib/collate';
 import {
   CardDraft,
-  CardListStatus,
   CardType,
   DeckData
 } from '../../types';
-import { unique } from '../../util/list';
+import { parseList } from '../../util/list';
 import { NonLands } from './momunmentNonLand';
 import { Lands } from './monumentLand';
 import { MonMatchers } from './monumentMatcher';
 import { MonumentCategory, MonumentEdges, MonumentInverseEdge } from './monumentTypes';
-
-function parseList(list: string): Set<string> {
-  return new Set(list.split('\n').map(s => s.trim()).filter(s => s));
-}
-
 
 const current = parseList(`
   Animation Module
@@ -249,34 +244,13 @@ const allCards: CardDraft[] = [
   })),
 ];
 
-const sorted = [
-  ...allCards.filter(c => current.has(c.name)).map(c => ({
-    ...c,
-    status: CardListStatus.Current,
-  })),
-  ...allCards.filter(c => pending.has(c.name)).map(c => ({
-    ...c,
-    status: CardListStatus.Pending,
-  })),
-  ...allCards.filter(c => rejected.has(c.name)).map(c => ({
-    ...c,
-    status: CardListStatus.Rejected,
-  })),
-  ...allCards.filter(c => cuts.has(c.name)).map(c => ({
-    ...c,
-    status: CardListStatus.Cuts,
-  })),
-];
-
-
-const allDefined = new Set(allCards.map(c => c.name));
-const missing = unique([
-  ...Array.from(current),
-  ...Array.from(pending),
-  ...Array.from(rejected),
-  ...Array.from(cuts),
-]).filter(name => !allDefined.has(name));
-console.log('missing:', missing);
+const { cardDrafts, undefined } = collate({
+  current,
+  pending,
+  cuts,
+  rejected,
+  cards: allCards,
+});
 
 const CategoryColorMap: Record<MonumentCategory, string> = {
   [MonumentCategory.PillowLand]: '#ddf',
@@ -301,7 +275,8 @@ export const MonumentData: DeckData = {
     name: 'Monument to Bant',
     url: 'https://tappedout.net/mtg-decks/monument-to-bant/',
   }],
-  cardDrafts: sorted,
+  cardDrafts,
+  undefined,
   matchers: MonMatchers,
   categoryColorMap: CategoryColorMap,
   relationshipInverse: MonumentInverseEdge,

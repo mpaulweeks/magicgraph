@@ -1,9 +1,8 @@
-import { CardDraft, CardListStatus, CardType } from "../../types";
+import { CardDraft, CardType } from "../../types";
 import { ReanimatesCombo } from "./roccoMatcher";
 import { RocEdge, RocTag } from "./roccoTypes";
 
 export const Creatures: Omit<CardDraft, 'types' | 'category'>[] = [{
-  status: CardListStatus.Pending,
   name: `Norin the Wary`,
   mc: 'R',
   tags: [RocTag.BlinksSelf],

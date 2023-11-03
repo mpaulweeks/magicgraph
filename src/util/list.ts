@@ -35,3 +35,7 @@ export function groupBy<T, K>(arr: T[], cb: (elm: T) => K): T[][] {
   });
   return Array.from(lookup.values());
 }
+
+export function parseList(list: string): string[] {
+  return unique(list.split('\n').map(s => s.trim()).filter(s => s));
+}

@@ -1,4 +1,4 @@
-import { CardDraft, CardListStatus, CardType } from "../../types";
+import { CardDraft, CardType } from "../../types";
 import { ReanimatesCombo } from "./roccoMatcher";
 import { RocEdge, RocTag } from "./roccoTypes";
 
@@ -30,7 +30,6 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [{
   types: [CardType.Enchantment],
   tags: [RocTag.WantsLTBs],
 }, {
-  status: CardListStatus.Pending,
   name: `Confusion in the Ranks`,
   mc: '3RR',
   types: [CardType.Enchantment],

@@ -182,6 +182,14 @@ export const DeckView = (props: {
             </div>
           ))}
         </div>
+        <div>
+          <h3>{deck.data.undefined.length} Undefined Cards</h3>
+          {deck.data.undefined.map(cardname => (
+            <div key={cardname}>
+              <AutoCard card={cardname} />
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );
