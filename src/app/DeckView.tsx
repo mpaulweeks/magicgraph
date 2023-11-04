@@ -72,6 +72,13 @@ export const DeckView = (props: {
         </div>
       ))}
       <p>{deck.data.description}</p>
+      {deck.data.notes?.length && (
+        <ul>
+          {deck.data.notes.map((n, ni) => (
+            <li key={ni}>{n}</li>
+          ))}
+        </ul>
+      )}
       {/* <p>
         <button onClick={() => setShowGraph(true)}>graph</button>
       </p> */}

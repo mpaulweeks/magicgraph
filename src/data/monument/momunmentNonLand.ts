@@ -2,6 +2,13 @@ import { CardDraft, CardType as CT } from "../../types";
 import { MonumentCategory as MC, MonumentEdge as ME, MonumentTag as MT } from "./monumentTypes";
 
 export const NonLands: CardDraft[] = [{
+  name: `Amareth, the Lustrous`,
+  mc: '3WUG',
+  types: [CT.Creature, CT.Legendary],
+  subtypes: ['Dragon'],
+  category: MC.Draw,
+  tags: [MT.CaresAboutTopdeck, MT.UsesTokens, MT.HasLandfall],
+}, {
   name: `Monument to Perfection`,
   mc: '2',
   types: [CT.Artifact],
@@ -1042,6 +1049,7 @@ export const NonLands: CardDraft[] = [{
   combos: [{
     relationship: ME.CombosWith,
     isMatch: other => other.tags.has(
+      MT.CaresAboutTopdeck,
       MT.TutorsBasic,
       MT.TutorsForest,
       MT.TutorsPlains,

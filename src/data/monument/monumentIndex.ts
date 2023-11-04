@@ -11,6 +11,7 @@ import { MonMatchers } from './monumentMatcher';
 import { MonumentCategory, MonumentEdges, MonumentInverseEdge } from './monumentTypes';
 
 const current = parseList(`
+  Amareth, the Lustrous
   Animation Module
   Barrin, Master Wizard
   Boompile
@@ -275,6 +276,10 @@ const CategoryColorMap: Record<MonumentCategory, string> = {
 export const MonumentData: DeckData = {
   name: 'Monument.dec',
   description: 'Bant deck that tutors nonbasic lands to form multiple small A/B combos',
+  notes: [
+    '2023/11/04: Due to color screw and mediocre blue Myojin, start reducing blue to a splash.',
+    '2023/10/30: Swap Temur for Bant to gain more indestructible and land tutors.',
+  ],
   links: [{
     name: 'Monument to Hubris (retired)',
     url: 'https://tappedout.net/mtg-decks/monument-to-hubris/',

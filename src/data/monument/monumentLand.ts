@@ -207,6 +207,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Urza's Saga`,
+  additionalTypes: [CT.Enchantment],
   overrideCategory: MC.Tutor,
   subtypes: ['Saga'],
   tags: [
