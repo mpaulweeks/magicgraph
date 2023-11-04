@@ -64,7 +64,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Myojin of Towering Might`,
   mc: '5GGG',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [
     MT.LikesBeingCopiedWithCast,
     MT.HasAbilityCounters,
@@ -76,7 +76,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Myojin of Cryptic Dreams`,
   mc: '5UUU',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [
     MT.LikesBeingCopiedWithCast,
     MT.HasAbilityCounters,
@@ -87,7 +87,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Myojin of Roaring Blades`,
   mc: '5RRR',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [
     MT.LikesBeingCopiedWithCast,
     MT.HasAbilityCounters,
@@ -98,7 +98,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Myojin of Blooming Dawn`,
   mc: '5WWW',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [
     MT.LikesBeingCopiedWithCast,
     MT.HasAbilityCounters,
@@ -110,7 +110,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Myojin of Cleansing Fire`,
   mc: '5WWW',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [
     MT.LikesBeingCopiedWithCast,
     MT.HasAbilityCounters,
@@ -121,7 +121,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Solphim, Mayhem Dominus`,
   mc: '2RR',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [
     MT.HasAbilityCounters,
     MT.HasIndestructible,
@@ -131,14 +131,14 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Omnath, Locus of Rage`,
   mc: '3RRGG',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [MT.HasLandfall, MT.MakesTokens],
   category: MC.Threat,
 },
 {
   name: `Tatyova, Benthic Druid`,
   mc: '3UG',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [MT.HasLandfall],
   category: MC.Draw,
 },
@@ -159,7 +159,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Moritte of the Frost`,
   mc: '2UUG',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   subtypes: ['Changeling'],
   tags: [
     MT.CopiesCreatures,
@@ -278,7 +278,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Nissa, Ascended Animist`,
   mc: '3GGGG',
-  types: [CT.Planeswalker],
+  types: [CT.Planeswalker, CT.Legendary],
   tags: [MT.HasLimitedUseCounters],
   category: MC.Interaction,
 },
@@ -306,7 +306,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Jalira, Master Polymorphist`,
   mc: '3U',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [MT.UsesTokens, MT.SacrificeOutlet],
   category: MC.Draw,
 },
@@ -348,7 +348,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Barrin, Master Wizard`,
   mc: '2UU',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [MT.UsesTokens, MT.SacrificeOutlet],
   category: MC.Interaction,
 },
@@ -468,7 +468,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Sword of the Animist`,
   mc: '2',
-  types: [CT.Equipment],
+  types: [CT.Equipment, CT.Legendary],
   tags: [MT.VulnerableAttacker, MT.SundialFriendly],
   category: MC.Ramp,
 },
@@ -503,7 +503,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Krenko, Tin Street Kingpin`,
   mc: '2R',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [MT.MakesTokens, MT.VulnerableAttacker],
   category: MC.Threat,
 },
@@ -524,14 +524,14 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Myojin of Life's Web`,
   mc: '6GGG',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [MT.HasLimitedUseCounters],
   category: MC.Threat,
 },
 {
   name: `Myojin of Seeing Winds`,
   mc: '7UUU',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [MT.HasLimitedUseCounters],
   category: MC.Draw,
 },
@@ -559,7 +559,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Starke of Rath`,
   mc: '1RR',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [MT.DonatesSelf],
   category: MC.Interaction,
 },
@@ -580,7 +580,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Lithoform Engine`,
   mc: '4',
-  types: [CT.Artifact],
+  types: [CT.Artifact, CT.Legendary],
   category: MC.Misc,
 },
 {
@@ -628,7 +628,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Heartless Hidetsugu`,
   mc: '3RR',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [MT.DealsDamageToPlayers],
   category: MC.Threat,
 },
@@ -799,7 +799,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Khârn the Betrayer`,
   mc: '3R',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [MT.DonatesSelf],
   category: MC.Draw,
 },
@@ -821,7 +821,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Arwen, Mortal Queen`,
   mc: '1WG',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [
     MT.HasIndestructible,
     MT.HasAbilityCounters,
@@ -840,7 +840,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Mondrak, Glory Dominus`,
   mc: '2WW',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [MT.HasIndestructible, MT.HasAbilityCounters, MT.UsesTokens, MT.MakesTokens, MT.SacrificeOutlet],
   category: MC.Misc,
 },
@@ -975,7 +975,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Tameshi, Reality Architect`,
   mc: '2U',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [MT.BouncesLand],
   category: MC.Recursion,
   combos: [{
@@ -990,12 +990,33 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Zopandrel, Hunger Dominus`,
   mc: '5GG',
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   tags: [
     MT.HasAbilityCounters,
     MT.HasIndestructible,
     MT.UsesTokens,
     MT.SacrificeOutlet,
+  ],
+  category: MC.Threat,
+},
+{
+  name: `Tekuthal, Inquiry Dominus`,
+  mc: '2UU',
+  types: [CT.Creature, CT.Legendary],
+  tags: [
+    MT.HasAbilityCounters,
+    MT.HasIndestructible,
+    MT.Proliferates,
+  ],
+  category: MC.Threat,
+},
+{
+  name: `Captain Sisay`,
+  mc: '2GW',
+  types: [CT.Creature, CT.Legendary],
+  tags: [
+    MT.TutorsLegendary,
+    MT.CaresAboutGettingUntapped,
   ],
   category: MC.Threat,
 },

@@ -351,8 +351,8 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   combos: [{
     relationship: ME.Untaps,
     isMatch: other =>
-      other.types.all(CT.Creature, CT.Legendary) &&
-      other.tags.has(MT.CaresAboutGettingUntapped),
+      other.types.has(CT.Legendary) &&
+      other.tags.has(MT.CaresAboutGettingUntapped, MT.CopiesArtifacts, MT.CopiesCreatures, MT.CopiesLands),
   }],
 },
 {

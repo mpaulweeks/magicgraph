@@ -1,4 +1,4 @@
-import { CardType, Matcher } from "../../types";
+import { CardType as CT, Matcher } from "../../types";
 import { MonumentEdge as ME, MonumentTag as MT } from "./monumentTypes";
 
 export const MonMatchers: Matcher[] = [
@@ -43,23 +43,23 @@ export const MonMatchers: Matcher[] = [
     relationship: ME.Untaps,
     isMatch: (a, b) =>
       a.tags.has(MT.UntapsLand) &&
-      b.types.has(CardType.Land) &&
+      b.types.has(CT.Land) &&
       b.tags.has(MT.CaresAboutGettingUntapped),
   },
   {
     relationship: ME.Untaps,
     isMatch: (a, b) =>
       a.tags.has(MT.UntapsCreature) &&
-      b.types.has(CardType.Creature) &&
+      b.types.has(CT.Creature) &&
       b.tags.has(MT.CaresAboutGettingUntapped),
   },
   {
     relationship: ME.Clones,
     isMatch: (a, b) => {
       const canTarget = [
-        a.tags.has(MT.CopiesCreatures) && b.types.has(CardType.Creature),
-        a.tags.has(MT.CopiesArtifacts) && b.types.has(CardType.Artifact),
-        a.tags.has(MT.CopiesLands) && b.types.has(CardType.Land),
+        a.tags.has(MT.CopiesCreatures) && b.types.has(CT.Creature),
+        a.tags.has(MT.CopiesArtifacts) && b.types.has(CT.Artifact),
+        a.tags.has(MT.CopiesLands) && b.types.has(CT.Land),
       ].some(b => b);
       const copyType = [
         a.tags.has(MT.CopiesWithCast) && b.tags.has(MT.LikesBeingCopiedWithCast),
@@ -78,13 +78,13 @@ export const MonMatchers: Matcher[] = [
     relationship: ME.CombosWith,
     isMatch: (a,b) =>
       a.tags.has(MT.UntapsAllLands) &&
-      (b.types.has(CardType.Land) && b.tags.has(MT.ManaSink)),
+      (b.types.has(CT.Land) && b.tags.has(MT.ManaSink)),
   },
   {
     relationship: ME.Tutors,
     isMatch: (a,b) =>
       a.tags.has(MT.CaresAboutTrinkets) &&
-      (b.types.has(CardType.Artifact) && b.mc === '1'),
+      (b.types.has(CT.Artifact) && b.mc === '1'),
   },
   {
     relationship: ME.FueledBy,
@@ -152,6 +152,12 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.TutoredBy,
     isMatch: (a,b) =>
+      a.types.has(CT.Legendary) &&
+      b.tags.has(MT.TutorsLegendary),
+  },
+  {
+    relationship: ME.TutoredBy,
+    isMatch: (a,b) =>
       a.subtypes.has('Forest') &&
       b.tags.has(MT.TutorsForest),
   },
@@ -164,7 +170,7 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.Nonbo,
     isMatch: (a,b) =>
-      a.types.all(CardType.Land, CardType.Legendary) &&
+      a.types.all(CT.Land, CT.Legendary) &&
       b.tags.has(MT.CopiesLands),
   },
 ];

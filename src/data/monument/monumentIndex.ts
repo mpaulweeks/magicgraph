@@ -44,7 +44,6 @@ const current = parseList(`
   Nevinyrral's Disk
   Perilous Forays
   Proteus Staff
-  Restless Vinestalk
   Riftstone Portal
   Riptide Laboratory
   Rootpath Purifier
@@ -59,7 +58,6 @@ const current = parseList(`
   The Mycosynth Gardens
   The World Spell
   Thespian's Stage
-  Tolaria West
   Twilight Shepherd
   Tyrite Sanctum
   Urborg, Tomb of Yawgmoth
@@ -73,7 +71,6 @@ const current = parseList(`
   Weathered Wayfarer
   Scholar of New Horizons
   Hall of Heliod's Generosity
-  Academy Ruins
   Arwen, Mortal Queen
   Flagstones of Trokair
   Mondrak, Glory Dominus
@@ -83,18 +80,20 @@ const current = parseList(`
   Phyrexian Swarmlord
   Grove of the Guardian
   Castle Ardenvale
+  Myojin of Blooming Dawn
+  Minamo, School at Water's Edge
+  Captain Sisay
+  Hall of the Bandit Lord
 `);
 
 const cuts = parseList(`
   Demolition Field
   Hordewing Skaab
-  Myojin of Cryptic Dreams
 `);
 
 const pending = parseList(`
   Scaretiller
   Dust Bowl
-  Myojin of Blooming Dawn
   Battle at the Helvault
   The Night of the Doctor
   Song of Eärendil
@@ -107,13 +106,17 @@ const pending = parseList(`
 `);
 
 const rejected = parseList(`
+  Tolaria West
+  Academy Ruins
+  Restless Vinestalk
+  Tekuthal, Inquiry Dominus
+  Myojin of Cryptic Dreams
   Kjeldoran Outpost
   Sundial of the Infinite
   Tameshi, Reality Architect
   Mistveil Plains
   Oboro Breezecaller
   Luminous Broodmoth
-  Hall of the Bandit Lord
   Tale of Tinúviel
   Avarice Totem
   Elspeth Conquers Death
@@ -168,7 +171,6 @@ const rejected = parseList(`
   Lithoform Engine
   Littjara Mirrorlake
   Manascape Refractor
-  Minamo, School at Water's Edge
   Mirage Mirror
   Moorland Haunt
   Mutavault
@@ -225,6 +227,10 @@ const rejected = parseList(`
   Wirewood Lodge
   World Breaker
   Yavimaya Hollow
+  Hanweir Battlements // Hanweir, the Writhing Township
+  Silverbluff Bridge
+  Dowsing Dagger // Lost Vale
+  Conqueror's Galleon // Conqueror's Foothold
 `);
 
 const allCards: CardDraft[] = [
