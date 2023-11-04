@@ -341,4 +341,40 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   mc: '3WW',
   tags: [RT.FuelsDiscard],
 },
+{
+  name: `Thorn Mammoth`,
+  subtypes: ['Elephant'],
+  mc: '5GG',
+  tags: [RT.WantsDeathtouch, RT.WantsLifelink, RT.HasETB, RT.WantsETBs],
+},
+{
+  name: `Magus of the Disk`,
+  subtypes: ['Human', 'Wizard'],
+  mc: '2WW',
+  tags: [RT.WantsIndestructible],
+},
+{
+  name: `Khârn the Betrayer`,
+  subtypes: ['Astartes', 'Berserker'],
+  mc: '3R',
+},
+{
+  name: `Primeval Herald`,
+  subtypes: ['Elf', 'Scout'],
+  mc: '3G',
+  tags: [RT.HasETB, RT.AttackTrigger],
+},
+{
+  name: `Etali, Primal Storm`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Elder', 'Dinosaur'],
+  mc: '4RR',
+  tags: [RT.AttackTrigger],
+},
+{
+  name: `Bane of Progress`,
+  subtypes: ['Elemental'],
+  mc: '4GG',
+  tags: [RT.HasETB],
+},
 ];

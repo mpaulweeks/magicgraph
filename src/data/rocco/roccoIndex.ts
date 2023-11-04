@@ -79,6 +79,15 @@ Aura Shards
 Confusion in the Ranks
 `);
 
+const pending = parseList(`
+Thorn Mammoth
+Magus of the Disk
+Khârn the Betrayer
+Primeval Herald
+Etali, Primal Storm
+Bane of Progress
+`);
+
 const rejected = parseList(`
 Whitemane Lion
 Sun Titan
@@ -113,9 +122,9 @@ const allCards: CardDraft[] = [
 
 const collated = collate({
   current,
-  rejected,
-  pending: [],
+  pending,
   cuts: [],
+  rejected,
   cards: allCards,
 });
 

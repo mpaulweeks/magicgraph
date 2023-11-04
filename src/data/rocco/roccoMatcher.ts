@@ -44,7 +44,7 @@ export const RocMatchers: Matcher[] = [{
   relationship: RE.CombosWith,
   isMatch: (a,b) =>
     a.tags.has(RT.GivesIndestructible) &&
-    b.tags.has(RT.GivesIndestructible),
+    b.tags.has(RT.WantsIndestructible),
 }, {
   relationship: RE.CombosWith,
   isMatch: (a,b) =>
