@@ -121,6 +121,7 @@ const collated = collate({
 
 export const RoccoData: DeckData = {
   name: 'Rocco.dec',
+  description: 'Naya deck that tutors creatures to form multiple small A/B combos',
   links: [{
     name: 'Tapped out',
     url: 'https://tappedout.net/mtg-decks/heartless-rocco/',

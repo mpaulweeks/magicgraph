@@ -510,6 +510,7 @@ const LarryMatchers: Matcher[] = [
 
 export const LarryData: DeckData = {
   name: 'Larry Loops',
+  description: 'Esper deck that builds a repeatable wrath engine and winning with indestructible creatures',
   links: [{
     name: 'Tapped out',
     url: 'https://tappedout.net/mtg-decks/tutorless-larry/',

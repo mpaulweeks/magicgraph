@@ -60,7 +60,10 @@ export const DeckView = (props: {
 
   return (
     <div>
-      <h1>{deck.name}</h1>
+      <div>
+        <a href="./">go back</a>
+      </div>
+      <h1>{deck.data.name}</h1>
       {(deck.data.links ?? []).map(link => (
         <div key={link.url}>
           <a href={link.url}>
@@ -68,6 +71,7 @@ export const DeckView = (props: {
           </a>
         </div>
       ))}
+      <p>{deck.data.description}</p>
       {/* <p>
         <button onClick={() => setShowGraph(true)}>graph</button>
       </p> */}
@@ -108,12 +112,14 @@ export const DeckView = (props: {
             onClick={() => setIncludeRejected(!includeRejected)}
           />
         </div>
-        <div>
+      </section>
+      <section>
+        <h3>
           Filter: {filter ?? 'none'}
           <button onClick={() => setFilter(undefined)}>
             reset
           </button>
-        </div>
+        </h3>
         <div>
           Types:
           {cardTypes.map((t, ti) => (
@@ -189,6 +195,8 @@ export const DeckView = (props: {
               <AutoCard card={cardname} />
             </div>
           ))}
+        </div>
+        <div>
           <h3>{deck.data.unused.length} Unused Cards</h3>
           {deck.data.unused.map(cardname => (
             <div key={cardname}>

@@ -17,6 +17,7 @@ export type CardDraft = {
 
 export type DeckData = {
   name: string;
+  description: string;
   links?: { name: string, url: string, }[];
   cardDrafts: CardDraft[];
   undefined: string[];

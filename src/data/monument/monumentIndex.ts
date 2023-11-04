@@ -268,6 +268,7 @@ const CategoryColorMap: Record<MonumentCategory, string> = {
 };
 export const MonumentData: DeckData = {
   name: 'Monument.dec',
+  description: 'Bant deck that tutors nonbasic lands to form multiple small A/B combos',
   links: [{
     name: 'Monument to Hubris (retired)',
     url: 'https://tappedout.net/mtg-decks/monument-to-hubris/',

@@ -3,42 +3,42 @@ import { LarryData } from './data/larry';
 import { MonumentData } from './data/monument/monumentIndex';
 import { RoccoData } from './data/rocco/roccoIndex';
 import { Deck } from './lib/deck';
+import { DeckData } from './types';
 
 function App() {
-  const queryParsm = new URLSearchParams(window.location.search);
+  const decks: {
+    slug: string;
+    data: DeckData;
+  }[] = [
+    { slug: 'larry', data: LarryData },
+    { slug: 'monument', data: MonumentData },
+    { slug: 'rocco', data: RoccoData },
+  ];
 
-  const deck = (
-    (queryParsm.get('larry') && new Deck(LarryData)) ||
-    (queryParsm.get('monument') && new Deck(MonumentData)) ||
-    (queryParsm.get('rocco') && new Deck(RoccoData)) ||
-    undefined
-  );
-  if (deck) {
+  const queryParsm = new URLSearchParams(window.location.search);
+  const queryDeck = decks.filter(d => queryParsm.get(d.slug))[0];
+  if (queryDeck) {
     return (
-      <DeckView deck={deck} />
+      <DeckView deck={new Deck(queryDeck.data)} />
     );
   }
 
   return (
     <div>
-      <h1>Choose deck</h1>
-      <div>
-        <a href="?larry=1">
-          <button>
-            {LarryData.name}
-          </button>
-        </a>
-        <a href="?monument=1">
-          <button>
-            {MonumentData.name}
-          </button>
-        </a>
-        <a href="?rocco=1">
-          <button>
-            {RoccoData.name}
-          </button>
-        </a>
-      </div>
+      <h1>Magic Graph</h1>
+      <p>
+        Website for tracking complex, overlapping combos in my EDH decks
+      </p>
+      {decks.map(d => (
+        <div>
+          <h2>
+            <a href={`?${d.slug}=1`}>
+              {d.data.name}
+            </a>
+          </h2>
+          <p>{d.data.description}</p>
+        </div>
+      ))}
     </div>
   )
 }
