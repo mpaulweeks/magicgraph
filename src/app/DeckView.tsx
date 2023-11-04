@@ -189,6 +189,12 @@ export const DeckView = (props: {
               <AutoCard card={cardname} />
             </div>
           ))}
+          <h3>{deck.data.unused.length} Unused Cards</h3>
+          {deck.data.unused.map(cardname => (
+            <div key={cardname}>
+              <AutoCard card={cardname} />
+            </div>
+          ))}
         </div>
       </section>
     </div>

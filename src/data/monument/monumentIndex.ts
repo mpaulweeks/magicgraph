@@ -244,7 +244,7 @@ const allCards: CardDraft[] = [
   })),
 ];
 
-const { cardDrafts, undefined } = collate({
+const collated = collate({
   current,
   pending,
   cuts,
@@ -275,8 +275,9 @@ export const MonumentData: DeckData = {
     name: 'Monument to Bant',
     url: 'https://tappedout.net/mtg-decks/monument-to-bant/',
   }],
-  cardDrafts,
-  undefined,
+  cardDrafts: collated.cardDrafts,
+  undefined: collated.undefined,
+  unused: collated.unused,
   matchers: MonMatchers,
   categoryColorMap: CategoryColorMap,
   relationshipInverse: MonumentInverseEdge,

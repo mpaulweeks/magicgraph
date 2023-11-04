@@ -9,15 +9,18 @@ export function collate(args: {
   cards: CardDraft[];
 }): {
   cardDrafts: CardDraft[];
+  unused: string[];
   undefined: string[];
 } {
-  const allDefined = new Set(args.cards.map(c => c.name));
-  const undefined = unique([
+  const allDefined = args.cards.map(c => c.name);
+  const allUsed = unique([
     ...args.current,
     ...args.pending,
     ...args.rejected,
     ...args.cuts,
-  ]).filter(name => !allDefined.has(name));
+  ]);
+  const unused = allDefined.filter(name => !allUsed.includes(name));
+  const undefined = allUsed.filter(name => !allDefined.includes(name));
   const cardDrafts = [
     ...args.cards.filter(c => args.current.includes(c.name)).map(c => ({
       ...c,
@@ -36,5 +39,5 @@ export function collate(args: {
       status: CardListStatus.Cuts,
     })),
   ];
-  return { cardDrafts, undefined };
+  return { cardDrafts, unused, undefined };
 }

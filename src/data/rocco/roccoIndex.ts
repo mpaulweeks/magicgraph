@@ -8,49 +8,114 @@ import { parseList } from '../../util/list';
 import { Creatures } from './roccoCreature';
 import { RocMatchers } from './roccoMatcher';
 import { NonCreatures } from './roccoNonCreature';
-import { CategoryColorMap, RocCat, RocEdges, RocInverseEdge } from './roccoTypes';
+import { RocEdges, RocInverseEdge, RoccoCategory, RoccoCategoryColorMap } from './roccoTypes';
 
 const current = parseList(`
+Rocco, Cabaretti Caterer
+
+Fauna Shaman
+Temur Sabertooth
+Wirewood Symbiote
+
+Arwen, Mortal Queen
+Atla Palani, Nest Tender
+Crested Sunmare
+Forgotten Ancient
+Heartless Hidetsugu
+Immaculate Magistrate
+Krenko, Tin Street Kingpin
+Mirror Entity
+Nearheath Pilgrim
+Nightshade Peddler
+Norin the Wary
+Odric, Lunarch Marshal
+Purphoros, Bronze-Blooded
+Ronin Cliffrider
+Saltskitter
+Saryth, the Viper's Fang
+Scalding Salamander
+Squee, Goblin Nabob
+Stonehewer Giant
+Swathcutter Giant
+Thundering Mightmare
+Wolverine Riders
+
+Jaya Ballard, Task Mage
+Peacekeeper
+Spikeshot Elder
+Squallmonger
+Stonecloaker
+
+Cartographer's Hawk
+Farhaven Elf
+Gala Greeters
+Heronblade Elite
+Kami of Whispered Hopes
+Scholar of New Horizons
+Shigeki, Jukai Visionary
+Wood Elves
+
+Mentor of the Meek
+Ohran Frostfang
+Soul of the Harvest
+Toski, Bearer of Secrets
+
+Anger
+Genesis
+Glory
+
 Norin the Wary
 Saltskitter
-Ardenn, Intrepid Archaeologist
+Stonecloaker
+Squee, Goblin Nabob
+
+Sword of Kaldra
+Shield of Kaldra
+Helm of Kaldra
+Basilisk Collar
+Guardian Project
+Bow of Nylea
+Aura Shards
+Confusion in the Ranks
+`);
+
+const rejected = parseList(`
+Whitemane Lion
+Sun Titan
 Soltari Foot Soldier
 Spore Frog
 Kami of False Hope
 Selfless Spirit
 Saffi Eriksdotter
-Whitemane Lion
-Stonecloaker
-Squee, Goblin Nabob
 Guardian Scalelord
-Sun Titan
 Sword of the Animist
 Sword of Feast and Famine
 Solitary Confinement
-Aura Shards
 Call for Unity
-Confusion in the Ranks
 Abiding Grace
 `);
 
 const allCards: CardDraft[] = [
   ...Creatures.map(c => ({
     ...c,
-    types: [CardType.Creature],
-    category: RocCat.Creature,
+    types: [
+      CardType.Creature,
+      ...(c.additionalTypes ?? []),
+    ],
+    category: RoccoCategory.Creature,
     emphasize: true,
   })),
   ...NonCreatures.map(nc => ({
     ...nc,
-    category: RocCat.NonCreature,
+    category: RoccoCategory.NonCreature,
   })),
 ];
 
-const { cardDrafts, undefined } = collate({
+const collated = collate({
   current,
+  rejected,
   pending: [],
   cuts: [],
-  rejected: [],
   cards: allCards,
 });
 
@@ -60,10 +125,11 @@ export const RoccoData: DeckData = {
     name: 'Tapped out',
     url: 'https://tappedout.net/mtg-decks/heartless-rocco/',
   }],
-  cardDrafts,
-  undefined,
+  cardDrafts: collated.cardDrafts,
+  undefined: collated.undefined,
+  unused: collated.unused,
   matchers: RocMatchers,
-  categoryColorMap: CategoryColorMap,
+  categoryColorMap: RoccoCategoryColorMap,
   relationshipInverse: RocInverseEdge,
   relationshipOrder: RocEdges,
 };

@@ -1,15 +1,20 @@
-export enum RocCat {
+export enum RoccoCategory {
   Creature = 'Creature',
   NonCreature = 'Non Creature',
 }
-export const CategoryColorMap = {
-  [RocCat.Creature]: 'lightgreen',
-  [RocCat.NonCreature]: 'lightblue',
+export const RoccoCategoryColorMap = {
+  [RoccoCategory.Creature]: 'lightgreen',
+  [RoccoCategory.NonCreature]: 'lightblue',
 };
 
-export enum RocTag {
+export enum RoccoTag {
   BlinksSelf = 'BlinksSelf',
-  BouncesSelf = 'BounceSelf',
+  BouncesSelf = 'BouncesSelf',
+  BouncesElf = 'BouncesElf',
+  BouncesCreature = 'BouncesCreature',
+  WantsBounce = 'WantsBounce',
+
+  HasETB = 'HasETB',
   WantsETBs = 'WantsETBs',
   WantsLTBs = 'WantsLTBs',
 
@@ -20,9 +25,35 @@ export enum RocTag {
 
   NeedsDiscard = 'NeedsDiscard',
   FuelsDiscard = 'FuelsDiscard',
+
+  GivesHaste = 'GivesHaste',
+  GivesDeathtouch = 'GivesDeathtouch',
+  GivesLifelink = 'GivesLifelink',
+  GivesIndestructible = 'GivesIndestructible',
+  GivesPlusCounters = 'GivesPlusCounters',
+  GivesPower = 'GivesPower',
+  MakesTokens = 'MakesTokens',
+
+  WantsHaste = 'WantsHaste',
+  WantsDeathtouch = 'WantsDeathtouch',
+  WantsLifelink = 'WantsLifelink',
+  WantsIndestructible = 'WantsIndestructible',
+  WantsPlusCounters = 'WantsPlusCounters',
+  WantsPower = 'WantsPower',
+  WantsTokens = 'WantsTokens',
+  WantsGoWide = 'WantsGoWide',
+
+  HasTapAbility = 'HasTapAbility',
+  UntapsCreature = 'UntapsCreature',
+  TutorsEquipment = 'TutorsEquipment',
+  AttackTrigger = 'AttackTrigger',
+
+  CaresAboutTribal = 'CaresAboutTribal',
+  CaresAboutElf = 'CaresAboutElf',
+  CaresAboutHuman = 'CaresAboutHuman',
 }
 
-export enum RocEdge {
+export enum RoccoEdge {
   CombosWith = 'Combos With',
 
   Equipment = 'Equipment',
@@ -32,11 +63,11 @@ export enum RocEdge {
   ReanimatedBy = 'Reanimated By',
 }
 export const RocInverseEdge = {
-  [RocEdge.Equipment]: RocEdge.AttachesTo,
-  [RocEdge.AttachesTo]: RocEdge.Equipment,
+  [RoccoEdge.Equipment]: RoccoEdge.AttachesTo,
+  [RoccoEdge.AttachesTo]: RoccoEdge.Equipment,
 
-  [RocEdge.Reanimates]: RocEdge.ReanimatedBy,
-  [RocEdge.ReanimatedBy]: RocEdge.Reanimates,
+  [RoccoEdge.Reanimates]: RoccoEdge.ReanimatedBy,
+  [RoccoEdge.ReanimatedBy]: RoccoEdge.Reanimates,
 };
 export const RocEdges: string[] = [
   // dont care

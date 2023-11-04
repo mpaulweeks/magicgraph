@@ -516,6 +516,7 @@ export const LarryData: DeckData = {
   }],
   cardDrafts: LarryDraft,
   undefined: [],
+  unused: [],
   matchers: LarryMatchers,
   categoryColorMap: CategoryColorMap,
   relationshipInverse: LarryInverseEdge,

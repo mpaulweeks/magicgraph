@@ -1,67 +1,344 @@
-import { CardDraft, CardType } from "../../types";
+import { CardDraft, CardType as CT } from "../../types";
 import { ReanimatesCombo } from "./roccoMatcher";
-import { RocEdge, RocTag } from "./roccoTypes";
+import { RoccoTag as RT } from "./roccoTypes";
 
-export const Creatures: Omit<CardDraft, 'types' | 'category'>[] = [{
+export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
+  additionalTypes?: string[];
+})[] = [{
+  name: `Rocco, Cabaretti Caterer`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Elf', 'Drui'],
+  mc: 'WRG',
+  tags: [RT.HasETB],
+}, {
   name: `Norin the Wary`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Human', 'Warrior'],
   mc: 'R',
-  tags: [RocTag.BlinksSelf],
+  tags: [RT.BlinksSelf],
 }, {
   name: `Saltskitter`,
+  subtypes: ['Wurm'],
   mc: '3W',
-  tags: [RocTag.BlinksSelf],
-}, {
-  name: `Ardenn, Intrepid Archaeologist`,
-  mc: '2W',
-  combos: [{
-    relationship: RocEdge.CombosWith,
-    isMatch: other =>
-      other.subtypes.has(CardType.Aura) ||
-      other.subtypes.has(CardType.Equipment),
-  }],
+  tags: [RT.BlinksSelf],
 }, {
   name: `Soltari Foot Soldier`,
+  subtypes: ['Soltari', 'Soldier'],
   mc: 'W',
-  tags: [RocTag.Unblockable],
+  tags: [RT.AttackTrigger, RT.Unblockable],
 }, {
   name: `Spore Frog`,
+  subtypes: ['Frog'],
   mc: 'G',
-  tags: [RocTag.SelfSacrifice],
+  tags: [RT.SelfSacrifice],
 }, {
   name: `Kami of False Hope`,
+  subtypes: ['Spirit'],
   mc: 'W',
-  tags: [RocTag.SelfSacrifice],
+  tags: [RT.SelfSacrifice],
 }, {
   name: `Selfless Spirit`,
+  subtypes: ['Spirit'],
   mc: '1W',
-  tags: [RocTag.SelfSacrifice],
+  tags: [RT.SelfSacrifice],
 }, {
   name: `Saffi Eriksdotter`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Human', 'Scout'],
   mc: 'WG',
-  tags: [RocTag.SelfSacrifice],
+  tags: [RT.SelfSacrifice],
 }, {
   name: `Whitemane Lion`,
+  subtypes: ['Cat'],
   mc: '1W',
-  tags: [RocTag.BouncesSelf],
+  tags: [RT.BouncesSelf, RT.BouncesCreature, RT.HasETB],
 }, {
   name: `Stonecloaker`,
+  subtypes: ['Gargoyle'],
   mc: '2W',
-  tags: [RocTag.BouncesSelf],
+  tags: [RT.BouncesSelf, RT.BouncesCreature, RT.HasETB],
 }, {
   name: `Squee, Goblin Nabob`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Goblin'],
   mc: '2R',
-  tags: [RocTag.FuelsDiscard],
+  tags: [RT.FuelsDiscard],
 }, {
   name: `Guardian Scalelord`,
+  subtypes: ['Dragon'],
   mc: '4W',
+  tags: [RT.AttackTrigger, RT.HasETB],
   combos: [ReanimatesCombo(other =>
-    !other.types.has(CardType.Land) &&
+    !other.types.has(CT.Land) &&
     other.mv <= 3,
   )],
 }, {
   name: `Sun Titan`,
+  subtypes: ['Avatar'],
   mc: '4WW',
+  tags: [RT.AttackTrigger, RT.HasETB],
   combos: [ReanimatesCombo(other =>
     other.mv <= 3,
   )],
-}];
+},
+{
+  name: `Fauna Shaman`,
+  subtypes: ['Elf', 'Shaman'],
+  mc: '1G',
+  tags: [RT.HasTapAbility, RT.NeedsDiscard],
+},
+{
+  name: `Temur Sabertooth`,
+  subtypes: ['Cat'],
+  mc: '2GG',
+  tags: [RT.BouncesCreature],
+},
+{
+  name: `Wirewood Symbiote`,
+  subtypes: ['Insect'],
+  mc: 'G',
+  tags: [RT.BouncesElf, RT.UntapsCreature],
+},
+{
+  name: `Arwen, Mortal Queen`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Elf', 'Noble'],
+  mc: '1WG',
+  tags: [RT.GivesIndestructible, RT.GivesLifelink, RT.HasETB],
+},
+{
+  name: `Atla Palani, Nest Tender`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Human', 'Shaman'],
+  mc: '1WRG',
+  tags: [RT.HasTapAbility, RT.MakesTokens, RT.CaresAboutTribal],
+},
+{
+  name: `Crested Sunmare`,
+  subtypes: ['Horse'],
+  mc: '3WW',
+  tags: [RT.WantsLifelink, RT.CaresAboutTribal],
+},
+{
+  name: `Forgotten Ancient`,
+  subtypes: ['Elemental'],
+  mc: '3G',
+  tags: [RT.GivesPlusCounters],
+},
+{
+  name: `Heartless Hidetsugu`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Ogre', 'Shaman'],
+  mc: '3RR',
+  tags: [RT.HasTapAbility, RT.WantsLifelink],
+},
+{
+  name: `Immaculate Magistrate`,
+  subtypes: ['Elf', 'Shaman'],
+  mc: '3G',
+  tags: [RT.HasTapAbility, RT.CaresAboutElf],
+},
+{
+  name: `Krenko, Tin Street Kingpin`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Goblin'],
+  mc: '2R',
+  tags: [RT.AttackTrigger, RT.WantsPower, RT.MakesTokens],
+},
+{
+  name: `Mirror Entity`,
+  subtypes: ['Changeling'],
+  mc: '2W',
+  tags: [RT.GivesPower, RT.WantsGoWide],
+},
+{
+  name: `Nearheath Pilgrim`,
+  subtypes: ['Human', 'Cleric'],
+  mc: '1W',
+  tags: [RT.GivesLifelink],
+},
+{
+  name: `Nightshade Peddler`,
+  subtypes: ['Human', 'Druid'],
+  mc: '1G',
+  tags: [RT.GivesDeathtouch],
+},
+{
+  name: `Odric, Lunarch Marshal`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Human', 'Soldier'],
+  mc: '3W',
+  tags: [RT.GivesDeathtouch, RT.GivesLifelink, RT.GivesIndestructible],
+},
+{
+  name: `Purphoros, Bronze-Blooded`,
+  additionalTypes: [CT.Legendary, CT.Enchantment],
+  subtypes: ['God'],
+  mc: '4R',
+  tags: [RT.GivesHaste],
+},
+{
+  name: `Ronin Cliffrider`,
+  subtypes: ['Human', 'Samurai'],
+  mc: '3RR',
+  tags: [RT.AttackTrigger, RT.WantsDeathtouch],
+},
+{
+  name: `Saryth, the Viper's Fang`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Human', 'Warlock'],
+  mc: '3GG',
+  tags: [RT.GivesDeathtouch, RT.UntapsCreature],
+},
+{
+  name: `Scalding Salamander`,
+  subtypes: ['Salamander'],
+  mc: '2R',
+  tags: [RT.AttackTrigger, RT.WantsDeathtouch],
+},
+{
+  name: `Stonehewer Giant`,
+  subtypes: ['Giant', 'Warrior'],
+  mc: '3WW',
+  tags: [RT.HasTapAbility, RT.TutorsEquipment],
+},
+{
+  name: `Swathcutter Giant`,
+  subtypes: ['Giant', 'Soldier'],
+  mc: '4RG',
+  tags: [RT.AttackTrigger, RT.WantsDeathtouch],
+},
+{
+  name: `Thundering Mightmare`,
+  subtypes: ['Horse', 'Spirit'],
+  mc: '4G',
+  tags: [RT.GivesPlusCounters],
+},
+{
+  name: `Wolverine Riders`,
+  subtypes: ['Elf', 'Warrior'],
+  mc: '4GG',
+  tags: [RT.MakesTokens],
+},
+{
+  name: `Jaya Ballard, Task Mage`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Human', 'Spellshaper'],
+  mc: '1RR',
+  tags: [RT.HasTapAbility, RT.NeedsDiscard],
+},
+{
+  name: `Peacekeeper`,
+  subtypes: ['Human'],
+  mc: '2W',
+  tags: [RT.SelfSacrifice, RT.WantsBounce],
+},
+{
+  name: `Spikeshot Elder`,
+  subtypes: ['Goblin', 'Shaman'],
+  mc: 'R',
+  tags: [RT.WantsDeathtouch, RT.WantsPower],
+},
+{
+  name: `Squallmonger`,
+  subtypes: ['Monger'],
+  mc: '3G',
+  tags: [RT.WantsDeathtouch, RT.WantsLifelink],
+},
+{
+  name: `Cartographer's Hawk`,
+  subtypes: ['Bird'],
+  mc: '1W',
+  tags: [RT.AttackTrigger],
+},
+{
+  name: `Farhaven Elf`,
+  subtypes: ['Elf', 'Druid'],
+  mc: '2G',
+  tags: [RT.HasETB],
+},
+{
+  name: `Gala Greeters`,
+  subtypes: ['Elf', 'Druid'],
+  mc: '1G',
+  tags: [RT.WantsETBs],
+},
+{
+  name: `Heronblade Elite`,
+  subtypes: ['Human', 'Warrior'],
+  mc: '2G',
+  tags: [RT.HasTapAbility, RT.WantsPower, RT.CaresAboutHuman],
+},
+{
+  name: `Kami of Whispered Hopes`,
+  subtypes: ['Spirit'],
+  mc: '2G',
+  tags: [RT.HasTapAbility, RT.WantsPower],
+},
+{
+  name: `Scholar of New Horizons`,
+  subtypes: ['Human', 'Scout'],
+  mc: '1W',
+  tags: [RT.HasETB, RT.HasTapAbility, RT.WantsPlusCounters],
+},
+{
+  name: `Shigeki, Jukai Visionary`,
+  additionalTypes: [CT.Legendary, CT.Enchantment],
+  subtypes: ['Snake', 'Druid'],
+  mc: '1G',
+  tags: [RT.HasTapAbility],
+},
+{
+  name: `Wood Elves`,
+  subtypes: ['Elf', 'Scout'],
+  mc: '2G',
+  tags: [RT.HasETB],
+},
+{
+  name: `Mentor of the Meek`,
+  subtypes: ['Human', 'Soldier'],
+  mc: '2W',
+  tags: [RT.WantsETBs, RT.WantsTokens],
+},
+{
+  name: `Ohran Frostfang`,
+  subtypes: ['Snake'],
+  mc: '3GG',
+  tags: [RT.GivesDeathtouch, RT.WantsGoWide],
+},
+{
+  name: `Soul of the Harvest`,
+  subtypes: ['Elemental'],
+  mc: '4GG',
+  tags: [RT.WantsETBs],
+},
+{
+  name: `Toski, Bearer of Secrets`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Squirrel'],
+  mc: '3G',
+  tags: [RT.WantsGoWide],
+},
+{
+  name: `Anger`,
+  subtypes: ['Elemental'],
+  mc: '3R',
+  tags: [RT.FuelsDiscard, RT.GivesHaste],
+},
+{
+  name: `Genesis`,
+  subtypes: ['Elemental'],
+  mc: '4G',
+  tags: [RT.FuelsDiscard],
+  combos: [ReanimatesCombo(other =>
+    other.types.has(CT.Creature) &&
+    other.tags.has(RT.SelfSacrifice),
+  )],
+},
+{
+  name: `Glory`,
+  subtypes: ['Elemental'],
+  mc: '3WW',
+  tags: [RT.FuelsDiscard],
+},
+];
