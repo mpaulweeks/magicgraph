@@ -59,7 +59,7 @@ export const DeckView = (props: {
   );
 
   return (
-    <div>
+  <div className={styles.DeckView}>
       <div>
         <a href="./">go back</a>
       </div>
