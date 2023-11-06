@@ -80,15 +80,17 @@ Confusion in the Ranks
 `);
 
 const pending = parseList(`
+Rhonas the Indomitable
+Oketra the True
 Thorn Mammoth
 Magus of the Disk
-Khârn the Betrayer
 Primeval Herald
-Etali, Primal Storm
 Bane of Progress
 `);
 
 const rejected = parseList(`
+Khârn the Betrayer
+Etali, Primal Storm
 Whitemane Lion
 Sun Titan
 Soltari Foot Soldier

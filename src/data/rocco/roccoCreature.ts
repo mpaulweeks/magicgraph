@@ -1,6 +1,6 @@
 import { CardDraft, CardType as CT } from "../../types";
 import { ReanimatesCombo } from "./roccoMatcher";
-import { RoccoTag as RT } from "./roccoTypes";
+import { RoccoEdge, RoccoTag as RT } from "./roccoTypes";
 
 export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes?: string[];
@@ -76,7 +76,11 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Sun Titan`,
   subtypes: ['Avatar'],
   mc: '4WW',
-  tags: [RT.AttackTrigger, RT.HasETB],
+  tags: [
+    RT.AttackTrigger,
+    RT.HasETB,
+    RT.HasKeywords,
+  ],
   combos: [ReanimatesCombo(other =>
     other.mv <= 3,
   )],
@@ -104,7 +108,12 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CT.Legendary],
   subtypes: ['Elf', 'Noble'],
   mc: '1WG',
-  tags: [RT.GivesIndestructible, RT.GivesLifelink, RT.HasETB],
+  tags: [
+    RT.HasKeywords,
+    RT.GivesLifelink,
+    RT.GivesIndestructible,
+    RT.HasETB,
+  ],
 },
 {
   name: `Atla Palani, Nest Tender`,
@@ -161,52 +170,63 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Nightshade Peddler`,
   subtypes: ['Human', 'Druid'],
   mc: '1G',
-  tags: [RT.GivesDeathtouch],
+  tags: [RT.GivesDeathtouchAlways],
 },
 {
   name: `Odric, Lunarch Marshal`,
   additionalTypes: [CT.Legendary],
   subtypes: ['Human', 'Soldier'],
   mc: '3W',
-  tags: [RT.GivesDeathtouch, RT.GivesLifelink, RT.GivesIndestructible],
+  tags: [
+    RT.WantsDeathtouchAlways,
+    RT.WantsIndestructible,
+  ],
+  combos: [{
+    relationship: RoccoEdge.CombosWith,
+    isMatch: other => other.tags.has(RT.HasKeywords),
+  }],
 },
 {
   name: `Purphoros, Bronze-Blooded`,
   additionalTypes: [CT.Legendary, CT.Enchantment],
   subtypes: ['God'],
   mc: '4R',
-  tags: [RT.GivesHaste],
+  tags: [RT.GivesHaste, RT.HasKeywords],
 },
 {
   name: `Ronin Cliffrider`,
   subtypes: ['Human', 'Samurai'],
   mc: '3RR',
-  tags: [RT.AttackTrigger, RT.WantsDeathtouch],
+  tags: [RT.AttackTrigger, RT.WantsDeathtouchWhileAttacking, RT.WantsDeathtouchWhileTapped],
 },
 {
   name: `Saryth, the Viper's Fang`,
   additionalTypes: [CT.Legendary],
   subtypes: ['Human', 'Warlock'],
   mc: '3GG',
-  tags: [RT.GivesDeathtouch, RT.UntapsCreature],
+  tags: [RT.GivesDeathtouchWhileTapped, RT.UntapsCreature],
 },
 {
   name: `Scalding Salamander`,
   subtypes: ['Salamander'],
   mc: '2R',
-  tags: [RT.AttackTrigger, RT.WantsDeathtouch],
+  tags: [RT.AttackTrigger, RT.WantsDeathtouchWhileAttacking, RT.WantsDeathtouchWhileTapped],
 },
 {
   name: `Stonehewer Giant`,
   subtypes: ['Giant', 'Warrior'],
   mc: '3WW',
-  tags: [RT.HasTapAbility, RT.TutorsEquipment],
+  tags: [
+    RT.HasTapAbility,
+    RT.TutorsEquipment,
+    RT.HasKeywords,
+  ],
 },
 {
   name: `Swathcutter Giant`,
   subtypes: ['Giant', 'Soldier'],
   mc: '4RG',
-  tags: [RT.AttackTrigger, RT.WantsDeathtouch],
+  tags: [RT.AttackTrigger, RT.WantsDeathtouchWhileAttacking],
 },
 {
   name: `Thundering Mightmare`,
@@ -225,7 +245,13 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CT.Legendary],
   subtypes: ['Human', 'Spellshaper'],
   mc: '1RR',
-  tags: [RT.HasTapAbility, RT.NeedsDiscard],
+  tags: [
+    RT.HasTapAbility,
+    RT.NeedsDiscard,
+    RT.WantsDeathtouchWhileTapped,
+    RT.WantsLifelink,
+    RT.WantsIndestructible,
+  ],
 },
 {
   name: `Peacekeeper`,
@@ -237,13 +263,13 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Spikeshot Elder`,
   subtypes: ['Goblin', 'Shaman'],
   mc: 'R',
-  tags: [RT.WantsDeathtouch, RT.WantsPower],
+  tags: [RT.WantsDeathtouchFlexible, RT.WantsPower],
 },
 {
   name: `Squallmonger`,
   subtypes: ['Monger'],
   mc: '3G',
-  tags: [RT.WantsDeathtouch, RT.WantsLifelink],
+  tags: [RT.WantsDeathtouchFlexible, RT.WantsLifelink],
 },
 {
   name: `Cartographer's Hawk`,
@@ -267,7 +293,12 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Heronblade Elite`,
   subtypes: ['Human', 'Warrior'],
   mc: '2G',
-  tags: [RT.HasTapAbility, RT.WantsPower, RT.CaresAboutHuman],
+  tags: [
+    RT.HasTapAbility,
+    RT.WantsPower,
+    RT.CaresAboutHuman,
+    RT.HasKeywords,
+  ],
 },
 {
   name: `Kami of Whispered Hopes`,
@@ -286,7 +317,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CT.Legendary, CT.Enchantment],
   subtypes: ['Snake', 'Druid'],
   mc: '1G',
-  tags: [RT.HasTapAbility],
+  tags: [RT.HasTapAbility, RT.SelfSacrifice],
 },
 {
   name: `Wood Elves`,
@@ -304,7 +335,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Ohran Frostfang`,
   subtypes: ['Snake'],
   mc: '3GG',
-  tags: [RT.GivesDeathtouch, RT.WantsGoWide],
+  tags: [RT.GivesDeathtouchWhileAttacking, RT.WantsGoWide],
 },
 {
   name: `Soul of the Harvest`,
@@ -317,13 +348,13 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CT.Legendary],
   subtypes: ['Squirrel'],
   mc: '3G',
-  tags: [RT.WantsGoWide],
+  tags: [RT.WantsGoWide, RT.HasKeywords],
 },
 {
   name: `Anger`,
   subtypes: ['Elemental'],
   mc: '3R',
-  tags: [RT.FuelsDiscard, RT.GivesHaste],
+  tags: [RT.FuelsDiscard, RT.GivesHaste, RT.HasKeywords],
 },
 {
   name: `Genesis`,
@@ -345,7 +376,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Thorn Mammoth`,
   subtypes: ['Elephant'],
   mc: '5GG',
-  tags: [RT.WantsDeathtouch, RT.WantsLifelink, RT.HasETB, RT.WantsETBs],
+  tags: [RT.WantsDeathtouchAlways, RT.WantsLifelink, RT.HasETB, RT.WantsETBs],
 },
 {
   name: `Magus of the Disk`,
@@ -376,5 +407,17 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   subtypes: ['Elemental'],
   mc: '4GG',
   tags: [RT.HasETB],
+},
+{
+  name: `Rhonas the Indomitable`,
+  subtypes: ['God'],
+  mc: '2G',
+  tags: [RT.HasKeywords, RT.GivesPower],
+},
+{
+  name: `Oketra the True`,
+  subtypes: ['God'],
+  mc: '3W',
+  tags: [RT.HasKeywords, RT.MakesTokens],
 },
 ];

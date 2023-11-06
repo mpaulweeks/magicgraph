@@ -33,8 +33,29 @@ export const RocMatchers: Matcher[] = [{
 }, {
   relationship: RE.CombosWith,
   isMatch: (a,b) =>
-    a.tags.has(RT.GivesDeathtouch) &&
-    b.tags.has(RT.WantsDeathtouch),
+    a.tags.has(RT.GivesDeathtouchWhileAttacking) &&
+    b.tags.has(
+      RT.WantsDeathtouchWhileAttacking,
+      RT.WantsDeathtouchFlexible,
+    ),
+}, {
+  relationship: RE.CombosWith,
+  isMatch: (a,b) =>
+    a.tags.has(RT.GivesDeathtouchWhileTapped) &&
+    b.tags.has(
+      RT.WantsDeathtouchWhileTapped,
+      RT.WantsDeathtouchFlexible,
+    ),
+}, {
+  relationship: RE.CombosWith,
+  isMatch: (a,b) =>
+    a.tags.has(RT.GivesDeathtouchAlways) &&
+    b.tags.has(
+      RT.WantsDeathtouchWhileAttacking,
+      RT.WantsDeathtouchWhileTapped,
+      RT.WantsDeathtouchAlways,
+      RT.WantsDeathtouchFlexible,
+    ),
 }, {
   relationship: RE.CombosWith,
   isMatch: (a,b) =>

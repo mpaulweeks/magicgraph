@@ -26,8 +26,12 @@ export enum RoccoTag {
   NeedsDiscard = 'NeedsDiscard',
   FuelsDiscard = 'FuelsDiscard',
 
+  HasKeywords = 'HasKeywords',
+
   GivesHaste = 'GivesHaste',
-  GivesDeathtouch = 'GivesDeathtouch',
+  GivesDeathtouchWhileAttacking = 'GivesDeathtouchWhileAttacking',
+  GivesDeathtouchWhileTapped = 'GivesDeathtouchWhileTapped',
+  GivesDeathtouchAlways = 'GivesDeathtouchAlways',
   GivesLifelink = 'GivesLifelink',
   GivesIndestructible = 'GivesIndestructible',
   GivesPlusCounters = 'GivesPlusCounters',
@@ -35,7 +39,10 @@ export enum RoccoTag {
   MakesTokens = 'MakesTokens',
 
   WantsHaste = 'WantsHaste',
-  WantsDeathtouch = 'WantsDeathtouch',
+  WantsDeathtouchWhileAttacking = 'WantsDeathtouchWhileAttacking',
+  WantsDeathtouchWhileTapped = 'WantsDeathtouchWhileTapped',
+  WantsDeathtouchAlways = 'WantsDeathtouchAlways',
+  WantsDeathtouchFlexible = 'WantsDeathtouchFlexible',
   WantsLifelink = 'WantsLifelink',
   WantsIndestructible = 'WantsIndestructible',
   WantsPlusCounters = 'WantsPlusCounters',

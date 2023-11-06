@@ -55,13 +55,13 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [{
   name: `Bow of Nylea`,
   mc: '4',
   types: [CT.Artifact, CT.Equipment],
-  tags: [RT.GivesDeathtouch, RT.GivesPlusCounters],
+  tags: [RT.GivesDeathtouchWhileAttacking, RT.GivesPlusCounters],
 },
 {
   name: `Sword of Kaldra`,
   mc: '4',
   types: [CT.Artifact, CT.Equipment],
-  tags: [RT.GivesDeathtouch, RT.GivesPower],
+  tags: [RT.GivesDeathtouchAlways, RT.GivesPower],
 },
 {
   name: `Shield of Kaldra`,
@@ -79,6 +79,6 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [{
   name: `Basilisk Collar`,
   mc: '4',
   types: [CT.Artifact, CT.Equipment],
-  tags: [RT.GivesDeathtouch, RT.GivesLifelink],
+  tags: [RT.GivesDeathtouchAlways, RT.GivesLifelink],
 },
 ];
