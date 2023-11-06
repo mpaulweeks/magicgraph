@@ -1,6 +1,6 @@
 import { CardDraft, CardType as CT } from "../../types";
 import { ReanimatesCombo } from "./roccoMatcher";
-import { RoccoEdge, RoccoTag as RT } from "./roccoTypes";
+import { RoccoEdge as RE, RoccoTag as RT } from "./roccoTypes";
 
 export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes?: string[];
@@ -15,11 +15,13 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CT.Legendary],
   subtypes: ['Human', 'Warrior'],
   mc: 'R',
+  power: 2,
   tags: [RT.BlinksSelf],
 }, {
   name: `Saltskitter`,
   subtypes: ['Wurm'],
   mc: '3W',
+  power: 3,
   tags: [RT.BlinksSelf],
 }, {
   name: `Soltari Foot Soldier`,
@@ -51,11 +53,13 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Whitemane Lion`,
   subtypes: ['Cat'],
   mc: '1W',
+  power: 2,
   tags: [RT.BouncesSelf, RT.BouncesCreature, RT.HasETB],
 }, {
   name: `Stonecloaker`,
   subtypes: ['Gargoyle'],
   mc: '2W',
+  power: 3,
   tags: [RT.BouncesSelf, RT.BouncesCreature, RT.HasETB],
 }, {
   name: `Squee, Goblin Nabob`,
@@ -120,13 +124,18 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CT.Legendary],
   subtypes: ['Human', 'Shaman'],
   mc: '1WRG',
-  tags: [RT.HasTapAbility, RT.MakesTokens, RT.CaresAboutTribal],
+  tags: [
+    RT.HasTapAbility,
+    RT.MakesTokens,
+    RT.MakesSmallTokens,
+    RT.WantsMassTribal,
+  ],
 },
 {
   name: `Crested Sunmare`,
   subtypes: ['Horse'],
   mc: '3WW',
-  tags: [RT.WantsLifelink, RT.CaresAboutTribal],
+  tags: [RT.WantsLifelink, RT.WantsMassTribal],
 },
 {
   name: `Forgotten Ancient`,
@@ -145,20 +154,24 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Immaculate Magistrate`,
   subtypes: ['Elf', 'Shaman'],
   mc: '3G',
-  tags: [RT.HasTapAbility, RT.CaresAboutElf],
+  tags: [RT.HasTapAbility, RT.WantsMassTribal],
+  combos: [{
+    relationship: RE.CombosWith,
+    isMatch: other => other.tags.has(RT.MakesElfTokens),
+  }],
 },
 {
   name: `Krenko, Tin Street Kingpin`,
   additionalTypes: [CT.Legendary],
   subtypes: ['Goblin'],
   mc: '2R',
-  tags: [RT.AttackTrigger, RT.WantsPower, RT.MakesTokens],
+  tags: [RT.AttackTrigger, RT.WantsPower, RT.MakesTokens, RT.MakesSmallTokens],
 },
 {
   name: `Mirror Entity`,
   subtypes: ['Changeling'],
   mc: '2W',
-  tags: [RT.GivesPower, RT.WantsGoWide],
+  tags: [RT.GivesPower, RT.WantsGoWide, RT.GivesMassTribal],
 },
 {
   name: `Nearheath Pilgrim`,
@@ -182,7 +195,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     RT.WantsIndestructible,
   ],
   combos: [{
-    relationship: RoccoEdge.CombosWith,
+    relationship: RE.Buffs,
     isMatch: other => other.tags.has(RT.HasKeywords),
   }],
 },
@@ -192,6 +205,12 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   subtypes: ['God'],
   mc: '4R',
   tags: [RT.GivesHaste, RT.HasKeywords],
+  combos: [{
+    relationship: RE.CombosWith,
+    isMatch: other =>
+      other.types.has(CT.Creature) &&
+      other.mc.includes('R'),
+  }],
 },
 {
   name: `Ronin Cliffrider`,
@@ -204,7 +223,11 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CT.Legendary],
   subtypes: ['Human', 'Warlock'],
   mc: '3GG',
-  tags: [RT.GivesDeathtouchWhileTapped, RT.UntapsCreature],
+  tags: [
+    RT.GivesDeathtouchWhileTapped,
+    RT.UntapsCreature,
+    RT.HasKeywords,
+  ],
 },
 {
   name: `Scalding Salamander`,
@@ -238,7 +261,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Wolverine Riders`,
   subtypes: ['Elf', 'Warrior'],
   mc: '4GG',
-  tags: [RT.MakesTokens],
+  tags: [RT.MakesTokens, RT.MakesElfTokens, RT.MakesSmallTokens, RT.WantsConspiracy],
 },
 {
   name: `Jaya Ballard, Task Mage`,
@@ -287,7 +310,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Gala Greeters`,
   subtypes: ['Elf', 'Druid'],
   mc: '1G',
-  tags: [RT.WantsETBs],
+  tags: [RT.WantsCreatureETBs],
 },
 {
   name: `Heronblade Elite`,
@@ -296,9 +319,15 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [
     RT.HasTapAbility,
     RT.WantsPower,
-    RT.CaresAboutHuman,
     RT.HasKeywords,
+    RT.WantsConspiracy,
   ],
+  combos: [{
+    relationship: RE.CombosWith,
+    isMatch: other =>
+      other.subtypes.has('Changeling', 'Human') &&
+      other.tags.has(RT.BlinksSelf, RT.BouncesSelf),
+  }],
 },
 {
   name: `Kami of Whispered Hopes`,
@@ -329,7 +358,15 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Mentor of the Meek`,
   subtypes: ['Human', 'Soldier'],
   mc: '2W',
-  tags: [RT.WantsETBs, RT.WantsTokens],
+  combos: [{
+    relationship: RE.CombosWith,
+    isMatch: other =>
+      other.tags.has(RT.MakesSmallTokens) || (
+        other.power !== undefined &&
+        other.power <= 2 &&
+        other.tags.has(RT.BlinksSelf, RT.BouncesSelf)
+      ),
+  }],
 },
 {
   name: `Ohran Frostfang`,
@@ -341,7 +378,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Soul of the Harvest`,
   subtypes: ['Elemental'],
   mc: '4GG',
-  tags: [RT.WantsETBs],
+  tags: [RT.WantsNonTokenETBs],
 },
 {
   name: `Toski, Bearer of Secrets`,
@@ -376,13 +413,19 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Thorn Mammoth`,
   subtypes: ['Elephant'],
   mc: '5GG',
-  tags: [RT.WantsDeathtouchAlways, RT.WantsLifelink, RT.HasETB, RT.WantsETBs],
+  tags: [
+    RT.WantsDeathtouchAlways,
+    RT.WantsLifelink,
+    RT.HasETB,
+    RT.WantsCreatureETBs,
+    RT.WantsGoWide,
+  ],
 },
 {
   name: `Magus of the Disk`,
   subtypes: ['Human', 'Wizard'],
   mc: '2WW',
-  tags: [RT.WantsIndestructible],
+  tags: [RT.WantsIndestructible, RT.HasTapAbility],
 },
 {
   name: `Khârn the Betrayer`,
@@ -418,6 +461,18 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Oketra the True`,
   subtypes: ['God'],
   mc: '3W',
-  tags: [RT.HasKeywords, RT.MakesTokens],
+  tags: [RT.HasKeywords, RT.MakesTokens, RT.MakesSmallTokens],
+},
+{
+  name: `Angelic Skirmisher`,
+  subtypes: ['Angel'],
+  mc: '4WW',
+  tags: [RT.GivesLifelink],
+},
+{
+  name: `Nullmage Advocate`,
+  subtypes: ['Insect', 'Druid'],
+  mc: '2G',
+  tags: [RT.HasTapAbility],
 },
 ];

@@ -19,7 +19,6 @@ Wirewood Symbiote
 
 Arwen, Mortal Queen
 Atla Palani, Nest Tender
-Crested Sunmare
 Forgotten Ancient
 Heartless Hidetsugu
 Immaculate Magistrate
@@ -46,7 +45,6 @@ Spikeshot Elder
 Squallmonger
 Stonecloaker
 
-Cartographer's Hawk
 Farhaven Elf
 Gala Greeters
 Heronblade Elite
@@ -77,18 +75,24 @@ Guardian Project
 Bow of Nylea
 Aura Shards
 Confusion in the Ranks
-`);
 
-const pending = parseList(`
-Rhonas the Indomitable
 Oketra the True
 Thorn Mammoth
 Magus of the Disk
 Primeval Herald
 Bane of Progress
+Nullmage Advocate
+Angelic Skirmisher
+`);
+
+const pending = parseList(`
+Rhonas the Indomitable
+Maskwood Nexus
 `);
 
 const rejected = parseList(`
+Crested Sunmare
+Cartographer's Hawk
 Khârn the Betrayer
 Etali, Primal Storm
 Whitemane Lion

@@ -23,7 +23,7 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [{
   name: `Aura Shards`,
   mc: '1WG',
   types: [CT.Enchantment],
-  tags: [RT.WantsETBs],
+  tags: [RT.WantsCreatureETBs],
 }, {
   name: `Call for Unity`,
   mc: '3WW',
@@ -33,6 +33,7 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [{
   name: `Confusion in the Ranks`,
   mc: '3RR',
   types: [CT.Enchantment],
+  tags: [RT.WantsTokens],
   combos: [{
     relationship: RE.CombosWith,
     isMatch: other => other.tags.has(RT.BlinksSelf),
@@ -49,7 +50,7 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [{
   name: `Guardian Project`,
   mc: '3G',
   types: [CT.Enchantment],
-  tags: [RT.WantsETBs],
+  tags: [RT.WantsNonTokenETBs],
 },
 {
   name: `Bow of Nylea`,
@@ -80,5 +81,16 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [{
   mc: '4',
   types: [CT.Artifact, CT.Equipment],
   tags: [RT.GivesDeathtouchAlways, RT.GivesLifelink],
+},
+{
+  name: `Maskwood Nexus`,
+  mc: '4',
+  types: [CT.Artifact],
+  tags: [
+    RT.GivesConspiracy,
+    RT.MakesTokens,
+    RT.MakesElfTokens,
+    RT.MakesSmallTokens,
+  ],
 },
 ];

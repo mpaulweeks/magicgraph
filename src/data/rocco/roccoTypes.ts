@@ -15,7 +15,8 @@ export enum RoccoTag {
   WantsBounce = 'WantsBounce',
 
   HasETB = 'HasETB',
-  WantsETBs = 'WantsETBs',
+  WantsCreatureETBs = 'WantsCreatureETBs',
+  WantsNonTokenETBs = 'WantsNonTokenETBs',
   WantsLTBs = 'WantsLTBs',
 
   Unblockable = 'Unblockable',
@@ -27,7 +28,12 @@ export enum RoccoTag {
   FuelsDiscard = 'FuelsDiscard',
 
   HasKeywords = 'HasKeywords',
+  MakesTokens = 'MakesTokens',
+  MakesElfTokens = 'MakesElfTokens',
+  MakesSmallTokens = 'MakesSmallTokens',
 
+  GivesMassTribal = 'GivesMassTribal',
+  GivesConspiracy = 'GivesConspiracy',
   GivesHaste = 'GivesHaste',
   GivesDeathtouchWhileAttacking = 'GivesDeathtouchWhileAttacking',
   GivesDeathtouchWhileTapped = 'GivesDeathtouchWhileTapped',
@@ -36,8 +42,9 @@ export enum RoccoTag {
   GivesIndestructible = 'GivesIndestructible',
   GivesPlusCounters = 'GivesPlusCounters',
   GivesPower = 'GivesPower',
-  MakesTokens = 'MakesTokens',
 
+  WantsMassTribal = 'WantsMassTribal',
+  WantsConspiracy = 'WantsConspiracy',
   WantsHaste = 'WantsHaste',
   WantsDeathtouchWhileAttacking = 'WantsDeathtouchWhileAttacking',
   WantsDeathtouchWhileTapped = 'WantsDeathtouchWhileTapped',
@@ -54,14 +61,12 @@ export enum RoccoTag {
   UntapsCreature = 'UntapsCreature',
   TutorsEquipment = 'TutorsEquipment',
   AttackTrigger = 'AttackTrigger',
-
-  CaresAboutTribal = 'CaresAboutTribal',
-  CaresAboutElf = 'CaresAboutElf',
-  CaresAboutHuman = 'CaresAboutHuman',
 }
 
 export enum RoccoEdge {
   CombosWith = 'Combos With',
+  Buffs = 'Buffs',
+  Tutors = 'Tutors',
 
   Equipment = 'Equipment',
   AttachesTo = 'Attaches To',

@@ -8,6 +8,7 @@ export type CardDraft = {
   types: string[];
   subtypes?: string[];
   mc?: string;
+  power?: number;
   category: string;
   tags?: string[];
   combos?: CardCombo[];

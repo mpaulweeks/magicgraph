@@ -9,6 +9,7 @@ export class CardImpl implements Cardlike {
   readonly subtypes: Interset<string>;
   readonly mc: string;
   readonly mv: number;
+  readonly power?: number;
   readonly category: string;
   readonly tags: Interset<string>;
   readonly current: boolean;
@@ -25,6 +26,7 @@ export class CardImpl implements Cardlike {
     this.types = new Interset(draft.types);
     this.subtypes = new Interset(draft.subtypes ?? []);
     this.mc = draft.mc ?? '';
+    this.power = draft.power;
     this.category = draft.category;
     this.tags = new Interset(draft.tags ?? []);
     this.combos = draft.combos ?? [];

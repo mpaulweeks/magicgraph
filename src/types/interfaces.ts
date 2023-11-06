@@ -8,6 +8,7 @@ export interface Cardlike {
   readonly subtypes: Interset<string>;
   readonly mc: string;
   readonly mv: number;
+  readonly power?: number;
   readonly category: string;
   readonly tags: Interset<string>;
   readonly combos: CardCombo[];
