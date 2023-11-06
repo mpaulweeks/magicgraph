@@ -92,13 +92,15 @@ export const CardView = (props: {
         <section style={{
           padding: '1em',
         }}>
-          <div>
-            {card.styling.notes.map((note, ni) => (
-              <div key={ni}>
-                {note}
-              </div>
-            ))}
-          </div>
+          {card.styling.notes.length ? (
+            <p>
+              {card.styling.notes.map((note, ni) => (
+                <div key={ni}>
+                  {note}
+                </div>
+              ))}
+            </p>
+          ) : null}
 
           <div className={styles.CardViewEdges}>
             {edgeBins.map((bin, bi) => (

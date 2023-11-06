@@ -29,9 +29,10 @@ export type CardCombo = {
   isMatch: (other: Cardlike) => boolean;
 };
 
+export type MatchFunction = (a: Cardlike, b: Cardlike) => boolean;
 export type Matcher = {
   relationship: string;
-  isMatch(a: Cardlike, b: Cardlike): boolean;
+  isMatch: MatchFunction;
 };
 
 export type CardEdge = {

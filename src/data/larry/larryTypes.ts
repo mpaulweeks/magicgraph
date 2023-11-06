@@ -3,6 +3,8 @@ export enum LarryCategory {
   Recursion = 'Recursion',
   Bouncer = 'Bouncer',
   Protection = 'Protection',
+  Draw = 'Draw',
+  Ramp = 'Ramp',
   Other = 'Other',
 }
 
@@ -11,11 +13,14 @@ export const CategoryColorMap = {
   [LarryCategory.Recursion]: 'lightgreen',
   [LarryCategory.Bouncer]: 'lightblue',
   [LarryCategory.Protection]: 'khaki',
+  [LarryCategory.Draw]: 'lightgrey',
+  [LarryCategory.Ramp]: 'lightgrey',
+  [LarryCategory.Other]: 'lightgrey',
 };
 
 export enum LarryTag {
   Bounces = 'Bounces',
-  IsBouncable = 'Is Bouncable',
+  WantsBounce = 'Wants Bounce',
 
   HasPhasing = 'Has Phasing',
   HasIndestructible = 'Has Indestructible',
@@ -25,13 +30,17 @@ export enum LarryTag {
   GivesIndestructible = 'Gives Indestructible',
   GivesFalseDeath = 'Gives FalseDeath',
 
-  RemovesCounters = 'Removes Counters',
+  WantsCountersRemovedInstant = 'Wants Counters Removed Instant',
+  WantsCountersRemoved = 'Wants Counters Removed',
+  RemovesCountersSorcery = 'Removes Counters Sorcery',
+  RemovesCountersInstant = 'Removes Counters Instant',
   BouncesWizards = 'Bounces Wizards',
 
   ReanimatesArtifacts = 'Reanimates Artifacts',
   ReanimatesEnchantments = 'Reanimates Enchantments',
   ReanimatesCreatures = 'Reanimates Creatures',
-  Reanimates2orLess = 'Reanimates 2orLess',
+  ReanimatesNonland2orLess = 'Reanimates Nonland 2orLess',
+  ReanimatesNonland4orLess = 'Reanimates Nonland 4orLess',
   Reanimates3orLess = 'Reanimates 3orLess',
 
   DestroysArtifactEnchantment = 'Destroys Artifacts and Enchantments',
@@ -41,6 +50,7 @@ export enum LarryTag {
 }
 
 export enum LarryEdge {
+  CombosWith = 'Combos With',
   TwoCardCombo = '2-Card Combo!',
 
   SurvivesWith = 'Survives with',
@@ -54,8 +64,6 @@ export enum LarryEdge {
   BounceLoopedBy = 'Bounce Looped By',
 }
 export const LarryInverseEdge = {
-  [LarryEdge.TwoCardCombo]: LarryEdge.TwoCardCombo,
-
   [LarryEdge.SurvivesWith]: LarryEdge.Protects,
   [LarryEdge.LoopsETBWith]: LarryEdge.LoopsETB,
   [LarryEdge.Reanimates]: LarryEdge.ReanimatedBy,
@@ -69,6 +77,8 @@ export const LarryInverseEdge = {
 
 export const OrderedEdges: string[] = [
   LarryEdge.TwoCardCombo,
+
+  LarryEdge.CombosWith,
 
   LarryEdge.BounceLoops,
   LarryEdge.BounceLoopedBy,

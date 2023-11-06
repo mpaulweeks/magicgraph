@@ -1,47 +1,57 @@
-import { CardType, Cardlike, Matcher } from "../../types";
-import { LarryCategory, LarryEdge, LarryTag } from "./larryTypes";
+import { CardType as CT, CardCombo, Cardlike, MatchFunction, Matcher } from "../../types";
+import { LarryEdge as LE, LarryTag as LT, LarryCategory } from "./larryTypes";
+
+export function TwoCardCombo(cb: (other: Cardlike) => boolean): CardCombo {
+  return {
+    relationship: LE.TwoCardCombo,
+    isMatch: cb,
+  }
+}
 
 // matcher helpers
-const bounceLoop = (a: Cardlike, b: Cardlike) =>
-  (a.tags.has(LarryTag.Bounces) && b.tags.has(LarryTag.IsBouncable)) ||
-  (a.tags.has(LarryTag.BouncesWizards) &&
-    b.tags.has(LarryTag.IsBouncable) &&
+const bounceLoop: MatchFunction = (a,b) =>
+  (a.tags.has(LT.Bounces) && b.tags.has(LT.WantsBounce)) ||
+  (a.tags.has(LT.BouncesWizards) &&
+    b.tags.has(LT.WantsBounce) &&
     b.subtypes.has('Wizard'));
-const matchRecursion = (a: Cardlike, b: Cardlike) =>
-  (a.tags.has(LarryTag.ReanimatesArtifacts) &&
-    b.types.has(CardType.Artifact)) ||
-  (a.tags.has(LarryTag.ReanimatesEnchantments) &&
-    b.types.has(CardType.Enchantment)) ||
-  (a.tags.has(LarryTag.ReanimatesCreatures) &&
-    b.types.has(CardType.Creature)) ||
-  (a.tags.has(LarryTag.Reanimates2orLess) &&
+const matchRecursion: MatchFunction = (a,b) =>
+  (a.tags.has(LT.ReanimatesArtifacts) &&
+    b.types.has(CT.Artifact)) ||
+  (a.tags.has(LT.ReanimatesEnchantments) &&
+    b.types.has(CT.Enchantment)) ||
+  (a.tags.has(LT.ReanimatesCreatures) &&
+    b.types.has(CT.Creature)) ||
+  (a.tags.has(LT.ReanimatesNonland2orLess) &&
     b.mv <= 2 &&
-    !b.types.has(CardType.Land)) ||
-  (a.tags.has(LarryTag.Reanimates3orLess) && b.mv <= 3);
-const survivesDisk = (a: Cardlike, b: Cardlike) =>
-  a.types.equals(CardType.Land) ||
-  a.types.equals(CardType.Instant) ||
-  (a.types.has(CardType.Artifact) &&
-    b.tags.has(LarryTag.DestroysNonArtifacts)) ||
-  (a.types.has(CardType.Creature) &&
-    b.tags.has(LarryTag.DestroysNonCreatures)) ||
-  (!a.types.has(CardType.Artifact, CardType.Enchantment) &&
-    b.tags.has(LarryTag.DestroysOnlyArtifactEnchantment));
-const protects = (a: Cardlike, b: Cardlike) =>
+    !b.types.has(CT.Land)) ||
+  (a.tags.has(LT.ReanimatesNonland4orLess) &&
+    b.mv <= 4 &&
+    !b.types.has(CT.Land)) ||
+  (a.tags.has(LT.Reanimates3orLess) && b.mv <= 3);
+const survivesDisk: MatchFunction = (a,b) =>
+  a.types.equals(CT.Land) ||
+  a.types.equals(CT.Instant) ||
+  (a.types.has(CT.Artifact) &&
+    b.tags.has(LT.DestroysNonArtifacts)) ||
+  (a.types.has(CT.Creature) &&
+    b.tags.has(LT.DestroysNonCreatures)) ||
+  (!a.types.has(CT.Artifact, CT.Enchantment) &&
+    b.tags.has(LT.DestroysOnlyArtifactEnchantment));
+const protects: MatchFunction = (a,b) =>
   a.tags.has(
-    LarryTag.GivesFalseDeath,
-    LarryTag.GivesIndestructible,
-    LarryTag.GivesPhasing,
-  ) && b.types.has(CardType.Creature);
+    LT.GivesFalseDeath,
+    LT.GivesIndestructible,
+    LT.GivesPhasing,
+  ) && b.types.has(CT.Creature);
 
 // ordering matters, only looks for first match
 export const LarryMatchers: Matcher[] = [
   {
-    relationship: LarryEdge.TwoCardCombo,
+    relationship: LE.TwoCardCombo,
     isMatch: (a, b) => protects(a, b) && b.category === LarryCategory.Disk,
   },
   {
-    relationship: LarryEdge.TwoCardCombo,
+    relationship: LE.TwoCardCombo,
     isMatch: (a, b) =>
       bounceLoop(a, b) &&
       a.category === LarryCategory.Bouncer &&
@@ -49,7 +59,7 @@ export const LarryMatchers: Matcher[] = [
       survivesDisk(a, b),
   },
   {
-    relationship: LarryEdge.TwoCardCombo,
+    relationship: LE.TwoCardCombo,
     isMatch: (a, b) =>
       matchRecursion(a, b) &&
       a.category === LarryCategory.Recursion &&
@@ -57,15 +67,27 @@ export const LarryMatchers: Matcher[] = [
       survivesDisk(a, b),
   },
   {
-    relationship: LarryEdge.Protects,
+    relationship: LE.Protects,
     isMatch: (a, b) => protects(a, b),
   },
   {
-    relationship: LarryEdge.BounceLoops,
+    relationship: LE.BounceLoops,
     isMatch: (a, b) => bounceLoop(a, b),
   },
   {
-    relationship: LarryEdge.Reanimates,
+    relationship: LE.Reanimates,
     isMatch: (a, b) => matchRecursion(a, b),
+  },
+  {
+    relationship: LE.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(LT.WantsCountersRemoved) &&
+      b.tags.has(LT.RemovesCountersInstant, LT.RemovesCountersSorcery),
+  },
+  {
+    relationship: LE.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(LT.WantsCountersRemovedInstant) &&
+      b.tags.has(LT.RemovesCountersInstant),
   },
 ];
