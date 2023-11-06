@@ -45,9 +45,20 @@ Stone of Erech
 The Night of the Doctor
 
 Guardian Scalelord
+Mithril Coat
 Scholar of New Horizons
 Nihil Spellbomb
 Soul-Guide Lantern
+
+Marit Lage's Slumber
+Navigation Orb
+Expedition Map
+Burnished Hart
+Courier's Capsule
+Mnemonic Sphere
+Font of Fortunes
+Omen of the Sea
+Mystic Remora
 `);
 
 const pending = parseList(`

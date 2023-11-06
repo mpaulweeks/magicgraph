@@ -30,6 +30,8 @@ export enum LarryTag {
   GivesIndestructible = 'Gives Indestructible',
   GivesFalseDeath = 'Gives FalseDeath',
 
+  WantsFalseDeath = 'Wants FalseDeath',
+
   WantsCountersRemovedInstant = 'Wants Counters Removed Instant',
   WantsCountersRemoved = 'Wants Counters Removed',
   RemovesCountersSorcery = 'Removes Counters Sorcery',
@@ -50,8 +52,8 @@ export enum LarryTag {
 }
 
 export enum LarryEdge {
+  TwoCardLock = '2-Card Lock!',
   CombosWith = 'Combos With',
-  TwoCardCombo = '2-Card Combo!',
 
   SurvivesWith = 'Survives with',
   LoopsETBWith = 'Loops ETB with',
@@ -76,7 +78,7 @@ export const LarryInverseEdge = {
 };
 
 export const OrderedEdges: string[] = [
-  LarryEdge.TwoCardCombo,
+  LarryEdge.TwoCardLock,
 
   LarryEdge.CombosWith,
 

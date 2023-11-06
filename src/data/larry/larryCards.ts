@@ -112,6 +112,10 @@ export const LarryDraft: CardDraft[] = [
   mc: '4U',
   category: LC.Bouncer,
   tags: [LT.Bounces],
+  combos: [{
+    relationship: LE.CombosWith,
+    isMatch: other => other.types.has(CT.Snow),
+  }],
 },
 {
   name: `Vedalken Mastermind`,
@@ -415,5 +419,73 @@ export const LarryDraft: CardDraft[] = [
       c.types.all(CT.Legendary, CT.Creature) ||
       !c.types.has(CT.Creature)
     )
-  )]},
+  )]
+},
+{
+  name: `Navigation Orb`,
+  types: [CT.Artifact],
+  mc: '3',
+  category: LC.Ramp,
+  tags: [],
+},
+{
+  name: `Expedition Map`,
+  types: [CT.Artifact],
+  mc: '1',
+  category: LC.Ramp,
+  tags: [],
+},
+{
+  name: `Burnished Hart`,
+  types: [CT.Artifact, CT.Creature],
+  mc: '3',
+  category: LC.Ramp,
+  tags: [
+    LT.WantsFalseDeath,
+  ],
+},
+{
+  name: `Marit Lage's Slumber`,
+  types: [CT.Enchantment, CT.Legendary, CT.Snow],
+  mc: '1U',
+  category: LC.Draw,
+  tags: [],
+},
+{
+  name: `Courier's Capsule`,
+  types: [CT.Artifact],
+  mc: '1U',
+  category: LC.Draw,
+  tags: [],
+},
+{
+  name: `Mnemonic Sphere`,
+  types: [CT.Artifact],
+  mc: '1U',
+  category: LC.Draw,
+  tags: [],
+},
+{
+  name: `Font of Fortunes`,
+  types: [CT.Enchantment],
+  mc: '1U',
+  category: LC.Draw,
+  tags: [],
+},
+{
+  name: `Omen of the Sea`,
+  types: [CT.Enchantment],
+  mc: '1U',
+  category: LC.Draw,
+  tags: [],
+},
+{
+  name: `Mystic Remora`,
+  types: [CT.Enchantment],
+  mc: 'U',
+  category: LC.Draw,
+  tags: [
+    LT.WantsCountersRemoved,
+  ],
+},
 ];

@@ -3,7 +3,7 @@ import { LarryEdge as LE, LarryTag as LT, LarryCategory } from "./larryTypes";
 
 export function TwoCardCombo(cb: (other: Cardlike) => boolean): CardCombo {
   return {
-    relationship: LE.TwoCardCombo,
+    relationship: LE.TwoCardLock,
     isMatch: cb,
   }
 }
@@ -47,11 +47,11 @@ const protects: MatchFunction = (a,b) =>
 // ordering matters, only looks for first match
 export const LarryMatchers: Matcher[] = [
   {
-    relationship: LE.TwoCardCombo,
+    relationship: LE.TwoCardLock,
     isMatch: (a, b) => protects(a, b) && b.category === LarryCategory.Disk,
   },
   {
-    relationship: LE.TwoCardCombo,
+    relationship: LE.TwoCardLock,
     isMatch: (a, b) =>
       bounceLoop(a, b) &&
       a.category === LarryCategory.Bouncer &&
@@ -59,7 +59,7 @@ export const LarryMatchers: Matcher[] = [
       survivesDisk(a, b),
   },
   {
-    relationship: LE.TwoCardCombo,
+    relationship: LE.TwoCardLock,
     isMatch: (a, b) =>
       matchRecursion(a, b) &&
       a.category === LarryCategory.Recursion &&
