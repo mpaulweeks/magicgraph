@@ -1,6 +1,6 @@
 import { CardDraft, CardType as CT } from "../../types";
 import { ReanimatesCombo } from "./roccoMatcher";
-import { RoccoEdge as RE, RoccoTag as RT } from "./roccoTypes";
+import { RoccoEdge as RE, RoccoEdge, RoccoTag as RT } from "./roccoTypes";
 
 export const NonCreatures: Omit<CardDraft, 'category'>[] = [{
   name: `Sword of the Animist`,
@@ -55,7 +55,7 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [{
 {
   name: `Bow of Nylea`,
   mc: '4',
-  types: [CT.Artifact, CT.Equipment],
+  types: [CT.Artifact, CT.Enchantment, CT.Legendary],
   tags: [RT.GivesDeathtouchWhileAttacking, RT.GivesPlusCounters],
 },
 {
@@ -92,5 +92,29 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [{
     RT.MakesElfTokens,
     RT.MakesSmallTokens,
   ],
+},
+{
+  name: `Okina, Temple to the Grandfathers`,
+  types: [CT.Land, CT.Legendary],
+  combos: [{
+    relationship: RoccoEdge.Buffs,
+    isMatch: other =>
+      other.types.all(CT.Legendary, CT.Creature) &&
+      other.tags.has(RT.WantsPower),
+  }],
+},
+{
+  name: `Eiganjo Castle`,
+  types: [CT.Land, CT.Legendary],
+},
+{
+  name: `Shinka, the Bloodsoaked Keep`,
+  types: [CT.Land, CT.Legendary],
+  combos: [{
+    relationship: RoccoEdge.Buffs,
+    isMatch: other =>
+      other.types.all(CT.Legendary, CT.Creature) &&
+      other.tags.has(RT.AttackTrigger),
+  }],
 },
 ];

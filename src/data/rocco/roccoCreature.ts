@@ -429,6 +429,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Khârn the Betrayer`,
+  additionalTypes: [CT.Legendary],
   subtypes: ['Astartes', 'Berserker'],
   mc: '3R',
 },
@@ -453,12 +454,14 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Rhonas the Indomitable`,
+  additionalTypes: [CT.Legendary],
   subtypes: ['God'],
   mc: '2G',
   tags: [RT.HasKeywords, RT.GivesPower],
 },
 {
   name: `Oketra the True`,
+  additionalTypes: [CT.Legendary],
   subtypes: ['God'],
   mc: '3W',
   tags: [RT.HasKeywords, RT.MakesTokens, RT.MakesSmallTokens],
@@ -474,5 +477,12 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   subtypes: ['Insect', 'Druid'],
   mc: '2G',
   tags: [RT.HasTapAbility],
+},
+{
+  name: `Captain Sisay`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Human', 'Soldier'],
+  mc: '2WG',
+  tags: [RT.TutorsLegends],
 },
 ];

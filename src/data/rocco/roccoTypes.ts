@@ -60,6 +60,7 @@ export enum RoccoTag {
   HasTapAbility = 'HasTapAbility',
   UntapsCreature = 'UntapsCreature',
   TutorsEquipment = 'TutorsEquipment',
+  TutorsLegends = 'TutorsLegends',
   AttackTrigger = 'AttackTrigger',
 }
 

@@ -75,6 +75,7 @@ Guardian Project
 Bow of Nylea
 Aura Shards
 Confusion in the Ranks
+Maskwood Nexus
 
 Oketra the True
 Thorn Mammoth
@@ -83,11 +84,15 @@ Primeval Herald
 Bane of Progress
 Nullmage Advocate
 Angelic Skirmisher
+
+Okina, Temple to the Grandfathers
+Eiganjo Castle
+Shinka, the Bloodsoaked Keep
 `);
 
 const pending = parseList(`
 Rhonas the Indomitable
-Maskwood Nexus
+Captain Sisay
 `);
 
 const rejected = parseList(`

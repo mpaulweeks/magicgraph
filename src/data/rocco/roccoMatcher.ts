@@ -56,6 +56,11 @@ export const RocMatchers: Matcher[] = [{
     a.tags.has(RT.TutorsEquipment) &&
     b.types.has(CT.Equipment),
 }, {
+  relationship: RE.Tutors,
+  isMatch: (a,b) =>
+    a.tags.has(RT.TutorsLegends) &&
+    b.types.has(CT.Legendary),
+}, {
   relationship: RE.CombosWith,
   isMatch: (a,b) =>
     a.tags.has(RT.HasETB, RT.WantsBounce) && (
