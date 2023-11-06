@@ -117,4 +117,14 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [{
       other.tags.has(RT.AttackTrigger),
   }],
 },
+{
+  name: `Sokenzan, Crucible of Defiance`,
+  types: [CT.Land, CT.Legendary],
+  tags: [RT.MakesTokens, RT.MakesSmallTokens],
+},
+{
+  name: `Minas Tirith`,
+  types: [CT.Land, CT.Legendary],
+  tags: [RT.WantsGoWide],
+},
 ];

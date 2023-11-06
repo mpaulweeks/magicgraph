@@ -93,6 +93,8 @@ Shinka, the Bloodsoaked Keep
 const pending = parseList(`
 Rhonas the Indomitable
 Captain Sisay
+Sokenzan, Crucible of Defiance
+Minas Tirith
 `);
 
 const rejected = parseList(`
