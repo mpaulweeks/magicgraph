@@ -27,7 +27,7 @@ export const LarryDraft: CardDraft[] = [
   subtypes: ['Wizard'],
   mc: '2WW',
   category: LC.Disk,
-  notes: [`ETBs tapped`, `Bounce/phase in response to the activation`],
+  notes: [`ETBs tapped`, `Activate, hold priority, then bounce/phase out`],
   tags: [LT.WantsBounce, LT.DestroysArtifactEnchantment],
 },
 {
