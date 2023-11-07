@@ -70,20 +70,6 @@ export const LarryDraft: CardDraft[] = [
   ],
 },
 {
-  name: `Phyrexian Scriptures`,
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
-  mc: '4',
-  category: LC.Disk,
-  notes: [`Only hits non-artifact creatures`],
-  tags: [
-    LT.WantsBounce,
-    LT.WantsCountersRemoved,
-    LT.DestroysOtherCreatures,
-  ],
-  combos: [TwoCardCombo(c => c.tags.has(LT.RemovesCountersInstant, LT.RemovesCountersSorcery))],
-},
-{
   name: `Planar Collapse`,
   types: [CT.Enchantment],
   mc: '2',
@@ -120,6 +106,32 @@ export const LarryDraft: CardDraft[] = [
   ],
 },
 {
+  name: `Phyrexian Scriptures`,
+  types: [CT.Enchantment],
+  subtypes: ['Saga'],
+  mc: '2BB',
+  category: LC.Disk,
+  tags: [
+    LT.WantsBounce,
+    LT.WantsCountersRemoved,
+    LT.DestroysOtherCreatures,
+  ],
+  combos: [TwoCardCombo(c => c.tags.has(LT.RemovesCountersInstant, LT.RemovesCountersSorcery))],
+},
+{
+  name: `One Ring to Rule Them All`,
+  types: [CT.Enchantment],
+  subtypes: ['Saga'],
+  mc: '2BB',
+  category: LC.Disk,
+  tags: [
+    LT.WantsBounce,
+    LT.WantsCountersRemoved,
+    LT.DestroysOtherCreatures,
+  ],
+  combos: [TwoCardCombo(c => c.tags.has(LT.RemovesCountersInstant, LT.RemovesCountersSorcery))],
+},
+{
   name: `The Phasing of Zhalfir`,
   types: [CT.Enchantment],
   subtypes: ['Saga'],
@@ -153,6 +165,16 @@ export const LarryDraft: CardDraft[] = [
       !c.types.has(CT.Creature)
     )
   )]
+},
+{
+  name: `Invasion of Fiora // Marchesa, Resolute Monarch`,
+  types: [CT.Battle],
+  mc: '4BB',
+  category: LC.Disk,
+  tags: [
+    LT.WantsBounce,
+    LT.DestroysCreatures,
+  ],
 },
 
 // Bounce

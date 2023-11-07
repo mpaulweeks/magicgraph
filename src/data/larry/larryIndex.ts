@@ -62,6 +62,8 @@ Mystic Remora
 `);
 
 const pending = parseList(`
+Invasion of Fiora // Marchesa, Resolute Monarch
+One Ring to Rule Them All
 Volrath's Stronghold
 `);
 
