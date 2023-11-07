@@ -19,6 +19,8 @@ export const CategoryColorMap = {
 };
 
 export enum LarryTag {
+  SacrificesSelf = 'Sacrifices Self',
+
   Bounces = 'Bounces',
   WantsBounce = 'Wants Bounce',
 
@@ -30,6 +32,8 @@ export enum LarryTag {
   GivesIndestructible = 'Gives Indestructible',
   GivesFalseDeath = 'Gives FalseDeath',
 
+  WantsPhasing = 'Wants Phasing',
+  WantsIndestructible = 'Wants Indestructible',
   WantsFalseDeath = 'Wants FalseDeath',
 
   WantsCountersRemovedInstant = 'Wants Counters Removed Instant',
@@ -45,10 +49,12 @@ export enum LarryTag {
   ReanimatesNonland4orLess = 'Reanimates Nonland 4orLess',
   Reanimates3orLess = 'Reanimates 3orLess',
 
-  DestroysArtifactEnchantment = 'Destroys Artifacts and Enchantments',
-  DestroysOnlyArtifactEnchantment = 'Destroys Only Artifacts and Enchantments',
-  DestroysNonArtifacts = 'Does Not Destroy Artifacts',
-  DestroysNonCreatures = 'Does Not Destroy Creatures',
+  DestroysArtifacts = 'Destroys Artifacts',
+  DestroysEnchantments = 'Destroys Enchantments',
+  DestroysCreatures = 'Destroys Creatures',
+  DestroysOtherCreatures = 'Destroys Other Creatures',
+  DestroysNonArtifactNonLand = 'Destroys Non Artifacts Non Lands',
+  DestroysNonLand = 'Destroys Non Land',
 }
 
 export enum LarryEdge {

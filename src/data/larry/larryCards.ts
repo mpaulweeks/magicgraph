@@ -12,14 +12,20 @@ export const LarryDraft: CardDraft[] = [
   types: [CT.Artifact],
   mc: '4',
   category: LC.Disk,
-  tags: [LT.WantsBounce],
+  tags: [
+    LT.WantsBounce,
+    LT.DestroysNonLand,
+  ],
 },
 {
   name: `Coercive Portal`,
   types: [CT.Artifact],
   mc: '4',
   category: LC.Disk,
-  tags: [LT.WantsBounce],
+  tags: [
+    LT.WantsBounce,
+    LT.DestroysNonLand,
+  ],
 },
 {
   name: `Magus of the Disk`,
@@ -28,7 +34,15 @@ export const LarryDraft: CardDraft[] = [
   mc: '2WW',
   category: LC.Disk,
   notes: [`ETBs tapped`, `Activate, hold priority, then bounce/phase out`],
-  tags: [LT.WantsBounce, LT.DestroysArtifactEnchantment],
+  tags: [
+    LT.WantsBounce,
+    LT.WantsFalseDeath,
+    LT.WantsIndestructible,
+    LT.WantsPhasing,
+    LT.DestroysArtifacts,
+    LT.DestroysCreatures,
+    LT.DestroysEnchantments,
+  ],
 },
 {
   name: `Nevinyrral's Disk`,
@@ -36,25 +50,33 @@ export const LarryDraft: CardDraft[] = [
   mc: '4',
   category: LC.Disk,
   notes: [`ETBs tapped`],
-  tags: [LT.WantsBounce, LT.DestroysArtifactEnchantment],
+  tags: [
+    LT.WantsBounce,
+    LT.DestroysArtifacts,
+    LT.DestroysCreatures,
+    LT.DestroysEnchantments,
+  ],
 },
 {
   name: `Oblivion Stone`,
   types: [CT.Artifact],
   mc: '3',
   category: LC.Disk,
+  tags: [
+    LT.DestroysNonLand,
+  ],
 },
 {
   name: `Phyrexian Scriptures`,
   types: [CT.Enchantment],
+  subtypes: ['Saga'],
   mc: '4',
   category: LC.Disk,
   notes: [`Only hits non-artifact creatures`],
   tags: [
     LT.WantsBounce,
-    LT.DestroysNonArtifacts,
-    LT.DestroysNonCreatures,
     LT.WantsCountersRemoved,
+    LT.DestroysOtherCreatures,
   ],
   combos: [TwoCardCombo(c => c.tags.has(LT.RemovesCountersInstant, LT.RemovesCountersSorcery))],
 },
@@ -64,7 +86,10 @@ export const LarryDraft: CardDraft[] = [
   mc: '2',
   category: LC.Disk,
   notes: [`Triggers on upkeep`, `Only hits creatures`],
-  tags: [LT.WantsBounce],
+  tags: [
+    LT.WantsBounce,
+    LT.DestroysCreatures,
+  ],
 },
 {
   name: `Scourglass`,
@@ -72,7 +97,7 @@ export const LarryDraft: CardDraft[] = [
   mc: '3WW',
   category: LC.Disk,
   notes: [`Triggers on upkeep`, `Only hits non-land, non-artifact`],
-  tags: [LT.DestroysNonArtifacts],
+  tags: [LT.DestroysNonArtifactNonLand],
 },
 {
   name: `Serenity`,
@@ -82,20 +107,44 @@ export const LarryDraft: CardDraft[] = [
   notes: [`Triggers on upkeep`, `Doesn't hit creatures`],
   tags: [
     LT.WantsBounce,
-    LT.DestroysArtifactEnchantment,
-    LT.DestroysOnlyArtifactEnchantment,
+    LT.DestroysArtifacts,
+    LT.DestroysEnchantments,
   ],
 },
 {
   name: `The Phasing of Zhalfir`,
   types: [CT.Enchantment],
+  subtypes: ['Saga'],
   mc: '4',
   category: LC.Disk,
   notes: [`Only hits creatures`],
   tags: [
     LT.WantsBounce,
     LT.WantsCountersRemovedInstant,
+    LT.DestroysCreatures,
   ],
+},
+{
+  name: `The Night of the Doctor`,
+  types: [CT.Enchantment],
+  subtypes: ['Saga'],
+  mc: '4WW',
+  category: LC.Disk,
+  tags: [
+    LT.WantsCountersRemoved,
+    LT.DestroysCreatures,
+  ],
+  combos: [TwoCardCombo(c =>
+    c.tags.has(
+      LT.RemovesCountersInstant,
+      LT.RemovesCountersSorcery,
+      LT.ReanimatesEnchantments,
+      LT.Bounces,
+    ) && (
+      c.types.all(CT.Legendary, CT.Creature) ||
+      !c.types.has(CT.Creature)
+    )
+  )]
 },
 
 // Bounce
@@ -111,7 +160,12 @@ export const LarryDraft: CardDraft[] = [
   types: [CT.Creature, CT.Legendary],
   mc: '4U',
   category: LC.Bouncer,
-  tags: [LT.Bounces],
+  tags: [
+    LT.Bounces,
+    LT.WantsFalseDeath,
+    LT.WantsIndestructible,
+    LT.WantsPhasing,
+  ],
   combos: [{
     relationship: LE.CombosWith,
     isMatch: other => other.types.has(CT.Snow),
@@ -122,7 +176,12 @@ export const LarryDraft: CardDraft[] = [
   types: [CT.Creature],
   mc: 'UU',
   category: LC.Bouncer,
-  tags: [LT.Bounces],
+  tags: [
+    LT.Bounces,
+    LT.WantsFalseDeath,
+    LT.WantsIndestructible,
+    LT.WantsPhasing,
+  ],
 },
 
 // Protection
@@ -201,6 +260,9 @@ export const LarryDraft: CardDraft[] = [
     LT.ReanimatesArtifacts,
     LT.ReanimatesEnchantments,
     LT.ReanimatesCreatures,
+    LT.WantsFalseDeath,
+    LT.WantsIndestructible,
+    LT.WantsPhasing,
   ],
 },
 {
@@ -209,7 +271,12 @@ export const LarryDraft: CardDraft[] = [
   mc: '2U',
   category: LC.Recursion,
   notes: [`Activates via tapping`],
-  tags: [LT.ReanimatesArtifacts],
+  tags: [
+    LT.ReanimatesArtifacts,
+    LT.WantsFalseDeath,
+    LT.WantsIndestructible,
+    LT.WantsPhasing,
+  ],
 },
 {
   name: `Hanna, Ship's Navigator`,
@@ -217,7 +284,13 @@ export const LarryDraft: CardDraft[] = [
   mc: '1WU',
   category: LC.Recursion,
   notes: [`Activates via tapping`],
-  tags: [LT.ReanimatesArtifacts, LT.ReanimatesEnchantments],
+  tags: [
+    LT.ReanimatesArtifacts,
+    LT.ReanimatesEnchantments,
+    LT.WantsFalseDeath,
+    LT.WantsIndestructible,
+    LT.WantsPhasing,
+  ],
 },
 {
   name: `Ironsoul Enforcer`,
@@ -225,7 +298,12 @@ export const LarryDraft: CardDraft[] = [
   mc: '4W',
   category: LC.Recursion,
   notes: [`Acivates via attacking`],
-  tags: [LT.ReanimatesArtifacts],
+  tags: [
+    LT.ReanimatesArtifacts,
+    LT.WantsFalseDeath,
+    LT.WantsIndestructible,
+    LT.WantsPhasing,
+  ],
 },
 {
   name: `Lurrus of the Dream-Den`,
@@ -233,7 +311,12 @@ export const LarryDraft: CardDraft[] = [
   mc: '1WW',
   category: LC.Recursion,
   notes: [`Activates once per turn`],
-  tags: [LT.ReanimatesNonland2orLess],
+  tags: [
+    LT.ReanimatesNonland2orLess,
+    LT.WantsFalseDeath,
+    LT.WantsIndestructible,
+    LT.WantsPhasing,
+  ],
 },
 {
   name: `Silent Sentinel`,
@@ -241,7 +324,12 @@ export const LarryDraft: CardDraft[] = [
   mc: '5WW',
   category: LC.Recursion,
   notes: [`Acivates via attacking`],
-  tags: [LT.ReanimatesEnchantments],
+  tags: [
+    LT.ReanimatesEnchantments,
+    LT.WantsFalseDeath,
+    LT.WantsIndestructible,
+    LT.WantsPhasing,
+  ],
 },
 {
   name: `Sun Titan`,
@@ -249,7 +337,12 @@ export const LarryDraft: CardDraft[] = [
   mc: '4WW',
   category: LC.Recursion,
   notes: [`Acivates via attacking`],
-  tags: [LT.Reanimates3orLess],
+  tags: [
+    LT.Reanimates3orLess,
+    LT.WantsFalseDeath,
+    LT.WantsIndestructible,
+    LT.WantsPhasing,
+  ],
 },
 {
   name: `Guardian Scalelord`,
@@ -257,7 +350,12 @@ export const LarryDraft: CardDraft[] = [
   mc: '4W',
   category: LC.Recursion,
   notes: [`Acivates via attacking`],
-  tags: [LT.ReanimatesNonland4orLess],
+  tags: [
+    LT.ReanimatesNonland4orLess,
+    LT.WantsFalseDeath,
+    LT.WantsIndestructible,
+    LT.WantsPhasing,
+  ],
 },
 {
   name: `Treasury Thrull`,
@@ -269,6 +367,9 @@ export const LarryDraft: CardDraft[] = [
     LT.ReanimatesArtifacts,
     LT.ReanimatesEnchantments,
     LT.ReanimatesCreatures,
+    LT.WantsFalseDeath,
+    LT.WantsIndestructible,
+    LT.WantsPhasing,
   ],
 },
 {
@@ -282,6 +383,7 @@ export const LarryDraft: CardDraft[] = [
     LT.ReanimatesEnchantments,
     LT.ReanimatesCreatures,
     LT.WantsCountersRemoved,
+    LT.WantsFalseDeath,
   ],
   combos: [
     {
@@ -296,7 +398,12 @@ export const LarryDraft: CardDraft[] = [
   types: [CT.Creature, CT.Legendary],
   mc: '2W',
   category: LC.Recursion,
-  tags: [LT.ReanimatesEnchantments],
+  tags: [
+    LT.ReanimatesEnchantments,
+    LT.WantsFalseDeath,
+    LT.WantsIndestructible,
+    LT.WantsPhasing,
+  ],
 },
 
 // Other
@@ -332,14 +439,14 @@ export const LarryDraft: CardDraft[] = [
   types: [CT.Enchantment],
   mc: '3WU',
   category: LC.Other,
-  combos: [TwoCardCombo(c => c.tags.has(LT.DestroysArtifactEnchantment))],
+  combos: [TwoCardCombo(c => c.tags.has(LT.DestroysEnchantments))],
 },
 {
   name: `Mycosynth Lattice`,
   types: [CT.Artifact],
   mc: '6',
   category: LC.Other,
-  combos: [TwoCardCombo(c => c.tags.has(LT.DestroysArtifactEnchantment))],
+  combos: [TwoCardCombo(c => c.tags.has(LT.DestroysArtifacts))],
 },
 
 // Speculative
@@ -355,12 +462,23 @@ export const LarryDraft: CardDraft[] = [
   types: [CT.Enchantment],
   mc: '2U',
   category: LC.Draw,
+  combos: [{
+    relationship: LE.CombosWith,
+    isMatch: other => other.tags.has(
+      LT.DestroysEnchantments,
+      LT.DestroysNonArtifactNonLand,
+      LT.DestroysNonLand,
+    ),
+  }]
 },
 {
   name: `Shrine of Piercing Vision`,
   types: [CT.Artifact],
   mc: '2',
   category: LC.Draw,
+  tags: [
+    LT.SacrificesSelf,
+  ],
 },
 {
   name: `Baleful Strix`,
@@ -381,59 +499,57 @@ export const LarryDraft: CardDraft[] = [
   types: [CT.Creature],
   mc: '1W',
   category: LC.Ramp,
-  tags: [LT.RemovesCountersInstant],
+  tags: [
+    LT.RemovesCountersInstant,
+    LT.WantsFalseDeath,
+    LT.WantsIndestructible,
+    LT.WantsPhasing,
+  ],
 },
 {
   name: `Nihil Spellbomb`,
   types: [CT.Artifact],
   mc: '1',
   category: LC.Draw,
+  tags: [
+    LT.SacrificesSelf,
+  ],
 },
 {
   name: `Soul-Guide Lantern`,
   types: [CT.Artifact],
   mc: '1',
   category: LC.Draw,
+  tags: [
+    LT.SacrificesSelf,
+  ],
 },
 {
   name: `Stone of Erech`,
   types: [CT.Artifact, CT.Legendary],
   mc: '1',
   category: LC.Draw,
-},
-{
-  name: `The Night of the Doctor`,
-  types: [CT.Enchantment],
-  mc: '4WW',
-  category: LC.Disk,
   tags: [
-    LT.WantsCountersRemoved,
+    LT.SacrificesSelf,
   ],
-  combos: [TwoCardCombo(c =>
-    c.tags.has(
-      LT.RemovesCountersInstant,
-      LT.RemovesCountersSorcery,
-      LT.ReanimatesEnchantments,
-      LT.Bounces,
-    ) && (
-      c.types.all(CT.Legendary, CT.Creature) ||
-      !c.types.has(CT.Creature)
-    )
-  )]
 },
 {
   name: `Navigation Orb`,
   types: [CT.Artifact],
   mc: '3',
   category: LC.Ramp,
-  tags: [],
+  tags: [
+    LT.SacrificesSelf,
+  ],
 },
 {
   name: `Expedition Map`,
   types: [CT.Artifact],
   mc: '1',
   category: LC.Ramp,
-  tags: [],
+  tags: [
+    LT.SacrificesSelf,
+  ],
 },
 {
   name: `Burnished Hart`,
@@ -441,6 +557,7 @@ export const LarryDraft: CardDraft[] = [
   mc: '3',
   category: LC.Ramp,
   tags: [
+    LT.SacrificesSelf,
     LT.WantsFalseDeath,
   ],
 },
@@ -456,28 +573,36 @@ export const LarryDraft: CardDraft[] = [
   types: [CT.Artifact],
   mc: '1U',
   category: LC.Draw,
-  tags: [],
+  tags: [
+    LT.SacrificesSelf,
+  ],
 },
 {
   name: `Mnemonic Sphere`,
   types: [CT.Artifact],
   mc: '1U',
   category: LC.Draw,
-  tags: [],
+  tags: [
+    LT.SacrificesSelf,
+  ],
 },
 {
   name: `Font of Fortunes`,
   types: [CT.Enchantment],
   mc: '1U',
   category: LC.Draw,
-  tags: [],
+  tags: [
+    LT.SacrificesSelf,
+  ],
 },
 {
   name: `Omen of the Sea`,
   types: [CT.Enchantment],
   mc: '1U',
   category: LC.Draw,
-  tags: [],
+  tags: [
+    LT.SacrificesSelf,
+  ],
 },
 {
   name: `Mystic Remora`,
@@ -485,6 +610,7 @@ export const LarryDraft: CardDraft[] = [
   mc: 'U',
   category: LC.Draw,
   tags: [
+    LT.SacrificesSelf,
     LT.WantsCountersRemoved,
   ],
 },

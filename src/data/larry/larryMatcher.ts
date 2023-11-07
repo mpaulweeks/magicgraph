@@ -9,40 +9,40 @@ export function TwoCardCombo(cb: (other: Cardlike) => boolean): CardCombo {
 }
 
 // matcher helpers
-const bounceLoop: MatchFunction = (a,b) =>
-  (a.tags.has(LT.Bounces) && b.tags.has(LT.WantsBounce)) ||
-  (a.tags.has(LT.BouncesWizards) &&
+const bounceLoop: MatchFunction = (a,b) => [
+  a.tags.has(LT.Bounces) && b.tags.has(LT.WantsBounce),
+  a.tags.has(LT.BouncesWizards) &&
     b.tags.has(LT.WantsBounce) &&
-    b.subtypes.has('Wizard'));
-const matchRecursion: MatchFunction = (a,b) =>
-  (a.tags.has(LT.ReanimatesArtifacts) &&
-    b.types.has(CT.Artifact)) ||
-  (a.tags.has(LT.ReanimatesEnchantments) &&
-    b.types.has(CT.Enchantment)) ||
-  (a.tags.has(LT.ReanimatesCreatures) &&
-    b.types.has(CT.Creature)) ||
-  (a.tags.has(LT.ReanimatesNonland2orLess) &&
-    b.mv <= 2 &&
-    !b.types.has(CT.Land)) ||
-  (a.tags.has(LT.ReanimatesNonland4orLess) &&
-    b.mv <= 4 &&
-    !b.types.has(CT.Land)) ||
-  (a.tags.has(LT.Reanimates3orLess) && b.mv <= 3);
-const survivesDisk: MatchFunction = (a,b) =>
-  a.types.equals(CT.Land) ||
-  a.types.equals(CT.Instant) ||
-  (a.types.has(CT.Artifact) &&
-    b.tags.has(LT.DestroysNonArtifacts)) ||
-  (a.types.has(CT.Creature) &&
-    b.tags.has(LT.DestroysNonCreatures)) ||
-  (!a.types.has(CT.Artifact, CT.Enchantment) &&
-    b.tags.has(LT.DestroysOnlyArtifactEnchantment));
-const protects: MatchFunction = (a,b) =>
-  a.tags.has(
-    LT.GivesFalseDeath,
-    LT.GivesIndestructible,
-    LT.GivesPhasing,
-  ) && b.types.has(CT.Creature);
+    b.subtypes.has('Wizard'),
+].some(b => b);
+
+const matchRecursion: MatchFunction = (recursion, target) => [
+  target.category === LarryCategory.Disk,
+  target.subtypes.has('Saga'),
+  target.tags.has(LT.SacrificesSelf),
+].some(b => b) && [
+  recursion.tags.has(LT.ReanimatesArtifacts) && target.types.has(CT.Artifact),
+  recursion.tags.has(LT.ReanimatesEnchantments) && target.types.has(CT.Enchantment),
+  recursion.tags.has(LT.ReanimatesCreatures) && target.types.has(CT.Creature),
+  recursion.tags.has(LT.ReanimatesNonland2orLess) && target.mv <= 2 && !target.types.has(CT.Land),
+  recursion.tags.has(LT.ReanimatesNonland4orLess) && target.mv <= 4 && !target.types.has(CT.Land),
+  recursion.tags.has(LT.Reanimates3orLess) && target.mv <= 3,
+].some(b => b);
+
+const hitByDisk: MatchFunction = (perm, disk) => [
+  perm.types.has(CT.Artifact) && disk.tags.has(LT.DestroysArtifacts),
+  perm.types.has(CT.Enchantment) && disk.tags.has(LT.DestroysEnchantments),
+  perm.types.has(CT.Creature) && disk.tags.has(LT.DestroysCreatures),
+  !perm.types.has(CT.Artifact, CT.Land) && disk.tags.has(LT.DestroysNonArtifactNonLand),
+  !perm.types.has(CT.Land) && disk.tags.has(LT.DestroysNonLand),
+].some(b => b);
+const survivesDisk: MatchFunction = (recursion, disk) => !hitByDisk(recursion, disk);
+
+const protects: MatchFunction = (a,b) => b.types.has(CT.Creature) && [
+  a.tags.has(LT.GivesPhasing) && b.tags.has(LT.WantsPhasing),
+  a.tags.has(LT.GivesIndestructible) && b.tags.has(LT.WantsIndestructible),
+  a.tags.has(LT.GivesFalseDeath) && b.tags.has(LT.WantsFalseDeath),
+].some(b => b);
 
 // ordering matters, only looks for first match
 export const LarryMatchers: Matcher[] = [
