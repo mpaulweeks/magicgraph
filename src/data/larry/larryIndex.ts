@@ -75,6 +75,7 @@ Volrath's Stronghold
 Angel of the Dire Hour
 Cyclone Summoner
 Dread Cacodemon
+Myojin of Cleansing Fire
 Meticulous Excavation
 `);
 

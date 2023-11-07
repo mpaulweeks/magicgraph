@@ -192,9 +192,19 @@ export const LarryDraft: CardDraft[] = [
   ],
 },
 {
+  name: `Myojin of Cleansing Fire`,
+  types: [CT.Creature, CT.Legendary],
+  mc: '5WWW',
+  category: LC.Disk,
+  tags: [
+    LT.HasCastTrigger,
+    LT.DestroysCreatures,
+  ],
+},
+{
   name: `Angel of the Dire Hour`,
   types: [CT.Creature],
-  mc: '7',
+  mc: '5WW',
   category: LC.Disk,
   tags: [
     LT.HasCastTrigger,
@@ -204,7 +214,8 @@ export const LarryDraft: CardDraft[] = [
 {
   name: `Cyclone Summoner`,
   types: [CT.Creature],
-  mc: '7',
+  subtypes: ['Wizard'],
+  mc: '5UU',
   category: LC.Disk,
   tags: [
     LT.BouncesNonWizards,
@@ -220,7 +231,7 @@ export const LarryDraft: CardDraft[] = [
 {
   name: `Dread Cacodemon`,
   types: [CT.Creature],
-  mc: '7',
+  mc: '7BBB',
   category: LC.Disk,
   tags: [
     LT.HasCastTrigger,
