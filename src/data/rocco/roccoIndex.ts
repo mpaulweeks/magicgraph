@@ -91,14 +91,15 @@ Shinka, the Bloodsoaked Keep
 `);
 
 const pending = parseList(`
+Crested Sunmare
 Rhonas the Indomitable
 Captain Sisay
+Weathered Wayfarer
 Sokenzan, Crucible of Defiance
 Minas Tirith
 `);
 
 const rejected = parseList(`
-Crested Sunmare
 Cartographer's Hawk
 Khârn the Betrayer
 Etali, Primal Storm

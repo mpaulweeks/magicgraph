@@ -56,7 +56,11 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [{
   name: `Bow of Nylea`,
   mc: '4',
   types: [CT.Artifact, CT.Enchantment, CT.Legendary],
-  tags: [RT.GivesDeathtouchWhileAttacking, RT.GivesPlusCounters],
+  tags: [
+    RT.GivesDeathtouchWhileAttacking,
+    RT.GivesPlusCounters,
+    RT.GainsLife,
+  ],
 },
 {
   name: `Sword of Kaldra`,

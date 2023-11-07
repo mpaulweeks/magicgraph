@@ -58,6 +58,11 @@ export const RocMatchers: Matcher[] = [{
 }, {
   relationship: RE.Tutors,
   isMatch: (a,b) =>
+    a.tags.has(RT.TutorsLand) &&
+    b.types.has(CT.Land),
+}, {
+  relationship: RE.Tutors,
+  isMatch: (a,b) =>
     a.tags.has(RT.TutorsLegends) &&
     b.types.has(CT.Legendary),
 }, {
@@ -120,4 +125,9 @@ export const RocMatchers: Matcher[] = [{
   isMatch: (a,b) =>
     a.tags.has(RT.GivesPlusCounters) &&
     b.tags.has(RT.WantsPlusCounters, RT.WantsPower),
+}, {
+  relationship: RE.CombosWith,
+  isMatch: (a,b) =>
+    a.tags.has(RT.GivesLifelink, RT.GainsLife) &&
+    b.tags.has(RT.LifegainTrigger),
 }];

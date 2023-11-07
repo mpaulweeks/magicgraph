@@ -135,7 +135,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Crested Sunmare`,
   subtypes: ['Horse'],
   mc: '3WW',
-  tags: [RT.WantsLifelink, RT.WantsMassTribal],
+  tags: [RT.WantsMassTribal, RT.LifegainTrigger],
 },
 {
   name: `Forgotten Ancient`,
@@ -261,7 +261,13 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Wolverine Riders`,
   subtypes: ['Elf', 'Warrior'],
   mc: '4GG',
-  tags: [RT.MakesTokens, RT.MakesElfTokens, RT.MakesSmallTokens, RT.WantsConspiracy],
+  tags: [
+    RT.MakesTokens,
+    RT.MakesElfTokens,
+    RT.MakesSmallTokens,
+    RT.WantsConspiracy,
+    RT.GainsLife,
+  ],
 },
 {
   name: `Jaya Ballard, Task Mage`,
@@ -310,7 +316,10 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Gala Greeters`,
   subtypes: ['Elf', 'Druid'],
   mc: '1G',
-  tags: [RT.WantsCreatureETBs],
+  tags: [
+    RT.WantsCreatureETBs,
+    RT.GainsLife,
+  ],
 },
 {
   name: `Heronblade Elite`,
@@ -484,5 +493,11 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   subtypes: ['Human', 'Soldier'],
   mc: '2WG',
   tags: [RT.TutorsLegends],
+},
+{
+  name: `Weathered Wayfarer`,
+  subtypes: ['Human', 'Nomad', 'Cleric'],
+  mc: 'W',
+  tags: [RT.TutorsLand],
 },
 ];

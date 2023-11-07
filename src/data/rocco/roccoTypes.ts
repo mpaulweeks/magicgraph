@@ -57,9 +57,13 @@ export enum RoccoTag {
   WantsTokens = 'WantsTokens',
   WantsGoWide = 'WantsGoWide',
 
+  LifegainTrigger = 'LifegainTrigger',
+  GainsLife = 'GainsLife',
+
   HasTapAbility = 'HasTapAbility',
   UntapsCreature = 'UntapsCreature',
   TutorsEquipment = 'TutorsEquipment',
+  TutorsLand = 'TutorsLand',
   TutorsLegends = 'TutorsLegends',
   AttackTrigger = 'AttackTrigger',
 }
