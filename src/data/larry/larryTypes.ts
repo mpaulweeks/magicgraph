@@ -61,6 +61,7 @@ export enum LarryTag {
 export enum LarryEdge {
   TwoCardLock = '2-Card Lock!',
   CombosWith = 'Combos With',
+  SynergyWith = 'Synergy With',
 
   SurvivesWith = 'Survives with',
   LoopsETBWith = 'Loops ETB with',
@@ -88,6 +89,7 @@ export const OrderedEdges: string[] = [
   LarryEdge.TwoCardLock,
 
   LarryEdge.CombosWith,
+  LarryEdge.SynergyWith,
 
   LarryEdge.BounceLoops,
   LarryEdge.BounceLoopedBy,

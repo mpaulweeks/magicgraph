@@ -106,6 +106,17 @@ export const LarryDraft: CardDraft[] = [
   ],
 },
 {
+  name: `The Moment`,
+  types: [CT.Artifact, CT.Legendary],
+  mc: '2',
+  category: LC.Disk,
+  tags: [
+    LT.WantsBounce,
+    LT.DestroysNonLand,
+    LT.SacrificesSelf,
+  ],
+},
+{
   name: `Phyrexian Scriptures`,
   types: [CT.Enchantment],
   subtypes: ['Saga'],
@@ -200,7 +211,7 @@ export const LarryDraft: CardDraft[] = [
     LT.WantsProtection,
   ],
   combos: [{
-    relationship: LE.CombosWith,
+    relationship: LE.SynergyWith,
     isMatch: other => other.types.has(CT.Snow),
   }],
 },
@@ -475,8 +486,12 @@ export const LarryDraft: CardDraft[] = [
   types: [CT.Enchantment],
   mc: '2U',
   category: LC.Draw,
+  notes: ['Card advantage when destroyed', 'Mill win-con when bounced'],
+  tags: [
+    LT.WantsBounce,
+  ],
   combos: [{
-    relationship: LE.CombosWith,
+    relationship: LE.SynergyWith,
     isMatch: other => other.tags.has(
       LT.DestroysEnchantments,
       LT.DestroysNonArtifactNonLand,

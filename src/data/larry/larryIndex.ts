@@ -64,6 +64,7 @@ One Ring to Rule Them All
 const pending = parseList(`
 The Phasing of Zhalfir
 Invasion of Fiora // Marchesa, Resolute Monarch
+The Moment
 Volrath's Stronghold
 `);
 
