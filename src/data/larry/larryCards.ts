@@ -143,6 +143,9 @@ export const LarryDraft: CardDraft[] = [
     LT.WantsCountersRemovedInstant,
     LT.DestroysCreatures,
   ],
+  combos: [
+    TwoCardCombo(c => c.tags.has(LT.ReanimatesEnchantments, LT.ReanimatesNonland4orLess)),
+  ],
 },
 {
   name: `The Night of the Doctor`,
@@ -151,20 +154,21 @@ export const LarryDraft: CardDraft[] = [
   mc: '4WW',
   category: LC.Disk,
   tags: [
+    LT.WantsBounce,
     LT.WantsCountersRemoved,
     LT.DestroysCreatures,
   ],
-  combos: [TwoCardCombo(c =>
-    c.tags.has(
-      LT.RemovesCountersInstant,
-      LT.RemovesCountersSorcery,
-      LT.ReanimatesEnchantments,
-      LT.Bounces,
-    ) && (
-      c.types.all(CT.Legendary, CT.Creature) ||
-      !c.types.has(CT.Creature)
-    )
-  )]
+  combos: [
+    TwoCardCombo(c =>
+      !c.types.has(CT.Creature) &&
+      c.tags.has(LT.RemovesCountersInstant, LT.RemovesCountersSorcery)),
+    TwoCardCombo(c =>
+      c.tags.has(LT.ReanimatesEnchantments) && (
+        c.types.all(CT.Legendary, CT.Creature) ||
+        !c.types.has(CT.Creature)
+      ),
+    ),
+  ],
 },
 {
   name: `Invasion of Fiora // Marchesa, Resolute Monarch`,

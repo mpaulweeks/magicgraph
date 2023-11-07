@@ -62,6 +62,7 @@ One Ring to Rule Them All
 `);
 
 const pending = parseList(`
+The Phasing of Zhalfir
 Invasion of Fiora // Marchesa, Resolute Monarch
 Volrath's Stronghold
 `);
@@ -76,7 +77,6 @@ Norika Yamazaki, the Poet
 Shield of Kaldra
 Twilight Shepherd
 Hanna, Ship's Navigator
-The Phasing of Zhalfir
 `);
 
 const collated = collate({
