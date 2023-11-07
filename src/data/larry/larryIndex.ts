@@ -31,7 +31,6 @@ Riptide Laboratory
 Robe of Stars
 Scourglass
 Serenity
-Silent Sentinel
 Sun Titan
 Treasury Thrull
 Vanishing
@@ -59,15 +58,16 @@ Mnemonic Sphere
 Font of Fortunes
 Omen of the Sea
 Mystic Remora
+One Ring to Rule Them All
 `);
 
 const pending = parseList(`
 Invasion of Fiora // Marchesa, Resolute Monarch
-One Ring to Rule Them All
 Volrath's Stronghold
 `);
 
 const rejected = parseList(`
+Silent Sentinel
 Capsize
 Emeria Shepherd
 Enchanted Evening
