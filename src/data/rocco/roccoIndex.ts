@@ -83,11 +83,14 @@ Magus of the Disk
 Primeval Herald
 Bane of Progress
 Nullmage Advocate
-Angelic Skirmisher
 
 Okina, Temple to the Grandfathers
 Eiganjo Castle
 Shinka, the Bloodsoaked Keep
+`);
+
+const cuts = parseList(`
+Angelic Skirmisher
 `);
 
 const pending = parseList(`
@@ -136,8 +139,8 @@ const allCards: CardDraft[] = [
 
 const collated = collate({
   current,
+  cuts,
   pending,
-  cuts: [],
   rejected,
   cards: allCards,
 });
