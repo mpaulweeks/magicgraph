@@ -4,7 +4,7 @@ export enum LarryCategory {
   Bouncer = 'Bouncer',
   Protection = 'Protection',
   Draw = 'Draw',
-  Ramp = 'Ramp',
+  Mana = 'Mana',
   Other = 'Other',
 }
 
@@ -14,16 +14,21 @@ export const CategoryColorMap = {
   [LarryCategory.Bouncer]: 'lightblue',
   [LarryCategory.Protection]: 'khaki',
   [LarryCategory.Draw]: 'lightgrey',
-  [LarryCategory.Ramp]: 'lightgrey',
+  [LarryCategory.Mana]: 'lightgrey',
   [LarryCategory.Other]: 'lightgrey',
 };
 
 export enum LarryTag {
   SacrificesSelf = 'Sacrifices Self',
 
+  TutorsLand = 'Tutors Land',
+
   Bounces = 'Bounces',
+  BouncesNonWizards = 'Bounces Non Wizards',
   WantsBounce = 'Wants Bounce',
 
+  HasETB = 'Has ETB',
+  HasCastTrigger = 'Has Cast Trigger',
   HasPhasing = 'Has Phasing',
   HasIndestructible = 'Has Indestructible',
   HasFalseDeath = 'Has FalseDeath',
@@ -43,6 +48,8 @@ export enum LarryTag {
   RemovesCountersInstant = 'Removes Counters Instant',
   BouncesWizards = 'Bounces Wizards',
 
+  ReanimatesToBattlefield = 'Reanimated To Battlefield',
+  ReanimatesToHand = 'Reanimated To Hand',
   ReanimatesArtifacts = 'Reanimates Artifacts',
   ReanimatesEnchantments = 'Reanimates Enchantments',
   ReanimatesCreatures = 'Reanimates Creatures',
@@ -62,6 +69,7 @@ export enum LarryEdge {
   TwoCardLock = '2-Card Lock!',
   CombosWith = 'Combos With',
   SynergyWith = 'Synergy With',
+  Tutors = 'Tutors',
 
   SurvivesWith = 'Survives with',
   LoopsETBWith = 'Loops ETB with',
@@ -87,6 +95,7 @@ export const LarryInverseEdge = {
 
 export const OrderedEdges: string[] = [
   LarryEdge.TwoCardLock,
+  LarryEdge.Tutors,
 
   LarryEdge.CombosWith,
   LarryEdge.SynergyWith,

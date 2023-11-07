@@ -187,8 +187,44 @@ export const LarryDraft: CardDraft[] = [
   mc: '4BB',
   category: LC.Disk,
   tags: [
-    LT.WantsBounce,
+    LT.HasETB,
     LT.DestroysCreatures,
+  ],
+},
+{
+  name: `Angel of the Dire Hour`,
+  types: [CT.Creature],
+  mc: '7',
+  category: LC.Disk,
+  tags: [
+    LT.HasCastTrigger,
+    LT.DestroysOtherCreatures,
+  ],
+},
+{
+  name: `Cyclone Summoner`,
+  types: [CT.Creature],
+  mc: '7',
+  category: LC.Disk,
+  tags: [
+    LT.BouncesNonWizards,
+    LT.HasCastTrigger,
+  ],
+  combos: [
+    TwoCardCombo(o =>
+      o.tags.has(LT.Bounces) &&
+      o.subtypes.has('Wizard')
+    ),
+  ],
+},
+{
+  name: `Dread Cacodemon`,
+  types: [CT.Creature],
+  mc: '7',
+  category: LC.Disk,
+  tags: [
+    LT.HasCastTrigger,
+    LT.DestroysOtherCreatures,
   ],
 },
 
@@ -224,6 +260,26 @@ export const LarryDraft: CardDraft[] = [
   tags: [
     LT.Bounces,
     LT.WantsProtection,
+  ],
+},
+{
+  name: `Temporal Adept`,
+  types: [CT.Creature],
+  subtypes: ['Wizard'],
+  mc: '1UU',
+  category: LC.Bouncer,
+  tags: [
+    LT.Bounces,
+    LT.WantsProtection,
+  ],
+},
+{
+  name: `Meticulous Excavation`,
+  types: [CT.Enchantment],
+  mc: 'W',
+  category: LC.Bouncer,
+  tags: [
+    LT.Bounces,
   ],
 },
 
@@ -294,12 +350,34 @@ export const LarryDraft: CardDraft[] = [
 
 // Recursion
 {
+  name: `Hall of Heliod's Generosity`,
+  types: [CT.Land, CT.Legendary],
+  category: LC.Recursion,
+  notes: [`Requires card draw to not softlock self`],
+  tags: [
+    LT.ReanimatesToHand,
+    LT.ReanimatesEnchantments,
+  ],
+},
+{
+  name: `Academy Ruins`,
+  types: [CT.Land, CT.Legendary],
+  category: LC.Recursion,
+  notes: [`Requires card draw to not softlock self`],
+  tags: [
+    LT.ReanimatesToHand,
+    LT.ReanimatesArtifacts,
+  ],
+},
+{
   name: `Emeria Shepherd`,
   types: [CT.Creature],
   mc: '5WW',
   category: LC.Recursion,
   notes: [`Activates via Landfall (Loop Bounceland)`],
   tags: [
+    LT.ReanimatesToBattlefield,
+    LT.ReanimatesToHand,
     LT.ReanimatesArtifacts,
     LT.ReanimatesEnchantments,
     LT.ReanimatesCreatures,
@@ -314,6 +392,7 @@ export const LarryDraft: CardDraft[] = [
   category: LC.Recursion,
   notes: [`Activates via tapping`],
   tags: [
+    LT.ReanimatesToBattlefield,
     LT.ReanimatesArtifacts,
     LT.WantsProtection,
   ],
@@ -325,6 +404,7 @@ export const LarryDraft: CardDraft[] = [
   category: LC.Recursion,
   notes: [`Activates via tapping`],
   tags: [
+    LT.ReanimatesToHand,
     LT.ReanimatesArtifacts,
     LT.ReanimatesEnchantments,
     LT.WantsProtection,
@@ -337,6 +417,7 @@ export const LarryDraft: CardDraft[] = [
   category: LC.Recursion,
   notes: [`Acivates via attacking`],
   tags: [
+    LT.ReanimatesToBattlefield,
     LT.ReanimatesArtifacts,
     LT.WantsProtection,
   ],
@@ -348,6 +429,7 @@ export const LarryDraft: CardDraft[] = [
   category: LC.Recursion,
   notes: [`Activates once per turn`],
   tags: [
+    LT.ReanimatesToBattlefield,
     LT.ReanimatesNonland2orLess,
     LT.WantsProtection,
   ],
@@ -359,6 +441,7 @@ export const LarryDraft: CardDraft[] = [
   category: LC.Recursion,
   notes: [`Acivates via attacking`],
   tags: [
+    LT.ReanimatesToBattlefield,
     LT.ReanimatesEnchantments,
     LT.WantsProtection,
   ],
@@ -370,6 +453,7 @@ export const LarryDraft: CardDraft[] = [
   category: LC.Recursion,
   notes: [`Acivates via attacking`],
   tags: [
+    LT.ReanimatesToBattlefield,
     LT.Reanimates3orLess,
     LT.WantsProtection,
   ],
@@ -381,6 +465,7 @@ export const LarryDraft: CardDraft[] = [
   category: LC.Recursion,
   notes: [`Acivates via attacking`],
   tags: [
+    LT.ReanimatesToBattlefield,
     LT.ReanimatesNonland4orLess,
     LT.WantsProtection,
   ],
@@ -392,6 +477,7 @@ export const LarryDraft: CardDraft[] = [
   category: LC.Recursion,
   notes: [`Acivates via attacking`],
   tags: [
+    LT.ReanimatesToHand,
     LT.ReanimatesArtifacts,
     LT.ReanimatesEnchantments,
     LT.ReanimatesCreatures,
@@ -405,11 +491,12 @@ export const LarryDraft: CardDraft[] = [
   category: LC.Recursion,
   notes: ['Activates by ETB'],
   tags: [
+    LT.ReanimatesToHand,
     LT.ReanimatesArtifacts,
     LT.ReanimatesEnchantments,
     LT.ReanimatesCreatures,
     LT.WantsCountersRemoved,
-    LT.WantsFalseDeath,
+    LT.HasETB,
   ],
   combos: [
     {
@@ -437,20 +524,6 @@ export const LarryDraft: CardDraft[] = [
   category: LC.Other,
   tags: [LT.RemovesCountersSorcery],
   notes: [`Sorcery speed limits combos`],
-},
-{
-  name: `Hall of Heliod's Generosity`,
-  types: [CT.Land, CT.Legendary],
-  category: LC.Recursion,
-  notes: [`Requires card draw to not softlock self`],
-  tags: [LT.ReanimatesEnchantments],
-},
-{
-  name: `Academy Ruins`,
-  types: [CT.Land, CT.Legendary],
-  category: LC.Recursion,
-  notes: [`Requires card draw to not softlock self`],
-  tags: [LT.ReanimatesArtifacts],
 },
 {
   name: `Riptide Laboratory`,
@@ -488,7 +561,7 @@ export const LarryDraft: CardDraft[] = [
   category: LC.Draw,
   notes: ['Card advantage when destroyed', 'Mill win-con when bounced'],
   tags: [
-    LT.WantsBounce,
+    LT.HasETB,
   ],
   combos: [{
     relationship: LE.SynergyWith,
@@ -513,7 +586,7 @@ export const LarryDraft: CardDraft[] = [
   types: [CT.Artifact, CT.Creature],
   mc: 'UB',
   category: LC.Draw,
-  tags: [LT.WantsBounce],
+  tags: [LT.HasETB],
 },
 {
   name: `The One Ring`,
@@ -521,16 +594,6 @@ export const LarryDraft: CardDraft[] = [
   mc: '4',
   category: LC.Draw,
   combos: [TwoCardCombo(o => o.tags.has(LT.Bounces))],
-},
-{
-  name: `Scholar of New Horizons`,
-  types: [CT.Creature],
-  mc: '1W',
-  category: LC.Ramp,
-  tags: [
-    LT.RemovesCountersInstant,
-    LT.WantsProtection,
-  ],
 },
 {
   name: `Nihil Spellbomb`,
@@ -559,11 +622,22 @@ export const LarryDraft: CardDraft[] = [
     LT.SacrificesSelf,
   ],
 },
+
+{
+  name: `Scholar of New Horizons`,
+  types: [CT.Creature],
+  mc: '1W',
+  category: LC.Mana,
+  tags: [
+    LT.RemovesCountersInstant,
+    LT.WantsProtection,
+  ],
+},
 {
   name: `Navigation Orb`,
   types: [CT.Artifact],
   mc: '3',
-  category: LC.Ramp,
+  category: LC.Mana,
   tags: [
     LT.SacrificesSelf,
   ],
@@ -572,7 +646,7 @@ export const LarryDraft: CardDraft[] = [
   name: `Expedition Map`,
   types: [CT.Artifact],
   mc: '1',
-  category: LC.Ramp,
+  category: LC.Mana,
   tags: [
     LT.SacrificesSelf,
   ],
@@ -581,12 +655,46 @@ export const LarryDraft: CardDraft[] = [
   name: `Burnished Hart`,
   types: [CT.Artifact, CT.Creature],
   mc: '3',
-  category: LC.Ramp,
+  category: LC.Mana,
   tags: [
     LT.SacrificesSelf,
     LT.WantsFalseDeath,
   ],
 },
+{
+  name: `Weathered Wayfarer`,
+  types: [CT.Creature],
+  mc: 'W',
+  category: LC.Mana,
+  tags: [LT.TutorsLand],
+},
+{
+  name: `Skyclave Relic`,
+  types: [CT.Artifact],
+  mc: '3',
+  category: LC.Mana,
+  tags: [
+    LT.HasCastTrigger,
+    LT.HasIndestructible,
+  ],
+},
+{
+  name: `Solemn Simulacrum`,
+  types: [CT.Artifact, CT.Creature],
+  mc: '4',
+  category: LC.Mana,
+  tags: [
+    LT.HasETB,
+  ],
+},
+{
+  name: `Thaumatic Compass // Spires of Orazca`,
+  types: [CT.Artifact],
+  mc: '2',
+  category: LC.Mana,
+  tags: [],
+},
+
 {
   name: `Marit Lage's Slumber`,
   types: [CT.Enchantment, CT.Legendary, CT.Snow],

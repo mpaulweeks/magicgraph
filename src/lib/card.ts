@@ -22,7 +22,7 @@ export class CardImpl implements Cardlike {
 
   constructor(draft: CardDraft) {
     this.name = draft.name;
-    this.displayName = draft.nick ?? this.name;
+    this.displayName = draft.nick ?? this.name.split(' // ')[0];
     this.types = new Interset(draft.types);
     this.subtypes = new Interset(draft.subtypes ?? []);
     this.mc = draft.mc ?? '';

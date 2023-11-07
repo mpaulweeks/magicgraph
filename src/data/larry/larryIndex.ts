@@ -45,14 +45,20 @@ The Night of the Doctor
 
 Guardian Scalelord
 Mithril Coat
-Scholar of New Horizons
 Nihil Spellbomb
 Soul-Guide Lantern
 
-Marit Lage's Slumber
+
 Navigation Orb
 Expedition Map
 Burnished Hart
+Scholar of New Horizons
+Weathered Wayfarer
+Skyclave Relic
+Solemn Simulacrum
+Thaumatic Compass // Spires of Orazca
+
+Marit Lage's Slumber
 Courier's Capsule
 Mnemonic Sphere
 Font of Fortunes
@@ -66,9 +72,14 @@ The Phasing of Zhalfir
 Invasion of Fiora // Marchesa, Resolute Monarch
 The Moment
 Volrath's Stronghold
+Angel of the Dire Hour
+Cyclone Summoner
+Dread Cacodemon
+Meticulous Excavation
 `);
 
 const rejected = parseList(`
+Temporal Adept
 Silent Sentinel
 Capsize
 Emeria Shepherd

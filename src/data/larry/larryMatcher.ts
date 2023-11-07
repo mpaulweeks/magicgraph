@@ -1,5 +1,5 @@
 import { CardType as CT, CardCombo, Cardlike, MatchFunction, Matcher } from "../../types";
-import { LarryEdge as LE, LarryTag as LT, LarryCategory } from "./larryTypes";
+import { LarryCategory as LC, LarryEdge as LE, LarryTag as LT } from "./larryTypes";
 
 export function TwoCardCombo(cb: (other: Cardlike) => boolean): CardCombo {
   return {
@@ -8,18 +8,18 @@ export function TwoCardCombo(cb: (other: Cardlike) => boolean): CardCombo {
   }
 }
 
-// matcher helpers
-const bounceLoop: MatchFunction = (a,b) => [
-  a.tags.has(LT.Bounces) && b.tags.has(LT.WantsBounce),
-  a.tags.has(LT.BouncesWizards) &&
-    b.tags.has(LT.WantsBounce) &&
-    b.subtypes.has('Wizard'),
+const binsSelf = (card: Cardlike) => [
+  card.subtypes.has('Saga'),
+  card.tags.has(LT.SacrificesSelf),
 ].some(b => b);
 
-const matchRecursion: MatchFunction = (recursion, target) => [
-  target.subtypes.has('Saga'),
-  target.tags.has(LT.SacrificesSelf),
-].some(b => b) && [
+// matcher helpers
+const bounces: MatchFunction = (bouncer, target) => target.tags.has(LT.WantsBounce, LT.HasCastTrigger) && [
+  bouncer.tags.has(LT.Bounces),
+  bouncer.tags.has(LT.BouncesWizards) && target.subtypes.has('Wizard'),
+].some(b => b);
+
+const reanimates: MatchFunction = (recursion, target) => [
   recursion.tags.has(LT.ReanimatesArtifacts) && target.types.has(CT.Artifact),
   recursion.tags.has(LT.ReanimatesEnchantments) && target.types.has(CT.Enchantment),
   recursion.tags.has(LT.ReanimatesCreatures) && target.types.has(CT.Creature),
@@ -49,35 +49,63 @@ const protects: MatchFunction = (protector, target) => target.types.has(CT.Creat
 export const LarryMatchers: Matcher[] = [
   {
     relationship: LE.TwoCardLock,
-    isMatch: (a, b) => protects(a, b) && b.category === LarryCategory.Disk,
+    isMatch: (shield, disk) =>
+      protects(shield, disk) &&
+      disk.category === LC.Disk,
   },
   {
     relationship: LE.TwoCardLock,
-    isMatch: (a, b) =>
-      bounceLoop(a, b) &&
-      a.category === LarryCategory.Bouncer &&
-      b.category === LarryCategory.Disk &&
-      survivesDisk(a, b),
+    isMatch: (bouncer, disk) =>
+      disk.category === LC.Disk &&
+      bounces(bouncer, disk) &&
+      survivesDisk(bouncer, disk),
   },
   {
     relationship: LE.TwoCardLock,
-    isMatch: (a, b) =>
-      matchRecursion(a, b) &&
-      a.category === LarryCategory.Recursion &&
-      b.category === LarryCategory.Disk &&
-      survivesDisk(a, b),
+    isMatch: (reanimator, disk) => [
+      disk.category === LC.Disk,
+      binsSelf(disk),
+      reanimates(reanimator, disk),
+      survivesDisk(reanimator, disk),
+    ].every(b => b),
   },
   {
     relationship: LE.Protects,
-    isMatch: (a, b) => protects(a, b),
+    isMatch: (shield, target) => protects(shield, target),
   },
   {
     relationship: LE.BounceLoops,
-    isMatch: (a, b) => bounceLoop(a, b),
+    isMatch: (bouncer, disk) =>
+      disk.category === LC.Disk &&
+      bounces(bouncer, disk),
+  },
+  {
+    relationship: LE.LoopsETB,
+    isMatch: (bouncer, target) =>
+      bounces(bouncer, target),
+  },
+  {
+    relationship: LE.LoopsETB,
+    isMatch: (protector, target) =>
+      target.tags.has(LT.HasETB) && [
+        target.types.has(CT.Creature) && protector.tags.has(LT.GivesFalseDeath),
+        protector.tags.has(LT.Bounces),
+      ].some(b => b),
+  },
+  {
+    relationship: LE.LoopsETB,
+    isMatch: (reanimator, target) => [
+      reanimator.tags.has(LT.ReanimatesToHand),
+      target.tags.has(LT.HasCastTrigger),
+      binsSelf(target) || target.category === LC.Disk,
+      reanimates(reanimator, target),
+    ].every(b => b),
   },
   {
     relationship: LE.Reanimates,
-    isMatch: (a, b) => matchRecursion(a, b),
+    isMatch: (reanimator, target) =>
+      binsSelf(target) &&
+      reanimates(reanimator, target),
   },
   {
     relationship: LE.CombosWith,
@@ -96,5 +124,11 @@ export const LarryMatchers: Matcher[] = [
     isMatch: (a,b) =>
       a.tags.has(LT.BouncesWizards) &&
       b.subtypes.has('Wizard'),
+  },
+  {
+    relationship: LE.Tutors,
+    isMatch: (a,b) =>
+      a.tags.has(LT.TutorsLand) &&
+      b.types.has(CT.Land),
   },
 ];
