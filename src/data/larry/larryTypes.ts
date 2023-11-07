@@ -35,6 +35,7 @@ export enum LarryTag {
   WantsPhasing = 'Wants Phasing',
   WantsIndestructible = 'Wants Indestructible',
   WantsFalseDeath = 'Wants FalseDeath',
+  WantsProtection = 'Wants Protection',
 
   WantsCountersRemovedInstant = 'Wants Counters Removed Instant',
   WantsCountersRemoved = 'Wants Counters Removed',

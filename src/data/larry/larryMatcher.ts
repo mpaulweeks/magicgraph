@@ -17,7 +17,6 @@ const bounceLoop: MatchFunction = (a,b) => [
 ].some(b => b);
 
 const matchRecursion: MatchFunction = (recursion, target) => [
-  target.category === LarryCategory.Disk,
   target.subtypes.has('Saga'),
   target.tags.has(LT.SacrificesSelf),
 ].some(b => b) && [
@@ -38,10 +37,12 @@ const hitByDisk: MatchFunction = (perm, disk) => [
 ].some(b => b);
 const survivesDisk: MatchFunction = (recursion, disk) => !hitByDisk(recursion, disk);
 
-const protects: MatchFunction = (a,b) => b.types.has(CT.Creature) && [
-  a.tags.has(LT.GivesPhasing) && b.tags.has(LT.WantsPhasing),
-  a.tags.has(LT.GivesIndestructible) && b.tags.has(LT.WantsIndestructible),
-  a.tags.has(LT.GivesFalseDeath) && b.tags.has(LT.WantsFalseDeath),
+const protects: MatchFunction = (protector, target) => target.types.has(CT.Creature) && [
+  protector.tags.has(LT.GivesFalseDeath, LT.GivesIndestructible, LT.GivesPhasing) && target.tags.has(LT.WantsProtection),
+  protector.tags.has(LT.GivesPhasing) && target.tags.has(LT.WantsPhasing),
+  protector.tags.has(LT.GivesIndestructible) && target.tags.has(LT.WantsIndestructible),
+  protector.tags.has(LT.GivesFalseDeath) && target.tags.has(LT.WantsFalseDeath),
+  protector.tags.has(LT.BouncesWizards) && target.subtypes.has('Wizard'),
 ].some(b => b);
 
 // ordering matters, only looks for first match
@@ -89,5 +90,11 @@ export const LarryMatchers: Matcher[] = [
     isMatch: (a,b) =>
       a.tags.has(LT.WantsCountersRemovedInstant) &&
       b.tags.has(LT.RemovesCountersInstant),
+  },
+  {
+    relationship: LE.Protects,
+    isMatch: (a,b) =>
+      a.tags.has(LT.BouncesWizards) &&
+      b.subtypes.has('Wizard'),
   },
 ];

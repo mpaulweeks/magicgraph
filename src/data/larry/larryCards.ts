@@ -15,6 +15,7 @@ export const LarryDraft: CardDraft[] = [
   tags: [
     LT.WantsBounce,
     LT.DestroysNonLand,
+    LT.SacrificesSelf,
   ],
 },
 {
@@ -25,6 +26,7 @@ export const LarryDraft: CardDraft[] = [
   tags: [
     LT.WantsBounce,
     LT.DestroysNonLand,
+    LT.SacrificesSelf,
   ],
 },
 {
@@ -36,12 +38,11 @@ export const LarryDraft: CardDraft[] = [
   notes: [`ETBs tapped`, `Activate, hold priority, then bounce/phase out`],
   tags: [
     LT.WantsBounce,
-    LT.WantsFalseDeath,
-    LT.WantsIndestructible,
-    LT.WantsPhasing,
+    LT.WantsProtection,
     LT.DestroysArtifacts,
     LT.DestroysCreatures,
     LT.DestroysEnchantments,
+    LT.SacrificesSelf,
   ],
 },
 {
@@ -55,6 +56,7 @@ export const LarryDraft: CardDraft[] = [
     LT.DestroysArtifacts,
     LT.DestroysCreatures,
     LT.DestroysEnchantments,
+    LT.SacrificesSelf,
   ],
 },
 {
@@ -64,6 +66,7 @@ export const LarryDraft: CardDraft[] = [
   category: LC.Disk,
   tags: [
     LT.DestroysNonLand,
+    LT.SacrificesSelf,
   ],
 },
 {
@@ -89,6 +92,7 @@ export const LarryDraft: CardDraft[] = [
   tags: [
     LT.WantsBounce,
     LT.DestroysCreatures,
+    LT.SacrificesSelf,
   ],
 },
 {
@@ -97,7 +101,10 @@ export const LarryDraft: CardDraft[] = [
   mc: '3WW',
   category: LC.Disk,
   notes: [`Triggers on upkeep`, `Only hits non-land, non-artifact`],
-  tags: [LT.DestroysNonArtifactNonLand],
+  tags: [
+    LT.DestroysNonArtifactNonLand,
+    LT.SacrificesSelf,
+  ],
 },
 {
   name: `Serenity`,
@@ -109,6 +116,7 @@ export const LarryDraft: CardDraft[] = [
     LT.WantsBounce,
     LT.DestroysArtifacts,
     LT.DestroysEnchantments,
+    LT.SacrificesSelf,
   ],
 },
 {
@@ -158,13 +166,12 @@ export const LarryDraft: CardDraft[] = [
 {
   name: `Heidar, Rimewind Master`,
   types: [CT.Creature, CT.Legendary],
+  subtypes: ['Wizard'],
   mc: '4U',
   category: LC.Bouncer,
   tags: [
     LT.Bounces,
-    LT.WantsFalseDeath,
-    LT.WantsIndestructible,
-    LT.WantsPhasing,
+    LT.WantsProtection,
   ],
   combos: [{
     relationship: LE.CombosWith,
@@ -174,13 +181,12 @@ export const LarryDraft: CardDraft[] = [
 {
   name: `Vedalken Mastermind`,
   types: [CT.Creature],
+  subtypes: ['Wizard'],
   mc: 'UU',
   category: LC.Bouncer,
   tags: [
     LT.Bounces,
-    LT.WantsFalseDeath,
-    LT.WantsIndestructible,
-    LT.WantsPhasing,
+    LT.WantsProtection,
   ],
 },
 
@@ -260,22 +266,19 @@ export const LarryDraft: CardDraft[] = [
     LT.ReanimatesArtifacts,
     LT.ReanimatesEnchantments,
     LT.ReanimatesCreatures,
-    LT.WantsFalseDeath,
-    LT.WantsIndestructible,
-    LT.WantsPhasing,
+    LT.WantsProtection,
   ],
 },
 {
   name: `Emry, Lurker of the Loch`,
   types: [CT.Creature, CT.Legendary],
+  subtypes: ['Wizard'],
   mc: '2U',
   category: LC.Recursion,
   notes: [`Activates via tapping`],
   tags: [
     LT.ReanimatesArtifacts,
-    LT.WantsFalseDeath,
-    LT.WantsIndestructible,
-    LT.WantsPhasing,
+    LT.WantsProtection,
   ],
 },
 {
@@ -287,9 +290,7 @@ export const LarryDraft: CardDraft[] = [
   tags: [
     LT.ReanimatesArtifacts,
     LT.ReanimatesEnchantments,
-    LT.WantsFalseDeath,
-    LT.WantsIndestructible,
-    LT.WantsPhasing,
+    LT.WantsProtection,
   ],
 },
 {
@@ -300,9 +301,7 @@ export const LarryDraft: CardDraft[] = [
   notes: [`Acivates via attacking`],
   tags: [
     LT.ReanimatesArtifacts,
-    LT.WantsFalseDeath,
-    LT.WantsIndestructible,
-    LT.WantsPhasing,
+    LT.WantsProtection,
   ],
 },
 {
@@ -313,9 +312,7 @@ export const LarryDraft: CardDraft[] = [
   notes: [`Activates once per turn`],
   tags: [
     LT.ReanimatesNonland2orLess,
-    LT.WantsFalseDeath,
-    LT.WantsIndestructible,
-    LT.WantsPhasing,
+    LT.WantsProtection,
   ],
 },
 {
@@ -326,9 +323,7 @@ export const LarryDraft: CardDraft[] = [
   notes: [`Acivates via attacking`],
   tags: [
     LT.ReanimatesEnchantments,
-    LT.WantsFalseDeath,
-    LT.WantsIndestructible,
-    LT.WantsPhasing,
+    LT.WantsProtection,
   ],
 },
 {
@@ -339,9 +334,7 @@ export const LarryDraft: CardDraft[] = [
   notes: [`Acivates via attacking`],
   tags: [
     LT.Reanimates3orLess,
-    LT.WantsFalseDeath,
-    LT.WantsIndestructible,
-    LT.WantsPhasing,
+    LT.WantsProtection,
   ],
 },
 {
@@ -352,9 +345,7 @@ export const LarryDraft: CardDraft[] = [
   notes: [`Acivates via attacking`],
   tags: [
     LT.ReanimatesNonland4orLess,
-    LT.WantsFalseDeath,
-    LT.WantsIndestructible,
-    LT.WantsPhasing,
+    LT.WantsProtection,
   ],
 },
 {
@@ -367,9 +358,7 @@ export const LarryDraft: CardDraft[] = [
     LT.ReanimatesArtifacts,
     LT.ReanimatesEnchantments,
     LT.ReanimatesCreatures,
-    LT.WantsFalseDeath,
-    LT.WantsIndestructible,
-    LT.WantsPhasing,
+    LT.WantsProtection,
   ],
 },
 {
@@ -400,9 +389,7 @@ export const LarryDraft: CardDraft[] = [
   category: LC.Recursion,
   tags: [
     LT.ReanimatesEnchantments,
-    LT.WantsFalseDeath,
-    LT.WantsIndestructible,
-    LT.WantsPhasing,
+    LT.WantsProtection,
   ],
 },
 
@@ -501,9 +488,7 @@ export const LarryDraft: CardDraft[] = [
   category: LC.Ramp,
   tags: [
     LT.RemovesCountersInstant,
-    LT.WantsFalseDeath,
-    LT.WantsIndestructible,
-    LT.WantsPhasing,
+    LT.WantsProtection,
   ],
 },
 {
