@@ -89,7 +89,7 @@ Eiganjo Castle
 Shinka, the Bloodsoaked Keep
 `);
 
-const cuts = parseList(`
+const choppingBlock = parseList(`
 Angelic Skirmisher
 `);
 
@@ -139,7 +139,7 @@ const allCards: CardDraft[] = [
 
 const collated = collate({
   current,
-  cuts,
+  choppingBlock,
   pending,
   rejected,
   cards: allCards,

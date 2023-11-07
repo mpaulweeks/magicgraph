@@ -94,7 +94,7 @@ Hanna, Ship's Navigator
 
 const collated = collate({
   current,
-  cuts: [],
+  choppingBlock: [],
   pending,
   rejected,
   cards: LarryDraft,

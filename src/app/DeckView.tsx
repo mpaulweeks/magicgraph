@@ -12,7 +12,7 @@ export const DeckView = (props: {
   const { deck } = props;
   const queryParsm = new URLSearchParams(window.location.search);
   const [includeCurrent, setIncludeCurrent] = useState<boolean>(queryParsm.get('current') === null || !!queryParsm.get('current'));
-  const [includeCuts, setIncludeCuts] = useState<boolean>(queryParsm.get('cuts') === null || !!queryParsm.get('cuts'));
+  const [includeChoppingBlock, setIncludeChoppingBlock] = useState<boolean>(queryParsm.get('choppingBlock') === null || !!queryParsm.get('choppingBlock'));
   const [includePending, setIncludePending] = useState<boolean>(!!queryParsm.get('pending'));
   const [includeRejected, setIncludeRejected] = useState<boolean>(!!queryParsm.get('rejected'));
   const [filter, setFilter] = useState<string>();
@@ -45,12 +45,12 @@ export const DeckView = (props: {
   const current = filtered.filter(c => c.current);
   const pending = filtered.filter(c => c.pending);
   const rejected = filtered.filter(c => c.rejected);
-  const cuts = filtered.filter(c => c.cuts);
+  const choppingBlock = filtered.filter(c => c.choppingBlock);
   const toRender = filtered
     .filter(c => includeCurrent || !c.current)
     .filter(c => includePending || !c.pending)
     .filter(c => includeRejected || !c.rejected)
-    .filter(c => includeCuts || !c.cuts)
+    .filter(c => includeChoppingBlock || !c.choppingBlock)
   const edges = uniqueBy(
     deck.edges
       .filter(e => includePending || e.related.every(c => !c.pending))
@@ -97,8 +97,8 @@ export const DeckView = (props: {
           <input
             type="checkbox"
             readOnly={true}
-            checked={includeCuts}
-            onClick={() => setIncludeCuts(!includeCuts)}
+            checked={includeChoppingBlock}
+            onClick={() => setIncludeChoppingBlock(!includeChoppingBlock)}
           />
         </div>
         <div>
@@ -162,9 +162,9 @@ export const DeckView = (props: {
           />
         ))}
       </div>
-      <section style={{ display: 'flex', gap: '1em' }}>
+      <section className={styles.DebugLists}>
         <div>
-          <h3>{current.length} Played Cards</h3>
+          <h3>{current.length} Current</h3>
           {current.map(card => (
             <div key={card.id}>
               <AutoCard card={card} realName={true} />
@@ -172,15 +172,15 @@ export const DeckView = (props: {
           ))}
         </div>
         <div>
-          <h3>{cuts.length} Soon to be Cut</h3>
-          {cuts.map(card => (
+          <h3>{choppingBlock.length} Chopping Block</h3>
+          {choppingBlock.map(card => (
             <div key={card.id}>
               <AutoCard card={card} realName={true} />
             </div>
           ))}
         </div>
         <div>
-          <h3>{pending.length} Pending Cards</h3>
+          <h3>{pending.length} Pending</h3>
           {pending.map(card => (
             <div key={card.id}>
               <AutoCard card={card} realName={true} />
@@ -188,7 +188,7 @@ export const DeckView = (props: {
           ))}
         </div>
         <div>
-          <h3>{rejected.length} Rejected Cards</h3>
+          <h3>{rejected.length} Rejected</h3>
           {rejected.map(card => (
             <div key={card.id}>
               <AutoCard card={card} realName={true} />
@@ -196,7 +196,7 @@ export const DeckView = (props: {
           ))}
         </div>
         <div>
-          <h3>{deck.data.undefined.length} Undefined Cards</h3>
+          <h3>{deck.data.undefined.length} Undefined</h3>
           {deck.data.undefined.map(cardname => (
             <div key={cardname}>
               <AutoCard card={cardname} />
@@ -204,7 +204,7 @@ export const DeckView = (props: {
           ))}
         </div>
         <div>
-          <h3>{deck.data.unused.length} Unused Cards</h3>
+          <h3>{deck.data.unused.length} Unused</h3>
           {deck.data.unused.map(cardname => (
             <div key={cardname}>
               <AutoCard card={cardname} />

@@ -1,8 +1,8 @@
 import { collate } from '../../lib/collate';
 import {
-  CardDraft,
-  CardType,
-  DeckData
+    CardDraft,
+    CardType,
+    DeckData
 } from '../../types';
 import { parseList } from '../../util/list';
 import { NonLands } from './momunmentNonLand';
@@ -87,7 +87,7 @@ const current = parseList(`
   Hall of the Bandit Lord
 `);
 
-const cuts = parseList(`
+const choppingBlock = parseList(`
   Demolition Field
   Hordewing Skaab
 `);
@@ -254,7 +254,7 @@ const allCards: CardDraft[] = [
 const collated = collate({
   current,
   pending,
-  cuts,
+  choppingBlock,
   rejected,
   cards: allCards,
 });

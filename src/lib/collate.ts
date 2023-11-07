@@ -3,7 +3,7 @@ import { unique } from "../util/list";
 
 export function collate(args: {
   current: string[];
-  cuts: string[];
+  choppingBlock: string[];
   pending: string[];
   rejected: string[];
   cards: CardDraft[];
@@ -17,7 +17,7 @@ export function collate(args: {
     ...args.current,
     ...args.pending,
     ...args.rejected,
-    ...args.cuts,
+    ...args.choppingBlock,
   ]);
   const unused = allDefined.filter(name => !allUsed.includes(name));
   const undefined = allUsed.filter(name => !allDefined.includes(name));
@@ -34,9 +34,9 @@ export function collate(args: {
       ...c,
       status: CardListStatus.Rejected,
     })),
-    ...args.cards.filter(c => args.cuts.includes(c.name)).map(c => ({
+    ...args.cards.filter(c => args.choppingBlock.includes(c.name)).map(c => ({
       ...c,
-      status: CardListStatus.Cuts,
+      status: CardListStatus.ChoppingBlock,
     })),
   ];
   return { cardDrafts, unused, undefined };

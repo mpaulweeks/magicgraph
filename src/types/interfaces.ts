@@ -13,7 +13,7 @@ export interface Cardlike {
   readonly tags: Interset<string>;
   readonly combos: CardCombo[];
   readonly current: boolean;
-  readonly cuts: boolean;
+  readonly choppingBlock: boolean;
   readonly pending: boolean;
   readonly rejected: boolean;
   readonly styling: CardStyling;

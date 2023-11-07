@@ -6,6 +6,17 @@
   margin: 0.2em;
 }
 
+.DeckView .DebugLists {
+  display: flex;
+  gap: 1em;
+}
+
+.DeckView .DebugLists>div {
+  padding: 1em;
+  padding-top: 0;
+  background-color: #ddd;
+}
+
 .CardGallery {
   display: flex;
   justify-content: center;

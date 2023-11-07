@@ -15,7 +15,7 @@ function CardStyle(card: Cardlike): React.CSSProperties {
     ),
     textDecoration: (
       (card.rejected && 'line-through wavy') ||
-      (card.cuts && 'line-through') ||
+      (card.choppingBlock && 'line-through') ||
       undefined
     ),
     fontStyle: (

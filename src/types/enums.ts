@@ -1,8 +1,8 @@
 export enum CardListStatus {
   Current = 1,
+  ChoppingBlock,
   Pending,
   Rejected,
-  Cuts,
 }
 
 export enum CardType {

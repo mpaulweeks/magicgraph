@@ -13,7 +13,7 @@ export class CardImpl implements Cardlike {
   readonly category: string;
   readonly tags: Interset<string>;
   readonly current: boolean;
-  readonly cuts: boolean;
+  readonly choppingBlock: boolean;
   readonly pending: boolean;
   readonly rejected: boolean;
   readonly combos: CardCombo[];
@@ -31,7 +31,7 @@ export class CardImpl implements Cardlike {
     this.tags = new Interset(draft.tags ?? []);
     this.combos = draft.combos ?? [];
     this.current = draft.status === CardListStatus.Current || !draft.status;
-    this.cuts = draft.status === CardListStatus.Cuts;
+    this.choppingBlock = draft.status === CardListStatus.ChoppingBlock;
     this.pending = draft.status === CardListStatus.Pending;
     this.rejected = draft.status === CardListStatus.Rejected;
     this.styling = {
