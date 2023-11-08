@@ -83,6 +83,7 @@ Magus of the Disk
 Primeval Herald
 Bane of Progress
 Nullmage Advocate
+Crested Sunmare
 
 Okina, Temple to the Grandfathers
 Eiganjo Castle
@@ -90,11 +91,10 @@ Shinka, the Bloodsoaked Keep
 `);
 
 const choppingBlock = parseList(`
-Angelic Skirmisher
 `);
 
 const pending = parseList(`
-Crested Sunmare
+Angelic Skirmisher
 Rhonas the Indomitable
 Captain Sisay
 Weathered Wayfarer
