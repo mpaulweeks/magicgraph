@@ -11,227 +11,227 @@ import { MonMatchers } from './monumentMatcher';
 import { MonumentCategory, MonumentEdges, MonumentInverseEdge } from './monumentTypes';
 
 const current = parseList(`
-  Amareth, the Lustrous
-  Animation Module
-  Barrin, Master Wizard
-  Boompile
-  Cauldron of Souls
-  Cyclone Summoner
-  Deserted Temple
-  Drownyard Temple
-  Eldrazi Monument
-  Elvish Reclaimer
-  Expedition Map
-  Field of the Dead
-  Gavony Township
-  Glacial Chasm
-  Helm of Possession
-  Karma
-  Karn's Bastion
-  Kindred Discovery
-  Kiora Bests the Sea God
-  Lifetap
-  Lotus Field
-  Magus of the Disk
-  Maskwood Nexus
-  Maze of Ith
-  Mirrex
-  Mirror Entity
-  Monument to Perfection
-  Moritte of the Frost
-  Myojin of Cleansing Fire
-  Myojin of Towering Might
-  Nesting Grounds
-  Nevinyrral's Disk
-  Perilous Forays
-  Proteus Staff
-  Riftstone Portal
-  Riptide Laboratory
-  Rootpath Purifier
-  Roots of Life
-  Runed Stalactite
-  Spara's Headquarters
-  Sun Titan
-  Swarmyard
-  Thaumatic Compass // Spires of Orazca
-  Thawing Glaciers
-  The Hunter Maze
-  The Mycosynth Gardens
-  The World Spell
-  Thespian's Stage
-  Twilight Shepherd
-  Tyrite Sanctum
-  Urborg, Tomb of Yawgmoth
-  Urza's Saga
-  Yavimaya, Cradle of Growth
-  Selesnya Sanctuary
-  Vesuva
-  Aura Shards
-  Knight of the Reliquary
-  Zopandrel, Hunger Dominus
-  Weathered Wayfarer
-  Scholar of New Horizons
-  Hall of Heliod's Generosity
-  Arwen, Mortal Queen
-  Flagstones of Trokair
-  Mondrak, Glory Dominus
-  Retrofitter Foundry
-  Sensei's Divining Top
-  Martyr's Cause
-  Phyrexian Swarmlord
-  Grove of the Guardian
-  Castle Ardenvale
-  Myojin of Blooming Dawn
-  Minamo, School at Water's Edge
-  Captain Sisay
-  Hall of the Bandit Lord
-  Blossoming Tortoise
-  Dust Bowl
+Amareth, the Lustrous
+Animation Module
+Barrin, Master Wizard
+Boompile
+Cauldron of Souls
+Cyclone Summoner
+Deserted Temple
+Drownyard Temple
+Eldrazi Monument
+Elvish Reclaimer
+Expedition Map
+Field of the Dead
+Gavony Township
+Glacial Chasm
+Helm of Possession
+Karma
+Karn's Bastion
+Kindred Discovery
+Kiora Bests the Sea God
+Lifetap
+Lotus Field
+Magus of the Disk
+Maskwood Nexus
+Maze of Ith
+Mirrex
+Mirror Entity
+Monument to Perfection
+Moritte of the Frost
+Myojin of Cleansing Fire
+Myojin of Towering Might
+Nesting Grounds
+Nevinyrral's Disk
+Perilous Forays
+Proteus Staff
+Riftstone Portal
+Riptide Laboratory
+Rootpath Purifier
+Roots of Life
+Runed Stalactite
+Spara's Headquarters
+Sun Titan
+Swarmyard
+Thaumatic Compass // Spires of Orazca
+Thawing Glaciers
+The Hunter Maze
+The Mycosynth Gardens
+The World Spell
+Thespian's Stage
+Twilight Shepherd
+Tyrite Sanctum
+Urborg, Tomb of Yawgmoth
+Urza's Saga
+Yavimaya, Cradle of Growth
+Selesnya Sanctuary
+Vesuva
+Aura Shards
+Knight of the Reliquary
+Zopandrel, Hunger Dominus
+Weathered Wayfarer
+Scholar of New Horizons
+Hall of Heliod's Generosity
+Arwen, Mortal Queen
+Flagstones of Trokair
+Mondrak, Glory Dominus
+Retrofitter Foundry
+Sensei's Divining Top
+Martyr's Cause
+Phyrexian Swarmlord
+Grove of the Guardian
+Castle Ardenvale
+Myojin of Blooming Dawn
+Minamo, School at Water's Edge
+Captain Sisay
+Hall of the Bandit Lord
+Blossoming Tortoise
+Dust Bowl
 `);
 
 const choppingBlock = parseList(`
 `);
 
 const pending = parseList(`
-  Scaretiller
-  Battle at the Helvault
-  The Night of the Doctor
-  Song of Eärendil
-  Behold the Unspeakable // Vision of the Unspeakable
-  The Caves of Androzani
-  Evolutionary Leap
-  Glen Elendra Archmage
-  Woodfall Primus
+Scaretiller
+Battle at the Helvault
+The Night of the Doctor
+Song of Eärendil
+Behold the Unspeakable // Vision of the Unspeakable
+The Caves of Androzani
+Evolutionary Leap
+Glen Elendra Archmage
+Woodfall Primus
 `);
 
 const rejected = parseList(`
-  Demolition Field
-  Hordewing Skaab
-  Tolaria West
-  Academy Ruins
-  Restless Vinestalk
-  Tekuthal, Inquiry Dominus
-  Myojin of Cryptic Dreams
-  Kjeldoran Outpost
-  Sundial of the Infinite
-  Tameshi, Reality Architect
-  Mistveil Plains
-  Oboro Breezecaller
-  Luminous Broodmoth
-  Tale of Tinúviel
-  Avarice Totem
-  Elspeth Conquers Death
-  The Mending of Dominaria
-  Kor Haven
-  Krosan Verge
-  Vitu-Ghazi, the City-Tree
-  The Fall of Lord Konda // Fragment of Konda
-  The Bath Song
-  Jalira, Master Polymorphist
-  Staff of Titania
-  Rubinia Soulsinger
-  Canopy Vista
-  Dismiss into Dream
-  High Market
-  Prairie Stream
-  Sower of Temptation
-  Willbreaker
-  Alchemist's Refuge
-  Apex Altisaur
-  Aven Courier
-  Awakening of Vitu-Ghazi
-  Battle of Frost and Fire
-  Callous Oppressor
-  Cascading Cataracts
-  Celestial Colonnade
-  Constant Mists
-  Contested Cliffs
-  Cowardice
-  Desert
-  Desolate Lighthouse
-  Djinn of Infinite Deceits
-  Dragonlair Spider
-  Dreamscape Artist
-  Druid Class
-  Dualcaster Mage
-  Emeria Shepherd
-  Fatestitcher
-  Flamekin Village
-  Forbidden Orchard
-  Fortitude
-  Fractured Loyalty
-  Hammerheim
-  Heartless Hidetsugu
-  Homeward Path
-  Humble Defector
-  Kessig Wolf Run
-  Kher Keep
-  Khârn the Betrayer
-  Kiora's Follower
-  Krenko, Tin Street Kingpin
-  Lithoform Engine
-  Littjara Mirrorlake
-  Manascape Refractor
-  Mirage Mirror
-  Moorland Haunt
-  Mutavault
-  Myojin of Life's Web
-  Myojin of Roaring Blades
-  Myojin of Seeing Winds
-  Nacatl War-Pride
-  Nightmare Lash
-  Nissa, Ascended Animist
-  Novablast Wurm
-  Oath of Lieges
-  Okina, Temple to the Grandfathers
-  Omnath, Locus of Rage
-  Oran-Rief, the Vastwood
-  Overtaker
-  Pendant of Prosperity
-  Perplexing Chimera
-  Polyraptor
-  Primeval Herald
-  Puca's Mischief
-  Radiant Performer
-  Ranging Raptors
-  Reality Scramble
-  Realmbreaker, the Invasion Tree
-  Rishadan Port
-  Scavenged Brawler
-  Scute Swarm
-  Seedborn Muse
-  Selvala, Explorer Returned
-  Shapesharer
-  Shinka, the Bloodsoaked Keep
-  Skullclamp
-  Slippery Bogbonder
-  Solphim, Mayhem Dominus
-  Sorrow's Path
-  Spawning Grounds
-  Spike Weaver
-  Spreading Algae
-  Starke of Rath
-  Stone-Seeder Hierophant
-  Sword of the Animist
-  Tatyova, Benthic Druid
-  Taurean Mauler
-  The Akroan War
-  The Phasing of Zhalfir
-  Tolaria
-  Transmogrifying Wand
-  Utvara Hellkite
-  Vigor
-  Vizier of Tumbling Sands
-  Waking the Trolls
-  Ward of Bones
-  Wilderness Reclamation
-  Wirewood Lodge
-  World Breaker
-  Yavimaya Hollow
-  Hanweir Battlements // Hanweir, the Writhing Township
-  Silverbluff Bridge
-  Dowsing Dagger // Lost Vale
-  Conqueror's Galleon // Conqueror's Foothold
+Demolition Field
+Hordewing Skaab
+Tolaria West
+Academy Ruins
+Restless Vinestalk
+Tekuthal, Inquiry Dominus
+Myojin of Cryptic Dreams
+Kjeldoran Outpost
+Sundial of the Infinite
+Tameshi, Reality Architect
+Mistveil Plains
+Oboro Breezecaller
+Luminous Broodmoth
+Tale of Tinúviel
+Avarice Totem
+Elspeth Conquers Death
+The Mending of Dominaria
+Kor Haven
+Krosan Verge
+Vitu-Ghazi, the City-Tree
+The Fall of Lord Konda // Fragment of Konda
+The Bath Song
+Jalira, Master Polymorphist
+Staff of Titania
+Rubinia Soulsinger
+Canopy Vista
+Dismiss into Dream
+High Market
+Prairie Stream
+Sower of Temptation
+Willbreaker
+Alchemist's Refuge
+Apex Altisaur
+Aven Courier
+Awakening of Vitu-Ghazi
+Battle of Frost and Fire
+Callous Oppressor
+Cascading Cataracts
+Celestial Colonnade
+Constant Mists
+Contested Cliffs
+Cowardice
+Desert
+Desolate Lighthouse
+Djinn of Infinite Deceits
+Dragonlair Spider
+Dreamscape Artist
+Druid Class
+Dualcaster Mage
+Emeria Shepherd
+Fatestitcher
+Flamekin Village
+Forbidden Orchard
+Fortitude
+Fractured Loyalty
+Hammerheim
+Heartless Hidetsugu
+Homeward Path
+Humble Defector
+Kessig Wolf Run
+Kher Keep
+Khârn the Betrayer
+Kiora's Follower
+Krenko, Tin Street Kingpin
+Lithoform Engine
+Littjara Mirrorlake
+Manascape Refractor
+Mirage Mirror
+Moorland Haunt
+Mutavault
+Myojin of Life's Web
+Myojin of Roaring Blades
+Myojin of Seeing Winds
+Nacatl War-Pride
+Nightmare Lash
+Nissa, Ascended Animist
+Novablast Wurm
+Oath of Lieges
+Okina, Temple to the Grandfathers
+Omnath, Locus of Rage
+Oran-Rief, the Vastwood
+Overtaker
+Pendant of Prosperity
+Perplexing Chimera
+Polyraptor
+Primeval Herald
+Puca's Mischief
+Radiant Performer
+Ranging Raptors
+Reality Scramble
+Realmbreaker, the Invasion Tree
+Rishadan Port
+Scavenged Brawler
+Scute Swarm
+Seedborn Muse
+Selvala, Explorer Returned
+Shapesharer
+Shinka, the Bloodsoaked Keep
+Skullclamp
+Slippery Bogbonder
+Solphim, Mayhem Dominus
+Sorrow's Path
+Spawning Grounds
+Spike Weaver
+Spreading Algae
+Starke of Rath
+Stone-Seeder Hierophant
+Sword of the Animist
+Tatyova, Benthic Druid
+Taurean Mauler
+The Akroan War
+The Phasing of Zhalfir
+Tolaria
+Transmogrifying Wand
+Utvara Hellkite
+Vigor
+Vizier of Tumbling Sands
+Waking the Trolls
+Ward of Bones
+Wilderness Reclamation
+Wirewood Lodge
+World Breaker
+Yavimaya Hollow
+Hanweir Battlements // Hanweir, the Writhing Township
+Silverbluff Bridge
+Dowsing Dagger // Lost Vale
+Conqueror's Galleon // Conqueror's Foothold
 `);
 
 const allCards: CardDraft[] = [
