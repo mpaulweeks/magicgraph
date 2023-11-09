@@ -5,9 +5,9 @@ import {
   DeckData
 } from '../../types';
 import { parseList } from '../../util/list';
-import { NonLands } from './momunmentNonLand';
 import { Lands } from './monumentLand';
 import { MonMatchers } from './monumentMatcher';
+import { NonLands } from './monumentNonLand';
 import { MonumentCategory, MonumentEdges, MonumentInverseEdge } from './monumentTypes';
 
 const current = parseList(`
