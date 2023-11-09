@@ -202,6 +202,16 @@ export const LarryDraft: CardDraft[] = [
   ],
 },
 {
+  name: `Myojin of Blooming Dawn`,
+  types: [CT.Creature, CT.Legendary],
+  mc: '5WWW',
+  category: LC.Other,
+  tags: [
+    LT.HasCastTrigger,
+    LT.HasIndestructible,
+  ],
+},
+{
   name: `Angel of the Dire Hour`,
   types: [CT.Creature],
   mc: '5WW',

@@ -10,26 +10,21 @@ import { CategoryColorMap, LarryInverseEdge, OrderedEdges } from './larryTypes';
 const current = parseList(`
 Academy Ruins
 Athreos, Shroud-Veiled
-Boompile
-Coercive Portal
 Darksteel Plate
 Emry, Lurker of the Loch
 Fool's Demise
 Gift of Immortality
 Hall of Heliod's Generosity
 Heidar, Rimewind Master
-Ironsoul Enforcer
 Kaldra Compleat
 Lurrus of the Dream-Den
 Magus of the Disk
 Nesting Grounds
 Nevinyrral's Disk
-Oblivion Stone
 Phyrexian Scriptures
 Planar Collapse
 Riptide Laboratory
 Robe of Stars
-Scourglass
 Serenity
 Sun Titan
 Treasury Thrull
@@ -65,21 +60,31 @@ Font of Fortunes
 Omen of the Sea
 Mystic Remora
 One Ring to Rule Them All
+
+The Phasing of Zhalfir
+Angel of the Dire Hour
+Dread Cacodemon
+Myojin of Blooming Dawn
+`);
+
+const choppingBlock = parseList(`
+Ironsoul Enforcer
 `);
 
 const pending = parseList(`
-The Phasing of Zhalfir
-Invasion of Fiora // Marchesa, Resolute Monarch
 The Moment
 Volrath's Stronghold
-Angel of the Dire Hour
 Cyclone Summoner
-Dread Cacodemon
-Myojin of Cleansing Fire
 Meticulous Excavation
 `);
 
 const rejected = parseList(`
+Invasion of Fiora // Marchesa, Resolute Monarch
+Myojin of Cleansing Fire
+Boompile
+Scourglass
+Coercive Portal
+Oblivion Stone
 Temporal Adept
 Silent Sentinel
 Capsize
@@ -94,7 +99,7 @@ Hanna, Ship's Navigator
 
 const collated = collate({
   current,
-  choppingBlock: [],
+  choppingBlock,
   pending,
   rejected,
   cards: LarryDraft,
