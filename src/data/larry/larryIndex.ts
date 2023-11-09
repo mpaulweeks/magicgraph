@@ -108,6 +108,9 @@ const collated = collate({
 export const LarryData: DeckData = {
   name: 'Larry Loops',
   description: 'Esper deck that builds a repeatable wrath engine and winning with indestructible creatures',
+  notes: [
+    '2023/11/09: Moving further away from graveyard recursion, more towards bounce. Being more picky with discs that can do both.',
+  ],
   links: [{
     name: 'Tapped out',
     url: 'https://tappedout.net/mtg-decks/tutorless-larry/',
