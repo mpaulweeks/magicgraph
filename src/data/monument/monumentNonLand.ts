@@ -23,6 +23,7 @@ export const NonLands: CardDraft[] = [{
 },
 {
   name: `Thaumatic Compass // Spires of Orazca`,
+  nick: `Thaumatic Compass`,
   mc: '2',
   types: [CT.Artifact],
   category: MC.Draw,
@@ -676,8 +677,8 @@ export const NonLands: CardDraft[] = [{
 },
 {
   name: `Dowsing Dagger // Lost Vale`,
-  mc: '2',
   nick: `Dowsing Dagger`,
+  mc: '2',
   types: [CT.Artifact],
   tags: [
     MT.LikesBeingCopiedWithCast,
@@ -688,8 +689,8 @@ export const NonLands: CardDraft[] = [{
 },
 {
   name: `Conqueror's Galleon // Conqueror's Foothold`,
-  mc: '4',
   nick: `Conqueror's Galleon`,
+  mc: '4',
   types: [CT.Artifact],
   tags: [
     MT.LikesBeingCopiedWithCast,
@@ -932,6 +933,7 @@ export const NonLands: CardDraft[] = [{
 },
 {
   name: `The Fall of Lord Konda // Fragment of Konda`,
+  nick: `The Fall of Lord Konda`,
   mc: '2W',
   types: [CT.Enchantment],
   subtypes: ['Saga'],
@@ -1154,6 +1156,7 @@ export const NonLands: CardDraft[] = [{
 },
 {
   name: `Behold the Unspeakable // Vision of the Unspeakable`,
+  nick: `Behold the Unspeakable`,
   mc: '3UU',
   types: [CT.Enchantment],
   subtypes: ['Saga'],

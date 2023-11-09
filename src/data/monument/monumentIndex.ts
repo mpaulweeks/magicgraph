@@ -44,7 +44,6 @@ Myojin of Towering Might
 Nesting Grounds
 Nevinyrral's Disk
 Perilous Forays
-Proteus Staff
 Riftstone Portal
 Riptide Laboratory
 Rootpath Purifier
@@ -59,7 +58,6 @@ The Hunter Maze
 The Mycosynth Gardens
 The World Spell
 Thespian's Stage
-Twilight Shepherd
 Tyrite Sanctum
 Urborg, Tomb of Yawgmoth
 Urza's Saga
@@ -78,7 +76,6 @@ Mondrak, Glory Dominus
 Retrofitter Foundry
 Sensei's Divining Top
 Martyr's Cause
-Phyrexian Swarmlord
 Grove of the Guardian
 Castle Ardenvale
 Myojin of Blooming Dawn
@@ -87,6 +84,9 @@ Captain Sisay
 Hall of the Bandit Lord
 Blossoming Tortoise
 Dust Bowl
+Evolutionary Leap
+Battle at the Helvault
+Behold the Unspeakable // Vision of the Unspeakable
 `);
 
 const choppingBlock = parseList(`
@@ -95,17 +95,17 @@ const choppingBlock = parseList(`
 const pending = parseList(`
 Odric, Lunarch Marshal
 Scaretiller
-Battle at the Helvault
-The Night of the Doctor
-Song of Eärendil
-Behold the Unspeakable // Vision of the Unspeakable
-The Caves of Androzani
-Evolutionary Leap
 Glen Elendra Archmage
-Woodfall Primus
 `);
 
 const rejected = parseList(`
+The Night of the Doctor
+Song of Eärendil
+The Caves of Androzani
+Woodfall Primus
+Phyrexian Swarmlord
+Proteus Staff
+Twilight Shepherd
 Demolition Field
 Hordewing Skaab
 Tolaria West
@@ -278,6 +278,7 @@ export const MonumentData: DeckData = {
   name: 'Monument.dec',
   description: 'Bant deck that tutors nonbasic lands to form multiple small A/B combos',
   notes: [
+    '2023/11/09: New criteria for Sagas: Stage 2 must be spammable. Looping Stage 1 requires having Nesting Grounds already in play and mana to spare.',
     '2023/11/04: Due to color screw and mediocre blue Myojin, start reducing blue to a splash.',
     '2023/10/30: Swap Temur for Bant to gain more indestructible and land tutors.',
   ],
