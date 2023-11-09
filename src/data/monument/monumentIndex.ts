@@ -1,8 +1,8 @@
 import { collate } from '../../lib/collate';
 import {
-    CardDraft,
-    CardType,
-    DeckData
+  CardDraft,
+  CardType,
+  DeckData
 } from '../../types';
 import { parseList } from '../../util/list';
 import { NonLands } from './momunmentNonLand';
@@ -85,16 +85,15 @@ const current = parseList(`
   Minamo, School at Water's Edge
   Captain Sisay
   Hall of the Bandit Lord
+  Blossoming Tortoise
+  Dust Bowl
 `);
 
 const choppingBlock = parseList(`
-  Demolition Field
-  Hordewing Skaab
 `);
 
 const pending = parseList(`
   Scaretiller
-  Dust Bowl
   Battle at the Helvault
   The Night of the Doctor
   Song of Eärendil
@@ -102,11 +101,12 @@ const pending = parseList(`
   The Caves of Androzani
   Evolutionary Leap
   Glen Elendra Archmage
-  Blossoming Tortoise
   Woodfall Primus
 `);
 
 const rejected = parseList(`
+  Demolition Field
+  Hordewing Skaab
   Tolaria West
   Academy Ruins
   Restless Vinestalk
