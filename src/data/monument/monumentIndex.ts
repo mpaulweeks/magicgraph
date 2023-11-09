@@ -93,6 +93,7 @@ const choppingBlock = parseList(`
 `);
 
 const pending = parseList(`
+Odric, Lunarch Marshal
 Scaretiller
 Battle at the Helvault
 The Night of the Doctor

@@ -34,7 +34,6 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Tyrite Sanctum`,
   tags: [
-    MT.HasPlusCounters,
     MT.HasAbilityCounters,
     MT.TargetsCreatures,
     MT.TargetsTribal,
@@ -42,6 +41,17 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.SacrificesSelf,
     MT.CaresAboutGettingUntapped,
   ],
+  combos: [{
+    relationship: ME.Protects,
+    isMatch: other =>
+      other.types.all(CT.Creature, CT.Legendary) &&
+      !other.tags.has(MT.HasIndestructible),
+  }, {
+    relationship: ME.ManipulatesCounters,
+    isMatch: other =>
+      !other.types.has(CT.Creature) &&
+      other.tags.has(MT.HasMinusCounters),
+  }],
 },
 {
   name: `Contested Cliffs`,

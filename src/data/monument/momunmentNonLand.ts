@@ -1181,4 +1181,17 @@ export const NonLands: CardDraft[] = [{
   tags: [MT.RemovesCounters, MT.TutorsPlains],
   category: MC.Ramp,
 },
+{
+  name: `Odric, Lunarch Marshal`,
+  mc: '3W',
+  types: [CT.Creature, CT.Legendary],
+  tags: [],
+  category: MC.Ramp,
+  combos: [{
+    relationship: ME.CombosWith,
+    isMatch: other =>
+      other.types.has(CT.Creature) &&
+      other.tags.has(MT.HasIndestructible),
+  }],
+},
 ];
