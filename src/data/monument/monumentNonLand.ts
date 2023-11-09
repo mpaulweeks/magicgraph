@@ -160,15 +160,15 @@ export const NonLands: CardDraft[] = [{
   name: `Taurean Mauler`,
   mc: '2R',
   types: [CT.Creature],
-  subtypes: ['Changeling'],
+  tags: [MT.HasChangeling],
   category: MC.Threat,
 },
 {
   name: `Moritte of the Frost`,
   mc: '2UUG',
   types: [CT.Creature, CT.Legendary],
-  subtypes: ['Changeling'],
   tags: [
+    MT.HasChangeling,
     MT.CopiesCreatures,
     MT.CopiesArtifacts,
     MT.CopiesLands,
@@ -181,15 +181,14 @@ export const NonLands: CardDraft[] = [{
   name: `Maskwood Nexus`,
   mc: '4',
   types: [CT.Artifact],
-  subtypes: ['Changeling'],
-  tags: [MT.MakesTokens],
+  tags: [MT.MakesTokens, MT.GivesChangeling],
   category: MC.Buff,
 },
 {
   name: `Runed Stalactite`,
   mc: '1',
   types: [CT.Artifact, CT.Equipment],
-  subtypes: ['Changeling'],
+  tags: [MT.GivesChangeling],
   category: MC.Buff,
 },
 {
@@ -430,14 +429,8 @@ export const NonLands: CardDraft[] = [{
   name: `Realmbreaker, the Invasion Tree`,
   mc: '3',
   types: [CT.Artifact, CT.Legendary],
+  tags: [MT.TutorsChangeling],
   category: MC.Ramp,
-  combos: [{
-    relationship: ME.TribalSynergy,
-    isMatch: other => (
-      other.types.has('Creature') &&
-      other.subtypes.has('Changeling')
-    ),
-  }],
 },
 {
   name: `Overtaker`,
@@ -560,7 +553,7 @@ export const NonLands: CardDraft[] = [{
   name: `Shapesharer`,
   mc: '2U',
   types: [CT.Creature],
-  subtypes: ['Changeling'],
+  tags: [MT.HasChangeling],
   category: MC.Threat,
 },
 {
@@ -934,7 +927,7 @@ export const NonLands: CardDraft[] = [{
   name: `Mirror Entity`,
   mc: '2W',
   types: [CT.Creature],
-  subtypes: ['Changeling'],
+  tags: [MT.HasChangeling],
   category: MC.Threat,
 },
 {
@@ -1171,7 +1164,7 @@ export const NonLands: CardDraft[] = [{
   mc: '3W',
   types: [CT.Enchantment],
   subtypes: ['Saga'],
-  tags: [MT.Proliferates, MT.TargetsTribal],
+  tags: [MT.ProliferatesNonSaga, MT.TutorsChangeling],
   category: MC.Tutor,
 },
 {

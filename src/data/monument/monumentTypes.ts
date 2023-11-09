@@ -24,10 +24,15 @@ export enum MonumentTag {
   HasLimitedUseCounters = 'Divinity Counters',
   HasIndestructible = 'Has Indestructible',
   Proliferates = 'Proliferates',
+  ProliferatesNonSaga = 'ProliferatesNonSaga',
   TransfersCounters = 'Transfers Counters',
   RemovesCounters = 'Removes Counters',
   PoisonCounters = 'Poison Counters',
   TutorsLegendary = 'Tutors Legendary',
+
+  HasChangeling = 'Has Changeling',
+  GivesChangeling = 'Gives Changeling',
+  TutorsChangeling = 'Tutors Changeling',
 
   GrantsLandTypes = 'Grants Land Types',
   CannotTapForMana = 'Cannot Tap For Mana',
@@ -135,7 +140,6 @@ export enum MonumentEdge {
   ReanimatedBy = 'Reanimated By',
 
   Tutors = 'Tutors',
-  TutoredBy = 'Tutored By',
 
   ForcesTap = 'Forces Tap',
   TappedBy = 'Tapped By',
@@ -144,7 +148,6 @@ export enum MonumentEdge {
 }
 
 export const MonumentInverseEdge = {
-  [MonumentEdge.EnablesMana]: MonumentEdge.EnabledBy,
   [MonumentEdge.Damages]: MonumentEdge.DamagedBy,
   [MonumentEdge.Targets]: MonumentEdge.TargetedBy,
   [MonumentEdge.Fuels]: MonumentEdge.FueledBy,
@@ -155,10 +158,9 @@ export const MonumentInverseEdge = {
   [MonumentEdge.Clones]: MonumentEdge.ClonedBy,
   [MonumentEdge.Bins]: MonumentEdge.BinnedBy,
   [MonumentEdge.Reanimates]: MonumentEdge.ReanimatedBy,
-  [MonumentEdge.Tutors]: MonumentEdge.TutoredBy,
   [MonumentEdge.ForcesTap]: MonumentEdge.TappedBy,
 };
 
 export const MonumentEdges: string[] = [
-  // dont care
+  // dont care about ordering
 ];

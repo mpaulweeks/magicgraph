@@ -103,7 +103,9 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   combos: [
     {
       relationship: ME.TribalSynergy,
-      isMatch: other => other.subtypes.has('Changeling', 'Insect', 'Rat', 'Spider', 'Squirrel'),
+      isMatch: other =>
+        other.tags.has(MT.HasChangeling, MT.GivesChangeling) ||
+        other.subtypes.has('Insect', 'Rat', 'Spider', 'Squirrel'),
     },
   ],
 },
@@ -248,7 +250,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Mutavault`,
-  subtypes: ['Changeling'],
+  subtypes: [MT.GivesChangeling],
 },
 {
   name: `Forbidden Orchard`,
@@ -483,8 +485,10 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     relationship: ME.Untaps,
     isMatch: other =>
       other.types.has(CT.Creature) &&
-      other.subtypes.has('Elf', 'Changeling') &&
-      other.tags.has(MT.CaresAboutGettingUntapped),
+      other.tags.has(MT.CaresAboutGettingUntapped) && (
+        other.tags.has(MT.HasChangeling, MT.GivesChangeling) ||
+        other.subtypes.has('Elf')
+      ),
   }],
 },
 {

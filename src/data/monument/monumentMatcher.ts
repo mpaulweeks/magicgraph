@@ -21,7 +21,8 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.TribalSynergy,
     isMatch: (a, b) =>
-      a.tags.has(MT.TargetsTribal) && b.subtypes.has('Changeling'),
+      a.tags.has(MT.TargetsTribal) &&
+      b.tags.has(MT.HasChangeling, MT.GivesChangeling),
   },
   {
     relationship: ME.TribalSynergy,
@@ -119,12 +120,21 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.ManipulatesCounters,
     isMatch: (a,b) =>
-      a.tags.has(MT.Proliferates) && (
-        b.tags.has(MT.HasAbilityCounters) ||
-        b.tags.has(MT.HasLimitedUseCounters) ||
-        b.tags.has(MT.PoisonCounters) ||
-        b.subtypes.has('Saga')
-      ),
+      a.tags.has(MT.Proliferates) && [
+        b.tags.has(MT.HasAbilityCounters),
+        b.tags.has(MT.HasLimitedUseCounters),
+        b.tags.has(MT.PoisonCounters),
+        b.subtypes.has('Saga'),
+      ].some(b => b),
+  },
+  {
+    relationship: ME.ManipulatesCounters,
+    isMatch: (a,b) =>
+      a.tags.has(MT.ProliferatesNonSaga) &&
+      !b.subtypes.has('Saga') && [
+        b.tags.has(MT.HasAbilityCounters),
+        b.tags.has(MT.HasLimitedUseCounters),
+      ].some(b => b),
   },
   {
     relationship: ME.ManipulatesCounters,
@@ -136,11 +146,11 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.ManipulatesCounters,
     isMatch: (a,b) =>
-      a.tags.has(MT.RemovesCounters) && (
-        b.tags.has(MT.HasMinusCounters) ||
-        b.tags.has(MT.HasAgeCounters) ||
-        b.subtypes.has('Saga')
-      ),
+      a.tags.has(MT.RemovesCounters) && [
+        b.tags.has(MT.HasMinusCounters),
+        b.tags.has(MT.HasAgeCounters),
+        b.subtypes.has('Saga'),
+      ].some(b => b),
   },
   {
     relationship: ME.Fuels,
@@ -150,19 +160,25 @@ export const MonMatchers: Matcher[] = [
       b.tags.has(MT.SacrificesLands),
   },
   {
-    relationship: ME.TutoredBy,
+    relationship: ME.Tutors,
     isMatch: (a,b) =>
       a.types.has(CT.Legendary) &&
       b.tags.has(MT.TutorsLegendary),
   },
   {
-    relationship: ME.TutoredBy,
+    relationship: ME.Tutors,
+    isMatch: (a,b) =>
+      a.tags.has(MT.HasChangeling) &&
+      b.tags.has(MT.TutorsChangeling),
+  },
+  {
+    relationship: ME.Tutors,
     isMatch: (a,b) =>
       a.subtypes.has('Forest') &&
       b.tags.has(MT.TutorsForest),
   },
   {
-    relationship: ME.TutoredBy,
+    relationship: ME.Tutors,
     isMatch: (a,b) =>
       a.subtypes.has('Plains') &&
       b.tags.has(MT.TutorsPlains),
