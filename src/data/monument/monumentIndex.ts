@@ -96,6 +96,7 @@ const pending = parseList(`
 Odric, Lunarch Marshal
 Scaretiller
 Glen Elendra Archmage
+Fabled Passage
 `);
 
 const rejected = parseList(`

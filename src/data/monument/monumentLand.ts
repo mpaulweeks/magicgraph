@@ -583,6 +583,10 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [MT.TutorsBasic, MT.SacrificesSelf],
 },
 {
+  name: `Fabled Passage`,
+  tags: [MT.TutorsBasic, MT.SacrificesSelf],
+},
+{
   name: `Dust Bowl`,
   overrideCategory: MC.Interaction,
   tags: [
