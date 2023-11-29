@@ -12,7 +12,6 @@ import { MonumentCategory, MonumentEdges, MonumentInverseEdge } from './monument
 
 const current = parseList(`
 Amareth, the Lustrous
-Animation Module
 Barrin, Master Wizard
 Boompile
 Cauldron of Souls
@@ -84,9 +83,10 @@ Captain Sisay
 Hall of the Bandit Lord
 Blossoming Tortoise
 Dust Bowl
-Evolutionary Leap
 Battle at the Helvault
 Behold the Unspeakable // Vision of the Unspeakable
+Scaretiller
+Glen Elendra Archmage
 `);
 
 const choppingBlock = parseList(`
@@ -94,12 +94,12 @@ const choppingBlock = parseList(`
 
 const pending = parseList(`
 Odric, Lunarch Marshal
-Scaretiller
-Glen Elendra Archmage
 Fabled Passage
 `);
 
 const rejected = parseList(`
+Animation Module
+Evolutionary Leap
 The Night of the Doctor
 Song of Eärendil
 The Caves of Androzani
