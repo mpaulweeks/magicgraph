@@ -145,6 +145,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.LikesBeingCopiedWithMirror,
     MT.LandWithProtection,
     MT.SundialFriendly,
+    MT.SacrificesLands,
   ],
 },
 {

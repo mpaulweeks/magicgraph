@@ -1064,7 +1064,7 @@ export const NonLands: CardDraft[] = [{
   mc: '3U',
   types: [CT.Creature],
   subtypes: ['Wizard'],
-  tags: [MT.HasMinusCounters],
+  tags: [MT.HasMinusCounters, MT.WantsSacrificeOutlet],
   category: MC.Interaction,
 },
 {

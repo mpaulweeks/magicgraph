@@ -22,7 +22,6 @@ Eldrazi Monument
 Elvish Reclaimer
 Expedition Map
 Field of the Dead
-Gavony Township
 Glacial Chasm
 Helm of Possession
 Karma
@@ -43,7 +42,6 @@ Myojin of Towering Might
 Nesting Grounds
 Nevinyrral's Disk
 Perilous Forays
-Riftstone Portal
 Riptide Laboratory
 Rootpath Purifier
 Roots of Life
@@ -65,7 +63,6 @@ Selesnya Sanctuary
 Vesuva
 Aura Shards
 Knight of the Reliquary
-Zopandrel, Hunger Dominus
 Weathered Wayfarer
 Scholar of New Horizons
 Hall of Heliod's Generosity
@@ -84,22 +81,25 @@ Hall of the Bandit Lord
 Blossoming Tortoise
 Dust Bowl
 Battle at the Helvault
-Behold the Unspeakable // Vision of the Unspeakable
 Scaretiller
 Glen Elendra Archmage
+Fabled Passage
+Dark Depths
+Odric, Lunarch Marshal
 `);
 
 const choppingBlock = parseList(`
+Behold the Unspeakable // Vision of the Unspeakable
 `);
 
 const pending = parseList(`
-Odric, Lunarch Marshal
-Fabled Passage
-Dark Depths
-Solemnity
 `);
 
 const rejected = parseList(`
+Solemnity
+Zopandrel, Hunger Dominus
+Riftstone Portal
+Gavony Township
 Animation Module
 Evolutionary Leap
 The Night of the Doctor
