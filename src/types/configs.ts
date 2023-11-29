@@ -22,7 +22,7 @@ export type DeckData = {
   notes?: string[];
   links?: { name: string, url: string, }[];
   cardDrafts: CardDraft[];
-  undefined: string[];
+  missingDefinition: string[];
   unused: string[];
   matchers: Matcher[];
   categoryColorMap: Record<string, string>;

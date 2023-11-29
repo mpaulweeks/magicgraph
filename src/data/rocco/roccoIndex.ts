@@ -1,8 +1,8 @@
 import { collate } from '../../lib/collate';
 import {
-  CardDraft,
-  CardType,
-  DeckData
+    CardDraft,
+    CardType,
+    DeckData
 } from '../../types';
 import { parseList } from '../../util/list';
 import { Creatures } from './roccoCreature';
@@ -153,7 +153,7 @@ export const RoccoData: DeckData = {
     url: 'https://tappedout.net/mtg-decks/heartless-rocco/',
   }],
   cardDrafts: collated.cardDrafts,
-  undefined: collated.undefined,
+  missingDefinition: collated.missingDefinition,
   unused: collated.unused,
   matchers: RocMatchers,
   categoryColorMap: RoccoCategoryColorMap,

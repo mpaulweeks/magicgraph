@@ -10,7 +10,7 @@ export function collate(args: {
 }): {
   cardDrafts: CardDraft[];
   unused: string[];
-  undefined: string[];
+  missingDefinition: string[];
 } {
   const allDefined = args.cards.map(c => c.name);
   const allUsed = unique([
@@ -20,7 +20,7 @@ export function collate(args: {
     ...args.choppingBlock,
   ]);
   const unused = allDefined.filter(name => !allUsed.includes(name));
-  const undefined = allUsed.filter(name => !allDefined.includes(name));
+  const missingDefinition = allUsed.filter(name => !allDefined.includes(name));
   const cardDrafts = [
     ...args.cards.filter(c => args.current.includes(c.name)).map(c => ({
       ...c,
@@ -39,5 +39,5 @@ export function collate(args: {
       status: CardListStatus.ChoppingBlock,
     })),
   ];
-  return { cardDrafts, unused, undefined };
+  return { cardDrafts, unused, missingDefinition };
 }

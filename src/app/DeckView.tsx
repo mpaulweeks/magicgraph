@@ -196,8 +196,8 @@ export const DeckView = (props: {
           ))}
         </div>
         <div>
-          <h3>{deck.data.undefined.length} Undefined</h3>
-          {deck.data.undefined.map(cardname => (
+          <h3>{deck.data.missingDefinition.length} Missing</h3>
+          {deck.data.missingDefinition.map(cardname => (
             <div key={cardname}>
               <AutoCard card={cardname} />
             </div>

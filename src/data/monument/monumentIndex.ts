@@ -291,7 +291,7 @@ export const MonumentData: DeckData = {
     url: 'https://tappedout.net/mtg-decks/monument-to-bant/',
   }],
   cardDrafts: collated.cardDrafts,
-  undefined: collated.undefined,
+  missingDefinition: collated.missingDefinition,
   unused: collated.unused,
   matchers: MonMatchers,
   categoryColorMap: CategoryColorMap,
