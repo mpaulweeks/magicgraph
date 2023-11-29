@@ -594,4 +594,15 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.CaresAboutGettingUntapped,
   ],
 },
+{
+  name: `Dark Depths`,
+  additionalTypes: [CT.Legendary, CT.Snow],
+  overrideCategory: MC.Threat,
+  tags: [
+    MT.SacrificesSelf,
+    MT.LikesBeingCopiedWithMirror,
+    MT.HasAgeCounters,
+    MT.CannotTapForMana,
+  ],
+},
 ];

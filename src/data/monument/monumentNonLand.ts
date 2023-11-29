@@ -1190,4 +1190,27 @@ export const NonLands: CardDraft[] = [{
       other.tags.has(MT.HasIndestructible),
   }],
 },
+{
+  name: `Solemnity`,
+  mc: '2W',
+  types: [CT.Enchantment],
+  tags: [],
+  category: MC.Misc,
+  combos: [{
+    relationship: ME.CombosWith,
+    isMatch: other =>
+      other.types.has(CT.Land, CT.Creature, CT.Artifact) &&
+      other.tags.has(MT.HasAgeCounters, MT.HasMinusCounters),
+  }, {
+    relationship: ME.Nonbo,
+    isMatch: other =>
+      other.tags.has(
+        MT.PoisonCounters,
+        MT.HasAbilityCounters,
+        MT.HasLimitedUseCounters,
+        MT.HasPlusCounters,
+      ) ||
+      other.subtypes.has('Saga'),
+  }],
+},
 ];

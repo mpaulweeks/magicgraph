@@ -95,6 +95,8 @@ const choppingBlock = parseList(`
 const pending = parseList(`
 Odric, Lunarch Marshal
 Fabled Passage
+Dark Depths
+Solemnity
 `);
 
 const rejected = parseList(`
