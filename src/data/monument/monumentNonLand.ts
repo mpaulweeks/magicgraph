@@ -13,7 +13,7 @@ export const NonLands: CardDraft[] = [{
   mc: '2',
   types: [CT.Artifact],
   category: MC.Draw,
-  tags: [MT.TutorsBasic],
+  tags: [MT.TutorsBasicsToHand],
   combos: [
     {
       relationship: ME.CombosWith,
@@ -27,7 +27,7 @@ export const NonLands: CardDraft[] = [{
   mc: '2',
   types: [CT.Artifact],
   category: MC.Draw,
-  tags: [MT.TutorsBasic],
+  tags: [MT.TutorsBasicsToHand],
 },
 {
   name: `Mirage Mirror`,
@@ -363,7 +363,7 @@ export const NonLands: CardDraft[] = [{
   name: `Perilous Forays`,
   mc: '3GG',
   types: [CT.Enchantment],
-  tags: [MT.UsesTokens, MT.TutorsBasic, MT.SacrificeOutlet],
+  tags: [MT.UsesTokens, MT.TutorsBasicsToBattlefield, MT.SacrificeOutlet],
   category: MC.Ramp,
 },
 {
@@ -374,7 +374,10 @@ export const NonLands: CardDraft[] = [{
   combos: [
     {
       relationship: ME.CombosWith,
-      isMatch: other => other.tags.has(MT.TutorsBasic),
+      isMatch: other => other.tags.has(
+        MT.TutorsBasicsToBattlefield,
+        MT.TutorsBasicsToHand,
+      ),
     },
   ],
 },
@@ -878,7 +881,7 @@ export const NonLands: CardDraft[] = [{
   name: `Oath of Lieges`,
   mc: '1W',
   types: [CT.Enchantment],
-  tags: [MT.TutorsBasic],
+  tags: [MT.TutorsBasicsToBattlefield],
   category: MC.Ramp,
 },
 {
@@ -928,7 +931,11 @@ export const NonLands: CardDraft[] = [{
   name: `Mirror Entity`,
   mc: '2W',
   types: [CT.Creature],
-  tags: [MT.HasChangeling],
+  tags: [
+    MT.HasChangeling,
+    MT.GivesChangeling,
+    MT.UsesTokens,
+  ],
   category: MC.Threat,
 },
 {
@@ -1045,7 +1052,8 @@ export const NonLands: CardDraft[] = [{
     relationship: ME.CombosWith,
     isMatch: other => other.tags.has(
       MT.CaresAboutTopdeck,
-      MT.TutorsBasic,
+      MT.TutorsBasicsToBattlefield,
+      MT.TutorsBasicsToHand,
       MT.TutorsForest,
       MT.TutorsPlains,
       MT.TutorsLand,
@@ -1212,5 +1220,11 @@ export const NonLands: CardDraft[] = [{
       ) ||
       other.subtypes.has('Saga'),
   }],
+},
+{
+  name: `Swashbuckler's Whip`,
+  types: [CT.Artifact, CT.Equipment],
+  mc: '1',
+  category: MC.Draw,
 },
 ];

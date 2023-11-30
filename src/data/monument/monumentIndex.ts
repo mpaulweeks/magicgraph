@@ -73,11 +73,9 @@ Retrofitter Foundry
 Sensei's Divining Top
 Martyr's Cause
 Grove of the Guardian
-Castle Ardenvale
 Myojin of Blooming Dawn
 Minamo, School at Water's Edge
 Captain Sisay
-Hall of the Bandit Lord
 Blossoming Tortoise
 Dust Bowl
 Battle at the Helvault
@@ -90,9 +88,16 @@ Odric, Lunarch Marshal
 
 const choppingBlock = parseList(`
 Behold the Unspeakable // Vision of the Unspeakable
+Castle Ardenvale
+Hall of the Bandit Lord
 `);
 
 const pending = parseList(`
+Terrain Generator
+Hidden Nursery
+Pit of Offerings
+Swashbuckler's Whip
+Echoing Deeps
 `);
 
 const rejected = parseList(`

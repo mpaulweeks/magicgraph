@@ -44,8 +44,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   combos: [{
     relationship: ME.Protects,
     isMatch: other =>
-      other.types.all(CT.Creature, CT.Legendary) &&
-      !other.tags.has(MT.HasIndestructible),
+      other.types.all(CT.Creature, CT.Legendary),
   }, {
     relationship: ME.ManipulatesCounters,
     isMatch: other =>
@@ -181,7 +180,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.CannotTapForMana,
     MT.CaresAboutGettingUntapped,
     MT.SundialFriendly,
-    MT.TutorsBasic,
+    MT.TutorsBasicsToBattlefield,
     MT.TriggersLandfall,
     MT.LikesBeingBounced,
   ],
@@ -581,11 +580,11 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Demolition Field`,
-  tags: [MT.TutorsBasic, MT.SacrificesSelf],
+  tags: [MT.TutorsBasicsToBattlefield, MT.SacrificesSelf],
 },
 {
   name: `Fabled Passage`,
-  tags: [MT.TutorsBasic, MT.SacrificesSelf],
+  tags: [MT.TutorsBasicsToBattlefield, MT.SacrificesSelf],
 },
 {
   name: `Dust Bowl`,
@@ -605,5 +604,31 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.HasAgeCounters,
     MT.CannotTapForMana,
   ],
+},
+{
+  name: `Terrain Generator`,
+  overrideCategory: MC.Ramp,
+  tags: [
+    MT.CaresAboutGettingUntapped,
+  ],
+  combos: [{
+    relationship: ME.FueledBy,
+    isMatch: other => other.tags.has(
+      MT.TutorsBasicsToHand,
+      MT.BouncesLand,
+    ),
+  }],
+},
+{
+  name: `Hidden Nursery`,
+  tags: [MT.SacrificesSelf],
+},
+{
+  name: `Pit of Offerings`,
+  tags: [],
+},
+{
+  name: `Echoing Deeps`,
+  tags: [],
 },
 ];
