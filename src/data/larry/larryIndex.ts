@@ -43,7 +43,6 @@ Mithril Coat
 Nihil Spellbomb
 Soul-Guide Lantern
 
-
 Navigation Orb
 Expedition Map
 Burnished Hart
@@ -65,13 +64,25 @@ The Phasing of Zhalfir
 Angel of the Dire Hour
 Dread Cacodemon
 Myojin of Blooming Dawn
+The Everflowing Well // The Myriad Pools
+
+Nevinyrral, Urborg Tyrant
+Dark Depths
+Glacial Chasm
+Hall of the Bandit Lord
+High Market
+Phyrexian Tower
+
+Protector of the Crown
+Kefnet the Mindful
 `);
 
 const choppingBlock = parseList(`
-Ironsoul Enforcer
 `);
 
 const pending = parseList(`
+Eagle of Deliverance
+Myojin of Grim Betrayal
 The Moment
 Volrath's Stronghold
 Cyclone Summoner
@@ -79,6 +90,7 @@ Meticulous Excavation
 `);
 
 const rejected = parseList(`
+Ironsoul Enforcer
 Invasion of Fiora // Marchesa, Resolute Monarch
 Myojin of Cleansing Fire
 Boompile

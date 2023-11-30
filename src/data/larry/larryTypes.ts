@@ -20,11 +20,14 @@ export const CategoryColorMap = {
 
 export enum LarryTag {
   SacrificesSelf = 'Sacrifices Self',
+  SacrificeOutlet = 'Sacrifice Outlet',
+  WantsSacrificeOutlet = 'Wants Sacrifice Outlet',
 
   TutorsLand = 'Tutors Land',
 
   Bounces = 'Bounces',
   BouncesNonWizards = 'Bounces Non Wizards',
+  BouncesLand = 'Bounces Land',
   WantsBounce = 'Wants Bounce',
 
   HasETB = 'Has ETB',
@@ -36,11 +39,13 @@ export enum LarryTag {
   GivesPhasing = 'Gives Phasing',
   GivesIndestructible = 'Gives Indestructible',
   GivesFalseDeath = 'Gives FalseDeath',
+  GivesHaste = 'Gives Haste',
 
   WantsPhasing = 'Wants Phasing',
   WantsIndestructible = 'Wants Indestructible',
   WantsFalseDeath = 'Wants FalseDeath',
   WantsProtection = 'Wants Protection',
+  WantsHaste = 'Wants Haste',
 
   WantsCountersRemovedInstant = 'Wants Counters Removed Instant',
   WantsCountersRemoved = 'Wants Counters Removed',

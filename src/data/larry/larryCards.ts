@@ -266,6 +266,7 @@ export const LarryDraft: CardDraft[] = [
   tags: [
     LT.Bounces,
     LT.WantsProtection,
+    LT.WantsHaste,
   ],
   combos: [{
     relationship: LE.SynergyWith,
@@ -281,6 +282,7 @@ export const LarryDraft: CardDraft[] = [
   tags: [
     LT.Bounces,
     LT.WantsProtection,
+    LT.WantsHaste,
   ],
 },
 {
@@ -292,6 +294,7 @@ export const LarryDraft: CardDraft[] = [
   tags: [
     LT.Bounces,
     LT.WantsProtection,
+    LT.WantsHaste,
   ],
 },
 {
@@ -416,6 +419,7 @@ export const LarryDraft: CardDraft[] = [
     LT.ReanimatesToBattlefield,
     LT.ReanimatesArtifacts,
     LT.WantsProtection,
+    LT.WantsHaste,
   ],
 },
 {
@@ -429,6 +433,7 @@ export const LarryDraft: CardDraft[] = [
     LT.ReanimatesArtifacts,
     LT.ReanimatesEnchantments,
     LT.WantsProtection,
+    LT.WantsHaste,
   ],
 },
 {
@@ -441,6 +446,7 @@ export const LarryDraft: CardDraft[] = [
     LT.ReanimatesToBattlefield,
     LT.ReanimatesArtifacts,
     LT.WantsProtection,
+    LT.WantsHaste,
   ],
 },
 {
@@ -465,6 +471,7 @@ export const LarryDraft: CardDraft[] = [
     LT.ReanimatesToBattlefield,
     LT.ReanimatesEnchantments,
     LT.WantsProtection,
+    LT.WantsHaste,
   ],
 },
 {
@@ -477,6 +484,7 @@ export const LarryDraft: CardDraft[] = [
     LT.ReanimatesToBattlefield,
     LT.Reanimates3orLess,
     LT.WantsProtection,
+    LT.WantsHaste,
   ],
 },
 {
@@ -489,6 +497,7 @@ export const LarryDraft: CardDraft[] = [
     LT.ReanimatesToBattlefield,
     LT.ReanimatesNonland4orLess,
     LT.WantsProtection,
+    LT.WantsHaste,
   ],
 },
 {
@@ -503,6 +512,7 @@ export const LarryDraft: CardDraft[] = [
     LT.ReanimatesEnchantments,
     LT.ReanimatesCreatures,
     LT.WantsProtection,
+    LT.WantsHaste,
   ],
 },
 {
@@ -535,6 +545,7 @@ export const LarryDraft: CardDraft[] = [
   tags: [
     LT.ReanimatesEnchantments,
     LT.WantsProtection,
+    LT.WantsHaste,
   ],
 },
 
@@ -652,6 +663,7 @@ export const LarryDraft: CardDraft[] = [
   tags: [
     LT.RemovesCountersInstant,
     LT.WantsProtection,
+    LT.WantsHaste,
   ],
 },
 {
@@ -687,7 +699,10 @@ export const LarryDraft: CardDraft[] = [
   types: [CT.Creature],
   mc: 'W',
   category: LC.Mana,
-  tags: [LT.TutorsLand],
+  tags: [
+    LT.TutorsLand,
+    LT.WantsHaste,
+  ],
 },
 {
   name: `Skyclave Relic`,
@@ -756,6 +771,7 @@ export const LarryDraft: CardDraft[] = [
   mc: '1U',
   category: LC.Draw,
   tags: [
+    LT.HasETB,
     LT.SacrificesSelf,
   ],
 },
@@ -769,4 +785,109 @@ export const LarryDraft: CardDraft[] = [
     LT.WantsCountersRemoved,
   ],
 },
+{
+  name: `The Everflowing Well // The Myriad Pools`,
+  types: [CT.Enchantment],
+  mc: '2U',
+  category: LC.Draw,
+  tags: [
+    LT.HasETB,
+  ],
+},
+{
+  name: `Eagle of Deliverance`,
+  types: [CT.Creature, CT.Legendary],
+  mc: '4WW',
+  category: LC.Protection,
+  tags: [
+    LT.HasETB,
+    LT.GivesIndestructible,
+  ],
+},
+{
+  name: `Kefnet the Mindful`,
+  types: [CT.Creature, CT.Legendary],
+  mc: '2U',
+  category: LC.Draw,
+  tags: [
+    LT.HasIndestructible,
+    LT.BouncesLand,
+  ],
+},
+{
+  name: `Myojin of Grim Betrayal`,
+  types: [CT.Creature, CT.Legendary],
+  mc: '5BBB',
+  category: LC.Protection,
+  tags: [
+    LT.HasCastTrigger,
+    LT.HasIndestructible,
+    LT.ReanimatesCreatures,
+    LT.ReanimatesToBattlefield,
+  ],
+},
+{
+  name: `Dark Depths`,
+  types: [CT.Land, CT.Legendary, CT.Snow],
+  category: LC.Other,
+  tags: [
+    LT.WantsCountersRemoved,
+  ],
+},
+{
+  name: `Glacial Chasm`,
+  types: [CT.Land],
+  category: LC.Other,
+  tags: [
+    LT.WantsBounce,
+    LT.WantsCountersRemoved,
+  ],
+},
+{
+  name: `Hall of the Bandit Lord`,
+  types: [CT.Land, CT.Legendary],
+  category: LC.Other,
+  tags: [
+    LT.GivesHaste,
+  ],
+},
+{
+  name: `High Market`,
+  types: [CT.Land],
+  category: LC.Other,
+  tags: [
+    LT.SacrificeOutlet,
+  ],
+},
+{
+  name: `Phyrexian Tower`,
+  types: [CT.Land, CT.Legendary],
+  category: LC.Other,
+  tags: [
+    LT.SacrificeOutlet,
+  ],
+},
+{
+  name: `Nevinyrral, Urborg Tyrant`,
+  types: [CT.Creature, CT.Legendary],
+  subtypes: ['Zombie', 'Wizard'],
+  mc: '3WUB',
+  category: LC.Disk,
+  tags: [
+    LT.WantsSacrificeOutlet,
+    LT.DestroysArtifacts,
+    LT.DestroysCreatures,
+    LT.DestroysEnchantments,
+  ],
+},
+{
+  name: `Protector of the Crown`,
+  types: [CT.Creature],
+  mc: '5W',
+  category: LC.Draw,
+  tags: [
+    LT.HasETB,
+    LT.WantsProtection,
+  ],
+}
 ];

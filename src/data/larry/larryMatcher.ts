@@ -17,6 +17,7 @@ const binsSelf = (card: Cardlike) => [
 const bounces: MatchFunction = (bouncer, target) => target.tags.has(LT.WantsBounce, LT.HasCastTrigger) && [
   bouncer.tags.has(LT.Bounces),
   bouncer.tags.has(LT.BouncesWizards) && target.subtypes.has('Wizard'),
+  bouncer.tags.has(LT.BouncesLand) && target.types.has(CT.Land),
 ].some(b => b);
 
 const reanimates: MatchFunction = (recursion, target) => [
@@ -118,6 +119,18 @@ export const LarryMatchers: Matcher[] = [
     isMatch: (a,b) =>
       a.tags.has(LT.WantsCountersRemovedInstant) &&
       b.tags.has(LT.RemovesCountersInstant),
+  },
+  {
+    relationship: LE.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(LT.WantsSacrificeOutlet) &&
+      b.tags.has(LT.SacrificeOutlet),
+  },
+  {
+    relationship: LE.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(LT.WantsHaste) &&
+      b.tags.has(LT.GivesHaste),
   },
   {
     relationship: LE.Protects,
