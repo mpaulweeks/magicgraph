@@ -359,16 +359,105 @@ export const BrokkosCards: CardDraft[] = [
 },
 {
   name: `Mindleecher`,
-  mc: '',
-  types: [],
-  category: BC.Other,
-  tags: [],
+  mc: '4BB',
+  types: [CT.Creature],
+  category: BC.Draw,
+  tags: [
+    BT.Mutates,
+  ],
 },
 {
   name: `Sawtusk Demolisher`,
+  mc: '4GG',
+  types: [CT.Creature],
+  category: BC.Interaction,
+  tags: [
+    BT.Mutates,
+  ],
+},
+{
+  name: `Phyrexian Tower`,
   mc: '',
-  types: [],
+  types: [CT.Land],
   category: BC.Other,
-  tags: [],
+  tags: [
+    BT.IsSacrificeOutlet,
+  ],
+},
+{
+  name: `Broken Fall`,
+  mc: '2G',
+  types: [CT.Enchantment],
+  category: BC.Buff,
+  tags: [
+    BT.GivesRegeneration,
+  ],
+},
+{
+  name: `Souvenir Snatcher`,
+  mc: '4U',
+  types: [CT.Creature],
+  category: BC.Interaction,
+  tags: [
+    BT.Mutates,
+  ],
+},
+{
+  name: `Threefold Thunderhulk`,
+  mc: '7',
+  types: [CT.Creature, CT.Artifact],
+  category: BC.Threat,
+  tags: [
+    BT.WantsPower,
+    BT.HasPlusCounters,
+  ],
+},
+{
+  name: `Genesis`,
+  mc: '4G',
+  types: [CT.Creature],
+  category: BC.Recursion,
+  tags: [
+    BT.WantsToBeInGraveyard,
+  ],
+},
+{
+  name: `Mythos of Brokkos`,
+  mc: 'WUGG',
+  types: [CT.Sorcery],
+  category: BC.Recursion,
+  tags: [
+    BT.Entombs,
+  ],
+},
+{
+  name: `Wonder`,
+  mc: '3U',
+  types: [CT.Creature],
+  category: BC.Buff,
+  tags: [
+    BT.WantsToBeInGraveyard,
+  ],
+},
+{
+  name: `Giant Inheritance`,
+  mc: '4G',
+  types: [CT.Enchantment],
+  category: BC.Buff,
+  tags: [
+    BT.GivesPower,
+    BT.GivesToughness,
+  ],
+},
+{
+  name: `Zopandrel, Hunger Dominus`,
+  mc: '5GG',
+  types: [CT.Creature, CT.Legendary],
+  category: BC.Buff,
+  tags: [
+    BT.GivesPower,
+    BT.GivesToughness,
+    BT.IsSacrificeOutlet,
+  ],
 },
 ];

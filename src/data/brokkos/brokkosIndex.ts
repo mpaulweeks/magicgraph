@@ -71,6 +71,16 @@ Polukranos, Unchained
 
 Mindleecher
 Sawtusk Demolisher
+
+Phyrexian Tower
+Broken Fall
+Souvenir Snatcher
+Threefold Thunderhulk
+Genesis
+Mythos of Brokkos
+Wonder
+Giant Inheritance
+Zopandrel, Hunger Dominus
 `);
 
 const choppingBlock = parseList(`

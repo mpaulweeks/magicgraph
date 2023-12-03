@@ -26,6 +26,9 @@ export enum BrokkosTag {
   GivesDeathtouch = 'GivesDeathtouch',
   WantsDeathtouch = 'WantsDeathtouch',
 
+  Entombs = 'Entombs',
+  WantsToBeInGraveyard = 'WantsToBeInGraveyard',
+
   GivesLifelink = 'GivesLifelink',
   WantsLifelink = 'WantsLifelink',
 
