@@ -1,4 +1,5 @@
 import { DeckView } from './app/DeckView';
+import { BrokkosData } from './data/brokkos/brokkosIndex';
 import { LarryData } from './data/larry/larryIndex';
 import { MonumentData } from './data/monument/monumentIndex';
 import { RoccoData } from './data/rocco/roccoIndex';
@@ -10,6 +11,7 @@ function App() {
     slug: string;
     data: DeckData;
   }[] = [
+    { slug: 'brokkos', data: BrokkosData },
     { slug: 'larry', data: LarryData },
     { slug: 'monument', data: MonumentData },
     { slug: 'rocco', data: RoccoData },
