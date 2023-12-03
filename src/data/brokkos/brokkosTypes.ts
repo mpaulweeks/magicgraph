@@ -26,6 +26,7 @@ export enum BrokkosTag {
   Mutates = 'Mutates',
   SetsPT = 'SetsPT',
 
+  HasDeathtouch = 'HasDeathtouch',
   GivesDeathtouch = 'GivesDeathtouch',
   WantsDeathtouch = 'WantsDeathtouch',
 
@@ -34,6 +35,10 @@ export enum BrokkosTag {
 
   GivesLifelink = 'GivesLifelink',
   WantsLifelink = 'WantsLifelink',
+
+  HasTrample = 'HasTrample',
+  GivesTrample = 'GivesTrample',
+  WantsTrample = 'WantsTrample',
 
   HasPlusCounters = 'HasPlusCounters',
   GivesPlusCounters = 'GivesPlusCounters',
@@ -55,8 +60,18 @@ export enum BrokkosTag {
 }
 
 export const BrokkosTagLinks: TagLinks = {
+  [BrokkosTag.GivesDeathtouch]: [
+    BrokkosTag.HasDeathtouch,
+  ],
+  [BrokkosTag.GivesTrample]: [
+    BrokkosTag.HasTrample,
+  ],
   [BrokkosTag.GivesPower]: [
     BrokkosTag.IsBigBoy,
+  ],
+  [BrokkosTag.Mutates]: [
+    BrokkosTag.GivesPower,
+    BrokkosTag.GivesToughness,
   ],
   [BrokkosTag.GivesPlusCounters]: [
     BrokkosTag.GivesPower,
@@ -71,12 +86,15 @@ export enum BrokkosEdge {
   CombosWith = 'Combos With',
   Buffs = 'Buffs',
   BuffedBy = 'Buffed By',
+  GrantsAbilities = 'Grants Abilities',
+  GetsAbilities = 'Abilities From',
   Fuels = 'Fuels',
   FueledBy = 'Fueled By',
 }
 export const BrokkosInverseEdge = {
   [BrokkosEdge.Buffs]: BrokkosEdge.BuffedBy,
   [BrokkosEdge.Fuels]: BrokkosEdge.FueledBy,
+  [BrokkosEdge.GrantsAbilities]: BrokkosEdge.GetsAbilities,
 };
 export const BrokkosEdges: string[] = [
   // dont care

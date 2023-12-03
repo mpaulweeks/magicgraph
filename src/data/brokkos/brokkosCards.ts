@@ -9,6 +9,8 @@ export const BrokkosCards: CardDraft[] = [
   category: BC.Threat,
   tags: [
     BT.Mutates,
+    BT.HasTrample,
+    BT.GivesTrample,
   ],
 },
 {
@@ -106,8 +108,8 @@ export const BrokkosCards: CardDraft[] = [
   subtypes: ['Human'],
   category: BC.Draw,
   tags: [
+    BT.HasTrample,
     BT.HasPlusCounters,
-    BT.GivesPlusCounters,
     BT.WantsPower,
   ],
 },
@@ -351,6 +353,7 @@ export const BrokkosCards: CardDraft[] = [
   types: [CT.Creature],
   category: BC.Buff,
   tags: [
+    BT.HasTrample,
     BT.IsBigBoy,
     BT.HasPlusCounters,
   ],
@@ -388,6 +391,8 @@ export const BrokkosCards: CardDraft[] = [
   types: [CT.Creature],
   category: BC.Interaction,
   tags: [
+    BT.HasTrample,
+    BT.GivesTrample,
     BT.Mutates,
   ],
 },
@@ -461,6 +466,7 @@ export const BrokkosCards: CardDraft[] = [
   types: [CT.Enchantment],
   category: BC.Buff,
   tags: [
+    BT.GivesTrample,
     BT.GivesPower,
     BT.GivesToughness,
   ],
@@ -474,6 +480,17 @@ export const BrokkosCards: CardDraft[] = [
     BT.GivesPower,
     BT.GivesToughness,
     BT.IsSacrificeOutlet,
+  ],
+},
+{
+  name: `Conclave Sledge-Captain`,
+  mc: '5G',
+  types: [CT.Creature],
+  category: BC.Threat,
+  tags: [
+    BT.HasTrample,
+    BT.HasPlusCounters,
+    BT.GivesPlusCounters,
   ],
 },
 ];

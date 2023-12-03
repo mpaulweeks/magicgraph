@@ -7,15 +7,30 @@ export const BrokkosMatchers: Matcher[] = [{
     a.tags.has(BT.IsBigBoy) &&
     b.tags.has(BT.WantsBigBoy),
 }, {
-  relationship: BE.Buffs,
+  relationship: BE.GrantsAbilities,
   isMatch: (a,b) =>
     a.tags.has(BT.GivesDeathtouch) &&
     b.tags.has(BT.WantsDeathtouch),
 }, {
-  relationship: BE.Buffs,
+  relationship: BE.GrantsAbilities,
   isMatch: (a,b) =>
     a.tags.has(BT.GivesLifelink) &&
     b.tags.has(BT.WantsLifelink),
+}, {
+  relationship: BE.GrantsAbilities,
+  isMatch: (a,b) =>
+    a.tags.has(BT.GivesTrample) &&
+    b.tags.has(BT.WantsTrample),
+}, {
+  relationship: BE.CombosWith,
+  isMatch: (a,b) =>
+    a.tags.has(BT.GivesDeathtouch) &&
+    b.tags.has(BT.HasTrample),
+}, {
+  relationship: BE.CombosWith,
+  isMatch: (a,b) =>
+    a.tags.has(BT.GivesTrample) &&
+    b.tags.has(BT.HasDeathtouch),
 }, {
   relationship: BE.Buffs,
   isMatch: (a,b) =>
@@ -29,12 +44,6 @@ export const BrokkosMatchers: Matcher[] = [{
 }, {
   relationship: BE.Buffs,
   isMatch: (a,b) =>
-    a.tags.has(BT.Mutates) &&
-    !b.subtypes.has('Human') &&
-    b.tags.has(BT.WantsPower, BT.WantsToughness),
-}, {
-  relationship: BE.Buffs,
-  isMatch: (a,b) =>
     a.tags.has(BT.GivesPlusCounters) &&
     b.tags.has(BT.WantsPlusCounters),
 }, {
@@ -43,7 +52,7 @@ export const BrokkosMatchers: Matcher[] = [{
     a.tags.has(BT.GivesPlusCounters) &&
     b.tags.has(BT.GivesMinusCounters),
 }, {
-  relationship: BE.Buffs,
+  relationship: BE.GrantsAbilities,
   isMatch: (a,b) =>
     a.tags.has(BT.GivesRegeneration) &&
     b.tags.has(BT.WantsRegeneration),

@@ -21,7 +21,6 @@ Cradle Clearcutter
 Crypt Rats
 Diviner Spirit
 Doom Weaver
-Doomskar Warrior
 Emergent Woodwurm
 Kami of Whispered Hopes
 Marwyn, the Nurturer
@@ -81,6 +80,7 @@ Mythos of Brokkos
 Wonder
 Giant Inheritance
 Zopandrel, Hunger Dominus
+Conclave Sledge-Captain
 `);
 
 const choppingBlock = parseList(`
@@ -90,6 +90,7 @@ const pending = parseList(`
 `);
 
 const rejected = parseList(`
+Doomskar Warrior
 `);
 
 const allCards: CardDraft[] = [
@@ -110,7 +111,7 @@ export const BrokkosData: DeckData = {
   description: 'Sultai deck that makes creatures big',
   links: [{
     name: 'Tapped out',
-    url: 'https://tappedout.net/mtg-decks/heartless-rocco/',
+    url: 'https://tappedout.net/mtg-decks/17-03-22-apex-of-power/',
   }],
   cardDrafts: collated.cardDrafts,
   missingDefinition: collated.missingDefinition,
