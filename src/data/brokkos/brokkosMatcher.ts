@@ -2,14 +2,9 @@ import { Matcher } from "../../types";
 import { BrokkosEdge as BE, BrokkosTag as BT } from "./brokkosTypes";
 
 export const BrokkosMatchers: Matcher[] = [{
-  relationship: BE.CombosWith,
+  relationship: BE.Fuels,
   isMatch: (a,b) =>
-    a.tags.has(
-      BT.IsBigBoy,
-      BT.GivesPower,
-      BT.GivesPlusCounters,
-      BT.Mutates,
-    ) &&
+    a.tags.has(BT.IsBigBoy) &&
     b.tags.has(BT.WantsBigBoy),
 }, {
   relationship: BE.Buffs,
@@ -34,8 +29,14 @@ export const BrokkosMatchers: Matcher[] = [{
 }, {
   relationship: BE.Buffs,
   isMatch: (a,b) =>
+    a.tags.has(BT.Mutates) &&
+    !b.subtypes.has('Human') &&
+    b.tags.has(BT.WantsPower, BT.WantsToughness),
+}, {
+  relationship: BE.Buffs,
+  isMatch: (a,b) =>
     a.tags.has(BT.GivesPlusCounters) &&
-    b.tags.has(BT.WantsPlusCounters, BT.WantsPower, BT.WantsToughness),
+    b.tags.has(BT.WantsPlusCounters),
 }, {
   relationship: BE.CombosWith,
   isMatch: (a,b) =>
@@ -50,16 +51,15 @@ export const BrokkosMatchers: Matcher[] = [{
   relationship: BE.CombosWith,
   isMatch: (a,b) =>
     a.tags.has(BT.IsSacrificeOutlet) &&
-    b.tags.has(BT.WantsSacrificeOutlet, BT.WantsToBeInGraveyard),
+    b.tags.has(BT.WantsSacrificeOutlet),
 }, {
   relationship: BE.CombosWith,
   isMatch: (a,b) =>
     a.tags.has(BT.Entombs) &&
     b.tags.has(BT.WantsToBeInGraveyard),
 }, {
-  relationship: BE.Buffs,
+  relationship: BE.CombosWith,
   isMatch: (a,b) =>
-    a.tags.has(BT.Mutates) &&
-    !b.subtypes.has('Human') &&
-    b.tags.has(BT.WantsPower, BT.WantsToughness),
+    a.tags.has(BT.SetsPT) &&
+    b.tags.has(BT.HasPlusCounters),
 }];

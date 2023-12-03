@@ -1,5 +1,5 @@
 import { CardDraft, CardType as CT } from "../../types";
-import { BrokkosCategory as BC, BrokkosEdge, BrokkosTag as BT } from "./brokkosTypes";
+import { BrokkosCategory as BC, BrokkosEdge as BE, BrokkosTag as BT } from "./brokkosTypes";
 
 export const BrokkosCards: CardDraft[] = [
 {
@@ -103,8 +103,11 @@ export const BrokkosCards: CardDraft[] = [
   name: `Doomskar Warrior`,
   mc: '2GG',
   types: [CT.Creature],
+  subtypes: ['Human'],
   category: BC.Draw,
   tags: [
+    BT.HasPlusCounters,
+    BT.GivesPlusCounters,
     BT.WantsPower,
   ],
 },
@@ -115,6 +118,7 @@ export const BrokkosCards: CardDraft[] = [
   category: BC.Draw,
   tags: [
     BT.WantsPower,
+    BT.GivesPlusCounters,
   ],
 },
 {
@@ -195,19 +199,12 @@ export const BrokkosCards: CardDraft[] = [
   ],
 },
 {
-  name: `Shigeki, Jukai Visionary`,
-  mc: '1G',
-  types: [CT.Creature, CT.Enchantment, CT.Legendary],
-  category: BC.Ramp,
-  tags: [],
-},
-{
   name: `Traverse the Outlands`,
   mc: '4G',
   types: [CT.Sorcery],
   category: BC.Ramp,
   tags: [
-    BT.WantsPower,
+    BT.WantsBigBoy,
   ],
 },
 {
@@ -216,6 +213,11 @@ export const BrokkosCards: CardDraft[] = [
   types: [CT.Artifact],
   category: BC.Recursion,
   tags: [],
+  combos: [{
+    relationship: BE.CombosWith,
+    isMatch: other =>
+      other.tags.has(BT.HasPlusCounters),
+  }],
 },
 {
   name: `God-Pharaoh's Gift`,
@@ -223,20 +225,30 @@ export const BrokkosCards: CardDraft[] = [
   types: [CT.Artifact],
   category: BC.Recursion,
   tags: [],
+  combos: [{
+    relationship: BE.CombosWith,
+    isMatch: other =>
+      other.tags.has(BT.HasPlusCounters),
+  }],
 },
 {
   name: `The Mimeoplasm`,
   mc: '2UGB',
   types: [CT.Creature, CT.Legendary],
   category: BC.Recursion,
-  tags: [],
+  tags: [
+    BT.HasPlusCounters,
+    BT.GivesPlusCounters,
+  ],
 },
 {
   name: `The Scarab God`,
   mc: '3UB',
   types: [CT.Creature, CT.Legendary],
   category: BC.Recursion,
-  tags: [],
+  tags: [
+    BT.SetsPT,
+  ],
 },
 {
   name: `Blessing of Leeches`,
@@ -272,6 +284,7 @@ export const BrokkosCards: CardDraft[] = [
   category: BC.Interaction,
   tags: [
     BT.IsBigBoy,
+    BT.HasPlusCounters,
   ],
 },
 {
@@ -329,6 +342,7 @@ export const BrokkosCards: CardDraft[] = [
   category: BC.Draw,
   tags: [
     BT.WantsBigBoy,
+    BT.IsSacrificeOutlet,
   ],
 },
 {
@@ -338,9 +352,10 @@ export const BrokkosCards: CardDraft[] = [
   category: BC.Buff,
   tags: [
     BT.IsBigBoy,
+    BT.HasPlusCounters,
   ],
   combos: [{
-    relationship: BrokkosEdge.CombosWith,
+    relationship: BE.CombosWith,
     isMatch: other => other.tags.has(
       BT.HasPlusCounters,
       BT.GivesPlusCounters,
@@ -355,6 +370,7 @@ export const BrokkosCards: CardDraft[] = [
   tags: [
     BT.IsBigBoy,
     BT.HasPlusCounters,
+    BT.WantsToBeInGraveyard,
   ],
 },
 {

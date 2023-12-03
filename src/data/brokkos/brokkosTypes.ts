@@ -1,3 +1,5 @@
+import { TagLinks } from "../../types";
+
 export enum BrokkosCategory {
   Threat = 'Threat',
   Buff = 'Buff',
@@ -9,7 +11,7 @@ export enum BrokkosCategory {
 }
 export const BrokkosCategoryColorMap = {
   [BrokkosCategory.Threat]: 'salmon',
-  [BrokkosCategory.Buff]: 'mauve',
+  [BrokkosCategory.Buff]: 'pink',
   [BrokkosCategory.Interaction]: 'orange',
   [BrokkosCategory.Ramp]: 'lightgreen',
   [BrokkosCategory.Draw]: 'lightblue',
@@ -22,6 +24,7 @@ export enum BrokkosTag {
   WantsBigBoy = 'WantsBigBoy',
 
   Mutates = 'Mutates',
+  SetsPT = 'SetsPT',
 
   GivesDeathtouch = 'GivesDeathtouch',
   WantsDeathtouch = 'WantsDeathtouch',
@@ -51,11 +54,29 @@ export enum BrokkosTag {
   WantsSacrificeOutlet = 'WantsSacrificeOutlet',
 }
 
+export const BrokkosTagLinks: TagLinks = {
+  [BrokkosTag.GivesPower]: [
+    BrokkosTag.IsBigBoy,
+  ],
+  [BrokkosTag.GivesPlusCounters]: [
+    BrokkosTag.GivesPower,
+    BrokkosTag.GivesToughness,
+  ],
+  [BrokkosTag.WantsToBeInGraveyard]: [
+    BrokkosTag.WantsSacrificeOutlet,
+  ],
+};
+
 export enum BrokkosEdge {
   CombosWith = 'Combos With',
   Buffs = 'Buffs',
+  BuffedBy = 'Buffed By',
+  Fuels = 'Fuels',
+  FueledBy = 'Fueled By',
 }
 export const BrokkosInverseEdge = {
+  [BrokkosEdge.Buffs]: BrokkosEdge.BuffedBy,
+  [BrokkosEdge.Fuels]: BrokkosEdge.FueledBy,
 };
 export const BrokkosEdges: string[] = [
   // dont care

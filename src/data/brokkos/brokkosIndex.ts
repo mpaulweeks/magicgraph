@@ -6,7 +6,7 @@ import {
 import { parseList } from '../../util/list';
 import { BrokkosCards } from './brokkosCards';
 import { BrokkosMatchers } from './brokkosMatcher';
-import { BrokkosCategoryColorMap, BrokkosEdges, BrokkosInverseEdge } from './brokkosTypes';
+import { BrokkosCategoryColorMap, BrokkosEdges, BrokkosInverseEdge, BrokkosTagLinks } from './brokkosTypes';
 
 const current = parseList(`
 Brokkos, Apex of Forever
@@ -102,6 +102,7 @@ const collated = collate({
   pending,
   rejected,
   cards: allCards,
+  tagLinks: BrokkosTagLinks,
 });
 
 export const BrokkosData: DeckData = {

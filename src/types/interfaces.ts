@@ -39,3 +39,5 @@ export type CardEdge = {
   relationship: string;
   related: Cardlike[];
 };
+
+export type TagLinks = Record<string, string[]>;
