@@ -11,6 +11,7 @@ export enum CardType {
   Artifact = 'Artifact',
   Equipment = 'Equipment',
   Enchantment = 'Enchantment',
+  Saga = 'Saga',
   Aura = 'Aura',
   Instant = 'Instant',
   Sorcery = 'Sorcery',
