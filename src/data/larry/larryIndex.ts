@@ -12,7 +12,6 @@ Academy Ruins
 Athreos, Shroud-Veiled
 Darksteel Plate
 Emry, Lurker of the Loch
-Fool's Demise
 Gift of Immortality
 Hall of Heliod's Generosity
 Heidar, Rimewind Master
@@ -75,14 +74,14 @@ Phyrexian Tower
 
 Protector of the Crown
 Kefnet the Mindful
+Eagle of Deliverance
+Myojin of Grim Betrayal
 `);
 
 const choppingBlock = parseList(`
 `);
 
 const pending = parseList(`
-Eagle of Deliverance
-Myojin of Grim Betrayal
 The Moment
 Volrath's Stronghold
 Cyclone Summoner
@@ -90,6 +89,7 @@ Meticulous Excavation
 `);
 
 const rejected = parseList(`
+Fool's Demise
 Ironsoul Enforcer
 Invasion of Fiora // Marchesa, Resolute Monarch
 Myojin of Cleansing Fire
