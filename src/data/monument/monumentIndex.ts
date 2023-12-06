@@ -41,7 +41,6 @@ Myojin of Cleansing Fire
 Myojin of Towering Might
 Nesting Grounds
 Nevinyrral's Disk
-Perilous Forays
 Riptide Laboratory
 Rootpath Purifier
 Roots of Life
@@ -84,23 +83,24 @@ Glen Elendra Archmage
 Fabled Passage
 Dark Depths
 Odric, Lunarch Marshal
+Hidden Nursery
+Pit of Offerings
+Swashbuckler's Whip
 `);
 
 const choppingBlock = parseList(`
 Behold the Unspeakable // Vision of the Unspeakable
-Castle Ardenvale
-Hall of the Bandit Lord
 `);
 
 const pending = parseList(`
 Terrain Generator
-Hidden Nursery
-Pit of Offerings
-Swashbuckler's Whip
 Echoing Deeps
 `);
 
 const rejected = parseList(`
+Perilous Forays
+Castle Ardenvale
+Hall of the Bandit Lord
 Solemnity
 Zopandrel, Hunger Dominus
 Riftstone Portal
