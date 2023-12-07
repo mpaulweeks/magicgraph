@@ -12,9 +12,7 @@ import { MonumentCategory, MonumentEdges, MonumentInverseEdge } from './monument
 
 const current = parseList(`
 Amareth, the Lustrous
-Barrin, Master Wizard
 Boompile
-Cauldron of Souls
 Cyclone Summoner
 Deserted Temple
 Drownyard Temple
@@ -26,15 +24,12 @@ Glacial Chasm
 Helm of Possession
 Karma
 Karn's Bastion
-Kindred Discovery
 Kiora Bests the Sea God
 Lifetap
 Lotus Field
 Magus of the Disk
-Maskwood Nexus
 Maze of Ith
 Mirrex
-Mirror Entity
 Monument to Perfection
 Moritte of the Frost
 Myojin of Cleansing Fire
@@ -44,10 +39,8 @@ Nevinyrral's Disk
 Riptide Laboratory
 Rootpath Purifier
 Roots of Life
-Runed Stalactite
 Spara's Headquarters
 Sun Titan
-Swarmyard
 Thaumatic Compass // Spires of Orazca
 Thawing Glaciers
 The Hunter Maze
@@ -64,13 +57,10 @@ Aura Shards
 Knight of the Reliquary
 Weathered Wayfarer
 Scholar of New Horizons
-Hall of Heliod's Generosity
 Arwen, Mortal Queen
 Flagstones of Trokair
 Mondrak, Glory Dominus
-Retrofitter Foundry
 Sensei's Divining Top
-Martyr's Cause
 Grove of the Guardian
 Myojin of Blooming Dawn
 Minamo, School at Water's Edge
@@ -79,13 +69,24 @@ Blossoming Tortoise
 Dust Bowl
 Battle at the Helvault
 Scaretiller
-Glen Elendra Archmage
-Fabled Passage
 Dark Depths
-Odric, Lunarch Marshal
 Hidden Nursery
 Pit of Offerings
-Swashbuckler's Whip
+
+Shorikai, Genesis Engine
+Prime Speaker Zegana
+Chromatic Orrery
+Evolutionary Leap
+Woodfall Primus
+Apex Altisaur
+Rubinia Soulsinger
+The Night of the Doctor
+Court of Bounty
+Doubling Season
+World Breaker
+Petrified Field
+Desert
+Avarice Totem
 `);
 
 const choppingBlock = parseList(`
@@ -98,6 +99,21 @@ Echoing Deeps
 `);
 
 const rejected = parseList(`
+Barrin, Master Wizard
+Cauldron of Souls
+Maskwood Nexus
+Mirror Entity
+Runed Stalactite
+Swarmyard
+Retrofitter Foundry
+Martyr's Cause
+Glen Elendra Archmage
+Fabled Passage
+Odric, Lunarch Marshal
+Swashbuckler's Whip
+Kindred Discovery
+Hall of Heliod's Generosity
+
 Perilous Forays
 Castle Ardenvale
 Hall of the Bandit Lord
@@ -106,11 +122,8 @@ Zopandrel, Hunger Dominus
 Riftstone Portal
 Gavony Township
 Animation Module
-Evolutionary Leap
-The Night of the Doctor
 Song of Eärendil
 The Caves of Androzani
-Woodfall Primus
 Phyrexian Swarmlord
 Proteus Staff
 Twilight Shepherd
@@ -128,7 +141,6 @@ Mistveil Plains
 Oboro Breezecaller
 Luminous Broodmoth
 Tale of Tinúviel
-Avarice Totem
 Elspeth Conquers Death
 The Mending of Dominaria
 Kor Haven
@@ -138,7 +150,6 @@ The Fall of Lord Konda // Fragment of Konda
 The Bath Song
 Jalira, Master Polymorphist
 Staff of Titania
-Rubinia Soulsinger
 Canopy Vista
 Dismiss into Dream
 High Market
@@ -146,7 +157,6 @@ Prairie Stream
 Sower of Temptation
 Willbreaker
 Alchemist's Refuge
-Apex Altisaur
 Aven Courier
 Awakening of Vitu-Ghazi
 Battle of Frost and Fire
@@ -156,7 +166,6 @@ Celestial Colonnade
 Constant Mists
 Contested Cliffs
 Cowardice
-Desert
 Desolate Lighthouse
 Djinn of Infinite Deceits
 Dragonlair Spider
@@ -235,7 +244,6 @@ Waking the Trolls
 Ward of Bones
 Wilderness Reclamation
 Wirewood Lodge
-World Breaker
 Yavimaya Hollow
 Hanweir Battlements // Hanweir, the Writhing Township
 Silverbluff Bridge

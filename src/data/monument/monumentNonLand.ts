@@ -111,7 +111,7 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithCast,
     MT.HasAbilityCounters,
     MT.HasIndestructible,
-    MT.MakesTokens,
+    MT.MakesMultipleTokens,
   ],
   category: MC.Threat,
 },
@@ -140,7 +140,10 @@ export const NonLands: CardDraft[] = [{
   name: `Omnath, Locus of Rage`,
   mc: '3RRGG',
   types: [CT.Creature, CT.Legendary],
-  tags: [MT.HasLandfall, MT.MakesTokens],
+  tags: [
+    MT.HasLandfall,
+    MT.MakesMultipleTokens,
+  ],
   category: MC.Threat,
 },
 {
@@ -182,7 +185,10 @@ export const NonLands: CardDraft[] = [{
   name: `Maskwood Nexus`,
   mc: '4',
   types: [CT.Artifact],
-  tags: [MT.MakesTokens, MT.GivesChangeling],
+  tags: [
+    MT.MakesMultipleTokens,
+    MT.GivesChangeling,
+  ],
   category: MC.Buff,
 },
 {
@@ -196,7 +202,10 @@ export const NonLands: CardDraft[] = [{
   name: `Animation Module`,
   mc: '1',
   types: [CT.Artifact],
-  tags: [MT.Proliferates, MT.MakesTokens],
+  tags: [
+    MT.Proliferates,
+    MT.MakesMultipleTokens,
+  ],
   category: MC.Buff,
 },
 {
@@ -233,7 +242,10 @@ export const NonLands: CardDraft[] = [{
   mc: '2G',
   types: [CT.Creature],
   subtypes: ['Insect'],
-  tags: [MT.MakesTokens, MT.HasLandfall],
+  tags: [
+    MT.MakesMultipleTokens,
+    MT.HasLandfall,
+  ],
   category: MC.Threat,
 },
 {
@@ -241,7 +253,9 @@ export const NonLands: CardDraft[] = [{
   mc: '2RRGG',
   types: [CT.Creature],
   subtypes: ['Spider'],
-  tags: [MT.MakesTokens],
+  tags: [
+    MT.MakesMultipleTokens,
+  ],
   category: MC.Threat,
 },
 {
@@ -508,7 +522,10 @@ export const NonLands: CardDraft[] = [{
   name: `Krenko, Tin Street Kingpin`,
   mc: '2R',
   types: [CT.Creature, CT.Legendary],
-  tags: [MT.MakesTokens, MT.VulnerableAttacker],
+  tags: [
+    MT.MakesMultipleTokens,
+    MT.VulnerableAttacker,
+  ],
   category: MC.Threat,
 },
 {
@@ -789,7 +806,7 @@ export const NonLands: CardDraft[] = [{
   combos: [
     {
       relationship: ME.FueledBy,
-      isMatch: other => other.tags.has(MT.MakesTokens),
+      isMatch: other => other.tags.has(MT.MakesMultipleTokens),
     },
   ],
 },
@@ -845,8 +862,21 @@ export const NonLands: CardDraft[] = [{
   name: `Mondrak, Glory Dominus`,
   mc: '2WW',
   types: [CT.Creature, CT.Legendary],
-  tags: [MT.HasIndestructible, MT.HasAbilityCounters, MT.UsesTokens, MT.MakesTokens, MT.SacrificeOutlet],
+  tags: [
+    MT.HasIndestructible,
+    MT.HasAbilityCounters,
+    MT.UsesTokens,
+    MT.SacrificeOutlet,
+  ],
   category: MC.Misc,
+  combos: [{
+    relationship: ME.CombosWith,
+    isMatch: other =>
+      other.tags.has(
+        MT.MakesBigToken,
+        MT.MakesMultipleTokens,
+      ),
+  }],
 },
 {
   name: `Weathered Wayfarer`,
@@ -1040,7 +1070,10 @@ export const NonLands: CardDraft[] = [{
   name: `Retrofitter Foundry`,
   mc: '1',
   types: [CT.Artifact],
-  tags: [MT.TargetsTribal, MT.MakesTokens],
+  tags: [
+    MT.TargetsTribal,
+    MT.MakesMultipleTokens,
+  ],
   category: MC.Threat,
 },
 {
@@ -1116,7 +1149,10 @@ export const NonLands: CardDraft[] = [{
   mc: '4GG',
   types: [CT.Creature],
   subtypes: ['Insect', 'Horror'],
-  tags: [MT.MakesTokens, MT.PoisonCounters],
+  tags: [
+    MT.MakesMultipleTokens,
+    MT.PoisonCounters,
+  ],
   category: MC.Threat,
 },
 {
@@ -1226,5 +1262,57 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Artifact, CT.Equipment],
   mc: '1',
   category: MC.Draw,
+},
+{
+  name: `Shorikai, Genesis Engine`,
+  types: [CT.Artifact, CT.Creature, CT.Legendary],
+  mc: '2WU',
+  category: MC.Draw,
+  tags: [
+    MT.MakesMultipleTokens,
+    MT.CaresAboutGettingUntapped,
+  ],
+},
+{
+  name: `Prime Speaker Zegana`,
+  types: [CT.Creature, CT.Legendary],
+  subtypes: ['Wizard'],
+  mc: '2GGUU',
+  category: MC.Draw,
+  tags: [
+    MT.LikesBeingBounced,
+  ],
+},
+{
+  name: `Chromatic Orrery`,
+  types: [CT.Artifact, CT.Legendary],
+  mc: '7',
+  category: MC.Ramp,
+  tags: [
+    MT.CaresAboutGettingUntapped,
+  ],
+},
+{
+  name: `Court of Bounty`,
+  types: [CT.Enchantment],
+  mc: '2GG',
+  category: MC.Ramp,
+  tags: [
+  ],
+},
+{
+  name: `Doubling Season`,
+  types: [CT.Enchantment],
+  mc: '4G',
+  category: MC.Misc,
+  combos: [{
+    relationship: ME.CombosWith,
+    isMatch: other =>
+      other.tags.has(
+        MT.MakesBigToken,
+        MT.MakesMultipleTokens,
+        MT.HasAbilityCounters,
+      ),
+  }],
 },
 ];

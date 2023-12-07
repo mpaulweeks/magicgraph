@@ -91,7 +91,7 @@ export const MonMatchers: Matcher[] = [
     relationship: ME.FueledBy,
     isMatch: (a,b) =>
       a.tags.has(MT.UsesTokens) &&
-      b.tags.has(MT.MakesTokens),
+      b.tags.has(MT.MakesMultipleTokens),
   },
   {
     relationship: ME.CombosWith,

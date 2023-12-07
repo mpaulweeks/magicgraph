@@ -189,7 +189,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Mirrex`,
   subtypes: ['Sphere'],
   tags: [
-    MT.MakesTokens,
+    MT.MakesMultipleTokens,
     MT.ManaSink,
     MT.CaresAboutGettingUntapped,
     MT.PoisonCounters,
@@ -208,13 +208,16 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Kher Keep`,
   additionalTypes: [CT.Legendary],
   tags: [
-    MT.MakesTokens,
+    MT.MakesMultipleTokens,
     MT.CaresAboutGettingUntapped,
   ],
 },
 {
   name: `Field of the Dead`,
-  tags: [MT.MakesTokens, MT.HasLandfall],
+  tags: [
+    MT.MakesMultipleTokens,
+    MT.HasLandfall,
+  ],
   subtypes: ['Zombie'],
 },
 {
@@ -452,7 +455,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Kjeldoran Outpost`,
   tags: [
-    MT.MakesTokens,
+    MT.MakesMultipleTokens,
     MT.CaresAboutPlains,
     MT.CaresAboutGettingUntapped,
   ],
@@ -467,7 +470,9 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Moorland Haunt`,
-  tags: [MT.MakesTokens],
+  tags: [
+    MT.MakesMultipleTokens,
+  ],
 },
 {
   name: `The Hunter Maze`,
@@ -549,14 +554,14 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: 'Castle Ardenvale',
   tags: [
-    MT.MakesTokens,
+    MT.MakesMultipleTokens,
     MT.CaresAboutGettingUntapped,
   ],
 },
 {
   name: `Vitu-Ghazi, the City-Tree`,
   tags: [
-    MT.MakesTokens,
+    MT.MakesMultipleTokens,
     MT.CaresAboutGettingUntapped,
   ],
 },
@@ -575,7 +580,10 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Grove of the Guardian`,
-  tags: [MT.SacrificesSelf, MT.MakesTokens],
+  tags: [
+    MT.SacrificesSelf,
+    MT.MakesBigToken,
+  ],
   overrideCategory: MC.Threat,
 },
 {
@@ -625,10 +633,22 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Pit of Offerings`,
-  tags: [],
 },
 {
   name: `Echoing Deeps`,
-  tags: [],
+},
+{
+  name: `Petrified Field`,
+  tags: [
+    MT.SacrificesSelf,
+  ],
+  combos: [{
+    relationship: ME.Reanimates,
+    isMatch: other =>
+      other.tags.has(MT.SacrificesLands) || (
+        other.types.has(CT.Land) &&
+        other.tags.has(MT.SacrificesSelf)
+      ),
+  }],
 },
 ];
