@@ -84,6 +84,16 @@ const choppingBlock = parseList(`
 
 const pending = parseList(`
 Volrath's Stronghold
+Oath of Jace
+Demonic Lore
+Treacherous Blessing
+Liliana's Contract
+Love Song of Night and Day
+Court Hussar
+Chrome Courier
+Orazca Puzzle-Door
+Staff of the Storyteller
+Mazemind Tome
 `);
 
 const rejected = parseList(`
