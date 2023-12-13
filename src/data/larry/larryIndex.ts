@@ -27,7 +27,6 @@ Robe of Stars
 Serenity
 Sun Titan
 Treasury Thrull
-Vanishing
 Vedalken Mastermind
 
 Induced Amnesia
@@ -52,9 +51,7 @@ Solemn Simulacrum
 Thaumatic Compass // Spires of Orazca
 
 Marit Lage's Slumber
-Courier's Capsule
 Mnemonic Sphere
-Font of Fortunes
 Omen of the Sea
 Mystic Remora
 One Ring to Rule Them All
@@ -76,19 +73,24 @@ Protector of the Crown
 Kefnet the Mindful
 Eagle of Deliverance
 Myojin of Grim Betrayal
+
+Scampering Surveyor
+The Moment
+Meticulous Excavation
 `);
 
 const choppingBlock = parseList(`
 `);
 
 const pending = parseList(`
-The Moment
 Volrath's Stronghold
-Cyclone Summoner
-Meticulous Excavation
 `);
 
 const rejected = parseList(`
+Vanishing
+Courier's Capsule
+Font of Fortunes
+Cyclone Summoner
 Fool's Demise
 Ironsoul Enforcer
 Invasion of Fiora // Marchesa, Resolute Monarch

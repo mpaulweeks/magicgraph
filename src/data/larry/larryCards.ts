@@ -724,6 +724,15 @@ export const LarryDraft: CardDraft[] = [
   ],
 },
 {
+  name: `Scampering Surveyor`,
+  types: [CT.Artifact, CT.Creature],
+  mc: '4',
+  category: LC.Mana,
+  tags: [
+    LT.HasETB,
+  ],
+},
+{
   name: `Thaumatic Compass // Spires of Orazca`,
   types: [CT.Artifact],
   mc: '2',
