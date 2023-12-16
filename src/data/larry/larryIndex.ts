@@ -39,7 +39,6 @@ The Night of the Doctor
 Guardian Scalelord
 Mithril Coat
 Nihil Spellbomb
-Soul-Guide Lantern
 
 Navigation Orb
 Expedition Map
@@ -98,6 +97,7 @@ Mazemind Tome
 
 const rejected = parseList(`
 Vanishing
+Soul-Guide Lantern
 Courier's Capsule
 Font of Fortunes
 Cyclone Summoner
