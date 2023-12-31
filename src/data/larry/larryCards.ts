@@ -118,8 +118,7 @@ export const LarryDraft: CardDraft[] = [
 },
 {
   name: `Phyrexian Scriptures`,
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   mc: '2BB',
   category: LC.Disk,
   tags: [
@@ -131,8 +130,7 @@ export const LarryDraft: CardDraft[] = [
 },
 {
   name: `One Ring to Rule Them All`,
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   mc: '2BB',
   category: LC.Disk,
   tags: [
@@ -144,8 +142,7 @@ export const LarryDraft: CardDraft[] = [
 },
 {
   name: `The Phasing of Zhalfir`,
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   mc: '4',
   category: LC.Disk,
   notes: [`Only hits creatures`],
@@ -160,8 +157,7 @@ export const LarryDraft: CardDraft[] = [
 },
 {
   name: `The Night of the Doctor`,
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   mc: '4WW',
   category: LC.Disk,
   tags: [

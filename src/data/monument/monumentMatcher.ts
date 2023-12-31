@@ -124,14 +124,14 @@ export const MonMatchers: Matcher[] = [
         b.tags.has(MT.HasAbilityCounters),
         b.tags.has(MT.HasLimitedUseCounters),
         b.tags.has(MT.PoisonCounters),
-        b.subtypes.has('Saga'),
+        b.types.has(CT.Saga),
       ].some(b => b),
   },
   {
     relationship: ME.ManipulatesCounters,
     isMatch: (a,b) =>
       a.tags.has(MT.ProliferatesNonSaga) &&
-      !b.subtypes.has('Saga') && [
+      !b.types.has(CT.Saga) && [
         b.tags.has(MT.HasAbilityCounters),
         b.tags.has(MT.HasLimitedUseCounters),
       ].some(b => b),
@@ -149,7 +149,7 @@ export const MonMatchers: Matcher[] = [
       a.tags.has(MT.RemovesCounters) && [
         b.tags.has(MT.HasMinusCounters),
         b.tags.has(MT.HasAgeCounters),
-        b.subtypes.has('Saga'),
+        b.types.has(CT.Saga),
       ].some(b => b),
   },
   {

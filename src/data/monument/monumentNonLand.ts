@@ -834,7 +834,7 @@ export const NonLands: CardDraft[] = [{
     isMatch: other =>
       other.tags.has(MT.SacrificesLands) ||
       (other.mv <= 3 && (
-        other.subtypes.has('Saga') ||
+        other.types.has(CT.Saga) ||
         other.tags.has(MT.SacrificesSelf)
       )),
   }],
@@ -1021,7 +1021,7 @@ export const NonLands: CardDraft[] = [{
     relationship: ME.Reanimates,
     isMatch: other =>
       other.types.has(CT.Artifact, CT.Enchantment) && (
-        other.subtypes.has('Saga') ||
+        other.types.has(CT.Saga) ||
         other.tags.has(MT.SacrificesSelf)
       ),
   }],
@@ -1254,7 +1254,7 @@ export const NonLands: CardDraft[] = [{
         MT.HasLimitedUseCounters,
         MT.HasPlusCounters,
       ) ||
-      other.subtypes.has('Saga'),
+      other.types.has(CT.Saga),
   }],
 },
 {

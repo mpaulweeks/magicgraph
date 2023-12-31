@@ -9,7 +9,7 @@ export function TwoCardCombo(cb: (other: Cardlike) => boolean): CardCombo {
 }
 
 const binsSelf = (card: Cardlike) => [
-  card.subtypes.has('Saga'),
+  card.types.has(CT.Saga),
   card.tags.has(LT.SacrificesSelf),
 ].some(b => b);
 

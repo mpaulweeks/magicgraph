@@ -222,9 +222,8 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Urza's Saga`,
-  additionalTypes: [CT.Enchantment],
+  additionalTypes: [CT.Enchantment, CT.Saga],
   overrideCategory: MC.Tutor,
-  subtypes: ['Saga'],
   tags: [
     MT.CaresAboutTrinkets,
     MT.CaresAboutGettingUntapped,
@@ -447,7 +446,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     relationship: ME.Reanimates,
     isMatch: other =>
       other.types.has(CT.Enchantment) && (
-        other.subtypes.has('Saga') ||
+        other.types.has(CT.Saga) ||
         other.tags.has(MT.SacrificesSelf)
       ),
   }]
