@@ -57,7 +57,6 @@ One Ring to Rule Them All
 
 The Phasing of Zhalfir
 Angel of the Dire Hour
-Dread Cacodemon
 Myojin of Blooming Dawn
 The Everflowing Well // The Myriad Pools
 
@@ -69,13 +68,16 @@ High Market
 Phyrexian Tower
 
 Protector of the Crown
-Kefnet the Mindful
 Eagle of Deliverance
 Myojin of Grim Betrayal
 
 Scampering Surveyor
-The Moment
 Meticulous Excavation
+
+Vengeful Pharaoh
+Unstable Glyphbridge
+Sawtooth Loon
+Treacherous Blessing
 `);
 
 const choppingBlock = parseList(`
@@ -96,6 +98,9 @@ Mazemind Tome
 `);
 
 const rejected = parseList(`
+Kefnet the Mindful
+Dread Cacodemon
+The Moment
 Vanishing
 Soul-Guide Lantern
 Courier's Capsule
