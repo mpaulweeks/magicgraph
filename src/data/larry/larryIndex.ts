@@ -75,7 +75,7 @@ Scampering Surveyor
 Meticulous Excavation
 
 Vengeful Pharaoh
-Unstable Glyphbridge
+Unstable Glyphbridge // Sandswirl Wanderglyph
 Sawtooth Loon
 Treacherous Blessing
 `);
@@ -87,7 +87,6 @@ const pending = parseList(`
 Volrath's Stronghold
 Oath of Jace
 Demonic Lore
-Treacherous Blessing
 Liliana's Contract
 Love Song of Night and Day
 Court Hussar

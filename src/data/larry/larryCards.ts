@@ -898,5 +898,123 @@ export const LarryDraft: CardDraft[] = [
     LT.HasETB,
     LT.WantsProtection,
   ],
-}
+},
+{
+  name: `Vengeful Pharaoh`,
+  types: [CT.Creature],
+  mc: '2BBB',
+  category: LC.Other,
+  tags: [
+    LT.WantsSacrificeOutlet,
+  ],
+},
+{
+  name: `Unstable Glyphbridge // Sandswirl Wanderglyph`,
+  types: [CT.Artifact],
+  mc: '3WW',
+  category: LC.Disk,
+  tags: [
+    LT.HasCastTrigger,
+    LT.DestroysCreatures,
+  ],
+},
+{
+  name: `Sawtooth Loon`,
+  types: [CT.Creature],
+  mc: '2WU',
+  category: LC.Draw,
+  tags: [
+  ],
+},
+{
+  name: `Treacherous Blessing`,
+  types: [CT.Enchantment],
+  mc: '2B',
+  category: LC.Draw,
+  tags: [
+    LT.HasETB,
+  ],
+},
+{
+  name: `Oath of Jace`,
+  types: [CT.Enchantment, CT.Legendary],
+  mc: '2U',
+  category: LC.Draw,
+  tags: [
+    LT.HasETB,
+  ],
+},
+{
+  name: `Demonic Lore`,
+  types: [CT.Legendary],
+  mc: '2B',
+  category: LC.Draw,
+  tags: [
+    LT.HasETB,
+  ],
+},
+{
+  name: `Liliana's Contract`,
+  types: [CT.Enchantment],
+  mc: '3BB',
+  category: LC.Draw,
+  tags: [
+    LT.HasETB,
+  ],
+},
+{
+  name: `Love Song of Night and Day`,
+  types: [CT.Enchantment, CT.Saga],
+  mc: '2W',
+  category: LC.Draw,
+  tags: [
+    LT.WantsCountersRemoved,
+  ],
+},
+{
+  name: `Court Hussar`,
+  types: [CT.Creature],
+  mc: '2U',
+  category: LC.Draw,
+  tags: [
+    LT.HasCastTrigger,
+  ],
+},
+{
+  name: `Chrome Courier`,
+  types: [CT.Creature, CT.Artifact],
+  mc: '1WU',
+  category: LC.Draw,
+  tags: [
+    LT.HasETB,
+  ],
+},
+{
+  name: `Orazca Puzzle-Door`,
+  types: [CT.Artifact],
+  mc: 'U',
+  category: LC.Draw,
+  tags: [
+    LT.SacrificesSelf,
+  ],
+},
+{
+  name: `Staff of the Storyteller`,
+  types: [CT.Artifact],
+  mc: '1W',
+  category: LC.Draw,
+  tags: [
+    LT.HasETB,
+  ],
+},
+{
+  name: `Mazemind Tome`,
+  types: [CT.Artifact],
+  mc: '2',
+  category: LC.Draw,
+  tags: [
+    LT.WantsBounce,
+    LT.SacrificesSelf,
+  ],
+},
 ];
