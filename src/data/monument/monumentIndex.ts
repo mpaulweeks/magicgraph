@@ -78,32 +78,32 @@ Prime Speaker Zegana
 Chromatic Orrery
 Evolutionary Leap
 Woodfall Primus
-Apex Altisaur
 Rubinia Soulsinger
 The Night of the Doctor
-Court of Bounty
 Doubling Season
-World Breaker
-Desert
 Echoing Deeps
 Mangara of Corondor
-`);
-
-const choppingBlock = parseList(`
-Behold the Unspeakable // Vision of the Unspeakable
-`);
-
-const pending = parseList(`
-Terrain Generator
 High Market
 Phyrexia's Core
 Golden Guardian // Gold-Forge Garrison
 Spine of Ish Sah
 Magus of the Unseen
+`);
+
+const choppingBlock = parseList(`
+`);
+
+const pending = parseList(`
+Terrain Generator
 Unstable Glyphbridge // Sandswirl Wanderglyph
 `);
 
 const rejected = parseList(`
+Apex Altisaur
+Court of Bounty
+World Breaker
+Desert
+Behold the Unspeakable // Vision of the Unspeakable
 Eye of Ugin
 Maskwood Nexus
 Avarice Totem

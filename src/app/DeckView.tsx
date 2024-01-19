@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { Deck } from "../lib/deck";
-import { sort, unique, uniqueBy } from "../util/list";
+import { sort, sortBy, unique, uniqueBy } from "../util/list";
 import styles from './App.module.css';
 import { AutoCard } from "./AutoCard";
 import { CardView } from "./CardView";
 import { GraphVis } from "./GraphVis";
+
+enum Sorting {
+  Alphabetical = 1,
+  Edges,
+}
 
 export const DeckView = (props: {
   deck: Deck,
@@ -15,6 +20,8 @@ export const DeckView = (props: {
   const [includeChoppingBlock, setIncludeChoppingBlock] = useState<boolean>(queryParsm.get('choppingBlock') === null || !!queryParsm.get('choppingBlock'));
   const [includePending, setIncludePending] = useState<boolean>(!!queryParsm.get('pending'));
   const [includeRejected, setIncludeRejected] = useState<boolean>(!!queryParsm.get('rejected'));
+  const [sortAscending, setSortAscending] = useState<boolean>(true);
+  const [sorting, setSorting] = useState<Sorting>(Sorting.Alphabetical);
   const [filter, setFilter] = useState<string>();
   const [showGraph, setShowGraph] = useState(false);
 
@@ -50,13 +57,24 @@ export const DeckView = (props: {
     .filter(c => includeCurrent || !c.current)
     .filter(c => includePending || !c.pending)
     .filter(c => includeRejected || !c.rejected)
-    .filter(c => includeChoppingBlock || !c.choppingBlock)
+    .filter(c => includeChoppingBlock || !c.choppingBlock);
   const edges = uniqueBy(
     deck.edges
       .filter(e => includePending || e.related.every(c => !c.pending))
       .filter(e => includeRejected || e.related.every(c => !c.rejected)),
     elm => sort(elm.related.map(c => c.id)).join('|')
   );
+  const toRenderPreSort = {
+    [Sorting.Alphabetical]: toRender,
+    [Sorting.Edges]: sortBy(toRender, card =>
+      edges.filter(e =>
+        e.related.map(c => c.id).includes(card.id)
+      ).length
+    ),
+  }[sorting];
+  const toRenderSorted = sortAscending
+    ? toRenderPreSort
+    : toRenderPreSort.concat().reverse();
 
   return (
   <div className={styles.DeckView}>
@@ -121,6 +139,27 @@ export const DeckView = (props: {
         </div>
       </section>
       <section>
+        <div>
+          Sort by:
+          <select
+            value={sorting}
+            onChange={e => setSorting(parseFloat(e.target.value))}
+          >
+            <option value={Sorting.Alphabetical}>Alphabetical</option>
+            <option value={Sorting.Edges}>Edges</option>
+          </select>
+        </div>
+        <div>
+          Sort ascending?
+          <input
+            type="checkbox"
+            readOnly={true}
+            checked={sortAscending}
+            onClick={() => setSortAscending(!sortAscending)}
+          />
+        </div>
+      </section>
+      <section>
         <h3>
           Filter: {filter ?? 'none'}
           <button onClick={() => setFilter(undefined)}>
@@ -153,7 +192,7 @@ export const DeckView = (props: {
         </div>
       </section>
       <div className={styles.CardGallery}>
-        {toRender.map((card) => (
+        {toRenderSorted.map((card) => (
           <CardView
             key={card.id}
             deck={deck}
