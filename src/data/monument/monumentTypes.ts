@@ -14,8 +14,14 @@ export enum MonumentCategory {
 }
 
 export enum MonumentTag {
-  SacrificeOutlet = 'Sacrifice Outlet',
-  WantsSacrificeOutlet = 'Wants Sacrifice Outlet',
+  SacrificesSelf = 'Sacrifices Self',
+  SacrificeOutletArtifact = 'Sacrifice Outlet for Artifact',
+  SacrificeOutletCreature = 'Sacrifice Outlet for Creature',
+  SacrificeOutletLand = 'Sacrifice Outlet for Land',
+  WantsToBeSacrificed = 'Wants to be Sacrificed',
+  WantsSacrificeOutletArtifact = 'Wants Sacrifice Outlet for Artifact',
+  WantsSacrificeOutletCreature = 'Wants Sacrifice Outlet for Creature',
+  WantsSacrificeOutletLand = 'Wants Sacrifice Outlet for Land',
 
   HasPlusCounters = '+1/+1 Counters',
   HasMinusCounters = '-1/-1 Counters',
@@ -45,10 +51,6 @@ export enum MonumentTag {
   TutorsForest = 'Tutors Forest',
   TutorsPlains = 'Tutors Plains',
   TutorsLand = 'Tutors Land',
-
-  SacrificesSelf = 'Sacrifices Self',
-  SacrificesLands = 'Sacrifices Lands',
-  WantsToBeSacrificed = 'Wants to be Sacrificed',
 
   Flashback = 'Flashback',
 

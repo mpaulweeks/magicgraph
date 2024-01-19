@@ -96,12 +96,6 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.CombosWith,
     isMatch: (a,b) =>
-      a.tags.has(MT.WantsSacrificeOutlet) &&
-      b.tags.has(MT.SacrificeOutlet),
-  },
-  {
-    relationship: ME.CombosWith,
-    isMatch: (a,b) =>
       a.tags.has(MT.DestroysAll) &&
       b.tags.has(MT.HasIndestructible),
   },
@@ -153,11 +147,21 @@ export const MonMatchers: Matcher[] = [
       ].some(b => b),
   },
   {
-    relationship: ME.Fuels,
-    isMatch: (a,b) =>
-      a.types.has('Land') &&
-      a.tags.has(MT.WantsToBeSacrificed) &&
-      b.tags.has(MT.SacrificesLands),
+    relationship: ME.CombosWith,
+    isMatch: (a,b) => [
+      a.tags.has(MT.SacrificeOutletArtifact) && [
+        b.types.has(CT.Artifact) && b.tags.has(MT.WantsToBeSacrificed),
+        b.tags.has(MT.WantsSacrificeOutletArtifact),
+      ].some(b => b),
+      a.tags.has(MT.SacrificeOutletCreature) && [
+        b.types.has(CT.Creature) && b.tags.has(MT.WantsToBeSacrificed),
+        b.tags.has(MT.WantsSacrificeOutletCreature),
+      ].some(b => b),
+      a.tags.has(MT.SacrificeOutletLand) && [
+        b.types.has(CT.Land) && b.tags.has(MT.WantsToBeSacrificed),
+        b.tags.has(MT.WantsSacrificeOutletLand),
+      ].some(b => b),
+    ].some(b => b),
   },
   {
     relationship: ME.Tutors,

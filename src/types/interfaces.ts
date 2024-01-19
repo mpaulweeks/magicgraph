@@ -1,4 +1,5 @@
 import { Interset } from '../util/interset';
+import { Color } from './enums';
 
 export interface Cardlike {
   readonly id: string;
@@ -8,6 +9,7 @@ export interface Cardlike {
   readonly subtypes: Interset<string>;
   readonly mc: string;
   readonly mv: number;
+  readonly colors: Color[];
   readonly power?: number;
   readonly category: string;
   readonly tags: Interset<string>;

@@ -1,4 +1,4 @@
-import { CardListStatus } from './enums';
+import { CardListStatus, Color } from './enums';
 import { CardCombo, Matcher } from './interfaces';
 
 export type CardDraft = {
@@ -8,6 +8,7 @@ export type CardDraft = {
   types: string[];
   subtypes?: string[];
   mc?: string;
+  colors?: Color[];
   power?: number;
   category: string;
   tags?: string[];

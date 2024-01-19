@@ -220,14 +220,14 @@ export const NonLands: CardDraft[] = [{
   mc: '3UU',
   types: [CT.Creature],
   subtypes: ['Wizard'],
-  tags: [MT.CaresAboutTargeting, MT.WantsSacrificeOutlet],
+  tags: [MT.CaresAboutTargeting, MT.WantsSacrificeOutletCreature],
   category: MC.Interaction,
 },
 {
   name: `Elvish Reclaimer`,
   mc: 'G',
   types: [CT.Creature],
-  tags: [MT.SacrificesLands, MT.TriggersLandfall],
+  tags: [MT.SacrificeOutletLand, MT.TriggersLandfall],
   category: MC.Tutor,
 },
 {
@@ -278,7 +278,7 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.HasMinusCounters,
     MT.TargetsCreatures,
-    MT.WantsSacrificeOutlet,
+    MT.WantsSacrificeOutletCreature,
   ],
 },
 {
@@ -328,14 +328,18 @@ export const NonLands: CardDraft[] = [{
   name: `Jalira, Master Polymorphist`,
   mc: '3U',
   types: [CT.Creature, CT.Legendary],
-  tags: [MT.UsesTokens, MT.SacrificeOutlet],
+  tags: [MT.UsesTokens, MT.SacrificeOutletCreature],
   category: MC.Draw,
 },
 {
   name: `Reality Scramble`,
   mc: '2RR',
   types: [CT.Sorcery],
-  tags: [MT.UsesTokens, MT.SacrificeOutlet],
+  tags: [
+    MT.UsesTokens,
+    MT.SacrificeOutletArtifact,
+    MT.SacrificeOutletCreature,
+  ],
   category: MC.Draw,
 },
 {
@@ -363,21 +367,32 @@ export const NonLands: CardDraft[] = [{
   name: `Helm of Possession`,
   mc: '4',
   types: [CT.Artifact],
-  tags: [MT.UsesTokens, MT.SacrificeOutlet, MT.WantsSacrificeOutlet],
+  tags: [
+    MT.UsesTokens,
+    MT.SacrificeOutletCreature,
+    MT.WantsSacrificeOutletCreature,
+  ],
   category: MC.Interaction,
 },
 {
   name: `Barrin, Master Wizard`,
   mc: '2UU',
   types: [CT.Creature, CT.Legendary],
-  tags: [MT.UsesTokens, MT.SacrificeOutlet],
+  tags: [
+    MT.UsesTokens,
+    MT.SacrificeOutletCreature,
+  ],
   category: MC.Interaction,
 },
 {
   name: `Perilous Forays`,
   mc: '3GG',
   types: [CT.Enchantment],
-  tags: [MT.UsesTokens, MT.TutorsBasicsToBattlefield, MT.SacrificeOutlet],
+  tags: [
+    MT.UsesTokens,
+    MT.TutorsBasicsToBattlefield,
+    MT.SacrificeOutletCreature,
+  ],
   category: MC.Ramp,
 },
 {
@@ -419,7 +434,7 @@ export const NonLands: CardDraft[] = [{
   name: `Constant Mists`,
   mc: '1G',
   types: [CT.Instant],
-  tags: [MT.SacrificesLands],
+  tags: [MT.SacrificeOutletLand],
   category: MC.Lifegain,
 },
 {
@@ -454,14 +469,14 @@ export const NonLands: CardDraft[] = [{
   name: `Overtaker`,
   mc: '3U',
   types: [CT.Creature],
-  tags: [MT.WantsSacrificeOutlet],
+  tags: [MT.WantsSacrificeOutletCreature],
   category: MC.Interaction,
 },
 {
   name: `Callous Oppressor`,
   mc: '1UU',
   types: [CT.Creature],
-  tags: [MT.WantsSacrificeOutlet],
+  tags: [MT.WantsSacrificeOutletCreature],
   category: MC.Interaction,
 },
 {
@@ -608,7 +623,7 @@ export const NonLands: CardDraft[] = [{
   name: `Fortitude`,
   mc: '1G',
   types: [CT.Enchantment],
-  tags: [MT.CaresAboutForests, MT.SacrificesLands],
+  tags: [MT.CaresAboutForests, MT.SacrificeOutletLand],
   category: MC.Buff,
 },
 {
@@ -692,7 +707,7 @@ export const NonLands: CardDraft[] = [{
   name: `Dreamscape Artist`,
   mc: '2U',
   types: [CT.Creature],
-  tags: [MT.SacrificesLands, MT.CaresAboutGettingUntapped],
+  tags: [MT.SacrificeOutletLand, MT.CaresAboutGettingUntapped],
   category: MC.Ramp,
 },
 {
@@ -771,8 +786,9 @@ export const NonLands: CardDraft[] = [{
 {
   name: `World Breaker`,
   mc: '6G',
+  colors: [],
   types: [CT.Creature],
-  tags: [MT.SacrificesLands],
+  tags: [MT.SacrificeOutletLand],
   category: MC.Interaction,
 },
 {
@@ -788,7 +804,7 @@ export const NonLands: CardDraft[] = [{
   mc: '2UU',
   types: [CT.Creature],
   subtypes: ['Wizard'],
-  tags: [MT.WantsSacrificeOutlet],
+  tags: [MT.WantsSacrificeOutletCreature],
   category: MC.Interaction,
 },
 {
@@ -832,7 +848,7 @@ export const NonLands: CardDraft[] = [{
   combos: [{
     relationship: ME.Reanimates,
     isMatch: other =>
-      other.tags.has(MT.SacrificesLands) ||
+      other.tags.has(MT.SacrificeOutletLand) ||
       (other.mv <= 3 && (
         other.types.has(CT.Saga) ||
         other.tags.has(MT.SacrificesSelf)
@@ -866,7 +882,8 @@ export const NonLands: CardDraft[] = [{
     MT.HasIndestructible,
     MT.HasAbilityCounters,
     MT.UsesTokens,
-    MT.SacrificeOutlet,
+    MT.SacrificeOutletArtifact,
+    MT.SacrificeOutletCreature,
   ],
   category: MC.Misc,
   combos: [{
@@ -889,7 +906,7 @@ export const NonLands: CardDraft[] = [{
   name: `Knight of the Reliquary`,
   mc: '1WG',
   types: [CT.Creature],
-  tags: [MT.TutorsLand, MT.TriggersLandfall, MT.SacrificesLands, MT.CaresAboutForests, MT.CaresAboutPlains, MT.CaresAboutGettingUntapped],
+  tags: [MT.TutorsLand, MT.TriggersLandfall, MT.SacrificeOutletLand, MT.CaresAboutForests, MT.CaresAboutPlains, MT.CaresAboutGettingUntapped],
   category: MC.Tutor,
 },
 {
@@ -918,7 +935,10 @@ export const NonLands: CardDraft[] = [{
   name: `Rubinia Soulsinger`,
   mc: '2WUG',
   types: [CT.Creature, CT.Legendary],
-  tags: [MT.WantsSacrificeOutlet, MT.CaresAboutGettingUntapped],
+  tags: [
+    MT.WantsSacrificeOutletCreature,
+    MT.CaresAboutGettingUntapped,
+  ],
   category: MC.Interaction,
 },
 {
@@ -954,7 +974,10 @@ export const NonLands: CardDraft[] = [{
   name: `Twilight Shepherd`,
   mc: '3WWW',
   types: [CT.Creature],
-  tags: [MT.HasMinusCounters, MT.WantsSacrificeOutlet],
+  tags: [
+    MT.HasMinusCounters,
+    MT.WantsSacrificeOutletCreature,
+  ],
   category: MC.Recursion,
 },
 {
@@ -1034,7 +1057,7 @@ export const NonLands: CardDraft[] = [{
     MT.HasAbilityCounters,
     MT.HasIndestructible,
     MT.UsesTokens,
-    MT.SacrificeOutlet,
+    MT.SacrificeOutletCreature,
   ],
   category: MC.Threat,
 },
@@ -1097,7 +1120,7 @@ export const NonLands: CardDraft[] = [{
   name: `Evolutionary Leap`,
   mc: '1G',
   types: [CT.Enchantment],
-  tags: [MT.SacrificeOutlet, MT.UsesTokens],
+  tags: [MT.SacrificeOutletCreature, MT.UsesTokens],
   category: MC.Draw,
 },
 {
@@ -1105,22 +1128,20 @@ export const NonLands: CardDraft[] = [{
   mc: '3U',
   types: [CT.Creature],
   subtypes: ['Wizard'],
-  tags: [MT.HasMinusCounters, MT.WantsSacrificeOutlet],
+  tags: [MT.HasMinusCounters, MT.WantsSacrificeOutletCreature],
   category: MC.Interaction,
 },
 {
   name: `Blossoming Tortoise`,
   mc: '2GG',
   types: [CT.Creature],
-  tags: [],
   category: MC.Recursion,
+  tags: [MT.WantsSacrificeOutletLand],
   combos: [{
     relationship: ME.Reanimates,
     isMatch: other =>
-      other.tags.has(MT.SacrificesLands) || (
-        other.types.has(CT.Land) &&
-        other.tags.has(MT.SacrificesSelf)
-      ),
+      other.types.has(CT.Land) &&
+      other.tags.has(MT.SacrificesSelf),
   }],
 },
 {
@@ -1128,20 +1149,21 @@ export const NonLands: CardDraft[] = [{
   mc: '4',
   types: [CT.Artifact, CT.Creature],
   category: MC.Recursion,
+  tags: [
+    MT.WantsSacrificeOutletLand,
+  ],
   combos: [{
     relationship: ME.Reanimates,
     isMatch: other =>
-      other.tags.has(MT.SacrificesLands) || (
-        other.types.has(CT.Land) &&
-        other.tags.has(MT.SacrificesSelf)
-      ),
+      other.types.has(CT.Land) &&
+      other.tags.has(MT.SacrificesSelf),
   }],
 },
 {
   name: `Martyr's Cause`,
   mc: '2W',
   types: [CT.Enchantment],
-  tags: [MT.SacrificeOutlet, MT.UsesTokens],
+  tags: [MT.SacrificeOutletCreature, MT.UsesTokens],
   category: MC.Interaction,
 },
 {
@@ -1159,7 +1181,7 @@ export const NonLands: CardDraft[] = [{
   name: `Woodfall Primus`,
   mc: '5GGG',
   types: [CT.Creature],
-  tags: [MT.WantsSacrificeOutlet, MT.HasMinusCounters],
+  tags: [MT.WantsSacrificeOutletCreature, MT.HasMinusCounters],
   category: MC.Interaction,
 },
 {
@@ -1182,13 +1204,12 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Enchantment],
   subtypes: ['Saga'],
   category: MC.Recursion,
+  tags: [MT.WantsSacrificeOutletLand],
   combos: [{
     relationship: ME.Reanimates,
     isMatch: other =>
-      other.tags.has(MT.SacrificesLands) || (
-        other.types.has(CT.Land) &&
-        other.tags.has(MT.SacrificesSelf)
-      ),
+      other.types.has(CT.Land) &&
+      other.tags.has(MT.SacrificesSelf),
   }],
 },
 {
@@ -1314,5 +1335,56 @@ export const NonLands: CardDraft[] = [{
         MT.HasAbilityCounters,
       ),
   }],
+},
+{
+  name: `Golden Guardian // Gold-Forge Garrison`,
+  types: [CT.Artifact, CT.Creature],
+  mc: '4',
+  category: MC.Ramp,
+  tags: [
+    MT.WantsToBeSacrificed,
+    MT.CaresAboutGettingUntapped,
+    MT.MakesBigToken,
+  ],
+},
+{
+  name: `Spine of Ish Sah`,
+  types: [CT.Artifact],
+  mc: '7',
+  category: MC.Interaction,
+  tags: [
+    MT.WantsToBeSacrificed,
+    MT.LikesBeingBounced,
+  ],
+},
+{
+  name: `Magus of the Unseen`,
+  types: [CT.Creature],
+  mc: '1U',
+  category: MC.Interaction,
+  tags: [
+    MT.WantsSacrificeOutletArtifact,
+    MT.CaresAboutGettingUntapped,
+  ],
+},
+{
+  name: `Unstable Glyphbridge // Sandswirl Wanderglyph`,
+  types: [CT.Artifact],
+  mc: '3WW',
+  category: MC.Interaction,
+  tags: [
+    MT.LikesBeingBounced,
+    MT.LikesBeingCopiedWithCast,
+  ],
+},
+{
+  name: `Mangara of Corondor`,
+  types: [CT.Creature, CT.Legendary],
+  subtypes: ['Wizard'],
+  mc: '1WW',
+  category: MC.Interaction,
+  tags: [
+    MT.CaresAboutGettingUntapped,
+  ],
 },
 ];

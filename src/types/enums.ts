@@ -20,3 +20,6 @@ export enum CardType {
   Legendary = 'Legendary',
   Snow = 'Snow',
 }
+
+export const Colors = ['W', 'B', 'U', 'R', 'G'] as const;
+export type Color = typeof Colors[number];

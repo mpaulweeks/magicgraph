@@ -68,7 +68,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.LikesBeingCopiedWithCast,
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
-    MT.SacrificesLands,
+    MT.SacrificeOutletLand,
     MT.SundialFriendly,
     MT.LikesBeingBounced,
   ],
@@ -144,7 +144,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.LikesBeingCopiedWithMirror,
     MT.LandWithProtection,
     MT.SundialFriendly,
-    MT.SacrificesLands,
+    MT.SacrificeOutletLand,
   ],
 },
 {
@@ -246,7 +246,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `High Market`,
   tags: [
-    MT.SacrificeOutlet,
+    MT.SacrificeOutletCreature,
     MT.CaresAboutGettingUntapped,
   ],
 },
@@ -571,7 +571,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   combos: [{
     relationship: ME.Reanimates,
     isMatch: other =>
-      other.tags.has(MT.SacrificesLands) || (
+      other.tags.has(MT.SacrificeOutletLand) || (
         other.types.has(CT.Land) &&
         other.tags.has(MT.SacrificesSelf)
       ),
@@ -597,7 +597,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Dust Bowl`,
   overrideCategory: MC.Interaction,
   tags: [
-    MT.SacrificesLands,
+    MT.SacrificeOutletLand,
     MT.CaresAboutGettingUntapped,
   ],
 },
@@ -644,10 +644,29 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   combos: [{
     relationship: ME.Reanimates,
     isMatch: other =>
-      other.tags.has(MT.SacrificesLands) || (
+      other.tags.has(MT.SacrificeOutletLand) || (
         other.types.has(CT.Land) &&
         other.tags.has(MT.SacrificesSelf)
       ),
   }],
+},
+{
+  name: `Eye of Ugin`,
+  tags: [
+    MT.CannotTapForMana,
+    MT.TargetsTribal,
+  ],
+  combos: [{
+    relationship: ME.Tutors,
+    isMatch: other =>
+      other.types.has(CT.Creature) &&
+      other.colors.length === 0,
+  }],
+},
+{
+  name: `Phyrexia's Core`,
+  tags: [
+    MT.SacrificeOutletArtifact,
+  ],
 },
 ];

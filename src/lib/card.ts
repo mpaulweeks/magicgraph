@@ -1,4 +1,4 @@
-import { CardCombo, CardDraft, CardListStatus, CardStyling, Cardlike } from '../types';
+import { CardCombo, CardDraft, CardListStatus, CardStyling, Cardlike, Color, Colors } from '../types';
 import { Interset } from '../util/interset';
 
 export class CardImpl implements Cardlike {
@@ -9,6 +9,7 @@ export class CardImpl implements Cardlike {
   readonly subtypes: Interset<string>;
   readonly mc: string;
   readonly mv: number;
+  readonly colors: Color[];
   readonly power?: number;
   readonly category: string;
   readonly tags: Interset<string>;
@@ -26,6 +27,7 @@ export class CardImpl implements Cardlike {
     this.types = new Interset(draft.types);
     this.subtypes = new Interset(draft.subtypes ?? []);
     this.mc = draft.mc ?? '';
+    this.colors = draft.colors ?? Colors.filter(c => this.mc.includes(c));
     this.power = draft.power;
     this.category = draft.category;
     this.tags = new Interset(draft.tags ?? []);

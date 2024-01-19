@@ -84,9 +84,9 @@ The Night of the Doctor
 Court of Bounty
 Doubling Season
 World Breaker
-Petrified Field
 Desert
-Avarice Totem
+Echoing Deeps
+Mangara of Corondor
 `);
 
 const choppingBlock = parseList(`
@@ -95,13 +95,21 @@ Behold the Unspeakable // Vision of the Unspeakable
 
 const pending = parseList(`
 Terrain Generator
-Echoing Deeps
+High Market
+Phyrexia's Core
+Golden Guardian // Gold-Forge Garrison
+Spine of Ish Sah
+Magus of the Unseen
+Unstable Glyphbridge // Sandswirl Wanderglyph
 `);
 
 const rejected = parseList(`
+Eye of Ugin
+Maskwood Nexus
+Avarice Totem
+Petrified Field
 Barrin, Master Wizard
 Cauldron of Souls
-Maskwood Nexus
 Mirror Entity
 Runed Stalactite
 Swarmyard
@@ -152,7 +160,6 @@ Jalira, Master Polymorphist
 Staff of Titania
 Canopy Vista
 Dismiss into Dream
-High Market
 Prairie Stream
 Sower of Temptation
 Willbreaker
