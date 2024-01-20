@@ -3,6 +3,7 @@ import { BrokkosData } from './data/brokkos/brokkosIndex';
 import { LarryData } from './data/larry/larryIndex';
 import { LifeswapData } from './data/lifeswap/lifeswapIndex';
 import { MonumentData } from './data/monument/monumentIndex';
+import { RefData } from './data/ref/refIndex';
 import { RoccoData } from './data/rocco/roccoIndex';
 import { Deck } from './lib/deck';
 import { DeckData } from './types';
@@ -17,6 +18,7 @@ function App() {
     { slug: 'larry', data: LarryData },
     { slug: 'monument', data: MonumentData },
     { slug: 'rocco', data: RoccoData },
+    { slug: 'ref', data: RefData },
   ];
 
   const queryParsm = new URLSearchParams(window.location.search);
