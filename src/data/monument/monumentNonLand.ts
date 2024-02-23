@@ -1431,4 +1431,13 @@ export const NonLands: CardDraft[] = [{
     MT.MakesColorlessCreatures,
   ],
 },
+{
+  name: `Lunar Hatchling`,
+  types: [CT.Creature],
+  mc: '4GU',
+  category: MC.Threat,
+  tags: [
+    MT.TutorsBasicsToHand,
+  ],
+}
 ];

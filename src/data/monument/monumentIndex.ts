@@ -84,26 +84,27 @@ Doubling Season
 Echoing Deeps
 Mangara of Corondor
 High Market
-Phyrexia's Core
-Golden Guardian // Gold-Forge Garrison
-Spine of Ish Sah
-Magus of the Unseen
+Tomb of the Spirit Dragon
+Summoning Station
+Illustrious Wanderglyph
+Lunar Hatchling
 `);
 
 const choppingBlock = parseList(`
 `);
 
 const pending = parseList(`
-Terrain Generator
-Unstable Glyphbridge // Sandswirl Wanderglyph
-Tomb of the Spirit Dragon
-Summoning Station
-Illustrious Wanderglyph
-Darksteel Splicer
 Thelonite Druid
 `);
 
 const rejected = parseList(`
+Darksteel Splicer
+Terrain Generator
+Phyrexia's Core
+Unstable Glyphbridge // Sandswirl Wanderglyph
+Golden Guardian // Gold-Forge Garrison
+Spine of Ish Sah
+Magus of the Unseen
 Apex Altisaur
 Court of Bounty
 World Breaker
