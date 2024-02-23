@@ -96,6 +96,11 @@ const choppingBlock = parseList(`
 const pending = parseList(`
 Terrain Generator
 Unstable Glyphbridge // Sandswirl Wanderglyph
+Tomb of the Spirit Dragon
+Summoning Station
+Illustrious Wanderglyph
+Darksteel Splicer
+Thelonite Druid
 `);
 
 const rejected = parseList(`

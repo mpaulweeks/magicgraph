@@ -111,6 +111,7 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithCast,
     MT.HasAbilityCounters,
     MT.HasIndestructible,
+    MT.MakesColorlessCreatures,
     MT.MakesMultipleTokens,
   ],
   category: MC.Threat,
@@ -1385,6 +1386,49 @@ export const NonLands: CardDraft[] = [{
   category: MC.Interaction,
   tags: [
     MT.CaresAboutGettingUntapped,
+  ],
+},
+
+{
+  name: `Summoning Station`,
+  types: [CT.Artifact],
+  mc: '7',
+  category: MC.Threat,
+  tags: [
+    MT.MakesColorlessCreatures,
+    MT.MakesMultipleTokens,
+  ],
+},
+{
+  name: `Illustrious Wanderglyph`,
+  types: [CT.Creature, CT.Artifact],
+  mc: '4W',
+  category: MC.Threat,
+  tags: [
+    MT.MakesColorlessCreatures,
+    MT.MakesMultipleTokens,
+  ],
+},
+{
+  name: `Darksteel Splicer`,
+  types: [CT.Creature],
+  mc: '6W',
+  category: MC.Threat,
+  tags: [
+    MT.MakesColorlessCreatures,
+    MT.MakesMultipleTokens,
+    MT.TargetsTribal,
+    MT.LikesBeingCopiedWithETB,
+  ],
+},
+{
+  name: `Thelonite Druid`,
+  types: [CT.Creature],
+  mc: '2G',
+  category: MC.Threat,
+  tags: [
+    MT.SacrificeOutletCreature,
+    MT.MakesColorlessCreatures,
   ],
 },
 ];

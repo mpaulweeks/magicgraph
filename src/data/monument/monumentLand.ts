@@ -669,4 +669,14 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.SacrificeOutletArtifact,
   ],
 },
+{
+  name: `Tomb of the Spirit Dragon`,
+  tags: [
+  ],
+  combos: [{
+    relationship: ME.CombosWith,
+    isMatch: other =>
+      other.tags.has(MT.MakesColorlessCreatures),
+  }],
+},
 ];
