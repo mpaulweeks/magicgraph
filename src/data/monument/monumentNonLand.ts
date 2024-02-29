@@ -449,6 +449,7 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithCast,
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
+    MT.MakesLotsOfCopies,
   ],
   category: MC.Threat,
 },
@@ -1439,5 +1440,14 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.TutorsBasicsToHand,
   ],
-}
+},
+{
+  name: `Doppelgang`,
+  types: [CT.Sorcery],
+  mc: 'XXXGU',
+  category: MC.Threat,
+  tags: [
+    MT.MakesLotsOfCopies,
+  ],
+},
 ];

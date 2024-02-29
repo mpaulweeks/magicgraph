@@ -679,4 +679,16 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
       other.tags.has(MT.MakesColorlessCreatures),
   }],
 },
+{
+  name: `Nykthos, Shrine to Nyx`,
+  additionalTypes: [CT.Legendary],
+  tags: [
+    MT.CaresAboutGettingUntapped,
+  ],
+  combos: [{
+    relationship: ME.CombosWith,
+    isMatch: other =>
+      other.tags.has(MT.MakesLotsOfCopies),
+  }],
+}
 ];

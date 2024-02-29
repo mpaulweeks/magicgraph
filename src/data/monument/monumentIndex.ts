@@ -12,7 +12,6 @@ import { MonumentCategory, MonumentEdges, MonumentInverseEdge } from './monument
 
 const current = parseList(`
 Amareth, the Lustrous
-Boompile
 Cyclone Summoner
 Deserted Temple
 Drownyard Temple
@@ -35,19 +34,15 @@ Moritte of the Frost
 Myojin of Cleansing Fire
 Myojin of Towering Might
 Nesting Grounds
-Nevinyrral's Disk
 Riptide Laboratory
-Rootpath Purifier
 Roots of Life
 Spara's Headquarters
-Sun Titan
 Thaumatic Compass // Spires of Orazca
 Thawing Glaciers
 The Hunter Maze
 The Mycosynth Gardens
 The World Spell
 Thespian's Stage
-Tyrite Sanctum
 Urborg, Tomb of Yawgmoth
 Urza's Saga
 Yavimaya, Cradle of Growth
@@ -70,8 +65,6 @@ Dust Bowl
 Battle at the Helvault
 Scaretiller
 Dark Depths
-Hidden Nursery
-Pit of Offerings
 
 Shorikai, Genesis Engine
 Prime Speaker Zegana
@@ -91,10 +84,23 @@ Lunar Hatchling
 `);
 
 const choppingBlock = parseList(`
+Hidden Nursery
+Pit of Offerings
+Tyrite Sanctum
+Nevinyrral's Disk
+Rootpath Purifier
+Sun Titan
+Boompile
 `);
 
 const pending = parseList(`
+Nykthos, Shrine to Nyx
+Doppelgang
+Nacatl War-Pride
 Thelonite Druid
+Forbidden Orchard
+Sundial of the Infinite
+Mirage Mirror
 `);
 
 const rejected = parseList(`
@@ -149,7 +155,6 @@ Restless Vinestalk
 Tekuthal, Inquiry Dominus
 Myojin of Cryptic Dreams
 Kjeldoran Outpost
-Sundial of the Infinite
 Tameshi, Reality Architect
 Mistveil Plains
 Oboro Breezecaller
@@ -188,7 +193,6 @@ Dualcaster Mage
 Emeria Shepherd
 Fatestitcher
 Flamekin Village
-Forbidden Orchard
 Fortitude
 Fractured Loyalty
 Hammerheim
@@ -203,13 +207,11 @@ Krenko, Tin Street Kingpin
 Lithoform Engine
 Littjara Mirrorlake
 Manascape Refractor
-Mirage Mirror
 Moorland Haunt
 Mutavault
 Myojin of Life's Web
 Myojin of Roaring Blades
 Myojin of Seeing Winds
-Nacatl War-Pride
 Nightmare Lash
 Nissa, Ascended Animist
 Novablast Wurm
