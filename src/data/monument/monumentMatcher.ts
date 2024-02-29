@@ -85,7 +85,7 @@ export const MonMatchers: Matcher[] = [
     relationship: ME.Tutors,
     isMatch: (a,b) =>
       a.tags.has(MT.CaresAboutTrinkets) &&
-      (b.types.has(CT.Artifact) && b.mc === '1'),
+      (b.types.has(CT.Artifact) && ['0', '1'].includes(b.mc)),
   },
   {
     relationship: ME.FueledBy,

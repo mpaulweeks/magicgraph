@@ -96,6 +96,7 @@ const choppingBlock = parseList(`
 
 const pending = parseList(`
 Thelonite Druid
+Basilisk Collar
 `);
 
 const rejected = parseList(`

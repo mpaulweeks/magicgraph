@@ -1460,4 +1460,12 @@ export const NonLands: CardDraft[] = [{
     MT.MakesColorlessCreatures,
   ],
 },
+{
+  name: `Basilisk Collar`,
+  types: [CT.Artifact, CT.Equipment],
+  mc: '1',
+  category: MC.Threat,
+  tags: [
+  ],
+},
 ];
