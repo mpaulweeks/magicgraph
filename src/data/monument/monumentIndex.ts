@@ -81,29 +81,31 @@ Tomb of the Spirit Dragon
 Summoning Station
 Illustrious Wanderglyph
 Lunar Hatchling
+
+Nykthos, Shrine to Nyx
+Doppelgang
+Nacatl War-Pride
+Forbidden Orchard
+Sundial of the Infinite
+Mirage Mirror
+Kamahl's Will
 `);
 
 const choppingBlock = parseList(`
+`);
+
+const pending = parseList(`
+Thelonite Druid
+`);
+
+const rejected = parseList(`
+Sun Titan
 Hidden Nursery
 Pit of Offerings
 Tyrite Sanctum
 Nevinyrral's Disk
 Rootpath Purifier
-Sun Titan
 Boompile
-`);
-
-const pending = parseList(`
-Nykthos, Shrine to Nyx
-Doppelgang
-Nacatl War-Pride
-Thelonite Druid
-Forbidden Orchard
-Sundial of the Infinite
-Mirage Mirror
-`);
-
-const rejected = parseList(`
 Darksteel Splicer
 Terrain Generator
 Phyrexia's Core

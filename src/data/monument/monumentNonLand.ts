@@ -450,6 +450,7 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
     MT.MakesLotsOfCopies,
+    MT.MakesMultipleTokens,
   ],
   category: MC.Threat,
 },
@@ -1448,6 +1449,15 @@ export const NonLands: CardDraft[] = [{
   category: MC.Threat,
   tags: [
     MT.MakesLotsOfCopies,
+  ],
+},
+{
+  name: `Kamahl's Will`,
+  types: [CT.Instant],
+  mc: '3G',
+  category: MC.Interaction,
+  tags: [
+    MT.MakesColorlessCreatures,
   ],
 },
 ];
