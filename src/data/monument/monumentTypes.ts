@@ -63,7 +63,7 @@ export enum MonumentTag {
   CopiesWithCast = 'CopiesWithCast',
   CopiesWithETB = 'CopiesWithETB',
   CopiesWithMirror = 'CopiesWithMirror',
-  MakesLotsOfCopies = 'MakesLotsOfCopies',
+  MakesDevotion = 'MakesDevotion',
   LikesBeingCopiedWithCast = 'LikesBeingCopiedWithCast',
   LikesBeingCopiedWithETB = 'LikesBeingCopiedWithETB',
   LikesBeingCopiedWithMirror = 'LikesBeingCopiedWithMirror',

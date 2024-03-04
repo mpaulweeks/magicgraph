@@ -688,7 +688,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   combos: [{
     relationship: ME.CombosWith,
     isMatch: other =>
-      other.tags.has(MT.MakesLotsOfCopies),
+      other.tags.has(MT.MakesDevotion),
   }],
 }
 ];

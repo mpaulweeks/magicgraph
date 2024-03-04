@@ -449,7 +449,7 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithCast,
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
-    MT.MakesLotsOfCopies,
+    MT.MakesDevotion,
     MT.MakesMultipleTokens,
   ],
   category: MC.Threat,
@@ -1448,7 +1448,7 @@ export const NonLands: CardDraft[] = [{
   mc: 'XXXGU',
   category: MC.Threat,
   tags: [
-    MT.MakesLotsOfCopies,
+    MT.MakesDevotion,
   ],
 },
 {
@@ -1466,6 +1466,27 @@ export const NonLands: CardDraft[] = [{
   mc: '1',
   category: MC.Threat,
   tags: [
+  ],
+},
+{
+  name: `Essence of the Wild`,
+  types: [CT.Creature],
+  mc: '3GGG',
+  category: MC.Threat,
+  tags: [
+    MT.MakesDevotion,
+    MT.UsesTokens,
+    MT.WantsSacrificeOutletCreature,
+  ],
+},
+{
+  name: `Gruff Triplets`,
+  types: [CT.Creature],
+  mc: '3GGG',
+  category: MC.Threat,
+  tags: [
+    MT.MakesDevotion,
+    MT.WantsSacrificeOutletCreature,
   ],
 },
 ];

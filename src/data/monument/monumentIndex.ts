@@ -72,13 +72,11 @@ Chromatic Orrery
 Evolutionary Leap
 Woodfall Primus
 Rubinia Soulsinger
-The Night of the Doctor
 Doubling Season
 Echoing Deeps
 Mangara of Corondor
 High Market
 Tomb of the Spirit Dragon
-Summoning Station
 Illustrious Wanderglyph
 Lunar Hatchling
 
@@ -88,7 +86,10 @@ Nacatl War-Pride
 Forbidden Orchard
 Sundial of the Infinite
 Mirage Mirror
-Kamahl's Will
+
+Basilisk Collar
+Gruff Triplets
+Essence of the Wild
 `);
 
 const choppingBlock = parseList(`
@@ -96,10 +97,12 @@ const choppingBlock = parseList(`
 
 const pending = parseList(`
 Thelonite Druid
-Basilisk Collar
 `);
 
 const rejected = parseList(`
+Kamahl's Will
+Summoning Station
+The Night of the Doctor
 Sun Titan
 Hidden Nursery
 Pit of Offerings
