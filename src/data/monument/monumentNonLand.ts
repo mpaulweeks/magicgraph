@@ -44,29 +44,25 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Kiora Bests the Sea God`,
   mc: '5UU',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Threat,
 },
 {
   name: `The World Spell`,
   mc: '5GG',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Draw,
 },
 {
   name: `Waking the Trolls`,
   mc: '4RG',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Threat,
 },
 {
   name: `The Bath Song`,
   mc: '3U',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Draw,
 },
 {
@@ -285,8 +281,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Battle of Frost and Fire`,
   mc: '3RU',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Interaction,
   tags: [MT.TargetsTribal],
 },
@@ -549,8 +544,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `The Akroan War`,
   mc: '3R',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Interaction,
 },
 {
@@ -782,8 +776,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `The Phasing of Zhalfir`,
   mc: '2UU',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Interaction,
 },
 {
@@ -962,8 +955,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Tale of Tinúviel`,
   mc: '3WW',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Recursion,
 },
 {
@@ -998,15 +990,13 @@ export const NonLands: CardDraft[] = [{
   name: `The Fall of Lord Konda // Fragment of Konda`,
   nick: `The Fall of Lord Konda`,
   mc: '2W',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Interaction,
 },
 {
   name: `Elspeth Conquers Death`,
   mc: '3WW',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Interaction,
 },
 {
@@ -1190,22 +1180,19 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Battle at the Helvault`,
   mc: '4WW',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Interaction,
 },
 {
   name: `The Night of the Doctor`,
   mc: '4WW',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Interaction,
 },
 {
   name: `The Mending of Dominaria`,
   mc: '3GG',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Recursion,
   tags: [MT.WantsSacrificeOutletLand],
   combos: [{
@@ -1218,23 +1205,20 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Song of Eärendil`,
   mc: '3GU',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Draw,
 },
 {
   name: `Behold the Unspeakable // Vision of the Unspeakable`,
   nick: `Behold the Unspeakable`,
   mc: '3UU',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   category: MC.Draw,
 },
 {
   name: `The Caves of Androzani`,
   mc: '3W',
-  types: [CT.Enchantment],
-  subtypes: ['Saga'],
+  types: [CT.Enchantment, CT.Saga],
   tags: [MT.ProliferatesNonSaga, MT.TutorsChangeling],
   category: MC.Tutor,
 },
@@ -1487,6 +1471,26 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.MakesDevotion,
     MT.WantsSacrificeOutletCreature,
+  ],
+},
+{
+  name: `The One Ring`,
+  types: [CT.Artifact, CT.Legendary],
+  mc: '4',
+  category: MC.Draw,
+  tags: [
+    MT.HasAgeCounters,
+    MT.WantsToBeSacrificed,
+    MT.CaresAboutGettingUntapped,
+  ],
+},
+{
+  name: `Hadana's Climb // Winged Temple of Orazca`,
+  types: [CT.Enchantment, CT.Legendary],
+  mc: '1UG',
+  category: MC.Ramp,
+  tags: [
+    MT.CaresAboutGettingUntapped,
   ],
 },
 ];

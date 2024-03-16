@@ -97,6 +97,8 @@ const choppingBlock = parseList(`
 
 const pending = parseList(`
 Thelonite Druid
+The One Ring
+Hadana's Climb // Winged Temple of Orazca
 `);
 
 const rejected = parseList(`
