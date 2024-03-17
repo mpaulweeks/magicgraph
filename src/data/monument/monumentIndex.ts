@@ -53,7 +53,6 @@ Knight of the Reliquary
 Weathered Wayfarer
 Scholar of New Horizons
 Arwen, Mortal Queen
-Flagstones of Trokair
 Mondrak, Glory Dominus
 Sensei's Divining Top
 Grove of the Guardian
@@ -62,12 +61,10 @@ Minamo, School at Water's Edge
 Captain Sisay
 Blossoming Tortoise
 Dust Bowl
-Battle at the Helvault
 Scaretiller
 Dark Depths
 
 Shorikai, Genesis Engine
-Prime Speaker Zegana
 Chromatic Orrery
 Evolutionary Leap
 Woodfall Primus
@@ -76,9 +73,6 @@ Doubling Season
 Echoing Deeps
 Mangara of Corondor
 High Market
-Tomb of the Spirit Dragon
-Illustrious Wanderglyph
-Lunar Hatchling
 
 Nykthos, Shrine to Nyx
 Doppelgang
@@ -90,6 +84,13 @@ Mirage Mirror
 Basilisk Collar
 Gruff Triplets
 Essence of the Wild
+
+The One Ring
+Hadana's Climb // Winged Temple of Orazca
+Phyrexia's Core
+Spine of Ish Sah
+Magus of the Unseen
+Scroll Rack
 `);
 
 const choppingBlock = parseList(`
@@ -97,11 +98,15 @@ const choppingBlock = parseList(`
 
 const pending = parseList(`
 Thelonite Druid
-The One Ring
-Hadana's Climb // Winged Temple of Orazca
 `);
 
 const rejected = parseList(`
+Tomb of the Spirit Dragon
+Illustrious Wanderglyph
+Flagstones of Trokair
+Prime Speaker Zegana
+Battle at the Helvault
+Lunar Hatchling
 Kamahl's Will
 Summoning Station
 The Night of the Doctor
@@ -114,11 +119,8 @@ Rootpath Purifier
 Boompile
 Darksteel Splicer
 Terrain Generator
-Phyrexia's Core
 Unstable Glyphbridge // Sandswirl Wanderglyph
 Golden Guardian // Gold-Forge Garrison
-Spine of Ish Sah
-Magus of the Unseen
 Apex Altisaur
 Court of Bounty
 World Breaker

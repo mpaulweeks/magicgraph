@@ -1097,17 +1097,9 @@ export const NonLands: CardDraft[] = [{
   mc: '1',
   types: [CT.Artifact],
   category: MC.Threat,
-  combos: [{
-    relationship: ME.CombosWith,
-    isMatch: other => other.tags.has(
-      MT.CaresAboutTopdeck,
-      MT.TutorsBasicsToBattlefield,
-      MT.TutorsBasicsToHand,
-      MT.TutorsForest,
-      MT.TutorsPlains,
-      MT.TutorsLand,
-    ),
-  }]
+  tags: [
+    MT.ManipulatesTopDeck,
+  ],
 },
 {
   name: `Evolutionary Leap`,
@@ -1174,7 +1166,10 @@ export const NonLands: CardDraft[] = [{
   name: `Woodfall Primus`,
   mc: '5GGG',
   types: [CT.Creature],
-  tags: [MT.WantsSacrificeOutletCreature, MT.HasMinusCounters],
+  tags: [
+    MT.WantsSacrificeOutletCreature,
+    MT.HasMinusCounters,
+  ],
   category: MC.Interaction,
 },
 {
@@ -1486,11 +1481,21 @@ export const NonLands: CardDraft[] = [{
 },
 {
   name: `Hadana's Climb // Winged Temple of Orazca`,
-  types: [CT.Enchantment, CT.Legendary],
+  types: [CT.Enchantment, CT.Legendary, CT.Land],
   mc: '1UG',
   category: MC.Ramp,
   tags: [
     MT.CaresAboutGettingUntapped,
+    MT.HasPlusCounters,
+  ],
+},
+{
+  name: `Scroll Rack`,
+  types: [CT.Artifact],
+  mc: '2',
+  category: MC.Draw,
+  tags: [
+    MT.ManipulatesTopDeck,
   ],
 },
 ];

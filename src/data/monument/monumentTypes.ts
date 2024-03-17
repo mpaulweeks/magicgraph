@@ -95,13 +95,14 @@ export enum MonumentTag {
 
   SundialFriendly = 'Sundial Friendly',
 
-  CaresAboutOpponentCreatures = 'Cares Abou tOpponent Creatures',
+  CaresAboutOpponentCreatures = 'Cares About Opponent Creatures',
 
   MakesBigToken = 'Makes Big Token',
   MakesMultipleTokens = 'Makes Multiple Tokens',
   MakesColorlessCreatures = 'Makes Colorless Creatures',
   UsesZombies = 'Uses Zombies',
 
+  ManipulatesTopDeck = 'ManipulatesTopDeck',
   CaresAboutTopdeck = 'CaresAboutTopdeck',
   CaresAboutTrinkets = 'Trinkets',
   UsesTokens = 'Uses Tokens',

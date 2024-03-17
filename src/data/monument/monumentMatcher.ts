@@ -194,4 +194,17 @@ export const MonMatchers: Matcher[] = [
       a.types.all(CT.Land, CT.Legendary) &&
       b.tags.has(MT.CopiesLands),
   },
+  {
+    relationship: ME.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(MT.ManipulatesTopDeck) &&
+      b.tags.has(
+        MT.CaresAboutTopdeck,
+        MT.TutorsBasicsToBattlefield,
+        MT.TutorsBasicsToHand,
+        MT.TutorsForest,
+        MT.TutorsPlains,
+        MT.TutorsLand,
+      ),
+  },
 ];

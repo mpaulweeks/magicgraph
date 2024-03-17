@@ -64,6 +64,7 @@ export const DeckView = (props: {
       .filter(e => includeRejected || e.related.every(c => !c.rejected)),
     elm => sort(elm.related.map(c => c.id)).join('|')
   );
+  (window as any).edges = edges;
   const toRenderPreSort = {
     [Sorting.Alphabetical]: toRender,
     [Sorting.Edges]: sortBy(toRender, card =>
@@ -75,6 +76,7 @@ export const DeckView = (props: {
   const toRenderSorted = sortAscending
     ? toRenderPreSort
     : toRenderPreSort.concat().reverse();
+
 
   return (
   <div className={styles.DeckView}>
