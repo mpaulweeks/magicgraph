@@ -84,15 +84,15 @@ Essence of the Wild
 The One Ring
 Phyrexia's Core
 Spine of Ish Sah
-Magus of the Unseen
 Scroll Rack
-Tomb of the Spirit Dragon
 Flagstones of Trokair
 Hall of the Bandit Lord
-Sinister Concierge
 `);
 
 const choppingBlock = parseList(`
+Tomb of the Spirit Dragon
+Magus of the Unseen
+Sinister Concierge
 `);
 
 const pending = parseList(`
@@ -101,8 +101,10 @@ Trostani, Selesnya's Voice
 Selesnya Eulogist
 Restless Anchorage
 Restless Prairie
+Restless Vinestalk
 `);
 
+// todo add section Illegal for red cards
 const rejected = parseList(`
 Urborg, Tomb of Yawgmoth
 Roots of Life
@@ -166,7 +168,6 @@ Demolition Field
 Hordewing Skaab
 Tolaria West
 Academy Ruins
-Restless Vinestalk
 Tekuthal, Inquiry Dominus
 Myojin of Cryptic Dreams
 Kjeldoran Outpost
