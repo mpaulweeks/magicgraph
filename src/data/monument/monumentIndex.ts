@@ -21,7 +21,6 @@ Expedition Map
 Field of the Dead
 Glacial Chasm
 Helm of Possession
-Karma
 Karn's Bastion
 Kiora Bests the Sea God
 Lifetap
@@ -35,7 +34,6 @@ Myojin of Cleansing Fire
 Myojin of Towering Might
 Nesting Grounds
 Riptide Laboratory
-Roots of Life
 Spara's Headquarters
 Thaumatic Compass // Spires of Orazca
 Thawing Glaciers
@@ -43,7 +41,6 @@ The Hunter Maze
 The Mycosynth Gardens
 The World Spell
 Thespian's Stage
-Urborg, Tomb of Yawgmoth
 Urza's Saga
 Yavimaya, Cradle of Growth
 Selesnya Sanctuary
@@ -77,7 +74,6 @@ High Market
 Nykthos, Shrine to Nyx
 Doppelgang
 Nacatl War-Pride
-Forbidden Orchard
 Sundial of the Infinite
 Mirage Mirror
 
@@ -86,11 +82,14 @@ Gruff Triplets
 Essence of the Wild
 
 The One Ring
-Hadana's Climb // Winged Temple of Orazca
 Phyrexia's Core
 Spine of Ish Sah
 Magus of the Unseen
 Scroll Rack
+Tomb of the Spirit Dragon
+Flagstones of Trokair
+Hall of the Bandit Lord
+Sinister Concierge
 `);
 
 const choppingBlock = parseList(`
@@ -98,12 +97,19 @@ const choppingBlock = parseList(`
 
 const pending = parseList(`
 Thelonite Druid
+Trostani, Selesnya's Voice
+Selesnya Eulogist
+Restless Anchorage
+Restless Prairie
 `);
 
 const rejected = parseList(`
-Tomb of the Spirit Dragon
+Urborg, Tomb of Yawgmoth
+Roots of Life
+Karma
+Hadana's Climb // Winged Temple of Orazca
+Forbidden Orchard
 Illustrious Wanderglyph
-Flagstones of Trokair
 Prime Speaker Zegana
 Battle at the Helvault
 Lunar Hatchling
@@ -146,7 +152,6 @@ Hall of Heliod's Generosity
 
 Perilous Forays
 Castle Ardenvale
-Hall of the Bandit Lord
 Solemnity
 Zopandrel, Hunger Dominus
 Riftstone Portal

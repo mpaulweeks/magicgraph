@@ -690,5 +690,17 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     isMatch: other =>
       other.tags.has(MT.MakesDevotion),
   }],
-}
+},
+{
+  name: `Restless Anchorage`,
+  tags: [
+    MT.HasPlusCounters,
+  ],
+},
+{
+  name: `Restless Prairie`,
+  tags: [
+    MT.UsesTokens,
+  ],
+},
 ];

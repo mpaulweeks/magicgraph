@@ -1498,4 +1498,32 @@ export const NonLands: CardDraft[] = [{
     MT.ManipulatesTopDeck,
   ],
 },
+{
+  name: `Sinister Concierge`,
+  types: [CT.Creature],
+  subtypes: ['Wizard'],
+  mc: '1U',
+  category: MC.Interaction,
+  tags: [
+    MT.WantsToBeSacrificed,
+  ],
+},
+{
+  name: `Trostani, Selesnya's Voice`,
+  types: [CT.Creature, CT.Legendary],
+  mc: 'WWGG',
+  category: MC.Threat,
+  tags: [
+    MT.UsesTokens,
+  ],
+},
+{
+  name: `Selesnya Eulogist`,
+  types: [CT.Creature],
+  mc: '2G',
+  category: MC.Threat,
+  tags: [
+    MT.UsesTokens,
+  ],
+},
 ];
