@@ -500,4 +500,13 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   mc: 'W',
   tags: [RT.TutorsLand],
 },
+{
+  name: `Trostani, Three Whispers`,
+  additionalTypes: [CT.Legendary],
+  subtypes: ['Dryad'],
+  mc: 'WGG',
+  tags: [
+    RT.GivesDeathtouchAlways,
+  ],
+},
 ];

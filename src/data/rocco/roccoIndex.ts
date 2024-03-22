@@ -1,8 +1,8 @@
 import { collate } from '../../lib/collate';
 import {
-    CardDraft,
-    CardType,
-    DeckData
+  CardDraft,
+  CardType,
+  DeckData
 } from '../../types';
 import { parseList } from '../../util/list';
 import { Creatures } from './roccoCreature';
@@ -83,11 +83,11 @@ Magus of the Disk
 Primeval Herald
 Bane of Progress
 Nullmage Advocate
-Crested Sunmare
 
 Okina, Temple to the Grandfathers
 Eiganjo Castle
 Shinka, the Bloodsoaked Keep
+Trostani, Three Whispers
 `);
 
 const choppingBlock = parseList(`
@@ -103,6 +103,7 @@ Minas Tirith
 `);
 
 const rejected = parseList(`
+Crested Sunmare
 Cartographer's Hawk
 Khârn the Betrayer
 Etali, Primal Storm
