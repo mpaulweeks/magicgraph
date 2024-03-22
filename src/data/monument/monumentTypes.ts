@@ -88,7 +88,7 @@ export enum MonumentTag {
   UntapsCreature = 'Untaps Creature',
   UntapsLand = 'Untaps Land',
   UntapsLegends = 'Untaps Legends',
-  HasTapAbility = 'Cares About Getting Untapped',
+  HasTapAbility = 'Has Tap Ability',
   UntapsAllLands = 'Untaps Lands',
   ManaSink = 'Mana Sink',
   WantsHaste = 'Wants Haste',

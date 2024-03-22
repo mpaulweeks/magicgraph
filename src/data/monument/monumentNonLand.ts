@@ -1604,5 +1604,15 @@ export const NonLands: CardDraft[] = [{
     MT.MakesBigToken,
     MT.WantsLifegain,
   ],
-}
+},
+{
+  name: `Shanna, Purifying Blade`,
+  types: [CT.Creature, CT.Legendary],
+  mc: 'GWU',
+  category: MC.Draw,
+  tags: [
+    MT.GainsLife,
+    MT.WantsLifegain,
+  ],
+},
 ];

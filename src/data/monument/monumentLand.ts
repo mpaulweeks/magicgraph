@@ -227,6 +227,8 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [
     MT.CaresAboutTrinkets,
     MT.HasTapAbility,
+    MT.MakesColorlessCreatures,
+    MT.MakesMultipleTokens,
   ],
 },
 {

@@ -111,6 +111,7 @@ The Shire
 Angel of Condemnation
 Divine Visitation
 Crested Sunmare
+Shanna, Purifying Blade
 `);
 
 // todo add section Illegal for red cards
