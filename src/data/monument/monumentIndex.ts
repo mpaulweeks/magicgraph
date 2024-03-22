@@ -85,14 +85,15 @@ Scroll Rack
 Flagstones of Trokair
 Hall of the Bandit Lord
 Tomb of the Spirit Dragon
+
+Lithoform Engine
+The Restoration of Eiganjo // Architect of Restoration
+Behold the Unspeakable // Vision of the Unspeakable
 `);
 
 const choppingBlock = parseList(`
-Magus of the Unseen
-Sinister Concierge
 Eldrazi Monument
 Chromatic Orrery
-The World Spell
 `);
 
 const pending = parseList(`
@@ -101,9 +102,6 @@ Selesnya Eulogist
 Restless Anchorage
 Restless Prairie
 Restless Vinestalk
-The Restoration of Eiganjo // Architect of Restoration
-Lithoform Engine
-The Bath Song
 Innocuous Researcher
 Esix, Fractal Bloom
 Mirri, Weatherlight Duelist
@@ -116,6 +114,10 @@ Shanna, Purifying Blade
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Magus of the Unseen
+Sinister Concierge
+The World Spell
+The Bath Song
 Thelonite Druid
 Urborg, Tomb of Yawgmoth
 Roots of Life
@@ -144,7 +146,6 @@ Apex Altisaur
 Court of Bounty
 World Breaker
 Desert
-Behold the Unspeakable // Vision of the Unspeakable
 Eye of Ugin
 Maskwood Nexus
 Avarice Totem
