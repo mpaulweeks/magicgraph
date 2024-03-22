@@ -240,4 +240,10 @@ export const MonMatchers: Matcher[] = [
       a.tags.has(MT.Populates) &&
       b.tags.has(MT.MakesBigToken),
   },
+  {
+    relationship: ME.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(MT.WantsLessLands) &&
+      b.tags.has(MT.BouncesLand, MT.SacrificeOutletLand),
+  },
 ];

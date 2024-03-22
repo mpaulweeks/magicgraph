@@ -901,7 +901,12 @@ export const NonLands: CardDraft[] = [{
   name: `Weathered Wayfarer`,
   mc: 'W',
   types: [CT.Creature],
-  tags: [MT.TutorsLand, MT.TriggersLandfall, MT.HasTapAbility],
+  tags: [
+    MT.TutorsLand,
+    MT.TriggersLandfall,
+    MT.HasTapAbility,
+    MT.WantsLessLands,
+  ],
   category: MC.Tutor,
 },
 {
@@ -1127,7 +1132,10 @@ export const NonLands: CardDraft[] = [{
   mc: '2GG',
   types: [CT.Creature],
   category: MC.Recursion,
-  tags: [MT.WantsSacrificeOutletLand],
+  tags: [
+    MT.WantsSacrificeOutletLand,
+    MT.WantsHaste,
+  ],
   combos: [{
     relationship: ME.Reanimates,
     isMatch: other =>
@@ -1228,7 +1236,11 @@ export const NonLands: CardDraft[] = [{
   name: `Scholar of New Horizons`,
   mc: '1W',
   types: [CT.Creature],
-  tags: [MT.RemovesCounters, MT.TutorsPlains],
+  tags: [
+    MT.RemovesCounters,
+    MT.TutorsPlains,
+    MT.WantsLessLands,
+  ],
   category: MC.Ramp,
 },
 {

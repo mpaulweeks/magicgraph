@@ -51,6 +51,7 @@ export enum MonumentTag {
   TutorsForest = 'Tutors Forest',
   TutorsPlains = 'Tutors Plains',
   TutorsLand = 'Tutors Land',
+  WantsLessLands = 'WantsLessLands',
 
   Flashback = 'Flashback',
 
