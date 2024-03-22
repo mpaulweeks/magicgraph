@@ -15,7 +15,6 @@ Amareth, the Lustrous
 Cyclone Summoner
 Deserted Temple
 Drownyard Temple
-Eldrazi Monument
 Elvish Reclaimer
 Expedition Map
 Field of the Dead
@@ -39,7 +38,6 @@ Thaumatic Compass // Spires of Orazca
 Thawing Glaciers
 The Hunter Maze
 The Mycosynth Gardens
-The World Spell
 Thespian's Stage
 Urza's Saga
 Yavimaya, Cradle of Growth
@@ -62,7 +60,6 @@ Scaretiller
 Dark Depths
 
 Shorikai, Genesis Engine
-Chromatic Orrery
 Evolutionary Leap
 Woodfall Primus
 Rubinia Soulsinger
@@ -87,25 +84,38 @@ Spine of Ish Sah
 Scroll Rack
 Flagstones of Trokair
 Hall of the Bandit Lord
+Tomb of the Spirit Dragon
 `);
 
 const choppingBlock = parseList(`
-Tomb of the Spirit Dragon
 Magus of the Unseen
 Sinister Concierge
+Eldrazi Monument
+Chromatic Orrery
+The World Spell
 `);
 
 const pending = parseList(`
-Thelonite Druid
 Trostani, Selesnya's Voice
 Selesnya Eulogist
 Restless Anchorage
 Restless Prairie
 Restless Vinestalk
+The Restoration of Eiganjo // Architect of Restoration
+Lithoform Engine
+The Bath Song
+Innocuous Researcher
+Esix, Fractal Bloom
+Mirri, Weatherlight Duelist
+The Shire
+Angel of Condemnation
+Divine Visitation
+Crested Sunmare
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Thelonite Druid
 Urborg, Tomb of Yawgmoth
 Roots of Life
 Karma
@@ -182,7 +192,6 @@ Kor Haven
 Krosan Verge
 Vitu-Ghazi, the City-Tree
 The Fall of Lord Konda // Fragment of Konda
-The Bath Song
 Jalira, Master Polymorphist
 Staff of Titania
 Canopy Vista
@@ -220,7 +229,6 @@ Kher Keep
 Khârn the Betrayer
 Kiora's Follower
 Krenko, Tin Street Kingpin
-Lithoform Engine
 Littjara Mirrorlake
 Manascape Refractor
 Moorland Haunt

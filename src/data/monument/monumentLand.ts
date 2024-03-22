@@ -10,14 +10,14 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.TargetsCreatures,
     MT.TransfersCounters,
     MT.RemovesCounters,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
   name: `Karn's Bastion`,
   tags: [
     MT.Proliferates,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -39,7 +39,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.TargetsTribal,
     MT.HasIndestructible,
     MT.SacrificesSelf,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
   combos: [{
     relationship: ME.Protects,
@@ -56,7 +56,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Contested Cliffs`,
   tags: [
     MT.TargetsTribal,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -83,7 +83,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Flamekin Village`,
   tags: [
     MT.TargetsCreatures,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -91,13 +91,13 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CT.Legendary],
   tags: [
     MT.TargetsCreatures,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
   name: `Swarmyard`,
   tags: [
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
   combos: [
     {
@@ -113,7 +113,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [
     MT.TargetsCreatures,
     MT.ManaSink,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -140,7 +140,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Lotus Field`,
   overrideCategory: MC.MulticolorLand,
   tags: [
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
     MT.LikesBeingCopiedWithMirror,
     MT.LandWithProtection,
     MT.SundialFriendly,
@@ -164,7 +164,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [
     MT.CannotTapForMana,
     MT.TargetsCreatures,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
   combos: [
     {
@@ -178,7 +178,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   overrideCategory: MC.MulticolorLand,
   tags: [
     MT.CannotTapForMana,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
     MT.SundialFriendly,
     MT.TutorsBasicsToBattlefield,
     MT.TriggersLandfall,
@@ -191,7 +191,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [
     MT.MakesMultipleTokens,
     MT.ManaSink,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
     MT.PoisonCounters,
   ],
 },
@@ -209,7 +209,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CT.Legendary],
   tags: [
     MT.MakesMultipleTokens,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -226,28 +226,29 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   overrideCategory: MC.Tutor,
   tags: [
     MT.CaresAboutTrinkets,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
   name: `Alchemist's Refuge`,
   tags: [
     MT.ManaSink,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
   name: `Oran-Rief, the Vastwood`,
   tags: [
     MT.HasPlusCounters,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
   name: `High Market`,
   tags: [
     MT.SacrificeOutletCreature,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
+    MT.GainsLife,
   ],
 },
 {
@@ -267,7 +268,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Desolate Lighthouse`,
   tags: [
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
   combos: [
     {
@@ -292,7 +293,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [
     MT.DealsDamageToCreatures,
     MT.TargetsCreatures,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -301,7 +302,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.DealsDamageToCreatures,
     MT.CannotTapForMana,
     MT.CaresAboutGettingLandTapped,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -328,7 +329,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   nick: `Hanweir Battlements`,
   tags: [
     MT.TargetsCreatures,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -337,7 +338,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [
     MT.TargetsCreatures,
     MT.TutorsLand,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -345,7 +346,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CT.Legendary],
   tags: [
     MT.TargetsCreatures,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -353,7 +354,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CT.Legendary],
   tags: [
     MT.TargetsCreatures,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -361,21 +362,16 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CT.Legendary],
   tags: [
     MT.TargetsCreatures,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
+    MT.UntapsLegends,
   ],
-  combos: [{
-    relationship: ME.Untaps,
-    isMatch: other =>
-      other.types.has(CT.Legendary) &&
-      other.tags.has(MT.CaresAboutGettingUntapped, MT.CopiesArtifacts, MT.CopiesCreatures, MT.CopiesLands),
-  }],
 },
 {
   name: `Shinka, the Bloodsoaked Keep`,
   additionalTypes: [CT.Legendary],
   tags: [
     MT.TargetsCreatures,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -393,14 +389,14 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Rishadan Port`,
   tags: [
     MT.TapsTargetLand,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
   name: `Riptide Laboratory`,
   tags: [
     MT.TargetsTribal,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
   combos: [
     {
@@ -427,7 +423,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Academy Ruins`,
   additionalTypes: [CT.Legendary],
   tags: [
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
   combos: [{
     relationship: ME.Reanimates,
@@ -440,7 +436,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Hall of Heliod's Generosity`,
   additionalTypes: [CT.Legendary],
   tags: [
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
   combos: [{
     relationship: ME.Reanimates,
@@ -456,7 +452,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [
     MT.MakesMultipleTokens,
     MT.CaresAboutPlains,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -464,7 +460,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   additionalTypes: [CT.Legendary],
   overrideCategory: MC.PillowLand,
   tags: [
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -483,13 +479,13 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Wirewood Lodge`,
   tags: [
     MT.TargetsTribal,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
   combos: [{
     relationship: ME.Untaps,
     isMatch: other =>
       other.types.has(CT.Creature) &&
-      other.tags.has(MT.CaresAboutGettingUntapped) && (
+      other.tags.has(MT.HasTapAbility) && (
         other.tags.has(MT.HasChangeling, MT.GivesChangeling) ||
         other.subtypes.has('Elf')
       ),
@@ -503,13 +499,17 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Gavony Township`,
   tags: [
     MT.HasPlusCounters,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
   name: `Hall of the Bandit Lord`,
   additionalTypes: [CT.Legendary],
-  tags: [MT.CannotTapForMana],
+  tags: [
+    MT.CannotTapForMana,
+    MT.HasTapAbility,
+    MT.GivesHaste,
+  ],
 },
 {
   name: `Krosan Verge`,
@@ -554,14 +554,14 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: 'Castle Ardenvale',
   tags: [
     MT.MakesMultipleTokens,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
   name: `Vitu-Ghazi, the City-Tree`,
   tags: [
     MT.MakesMultipleTokens,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -582,6 +582,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [
     MT.SacrificesSelf,
     MT.MakesBigToken,
+    MT.TapsCreatures
   ],
   overrideCategory: MC.Threat,
 },
@@ -598,7 +599,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   overrideCategory: MC.Interaction,
   tags: [
     MT.SacrificeOutletLand,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -616,7 +617,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Terrain Generator`,
   overrideCategory: MC.Ramp,
   tags: [
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
   combos: [{
     relationship: ME.FueledBy,
@@ -667,11 +668,13 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Phyrexia's Core`,
   tags: [
     MT.SacrificeOutletArtifact,
+    MT.GainsLife,
   ],
 },
 {
   name: `Tomb of the Spirit Dragon`,
   tags: [
+    MT.GainsLife,
   ],
   combos: [{
     relationship: ME.CombosWith,
@@ -683,7 +686,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Nykthos, Shrine to Nyx`,
   additionalTypes: [CT.Legendary],
   tags: [
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
   combos: [{
     relationship: ME.CombosWith,
@@ -701,6 +704,15 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Restless Prairie`,
   tags: [
     MT.UsesTokens,
+  ],
+},
+{
+  name: `The Shire`,
+  additionalTypes: [CT.Legendary],
+  tags: [
+    MT.MakesArtifactTokens,
+    MT.TapsCreatures,
+    MT.GainsLife,
   ],
 },
 ];

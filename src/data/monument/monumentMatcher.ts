@@ -45,14 +45,21 @@ export const MonMatchers: Matcher[] = [
     isMatch: (a, b) =>
       a.tags.has(MT.UntapsLand) &&
       b.types.has(CT.Land) &&
-      b.tags.has(MT.CaresAboutGettingUntapped),
+      b.tags.has(MT.HasTapAbility),
   },
   {
     relationship: ME.Untaps,
     isMatch: (a, b) =>
       a.tags.has(MT.UntapsCreature) &&
       b.types.has(CT.Creature) &&
-      b.tags.has(MT.CaresAboutGettingUntapped),
+      b.tags.has(MT.HasTapAbility),
+  },
+  {
+    relationship: ME.Untaps,
+    isMatch: (a, b) =>
+      a.tags.has(MT.UntapsLegends) &&
+      b.types.has(CT.Legendary) &&
+      b.tags.has(MT.HasTapAbility),
   },
   {
     relationship: ME.Clones,
@@ -206,5 +213,31 @@ export const MonMatchers: Matcher[] = [
         MT.TutorsPlains,
         MT.TutorsLand,
       ),
+  },
+  {
+    relationship: ME.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(MT.GivesHaste) && [
+        b.tags.has(MT.WantsHaste),
+        b.tags.has(MT.HasTapAbility) && b.types.has(CT.Creature),
+      ].some(b => b),
+  },
+  {
+    relationship: ME.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(MT.WantsToBeTapped) &&
+      b.tags.has(MT.TapsCreatures),
+  },
+  {
+    relationship: ME.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(MT.WantsLifegain) &&
+      b.tags.has(MT.GainsLife),
+  },
+  {
+    relationship: ME.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(MT.Populates) &&
+      b.tags.has(MT.MakesBigToken),
   },
 ];

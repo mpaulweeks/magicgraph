@@ -87,9 +87,12 @@ export enum MonumentTag {
 
   UntapsCreature = 'Untaps Creature',
   UntapsLand = 'Untaps Land',
-  CaresAboutGettingUntapped = 'Cares About Getting Untapped',
+  UntapsLegends = 'Untaps Legends',
+  HasTapAbility = 'Cares About Getting Untapped',
   UntapsAllLands = 'Untaps Lands',
   ManaSink = 'Mana Sink',
+  WantsHaste = 'Wants Haste',
+  GivesHaste = 'Gives Haste',
 
   VulnerableAttacker = 'Vulnerable Attacker',
 
@@ -97,7 +100,9 @@ export enum MonumentTag {
 
   CaresAboutOpponentCreatures = 'Cares About Opponent Creatures',
 
+  Populates = 'Populates',
   MakesBigToken = 'Makes Big Token',
+  MakesArtifactTokens = 'Makes Artifact Token',
   MakesMultipleTokens = 'Makes Multiple Tokens',
   MakesColorlessCreatures = 'Makes Colorless Creatures',
   UsesZombies = 'Uses Zombies',
@@ -109,6 +114,12 @@ export enum MonumentTag {
   DestroysAll = 'Destroys All',
   HasLandfall = 'Has Landfall',
   TriggersLandfall = 'Triggers Landfall',
+
+  WantsToBeTapped = 'Wants To Be Tapped',
+  TapsCreatures = 'Taps Creatures',
+
+  WantsLifegain = 'WantsLifegain',
+  GainsLife = 'GainsLife',
 }
 
 export enum MonumentEdge {

@@ -154,7 +154,10 @@ export const NonLands: CardDraft[] = [{
   name: `Lifetap`,
   mc: 'UU',
   types: [CT.Enchantment],
-  tags: [MT.CaresAboutForests],
+  tags: [
+    MT.CaresAboutForests,
+    MT.GainsLife,
+  ],
   category: MC.Lifegain,
 },
 {
@@ -615,6 +618,9 @@ export const NonLands: CardDraft[] = [{
   mc: '4',
   types: [CT.Artifact, CT.Legendary],
   category: MC.Misc,
+  tags: [
+    MT.HasTapAbility,
+  ],
 },
 {
   name: `Fortitude`,
@@ -704,7 +710,7 @@ export const NonLands: CardDraft[] = [{
   name: `Dreamscape Artist`,
   mc: '2U',
   types: [CT.Creature],
-  tags: [MT.SacrificeOutletLand, MT.CaresAboutGettingUntapped],
+  tags: [MT.SacrificeOutletLand, MT.HasTapAbility],
   category: MC.Ramp,
 },
 {
@@ -742,7 +748,7 @@ export const NonLands: CardDraft[] = [{
   name: `Spawning Grounds`,
   mc: '6GG',
   types: [CT.Enchantment],
-  tags: [MT.AnimatesLand, MT.CaresAboutGettingUntapped],
+  tags: [MT.AnimatesLand, MT.HasTapAbility],
   category: MC.Threat,
 },
 {
@@ -826,7 +832,7 @@ export const NonLands: CardDraft[] = [{
   name: `Humble Defector`,
   mc: '1R',
   types: [CT.Creature],
-  tags: [MT.DonatesSelf, MT.CaresAboutGettingUntapped],
+  tags: [MT.DonatesSelf, MT.HasTapAbility],
   category: MC.Draw,
 },
 {
@@ -895,14 +901,14 @@ export const NonLands: CardDraft[] = [{
   name: `Weathered Wayfarer`,
   mc: 'W',
   types: [CT.Creature],
-  tags: [MT.TutorsLand, MT.TriggersLandfall, MT.CaresAboutGettingUntapped],
+  tags: [MT.TutorsLand, MT.TriggersLandfall, MT.HasTapAbility],
   category: MC.Tutor,
 },
 {
   name: `Knight of the Reliquary`,
   mc: '1WG',
   types: [CT.Creature],
-  tags: [MT.TutorsLand, MT.TriggersLandfall, MT.SacrificeOutletLand, MT.CaresAboutForests, MT.CaresAboutPlains, MT.CaresAboutGettingUntapped],
+  tags: [MT.TutorsLand, MT.TriggersLandfall, MT.SacrificeOutletLand, MT.CaresAboutForests, MT.CaresAboutPlains, MT.HasTapAbility],
   category: MC.Tutor,
 },
 {
@@ -917,7 +923,7 @@ export const NonLands: CardDraft[] = [{
   mc: '1WG',
   types: [CT.Creature, CT.Legendary],
   subtypes: ['Elf'],
-  tags: [MT.CaresAboutGettingUntapped],
+  tags: [MT.HasTapAbility],
   category: MC.Draw,
 },
 {
@@ -933,7 +939,7 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Creature, CT.Legendary],
   tags: [
     MT.WantsSacrificeOutletCreature,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
   category: MC.Interaction,
 },
@@ -1071,7 +1077,7 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Creature, CT.Legendary],
   tags: [
     MT.TutorsLegendary,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
   category: MC.Threat,
 },
@@ -1136,6 +1142,7 @@ export const NonLands: CardDraft[] = [{
   category: MC.Recursion,
   tags: [
     MT.WantsSacrificeOutletLand,
+    MT.WantsToBeTapped,
   ],
   combos: [{
     relationship: ME.Reanimates,
@@ -1268,12 +1275,12 @@ export const NonLands: CardDraft[] = [{
 },
 {
   name: `Shorikai, Genesis Engine`,
-  types: [CT.Artifact, CT.Creature, CT.Legendary],
+  types: [CT.Artifact, CT.Legendary],
   mc: '2WU',
   category: MC.Draw,
   tags: [
     MT.MakesMultipleTokens,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -1292,7 +1299,7 @@ export const NonLands: CardDraft[] = [{
   mc: '7',
   category: MC.Ramp,
   tags: [
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -1325,7 +1332,7 @@ export const NonLands: CardDraft[] = [{
   category: MC.Ramp,
   tags: [
     MT.WantsToBeSacrificed,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
     MT.MakesBigToken,
   ],
 },
@@ -1346,7 +1353,7 @@ export const NonLands: CardDraft[] = [{
   category: MC.Interaction,
   tags: [
     MT.WantsSacrificeOutletArtifact,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -1366,7 +1373,7 @@ export const NonLands: CardDraft[] = [{
   mc: '1WW',
   category: MC.Interaction,
   tags: [
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 
@@ -1445,6 +1452,7 @@ export const NonLands: CardDraft[] = [{
   mc: '1',
   category: MC.Threat,
   tags: [
+    MT.GainsLife,
   ],
 },
 {
@@ -1476,7 +1484,7 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.HasAgeCounters,
     MT.WantsToBeSacrificed,
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -1485,7 +1493,7 @@ export const NonLands: CardDraft[] = [{
   mc: '1UG',
   category: MC.Ramp,
   tags: [
-    MT.CaresAboutGettingUntapped,
+    MT.HasTapAbility,
     MT.HasPlusCounters,
   ],
 },
@@ -1496,6 +1504,7 @@ export const NonLands: CardDraft[] = [{
   category: MC.Draw,
   tags: [
     MT.ManipulatesTopDeck,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -1514,7 +1523,9 @@ export const NonLands: CardDraft[] = [{
   mc: 'WWGG',
   category: MC.Threat,
   tags: [
-    MT.UsesTokens,
+    MT.Populates,
+    MT.GainsLife,
+    MT.HasTapAbility,
   ],
 },
 {
@@ -1523,7 +1534,75 @@ export const NonLands: CardDraft[] = [{
   mc: '2G',
   category: MC.Threat,
   tags: [
+    MT.Populates,
+  ],
+},
+{
+  name: `The Restoration of Eiganjo // Architect of Restoration`,
+  types: [CT.Creature, CT.Saga],
+  mc: '2W',
+  category: MC.Draw,
+  tags: [
+    MT.MakesColorlessCreatures,
+  ],
+},
+{
+  name: `Innocuous Researcher`,
+  types: [CT.Creature],
+  mc: '3G',
+  category: MC.Ramp,
+  tags: [
+    MT.UntapsAllLands,
+    MT.MakesArtifactTokens,
+  ],
+},
+{
+  name: `Esix, Fractal Bloom`,
+  types: [CT.Creature, CT.Legendary],
+  mc: '4UG',
+  category: MC.Threat,
+  tags: [
     MT.UsesTokens,
   ],
 },
+{
+  name: `Mirri, Weatherlight Duelist`,
+  types: [CT.Creature, CT.Legendary],
+  mc: '1WG',
+  category: MC.PillowLand,
+  tags: [
+    MT.WantsToBeTapped,
+    MT.VulnerableAttacker,
+  ],
+},
+{
+  name: `Angel of Condemnation`,
+  types: [CT.Creature],
+  mc: '2WW',
+  category: MC.Interaction,
+  tags: [
+    MT.WantsHaste,
+    MT.HasTapAbility,
+    MT.VulnerableAttacker,
+  ],
+},
+{
+  name: `Divine Visitation`,
+  types: [CT.Creature],
+  mc: '3WW',
+  category: MC.Threat,
+  tags: [
+    MT.UsesTokens,
+  ],
+},
+{
+  name: `Crested Sunmare`,
+  types: [CT.Creature],
+  mc: '3WW',
+  category: MC.Threat,
+  tags: [
+    MT.MakesBigToken,
+    MT.WantsLifegain,
+  ],
+}
 ];
