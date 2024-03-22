@@ -11,10 +11,8 @@ export function ReanimatesCombo(cb: (other: Cardlike) => boolean): CardCombo {
 export const RocMatchers: Matcher[] = [{
   relationship: RE.Equipment,
   isMatch: (a,b) =>
-    a.types.has(CT.Creature) &&
-    a.tags.has(RT.Unblockable) &&
-    b.subtypes.has(CT.Equipment) &&
-    b.tags.has(RT.WantsEvasion),
+    a.tags.has(RT.WantsEvasion) &&
+    b.tags.has(RT.GivesEvasion),
 }, {
   relationship: RE.CombosWith,
   isMatch: (a,b) =>
@@ -79,6 +77,11 @@ export const RocMatchers: Matcher[] = [{
   isMatch: (a,b) =>
     a.tags.has(RT.GivesHaste) &&
     b.tags.has(RT.AttackTrigger, RT.HasTapAbility),
+}, {
+  relationship: RE.Buffs,
+  isMatch: (a,b) =>
+    a.tags.has(RT.AttackTrigger) &&
+    b.tags.has(RT.GivesIndestructible, RT.GivesEvasion),
 }, {
   relationship: RE.Buffs,
   isMatch: (a,b) =>

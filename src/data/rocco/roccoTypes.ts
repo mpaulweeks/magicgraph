@@ -19,7 +19,7 @@ export enum RoccoTag {
   WantsNonTokenETBs = 'WantsNonTokenETBs',
   WantsLTBs = 'WantsLTBs',
 
-  Unblockable = 'Unblockable',
+  GivesEvasion = 'GivesEvasion',
   WantsEvasion = 'WantsEvasion',
 
   SelfSacrifice = 'SelfSacrfice',

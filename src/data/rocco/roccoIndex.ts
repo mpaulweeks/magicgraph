@@ -100,6 +100,7 @@ Captain Sisay
 Weathered Wayfarer
 Sokenzan, Crucible of Defiance
 Minas Tirith
+Nacatl War-Pride
 `);
 
 const rejected = parseList(`

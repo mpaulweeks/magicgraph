@@ -27,7 +27,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Soltari Foot Soldier`,
   subtypes: ['Soltari', 'Soldier'],
   mc: 'W',
-  tags: [RT.AttackTrigger, RT.Unblockable],
+  tags: [RT.AttackTrigger],
 }, {
   name: `Spore Frog`,
   subtypes: ['Frog'],
@@ -216,7 +216,11 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Ronin Cliffrider`,
   subtypes: ['Human', 'Samurai'],
   mc: '3RR',
-  tags: [RT.AttackTrigger, RT.WantsDeathtouchWhileAttacking, RT.WantsDeathtouchWhileTapped],
+  tags: [
+    RT.AttackTrigger,
+    RT.WantsDeathtouchWhileAttacking,
+    RT.WantsDeathtouchWhileTapped,
+  ],
 },
 {
   name: `Saryth, the Viper's Fang`,
@@ -233,7 +237,11 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Scalding Salamander`,
   subtypes: ['Salamander'],
   mc: '2R',
-  tags: [RT.AttackTrigger, RT.WantsDeathtouchWhileAttacking, RT.WantsDeathtouchWhileTapped],
+  tags: [
+    RT.AttackTrigger,
+    RT.WantsDeathtouchWhileAttacking,
+    RT.WantsDeathtouchWhileTapped,
+  ],
 },
 {
   name: `Stonehewer Giant`,
@@ -249,7 +257,10 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Swathcutter Giant`,
   subtypes: ['Giant', 'Soldier'],
   mc: '4RG',
-  tags: [RT.AttackTrigger, RT.WantsDeathtouchWhileAttacking],
+  tags: [
+    RT.AttackTrigger,
+    RT.WantsDeathtouchWhileAttacking,
+  ],
 },
 {
   name: `Thundering Mightmare`,
@@ -507,6 +518,18 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
   mc: 'WGG',
   tags: [
     RT.GivesDeathtouchAlways,
+  ],
+},
+{
+  name: `Nacatl War-Pride`,
+  subtypes: ['Cat', 'Warrior'],
+  mc: '3GGG',
+  tags: [
+    RT.AttackTrigger,
+    RT.MakesTokens,
+    RT.WantsDeathtouchWhileAttacking,
+    RT.WantsDeathtouchWhileTapped,
+    RT.GivesEvasion,
   ],
 },
 ];
