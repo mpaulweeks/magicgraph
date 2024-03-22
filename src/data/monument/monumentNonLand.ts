@@ -525,7 +525,10 @@ export const NonLands: CardDraft[] = [{
   mc: '3',
   types: [CT.Artifact],
   category: MC.Ramp,
-  tags: [MT.CopiesLands, MT.CopiesWithMirror],
+  tags: [
+    MT.CopiesLands,
+    MT.CopiesWithMirror,
+  ],
 },
 {
   name: `Wilderness Reclamation`,
@@ -589,7 +592,11 @@ export const NonLands: CardDraft[] = [{
   name: `Shapesharer`,
   mc: '2U',
   types: [CT.Creature],
-  tags: [MT.HasChangeling],
+  tags: [
+    MT.HasChangeling,
+    MT.CopiesCreatures,
+    MT.CopiesWithMirror,
+  ],
   category: MC.Threat,
 },
 {
@@ -1486,6 +1493,9 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.MakesDevotion,
     MT.WantsSacrificeOutletCreature,
+    MT.LikesBeingCopiedWithCast,
+    MT.LikesBeingCopiedWithETB,
+    MT.LikesBeingCopiedWithMirror,
   ],
 },
 {
@@ -1615,6 +1625,10 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.MakesBigToken,
     MT.WantsLifegain,
+    MT.LikesBeingCopiedWithCast,
+    MT.LikesBeingCopiedWithETB,
+    MT.LikesBeingCopiedWithMirror,
+    MT.TargetsTribal,
   ],
 },
 {

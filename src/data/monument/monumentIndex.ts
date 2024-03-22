@@ -89,14 +89,17 @@ Tomb of the Spirit Dragon
 Lithoform Engine
 The Restoration of Eiganjo // Architect of Restoration
 Behold the Unspeakable // Vision of the Unspeakable
+Crested Sunmare
 `);
 
 const choppingBlock = parseList(`
-Eldrazi Monument
 Chromatic Orrery
 `);
 
 const pending = parseList(`
+Littjara Mirrorlake
+Shapesharer
+
 Trostani, Selesnya's Voice
 Selesnya Eulogist
 Restless Anchorage
@@ -108,12 +111,12 @@ Mirri, Weatherlight Duelist
 The Shire
 Angel of Condemnation
 Divine Visitation
-Crested Sunmare
 Shanna, Purifying Blade
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Eldrazi Monument
 Magus of the Unseen
 Sinister Concierge
 The World Spell
@@ -231,7 +234,6 @@ Kher Keep
 Khârn the Betrayer
 Kiora's Follower
 Krenko, Tin Street Kingpin
-Littjara Mirrorlake
 Manascape Refractor
 Moorland Haunt
 Mutavault
@@ -260,7 +262,6 @@ Scavenged Brawler
 Scute Swarm
 Seedborn Muse
 Selvala, Explorer Returned
-Shapesharer
 Shinka, the Bloodsoaked Keep
 Skullclamp
 Slippery Bogbonder
