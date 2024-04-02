@@ -41,7 +41,6 @@ The Mycosynth Gardens
 Thespian's Stage
 Urza's Saga
 Yavimaya, Cradle of Growth
-Selesnya Sanctuary
 Vesuva
 Aura Shards
 Knight of the Reliquary
@@ -62,7 +61,6 @@ Dark Depths
 Shorikai, Genesis Engine
 Evolutionary Leap
 Woodfall Primus
-Rubinia Soulsinger
 Doubling Season
 Echoing Deeps
 Mangara of Corondor
@@ -88,12 +86,16 @@ Tomb of the Spirit Dragon
 
 Lithoform Engine
 The Restoration of Eiganjo // Architect of Restoration
-Behold the Unspeakable // Vision of the Unspeakable
 Crested Sunmare
+
+Restless Prairie
+The Shire
+Mirri, Weatherlight Duelist
+Divine Visitation
+Selesnya Eulogist
 `);
 
 const choppingBlock = parseList(`
-Chromatic Orrery
 `);
 
 const pending = parseList(`
@@ -101,21 +103,20 @@ Littjara Mirrorlake
 Shapesharer
 
 Trostani, Selesnya's Voice
-Selesnya Eulogist
 Restless Anchorage
-Restless Prairie
 Restless Vinestalk
 Innocuous Researcher
 Esix, Fractal Bloom
-Mirri, Weatherlight Duelist
-The Shire
 Angel of Condemnation
-Divine Visitation
 Shanna, Purifying Blade
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Chromatic Orrery
+Rubinia Soulsinger
+Behold the Unspeakable // Vision of the Unspeakable
+Selesnya Sanctuary
 Eldrazi Monument
 Magus of the Unseen
 Sinister Concierge
