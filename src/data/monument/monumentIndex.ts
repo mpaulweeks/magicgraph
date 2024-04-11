@@ -36,7 +36,6 @@ Riptide Laboratory
 Spara's Headquarters
 Thaumatic Compass // Spires of Orazca
 Thawing Glaciers
-The Hunter Maze
 The Mycosynth Gardens
 Thespian's Stage
 Urza's Saga
@@ -96,12 +95,16 @@ Selesnya Eulogist
 `);
 
 const choppingBlock = parseList(`
+The Hunter Maze
 `);
 
 const pending = parseList(`
+Sun Titan
 Littjara Mirrorlake
-Shapesharer
+Castle Ardenvale
+Mirrorpool
 
+Shapesharer
 Trostani, Selesnya's Voice
 Restless Anchorage
 Restless Vinestalk
@@ -135,7 +138,6 @@ Lunar Hatchling
 Kamahl's Will
 Summoning Station
 The Night of the Doctor
-Sun Titan
 Hidden Nursery
 Pit of Offerings
 Tyrite Sanctum
@@ -169,7 +171,6 @@ Kindred Discovery
 Hall of Heliod's Generosity
 
 Perilous Forays
-Castle Ardenvale
 Solemnity
 Zopandrel, Hunger Dominus
 Riftstone Portal
