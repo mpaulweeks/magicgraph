@@ -243,7 +243,23 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.CombosWith,
     isMatch: (a,b) =>
+      a.tags.has(MT.DoublesTokens) &&
+      b.tags.has(
+        MT.MakesBigToken,
+        MT.MakesArtifactTokens,
+        MT.MakesMultipleTokens,
+      ),
+  },
+  {
+    relationship: ME.CombosWith,
+    isMatch: (a,b) =>
       a.tags.has(MT.WantsLessLands) &&
       b.tags.has(MT.BouncesLand, MT.SacrificeOutletLand),
+  },
+  {
+    relationship: ME.Protects,
+    isMatch: (a,b) =>
+      a.tags.has(MT.ProtectsLand) &&
+      b.tags.has(MT.ManLand),
   },
 ];

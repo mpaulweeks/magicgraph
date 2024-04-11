@@ -101,6 +101,7 @@ export enum MonumentTag {
 
   CaresAboutOpponentCreatures = 'Cares About Opponent Creatures',
 
+  DoublesTokens = 'Doubles Tokens',
   Populates = 'Populates',
   MakesBigToken = 'Makes Big Token',
   MakesArtifactTokens = 'Makes Artifact Token',
@@ -121,6 +122,9 @@ export enum MonumentTag {
 
   WantsLifegain = 'WantsLifegain',
   GainsLife = 'GainsLife',
+
+  TriggersOnLandTap = 'TriggersOnLandTap',
+  ProtectsLand = 'ProtectsLand',
 }
 
 export enum MonumentEdge {

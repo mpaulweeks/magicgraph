@@ -169,7 +169,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   combos: [
     {
       relationship: ME.ProtectsAttacker,
-      isMatch: other => other.tags.has(MT.VulnerableAttacker),
+      isMatch: other => other.tags.has(MT.VulnerableAttacker, MT.ManLand),
     },
   ],
 },
@@ -263,7 +263,10 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Mutavault`,
-  subtypes: [MT.GivesChangeling],
+  subtypes: [
+    MT.ManLand,
+    MT.GivesChangeling,
+  ],
 },
 {
   name: `Forbidden Orchard`,
@@ -330,6 +333,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Littjara Mirrorlake`,
   tags: [
+    MT.MakesBigToken,
     MT.CopiesCreatures,
     MT.CopiesWithETB,
   ],
@@ -554,11 +558,18 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Deserted Temple`,
   tags: [MT.UntapsLand],
+  combos: [{
+    relationship: ME.CombosWith,
+    isMatch: other => other.tags.has(MT.TriggersOnLandTap),
+  }],
 },
 {
   name: `Restless Vinestalk`,
   overrideCategory: MC.MulticolorLand,
-  tags: [MT.TargetsCreatures],
+  tags: [
+    MT.ManLand,
+    MT.TargetsCreatures,
+  ],
 },
 {
   name: 'Castle Ardenvale',
@@ -707,12 +718,15 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Restless Anchorage`,
   tags: [
+    MT.ManLand,
     MT.HasPlusCounters,
+    MT.MakesArtifactTokens,
   ],
 },
 {
   name: `Restless Prairie`,
   tags: [
+    MT.ManLand,
     MT.UsesTokens,
   ],
 },
@@ -723,6 +737,15 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.MakesArtifactTokens,
     MT.TapsCreatures,
     MT.GainsLife,
+  ],
+},
+{
+  name: `Mirrorpool`,
+  tags: [
+    MT.MakesBigToken,
+    MT.CopiesCreatures,
+    MT.CopiesWithETB,
+    MT.SacrificesSelf,
   ],
 },
 ];

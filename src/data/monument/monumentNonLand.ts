@@ -46,6 +46,9 @@ export const NonLands: CardDraft[] = [{
   mc: '5UU',
   types: [CT.Enchantment, CT.Saga],
   category: MC.Threat,
+  tags: [
+    MT.MakesBigToken,
+  ],
 },
 {
   name: `The World Spell`,
@@ -893,16 +896,9 @@ export const NonLands: CardDraft[] = [{
     MT.UsesTokens,
     MT.SacrificeOutletArtifact,
     MT.SacrificeOutletCreature,
+    MT.DoublesTokens,
   ],
   category: MC.Misc,
-  combos: [{
-    relationship: ME.CombosWith,
-    isMatch: other =>
-      other.tags.has(
-        MT.MakesBigToken,
-        MT.MakesMultipleTokens,
-      ),
-  }],
 },
 {
   name: `Weathered Wayfarer`,
@@ -1334,12 +1330,13 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Enchantment],
   mc: '4G',
   category: MC.Misc,
+  tags: [
+    MT.DoublesTokens,
+  ],
   combos: [{
     relationship: ME.CombosWith,
     isMatch: other =>
       other.tags.has(
-        MT.MakesBigToken,
-        MT.MakesMultipleTokens,
         MT.HasAbilityCounters,
       ),
   }],
@@ -1645,6 +1642,16 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.GainsLife,
     MT.WantsLifegain,
+  ],
+},
+{
+  name: `Darksteel Garrison`,
+  types: [CT.Artifact],
+  mc: '2',
+  category: MC.Misc,
+  tags: [
+    MT.TriggersOnLandTap,
+    MT.ProtectsLand,
   ],
 },
 ];

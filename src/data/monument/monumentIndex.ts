@@ -84,7 +84,6 @@ Hall of the Bandit Lord
 Tomb of the Spirit Dragon
 
 Lithoform Engine
-The Restoration of Eiganjo // Architect of Restoration
 Crested Sunmare
 
 Restless Prairie
@@ -94,6 +93,7 @@ The Shire
 Mirri, Weatherlight Duelist
 Divine Visitation
 Selesnya Eulogist
+Littjara Mirrorlake
 `);
 
 const choppingBlock = parseList(`
@@ -101,19 +101,21 @@ const choppingBlock = parseList(`
 
 const pending = parseList(`
 Sun Titan
-Littjara Mirrorlake
-Mirrorpool
 
 Shapesharer
 Trostani, Selesnya's Voice
 Innocuous Researcher
-Esix, Fractal Bloom
 Angel of Condemnation
 Shanna, Purifying Blade
+
+Mirrorpool
+Darksteel Garrison
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Esix, Fractal Bloom
+The Restoration of Eiganjo // Architect of Restoration
 The Hunter Maze
 Castle Ardenvale
 Chromatic Orrery
@@ -338,6 +340,7 @@ export const MonumentData: DeckData = {
   name: 'Monument.dec',
   description: 'Bant deck that tutors nonbasic lands to form multiple small A/B combos',
   notes: [
+    '2024/04/11: Minimize Monunent package to basics and utility spheres.',
     '2023/11/09: New criteria for Sagas: Stage 2 must be spammable. Looping Stage 1 requires having Nesting Grounds already in play and mana to spare.',
     '2023/11/04: Due to color screw and mediocre blue Myojin, start reducing blue to a splash.',
     '2023/10/30: Swap Temur for Bant to gain more indestructible and land tutors.',
