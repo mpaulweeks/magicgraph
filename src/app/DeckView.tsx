@@ -68,9 +68,10 @@ export const DeckView = (props: {
   const toRenderPreSort = {
     [Sorting.Alphabetical]: toRender,
     [Sorting.Edges]: sortBy(toRender, card =>
-      edges.filter(e =>
-        e.related.map(c => c.id).includes(card.id)
-      ).length
+      edges
+        .filter(e => e.related.map(c => c.id).includes(card.id))
+        .filter(e => e.relationship !== 'Nonbo')
+        .length
     ),
   }[sorting];
   const toRenderSorted = sortAscending

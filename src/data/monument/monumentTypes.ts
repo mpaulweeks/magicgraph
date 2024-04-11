@@ -118,6 +118,7 @@ export enum MonumentTag {
   TriggersLandfall = 'Triggers Landfall',
 
   WantsToBeTapped = 'Wants To Be Tapped',
+  TapsNonCreatureArtifacts = 'Taps Artifacts',
   TapsCreatures = 'Taps Creatures',
 
   WantsLifegain = 'WantsLifegain',
@@ -155,6 +156,8 @@ export enum MonumentEdge {
 
   Clones = 'Clones',
   ClonedBy = 'Cloned By',
+
+  Doubling = 'Doubling',
 
   Bins = 'Bins',
   BinnedBy = 'Binned By',

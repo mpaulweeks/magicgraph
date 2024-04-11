@@ -334,6 +334,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Littjara Mirrorlake`,
   tags: [
     MT.MakesBigToken,
+    MT.SacrificesSelf,
     MT.CopiesCreatures,
     MT.CopiesWithETB,
   ],
@@ -746,6 +747,12 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.CopiesCreatures,
     MT.CopiesWithETB,
     MT.SacrificesSelf,
+  ],
+},
+{
+  name: `Blinkmoth Well`,
+  tags: [
+    MT.TapsNonCreatureArtifacts,
   ],
 },
 ];

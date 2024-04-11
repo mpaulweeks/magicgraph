@@ -452,6 +452,8 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithMirror,
     MT.MakesDevotion,
     MT.MakesMultipleTokens,
+    MT.MakesBigToken,
+    MT.WantsHaste,
   ],
   category: MC.Threat,
 },
@@ -1652,6 +1654,36 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.TriggersOnLandTap,
     MT.ProtectsLand,
+  ],
+},
+{
+  name: `Winter Orb`,
+  types: [CT.Artifact],
+  mc: '2',
+  category: MC.Interaction,
+  tags: [
+    MT.WantsToBeTapped,
+    MT.WantsToBeSacrificed,
+  ],
+},
+{
+  name: `Static Orb`,
+  types: [CT.Artifact],
+  mc: '3',
+  category: MC.Interaction,
+  tags: [
+    MT.WantsToBeTapped,
+    MT.WantsToBeSacrificed,
+  ],
+},
+{
+  name: `Storage Matrix`,
+  types: [CT.Artifact],
+  mc: '3',
+  category: MC.Interaction,
+  tags: [
+    MT.WantsToBeTapped,
+    MT.WantsToBeSacrificed,
   ],
 },
 ];

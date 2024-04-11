@@ -226,7 +226,16 @@ export const MonMatchers: Matcher[] = [
     relationship: ME.CombosWith,
     isMatch: (a,b) =>
       a.tags.has(MT.WantsToBeTapped) &&
+      a.types.has(CT.Creature) &&
       b.tags.has(MT.TapsCreatures),
+  },
+  {
+    relationship: ME.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(MT.WantsToBeTapped) &&
+      a.types.has(CT.Artifact) &&
+      !a.types.has(CT.Creature) &&
+      b.tags.has(MT.TapsNonCreatureArtifacts),
   },
   {
     relationship: ME.CombosWith,
@@ -235,13 +244,13 @@ export const MonMatchers: Matcher[] = [
       b.tags.has(MT.GainsLife),
   },
   {
-    relationship: ME.CombosWith,
+    relationship: ME.Doubling,
     isMatch: (a,b) =>
       a.tags.has(MT.Populates) &&
       b.tags.has(MT.MakesBigToken),
   },
   {
-    relationship: ME.CombosWith,
+    relationship: ME.Doubling,
     isMatch: (a,b) =>
       a.tags.has(MT.DoublesTokens) &&
       b.tags.has(
