@@ -190,6 +190,8 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   subtypes: ['Sphere'],
   tags: [
     MT.MakesMultipleTokens,
+    MT.MakesColorlessCreatures,
+    MT.MakesArtifactTokens,
     MT.ManaSink,
     MT.HasTapAbility,
     MT.PoisonCounters,
@@ -202,6 +204,12 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [
     MT.CopiesArtifacts,
     MT.CopiesWithMirror,
+  ],
+  combos: [
+    {
+      relationship: ME.Clones,
+      isMatch: other => other.types.has(CT.Artifact),
+    },
   ],
 },
 {

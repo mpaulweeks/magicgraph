@@ -1454,6 +1454,12 @@ export const NonLands: CardDraft[] = [{
   category: MC.Threat,
   tags: [
     MT.MakesDevotion,
+    MT.MakesMultipleTokens,
+    MT.MakesBigToken,
+    MT.CopiesArtifacts,
+    MT.CopiesCreatures,
+    MT.CopiesLands,
+    MT.CopiesWithETB,
   ],
 },
 {

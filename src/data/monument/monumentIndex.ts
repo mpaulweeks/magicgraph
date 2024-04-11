@@ -88,6 +88,8 @@ The Restoration of Eiganjo // Architect of Restoration
 Crested Sunmare
 
 Restless Prairie
+Restless Anchorage
+Restless Vinestalk
 The Shire
 Mirri, Weatherlight Duelist
 Divine Visitation
@@ -95,19 +97,15 @@ Selesnya Eulogist
 `);
 
 const choppingBlock = parseList(`
-The Hunter Maze
 `);
 
 const pending = parseList(`
 Sun Titan
 Littjara Mirrorlake
-Castle Ardenvale
 Mirrorpool
 
 Shapesharer
 Trostani, Selesnya's Voice
-Restless Anchorage
-Restless Vinestalk
 Innocuous Researcher
 Esix, Fractal Bloom
 Angel of Condemnation
@@ -116,6 +114,8 @@ Shanna, Purifying Blade
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+The Hunter Maze
+Castle Ardenvale
 Chromatic Orrery
 Rubinia Soulsinger
 Behold the Unspeakable // Vision of the Unspeakable
