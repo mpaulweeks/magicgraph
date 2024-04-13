@@ -126,6 +126,9 @@ export enum MonumentTag {
 
   TriggersOnLandTap = 'TriggersOnLandTap',
   ProtectsLand = 'ProtectsLand',
+
+  UnlocksHandsize = 'UnlocksHandsize',
+  MassDraw = 'MassDraw',
 }
 
 export enum MonumentEdge {

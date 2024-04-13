@@ -271,4 +271,10 @@ export const MonMatchers: Matcher[] = [
       a.tags.has(MT.ProtectsLand) &&
       b.tags.has(MT.ManLand),
   },
+  {
+    relationship: ME.CombosWith,
+    isMatch: (a,b) =>
+      a.tags.has(MT.MassDraw) &&
+      b.tags.has(MT.UnlocksHandsize),
+  },
 ];

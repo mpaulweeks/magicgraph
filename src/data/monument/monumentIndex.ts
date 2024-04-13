@@ -112,6 +112,9 @@ Blinkmoth Well
 Winter Orb
 Static Orb
 Storage Matrix
+
+Recycle
+Reliquary Tower
 `);
 
 // todo add section Illegal for red cards

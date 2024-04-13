@@ -1686,4 +1686,17 @@ export const NonLands: CardDraft[] = [{
     MT.WantsToBeSacrificed,
   ],
 },
+{
+  name: `Recycle`,
+  types: [CT.Enchantment],
+  mc: '4GG',
+  category: MC.Draw,
+  tags: [
+    MT.MassDraw,
+  ],
+  combos: [{
+    relationship: ME.CombosWith,
+    isMatch: o => o.name.includes('Sensei'),
+  }],
+},
 ];

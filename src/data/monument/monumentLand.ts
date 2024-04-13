@@ -755,4 +755,10 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.TapsNonCreatureArtifacts,
   ],
 },
+{
+  name: `Reliquary Tower`,
+  tags: [
+    MT.UnlocksHandsize,
+  ],
+},
 ];
