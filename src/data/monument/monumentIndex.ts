@@ -91,9 +91,9 @@ The Shire
 Mirri, Weatherlight Duelist
 Divine Visitation
 Selesnya Eulogist
-Littjara Mirrorlake
 Sun Titan
 Trostani, Selesnya's Voice
+Mirrorpool
 `);
 
 const choppingBlock = parseList(`
@@ -105,7 +105,6 @@ Innocuous Researcher
 Angel of Condemnation
 Shanna, Purifying Blade
 
-Mirrorpool
 Darksteel Garrison
 
 Blinkmoth Well
@@ -119,6 +118,7 @@ Reliquary Tower
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Littjara Mirrorlake
 Nykthos, Shrine to Nyx
 Gruff Triplets
 Esix, Fractal Bloom
