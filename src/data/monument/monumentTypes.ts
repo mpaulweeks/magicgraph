@@ -58,6 +58,7 @@ export enum MonumentTag {
   DonatesSelf = 'Donates Self',
   ExchangesForCreature = 'Exchanges For Creature',
 
+  CopiesPermanent = 'CopiesPermanent',
   CopiesCreatures = 'CopiesCreatures',
   CopiesArtifacts = 'CopiesArtifacts',
   CopiesLands = 'CopiesLands',
@@ -124,11 +125,14 @@ export enum MonumentTag {
   WantsLifegain = 'WantsLifegain',
   GainsLife = 'GainsLife',
 
-  TriggersOnLandTap = 'TriggersOnLandTap',
-  ProtectsLand = 'ProtectsLand',
+  TriggersOnLandTap = 'Triggers on Land Tap',
+  ProtectsLand = 'Protects Land',
 
-  UnlocksHandsize = 'UnlocksHandsize',
-  MassDraw = 'MassDraw',
+  UnlocksHandsize = 'Unlocks Handsize',
+  MassDraw = 'Mass Draw',
+
+  TurnsIntoArtifact = 'Turns Into Artifact',
+  TurnsIntoLand = 'Turns Into Land',
 }
 
 export enum MonumentEdge {

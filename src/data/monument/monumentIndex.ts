@@ -22,7 +22,6 @@ Glacial Chasm
 Helm of Possession
 Karn's Bastion
 Kiora Bests the Sea God
-Lifetap
 Lotus Field
 Magus of the Disk
 Maze of Ith
@@ -34,7 +33,6 @@ Myojin of Towering Might
 Nesting Grounds
 Riptide Laboratory
 Spara's Headquarters
-Thaumatic Compass // Spires of Orazca
 Thawing Glaciers
 The Mycosynth Gardens
 Thespian's Stage
@@ -71,7 +69,6 @@ Sundial of the Infinite
 Mirage Mirror
 
 Basilisk Collar
-Essence of the Wild
 
 The One Ring
 Phyrexia's Core
@@ -79,14 +76,11 @@ Spine of Ish Sah
 Scroll Rack
 Flagstones of Trokair
 Hall of the Bandit Lord
-Tomb of the Spirit Dragon
 
-Lithoform Engine
 Crested Sunmare
 
 Restless Prairie
 Restless Anchorage
-Restless Vinestalk
 The Shire
 Mirri, Weatherlight Duelist
 Divine Visitation
@@ -94,6 +88,13 @@ Selesnya Eulogist
 Sun Titan
 Trostani, Selesnya's Voice
 Mirrorpool
+
+Lumbering Falls
+Elspeth Conquers Death
+Innocuous Researcher
+World Breaker
+Darksteel Garrison
+Song of the Dryads
 `);
 
 const choppingBlock = parseList(`
@@ -101,11 +102,9 @@ const choppingBlock = parseList(`
 
 const pending = parseList(`
 Shapesharer
-Innocuous Researcher
 Angel of Condemnation
 Shanna, Purifying Blade
-
-Darksteel Garrison
+Proteus Staff
 
 Blinkmoth Well
 Winter Orb
@@ -114,10 +113,20 @@ Storage Matrix
 
 Recycle
 Reliquary Tower
+
+Imprisoned in the Moon
+Memnarch
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Thaumatic Compass // Spires of Orazca
+Essence of the Wild
+Lithoform Engine
+Tomb of the Spirit Dragon
+Restless Vinestalk
+Lifetap
+
 Littjara Mirrorlake
 Nykthos, Shrine to Nyx
 Gruff Triplets
@@ -159,7 +168,6 @@ Unstable Glyphbridge // Sandswirl Wanderglyph
 Golden Guardian // Gold-Forge Garrison
 Apex Altisaur
 Court of Bounty
-World Breaker
 Desert
 Eye of Ugin
 Maskwood Nexus
@@ -188,7 +196,6 @@ Animation Module
 Song of Eärendil
 The Caves of Androzani
 Phyrexian Swarmlord
-Proteus Staff
 Twilight Shepherd
 Demolition Field
 Hordewing Skaab
@@ -202,7 +209,6 @@ Mistveil Plains
 Oboro Breezecaller
 Luminous Broodmoth
 Tale of Tinúviel
-Elspeth Conquers Death
 The Mending of Dominaria
 Kor Haven
 Krosan Verge

@@ -65,16 +65,20 @@ export const MonMatchers: Matcher[] = [
     relationship: ME.Clones,
     isMatch: (a, b) => {
       const canTarget = [
-        a.tags.has(MT.CopiesCreatures) && b.types.has(CT.Creature),
-        a.tags.has(MT.CopiesArtifacts) && b.types.has(CT.Artifact),
-        a.tags.has(MT.CopiesLands) && b.types.has(CT.Land),
+        a.tags.has(MT.CopiesPermanent, MT.CopiesCreatures) && b.types.has(CT.Creature),
+        a.tags.has(MT.CopiesPermanent, MT.CopiesArtifacts) && b.types.has(CT.Artifact),
+        a.tags.has(MT.CopiesPermanent, MT.CopiesLands) && b.types.has(CT.Land),
       ].some(b => b);
       const copyType = [
         a.tags.has(MT.CopiesWithCast) && b.tags.has(MT.LikesBeingCopiedWithCast),
         a.tags.has(MT.CopiesWithETB) && b.tags.has(MT.LikesBeingCopiedWithETB),
         a.tags.has(MT.CopiesWithMirror) && b.tags.has(MT.LikesBeingCopiedWithMirror),
       ].some(b => b);
-      return canTarget && copyType;
+      const variable = [
+        a.tags.has(MT.CopiesArtifacts) && b.tags.has(MT.TurnsIntoArtifact),
+        a.tags.has(MT.CopiesLands) && b.tags.has(MT.TurnsIntoLand),
+      ].some(b => b);
+      return (canTarget && copyType) || variable;
     },
   },
   {

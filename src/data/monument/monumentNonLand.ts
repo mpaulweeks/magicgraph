@@ -35,9 +35,7 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Artifact],
   category: MC.Interaction,
   tags: [
-    MT.CopiesCreatures,
-    MT.CopiesArtifacts,
-    MT.CopiesLands,
+    MT.CopiesPermanent,
     MT.CopiesWithMirror,
   ],
 },
@@ -176,9 +174,7 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Creature, CT.Legendary],
   tags: [
     MT.HasChangeling,
-    MT.CopiesCreatures,
-    MT.CopiesArtifacts,
-    MT.CopiesLands,
+    MT.CopiesPermanent,
     MT.CopiesWithCast,
     MT.HasPlusCounters,
   ],
@@ -802,7 +798,10 @@ export const NonLands: CardDraft[] = [{
   mc: '6G',
   colors: [],
   types: [CT.Creature],
-  tags: [MT.SacrificeOutletLand],
+  tags: [
+    MT.SacrificeOutletLand,
+    MT.WantsSacrificeOutletCreature,
+  ],
   category: MC.Interaction,
 },
 {
@@ -1455,9 +1454,7 @@ export const NonLands: CardDraft[] = [{
     MT.MakesDevotion,
     MT.MakesMultipleTokens,
     MT.MakesBigToken,
-    MT.CopiesArtifacts,
-    MT.CopiesCreatures,
-    MT.CopiesLands,
+    MT.CopiesPermanent,
     MT.CopiesWithETB,
   ],
 },
@@ -1698,5 +1695,32 @@ export const NonLands: CardDraft[] = [{
     relationship: ME.CombosWith,
     isMatch: o => o.name.includes('Sensei'),
   }],
+},
+{
+  name: `Song of the Dryads`,
+  types: [CT.Enchantment, CT.Aura],
+  mc: '2G',
+  category: MC.Interaction,
+  tags: [
+    MT.TurnsIntoLand,
+  ],
+},
+{
+  name: `Imprisoned in the Moon`,
+  types: [CT.Enchantment, CT.Aura],
+  mc: '2U',
+  category: MC.Interaction,
+  tags: [
+    MT.TurnsIntoLand,
+  ],
+},
+{
+  name: `Memnarch`,
+  types: [CT.Artifact, CT.Creature, CT.Legendary],
+  mc: '7',
+  category: MC.Interaction,
+  tags: [
+    MT.TurnsIntoArtifact,
+  ],
 },
 ];

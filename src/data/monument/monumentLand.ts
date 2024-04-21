@@ -633,6 +633,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.LikesBeingCopiedWithMirror,
     MT.HasAgeCounters,
     MT.CannotTapForMana,
+    MT.MakesBigToken,
   ],
 },
 {
@@ -729,6 +730,13 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [
     MT.ManLand,
     MT.UsesTokens,
+  ],
+},
+{
+  name: `Lumbering Falls`,
+  overrideCategory: MC.MulticolorLand,
+  tags: [
+    MT.ManLand,
   ],
 },
 {
