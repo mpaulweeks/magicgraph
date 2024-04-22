@@ -16,6 +16,16 @@ export class Deck {
     this.edges = new Graph().getEdges(this.cards, data.matchers);
   }
 
+  readonly compareEdges = (a: CardEdge, b: CardEdge) => {
+    const [ai, bi] = [a, b].map(e => {
+      const index = this.data.relationshipOrder.indexOf(e.relationship);
+      return index >= 0 ? index : 999;
+    });
+    if (ai < bi) return -1;
+    if (ai > bi) return 1;
+    return a < b ? -1 : 1;
+  }
+
   private static validate(data: DeckData) {
     const unique = new Set<string>();
     data.cardDrafts.forEach(d => {

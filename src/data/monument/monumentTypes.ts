@@ -68,6 +68,7 @@ export enum MonumentTag {
   CopiesWithCast = 'CopiesWithCast',
   CopiesWithETB = 'CopiesWithETB',
   CopiesWithMirror = 'CopiesWithMirror',
+  ImprintsFromHand = 'ImprintsFromHand',
   MakesDevotion = 'MakesDevotion',
   LikesBeingCopiedWithCast = 'LikesBeingCopiedWithCast',
   LikesBeingCopiedWithETB = 'LikesBeingCopiedWithETB',
@@ -207,4 +208,5 @@ export const MonumentInverseEdge = {
 
 export const MonumentEdges: string[] = [
   // dont care about ordering
+  MonumentEdge.Nonbo,
 ];

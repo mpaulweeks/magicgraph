@@ -1892,6 +1892,7 @@ export const NonLands: CardDraft[] = [{
     MT.MakesGradualTokens,
     MT.CopiesArtifacts,
     MT.CopiesWithETB,
+    MT.ImprintsFromHand,
   ],
 },
 ];

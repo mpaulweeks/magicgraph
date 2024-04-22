@@ -61,7 +61,8 @@ export const DeckView = (props: {
   const edges = uniqueBy(
     deck.edges
       .filter(e => includePending || e.related.every(c => !c.pending))
-      .filter(e => includeRejected || e.related.every(c => !c.rejected)),
+      .filter(e => includeRejected || e.related.every(c => !c.rejected))
+      .sort(deck.compareEdges),
     elm => sort(elm.related.map(c => c.id)).join('|')
   );
   (window as any).edges = edges;

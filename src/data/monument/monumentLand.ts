@@ -794,4 +794,25 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.UnlocksHandsize,
   ],
 },
+{
+  name: `Mishra's Factory`,
+  tags: [
+    MT.ManLand,
+    MT.TurnsIntoArtifact,
+  ],
+},
+{
+  name: `Blinkmoth Nexus`,
+  tags: [
+    MT.ManLand,
+    MT.TurnsIntoArtifact,
+  ],
+},
+{
+  name: `Inkmoth Nexus`,
+  tags: [
+    MT.ManLand,
+    MT.TurnsIntoArtifact,
+  ],
+},
 ];

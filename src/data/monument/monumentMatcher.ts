@@ -3,6 +3,18 @@ import { MonumentEdge as ME, MonumentTag as MT } from "./monumentTypes";
 
 export const MonMatchers: Matcher[] = [
   {
+    relationship: ME.Nonbo,
+    isMatch: (a,b) =>
+      a.types.all(CT.Land, CT.Legendary) &&
+      b.tags.has(MT.CopiesLands),
+  },
+  {
+    relationship: ME.Nonbo,
+    isMatch: (a,b) =>
+      a.tags.has(MT.ImprintsFromHand) &&
+      b.tags.has(MT.CopiesWithMirror),
+  },
+  {
     relationship: ME.EnablesMana,
     isMatch: (a, b) =>
       a.tags.has(MT.GrantsLandTypes) && b.tags.has(MT.CannotTapForMana),
@@ -75,7 +87,7 @@ export const MonMatchers: Matcher[] = [
         a.tags.has(MT.CopiesWithMirror) && b.tags.has(MT.LikesBeingCopiedWithMirror),
       ].some(b => b);
       const variable = [
-        a.tags.has(MT.CopiesArtifacts) && b.tags.has(MT.TurnsIntoArtifact),
+        a.tags.has(MT.CopiesArtifacts) && b.tags.has(MT.TurnsIntoArtifact) && !a.tags.has(MT.ImprintsFromHand),
         a.tags.all(MT.CopiesArtifacts) && b.types.all(CT.Land, CT.Artifact),
         a.tags.has(MT.CopiesLands) && b.tags.has(MT.TurnsIntoLand),
         a.tags.all(MT.CopiesManLands) && b.tags.has(MT.ManLand),
@@ -225,12 +237,6 @@ export const MonMatchers: Matcher[] = [
     isMatch: (a,b) =>
       a.types.has(CT.Snow) &&
       b.tags.has(MT.CaresAboutSnow),
-  },
-  {
-    relationship: ME.Nonbo,
-    isMatch: (a,b) =>
-      a.types.all(CT.Land, CT.Legendary) &&
-      b.tags.has(MT.CopiesLands),
   },
   {
     relationship: ME.CombosWith,

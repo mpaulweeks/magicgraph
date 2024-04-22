@@ -124,6 +124,9 @@ Esika's Chariot
 Mechanized Production
 Prototype Portal
 Thornglint Bridge
+Mishra's Factory
+Blinkmoth Nexus
+Inkmoth Nexus
 `);
 
 // todo add section Illegal for red cards
