@@ -463,6 +463,7 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithCast,
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
+    MT.MakesCreatureTokens,
     MT.MakesDevotion,
     MT.MakesMassTokens,
     MT.MakesValuableTokens,

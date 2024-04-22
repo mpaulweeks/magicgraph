@@ -813,6 +813,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [
     MT.ManLand,
     MT.TurnsIntoArtifact,
+    MT.PoisonCounters,
   ],
 },
 ];

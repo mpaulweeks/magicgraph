@@ -64,11 +64,10 @@ export const CardView = (props: {
     relationship: deck.data.relationshipInverse[edge.relationship] ?? edge.relationship,
     neighbor: edge.related[0],
   }));
-
   const edgeBins: DisplayBin[] = sortBy(groupBy([...edgeTo, ...edgeFrom], e => e.relationship).map(rel => ({
     relationship: rel[0].relationship,
     neighbors: sortBy(unique(rel.map(rel => rel.neighbor)), c => c.displayName),
-  })), bin => deck.data.relationshipOrder.indexOf(bin.relationship));
+  })), bin => bin.relationship);
 
   const bgColor = deck.data.categoryColorMap[card.category] ?? 'black';
 
