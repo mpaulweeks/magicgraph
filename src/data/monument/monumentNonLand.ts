@@ -7,7 +7,11 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Creature, CT.Legendary],
   subtypes: ['Dragon'],
   category: MC.Draw,
-  tags: [MT.CaresAboutTopdeck, MT.UsesTokens, MT.HasLandfall],
+  tags: [
+    MT.CaresAboutTopdeck,
+    MT.UsesPermanentETBs,
+    MT.HasLandfall,
+  ],
 }, {
   name: `Monument to Perfection`,
   mc: '2',
@@ -45,7 +49,7 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Enchantment, CT.Saga],
   category: MC.Threat,
   tags: [
-    MT.MakesBigToken,
+    MT.MakesValuableTokens,
   ],
 },
 {
@@ -109,7 +113,8 @@ export const NonLands: CardDraft[] = [{
     MT.HasAbilityCounters,
     MT.HasIndestructible,
     MT.MakesColorlessCreatures,
-    MT.MakesMultipleTokens,
+    MT.MakesMassTokens,
+    MT.MakesDisposableTokens,
   ],
   category: MC.Threat,
 },
@@ -140,7 +145,9 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Creature, CT.Legendary],
   tags: [
     MT.HasLandfall,
-    MT.MakesMultipleTokens,
+    MT.MakesCreatureTokens,
+    MT.MakesValuableTokens,
+    MT.MakesGradualTokens,
   ],
   category: MC.Threat,
 },
@@ -171,7 +178,7 @@ export const NonLands: CardDraft[] = [{
 {
   name: `Moritte of the Frost`,
   mc: '2UUG',
-  types: [CT.Creature, CT.Legendary],
+  types: [CT.Creature, CT.Legendary, CT.Snow],
   tags: [
     MT.HasChangeling,
     MT.CopiesPermanent,
@@ -185,7 +192,10 @@ export const NonLands: CardDraft[] = [{
   mc: '4',
   types: [CT.Artifact],
   tags: [
-    MT.MakesMultipleTokens,
+    MT.MakesCreatureTokens,
+    MT.MakesColorlessCreatures,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
     MT.GivesChangeling,
   ],
   category: MC.Buff,
@@ -203,7 +213,11 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Artifact],
   tags: [
     MT.Proliferates,
-    MT.MakesMultipleTokens,
+    MT.MakesCreatureTokens,
+    MT.MakesArtifactTokens,
+    MT.MakesColorlessCreatures,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
   ],
   category: MC.Buff,
 },
@@ -242,7 +256,8 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Creature],
   subtypes: ['Insect'],
   tags: [
-    MT.MakesMultipleTokens,
+    MT.MakesMassTokens,
+    MT.MakesDisposableTokens,
     MT.HasLandfall,
   ],
   category: MC.Threat,
@@ -253,7 +268,8 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Creature],
   subtypes: ['Spider'],
   tags: [
-    MT.MakesMultipleTokens,
+    MT.MakesMassTokens,
+    MT.MakesDisposableTokens,
   ],
   category: MC.Threat,
 },
@@ -319,14 +335,14 @@ export const NonLands: CardDraft[] = [{
   name: `Proteus Staff`,
   mc: '3',
   types: [CT.Artifact],
-  tags: [MT.UsesTokens],
+  tags: [MT.UsesDisposableCreatureTokens],
   category: MC.Interaction,
 },
 {
   name: `Jalira, Master Polymorphist`,
   mc: '3U',
   types: [CT.Creature, CT.Legendary],
-  tags: [MT.UsesTokens, MT.SacrificeOutletCreature],
+  tags: [MT.UsesDisposableCreatureTokens, MT.SacrificeOutletCreature],
   category: MC.Draw,
 },
 {
@@ -334,7 +350,8 @@ export const NonLands: CardDraft[] = [{
   mc: '2RR',
   types: [CT.Sorcery],
   tags: [
-    MT.UsesTokens,
+    MT.UsesDisposableArtifactTokens,
+    MT.UsesDisposableCreatureTokens,
     MT.SacrificeOutletArtifact,
     MT.SacrificeOutletCreature,
   ],
@@ -345,7 +362,7 @@ export const NonLands: CardDraft[] = [{
   mc: '3RR',
   types: [CT.Enchantment],
   category: MC.Draw,
-  tags: [MT.TargetsTribal, MT.UsesTokens],
+  tags: [MT.TargetsTribal, MT.UsesCreatureETBs],
 },
 {
   name: `Hordewing Skaab`,
@@ -358,7 +375,7 @@ export const NonLands: CardDraft[] = [{
   name: `Djinn of Infinite Deceits`,
   mc: '4UU',
   types: [CT.Creature],
-  tags: [MT.UsesTokens],
+  tags: [MT.UsesDisposableCreatureTokens],
   category: MC.Interaction,
 },
 {
@@ -366,7 +383,7 @@ export const NonLands: CardDraft[] = [{
   mc: '4',
   types: [CT.Artifact],
   tags: [
-    MT.UsesTokens,
+    MT.UsesDisposableCreatureTokens,
     MT.SacrificeOutletCreature,
     MT.WantsSacrificeOutletCreature,
   ],
@@ -377,7 +394,7 @@ export const NonLands: CardDraft[] = [{
   mc: '2UU',
   types: [CT.Creature, CT.Legendary],
   tags: [
-    MT.UsesTokens,
+    MT.UsesDisposableCreatureTokens,
     MT.SacrificeOutletCreature,
   ],
   category: MC.Interaction,
@@ -387,7 +404,7 @@ export const NonLands: CardDraft[] = [{
   mc: '3GG',
   types: [CT.Enchantment],
   tags: [
-    MT.UsesTokens,
+    MT.UsesDisposableCreatureTokens,
     MT.TutorsBasicsToBattlefield,
     MT.SacrificeOutletCreature,
   ],
@@ -447,8 +464,8 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
     MT.MakesDevotion,
-    MT.MakesMultipleTokens,
-    MT.MakesBigToken,
+    MT.MakesMassTokens,
+    MT.MakesValuableTokens,
     MT.WantsHaste,
   ],
   category: MC.Threat,
@@ -464,7 +481,7 @@ export const NonLands: CardDraft[] = [{
   name: `Realmbreaker, the Invasion Tree`,
   mc: '3',
   types: [CT.Artifact, CT.Legendary],
-  tags: [MT.TutorsChangeling],
+  tags: [MT.TutorsCreatureType],
   category: MC.Ramp,
 },
 {
@@ -543,7 +560,8 @@ export const NonLands: CardDraft[] = [{
   mc: '2R',
   types: [CT.Creature, CT.Legendary],
   tags: [
-    MT.MakesMultipleTokens,
+    MT.MakesMassTokens,
+    MT.MakesDisposableTokens,
     MT.VulnerableAttacker,
   ],
   category: MC.Threat,
@@ -777,6 +795,7 @@ export const NonLands: CardDraft[] = [{
   name: `Fatestitcher`,
   mc: '3U',
   types: [CT.Creature],
+  subtypes: ['Zombie'],
   tags: [MT.UntapsLand],
   category: MC.Ramp,
 },
@@ -835,7 +854,7 @@ export const NonLands: CardDraft[] = [{
   combos: [
     {
       relationship: ME.FueledBy,
-      isMatch: other => other.tags.has(MT.MakesMultipleTokens),
+      isMatch: other => other.tags.has(MT.MakesDisposableTokens),
     },
   ],
 },
@@ -894,7 +913,8 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.HasIndestructible,
     MT.HasAbilityCounters,
-    MT.UsesTokens,
+    MT.UsesDisposableArtifactTokens,
+    MT.UsesDisposableCreatureTokens,
     MT.SacrificeOutletArtifact,
     MT.SacrificeOutletCreature,
     MT.DoublesTokens,
@@ -997,7 +1017,7 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.HasChangeling,
     MT.GivesChangeling,
-    MT.UsesTokens,
+    MT.UsesDisposableCreatureTokens,
   ],
   category: MC.Threat,
 },
@@ -1025,7 +1045,9 @@ export const NonLands: CardDraft[] = [{
   name: `Eldrazi Monument`,
   mc: '5',
   types: [CT.Artifact],
-  tags: [MT.UsesTokens],
+  tags: [
+    MT.UsesDisposableCreatureTokens,
+  ],
   category: MC.Buff,
 },
 {
@@ -1039,7 +1061,9 @@ export const NonLands: CardDraft[] = [{
   name: `Aura Shards`,
   mc: '1WG',
   types: [CT.Enchantment],
-  tags: [MT.UsesTokens],
+  tags: [
+    MT.UsesCreatureETBs,
+  ],
   category: MC.Interaction,
 },
 {
@@ -1064,7 +1088,7 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.HasAbilityCounters,
     MT.HasIndestructible,
-    MT.UsesTokens,
+    MT.UsesDisposableCreatureTokens,
     MT.SacrificeOutletCreature,
   ],
   category: MC.Threat,
@@ -1094,7 +1118,10 @@ export const NonLands: CardDraft[] = [{
   name: `Avarice Totem`,
   mc: '1',
   types: [CT.Artifact],
-  tags: [MT.UsesTokens],
+  tags: [
+    MT.UsesDisposableArtifactTokens,
+    MT.UsesDisposableCreatureTokens,
+  ],
   category: MC.Interaction,
 },
 {
@@ -1103,7 +1130,11 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Artifact],
   tags: [
     MT.TargetsTribal,
-    MT.MakesMultipleTokens,
+    MT.MakesCreatureTokens,
+    MT.MakesArtifactTokens,
+    MT.MakesColorlessCreatures,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
   ],
   category: MC.Threat,
 },
@@ -1120,7 +1151,7 @@ export const NonLands: CardDraft[] = [{
   name: `Evolutionary Leap`,
   mc: '1G',
   types: [CT.Enchantment],
-  tags: [MT.SacrificeOutletCreature, MT.UsesTokens],
+  tags: [MT.SacrificeOutletCreature, MT.UsesDisposableCreatureTokens],
   category: MC.Draw,
 },
 {
@@ -1167,7 +1198,7 @@ export const NonLands: CardDraft[] = [{
   name: `Martyr's Cause`,
   mc: '2W',
   types: [CT.Enchantment],
-  tags: [MT.SacrificeOutletCreature, MT.UsesTokens],
+  tags: [MT.SacrificeOutletCreature, MT.UsesDisposableCreatureTokens],
   category: MC.Interaction,
 },
 {
@@ -1176,7 +1207,8 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Creature],
   subtypes: ['Insect', 'Horror'],
   tags: [
-    MT.MakesMultipleTokens,
+    MT.MakesMassTokens,
+    MT.MakesDisposableTokens,
     MT.PoisonCounters,
   ],
   category: MC.Threat,
@@ -1233,7 +1265,7 @@ export const NonLands: CardDraft[] = [{
   name: `The Caves of Androzani`,
   mc: '3W',
   types: [CT.Enchantment, CT.Saga],
-  tags: [MT.ProliferatesNonSaga, MT.TutorsChangeling],
+  tags: [MT.ProliferatesNonSaga, MT.TutorsCreatureType],
   category: MC.Tutor,
 },
 {
@@ -1295,7 +1327,10 @@ export const NonLands: CardDraft[] = [{
   mc: '2WU',
   category: MC.Draw,
   tags: [
-    MT.MakesMultipleTokens,
+    MT.MakesCreatureTokens,
+    MT.MakesColorlessCreatures,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
     MT.HasTapAbility,
   ],
 },
@@ -1350,7 +1385,10 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.WantsToBeSacrificed,
     MT.HasTapAbility,
-    MT.MakesBigToken,
+    MT.MakesCreatureTokens,
+    MT.MakesArtifactTokens,
+    MT.MakesValuableTokens,
+    MT.MakesGradualTokens,
   ],
 },
 {
@@ -1400,8 +1438,10 @@ export const NonLands: CardDraft[] = [{
   mc: '7',
   category: MC.Threat,
   tags: [
+    MT.MakesCreatureTokens,
     MT.MakesColorlessCreatures,
-    MT.MakesMultipleTokens,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
   ],
 },
 {
@@ -1411,7 +1451,9 @@ export const NonLands: CardDraft[] = [{
   category: MC.Threat,
   tags: [
     MT.MakesColorlessCreatures,
-    MT.MakesMultipleTokens,
+    MT.MakesMassTokens,
+    MT.MakesArtifactTokens,
+    MT.MakesDisposableTokens,
   ],
 },
 {
@@ -1421,7 +1463,8 @@ export const NonLands: CardDraft[] = [{
   category: MC.Threat,
   tags: [
     MT.MakesColorlessCreatures,
-    MT.MakesMultipleTokens,
+    MT.MakesMassTokens,
+    MT.MakesValuableTokens,
     MT.TargetsTribal,
     MT.LikesBeingCopiedWithETB,
   ],
@@ -1452,8 +1495,8 @@ export const NonLands: CardDraft[] = [{
   category: MC.Threat,
   tags: [
     MT.MakesDevotion,
-    MT.MakesMultipleTokens,
-    MT.MakesBigToken,
+    MT.MakesMassTokens,
+    MT.MakesValuableTokens,
     MT.CopiesPermanent,
     MT.CopiesWithETB,
   ],
@@ -1483,7 +1526,7 @@ export const NonLands: CardDraft[] = [{
   category: MC.Threat,
   tags: [
     MT.MakesDevotion,
-    MT.UsesTokens,
+    MT.UsesDisposableCreatureTokens,
     MT.WantsSacrificeOutletCreature,
   ],
 },
@@ -1550,6 +1593,7 @@ export const NonLands: CardDraft[] = [{
     MT.Populates,
     MT.GainsLife,
     MT.HasTapAbility,
+    MT.UsesCreatureETBs,
   ],
 },
 {
@@ -1586,7 +1630,8 @@ export const NonLands: CardDraft[] = [{
   mc: '4UG',
   category: MC.Threat,
   tags: [
-    MT.UsesTokens,
+    MT.UsesDisposableCreatureTokens,
+    MT.UsesDisposableArtifactTokens,
   ],
 },
 {
@@ -1616,7 +1661,7 @@ export const NonLands: CardDraft[] = [{
   mc: '3WW',
   category: MC.Threat,
   tags: [
-    MT.UsesTokens,
+    MT.UsesDisposableCreatureTokens,
   ],
 },
 {
@@ -1625,7 +1670,9 @@ export const NonLands: CardDraft[] = [{
   mc: '3WW',
   category: MC.Threat,
   tags: [
-    MT.MakesBigToken,
+    MT.MakesCreatureTokens,
+    MT.MakesValuableTokens,
+    MT.MakesGradualTokens,
     MT.WantsLifegain,
     MT.LikesBeingCopiedWithCast,
     MT.LikesBeingCopiedWithETB,
@@ -1721,6 +1768,130 @@ export const NonLands: CardDraft[] = [{
   category: MC.Interaction,
   tags: [
     MT.TurnsIntoArtifact,
+  ],
+},
+{
+  name: `Cleaver Skaab`,
+  types: [CT.Creature],
+  subtypes: ['Zombie'],
+  mc: '3U',
+  category: MC.Misc,
+  tags: [
+    MT.TargetsTribal,
+    MT.UsesZombies,
+    MT.MakesCreatureTokens,
+    MT.MakesValuableTokens,
+    MT.MakesGradualTokens,
+    MT.LikesBeingCopiedWithETB,
+    MT.LikesBeingCopiedWithMirror,
+  ],
+},
+{
+  name: `Timber Protector`,
+  types: [CT.Creature],
+  subtypes: ['Treefolk'],
+  mc: '4G',
+  category: MC.Misc,
+  tags: [
+    MT.TargetsTribal,
+    MT.CaresAboutForests,
+    MT.LikesBeingCopiedWithETB,
+    MT.LikesBeingCopiedWithMirror,
+  ],
+},
+{
+  name: `Marit Lage's Slumber`,
+  types: [CT.Enchantment, CT.Legendary],
+  mc: '1U',
+  category: MC.Threat,
+  tags: [
+    MT.CaresAboutSnow,
+    MT.SacrificesSelf,
+    MT.MakesValuableTokens,
+  ],
+},
+{
+  name: `Galecaster Colossus`,
+  types: [CT.Creature],
+  subtypes: ['Giant', 'Wizard'],
+  mc: '5UU',
+  category: MC.Interaction,
+  tags: [
+    MT.TargetsTribal,
+  ],
+  combos: [
+    {
+      relationship: ME.TribalSynergy,
+      isMatch: b => b.subtypes.has('Wizard'),
+    },
+  ],
+},
+{
+  name: `Progenitor Mimic`,
+  types: [CT.Creature],
+  mc: '4GU',
+  category: MC.Misc,
+  tags: [
+    MT.CopiesCreatures,
+    MT.CopiesManLands,
+    MT.CopiesWithCast,
+    MT.MakesCreatureTokens,
+    MT.MakesValuableTokens,
+    MT.MakesGradualTokens,
+  ],
+},
+{
+  name: `Stolen Identity`,
+  types: [CT.Sorcery],
+  mc: '4UU',
+  category: MC.Misc,
+  tags: [
+    MT.CopiesCreatures,
+    MT.CopiesManLands,
+    MT.CopiesWithETB,
+    MT.MakesCreatureTokens,
+    MT.MakesArtifactTokens,
+    MT.MakesValuableTokens,
+    MT.MakesGradualTokens,
+  ],
+},
+{
+  name: `Esika's Chariot`,
+  types: [CT.Artifact],
+  mc: '3G',
+  category: MC.Misc,
+  tags: [
+    MT.MakesCreatureTokens,
+    MT.MakesArtifactTokens,
+    MT.MakesValuableTokens,
+    MT.MakesDisposableTokens,
+    MT.DoublesTokens,
+  ],
+},
+{
+  name: `Mechanized Production`,
+  types: [CT.Enchantment, CT.Aura],
+  mc: '2UU',
+  category: MC.Misc,
+  tags: [
+    MT.MakesArtifactTokens,
+    MT.MakesValuableTokens,
+    MT.MakesGradualTokens,
+    MT.CopiesArtifacts,
+    MT.CopiesWithETB,
+  ],
+},
+{
+  name: `Prototype Portal`,
+  types: [CT.Artifact],
+  mc: '4',
+  category: MC.Misc,
+  tags: [
+    MT.MakesArtifactTokens,
+    MT.MakesValuableTokens,
+    MT.MakesGradualTokens,
+    MT.CopiesArtifacts,
+    MT.CopiesWithETB,
   ],
 },
 ];

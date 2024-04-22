@@ -85,7 +85,6 @@ The Shire
 Mirri, Weatherlight Duelist
 Divine Visitation
 Selesnya Eulogist
-Sun Titan
 Trostani, Selesnya's Voice
 Mirrorpool
 
@@ -95,6 +94,9 @@ Innocuous Researcher
 World Breaker
 Darksteel Garrison
 Song of the Dryads
+Forbidden Orchard
+Mutavault
+Progenitor Mimic
 `);
 
 const choppingBlock = parseList(`
@@ -103,7 +105,6 @@ const choppingBlock = parseList(`
 const pending = parseList(`
 Shapesharer
 Angel of Condemnation
-Shanna, Purifying Blade
 Proteus Staff
 
 Blinkmoth Well
@@ -111,15 +112,27 @@ Winter Orb
 Static Orb
 Storage Matrix
 
-Recycle
-Reliquary Tower
-
 Imprisoned in the Moon
-Memnarch
+Faceless Haven
+Runed Stalactite
+Cleaver Skaab
+Timber Protector
+Marit Lage's Slumber
+Galecaster Colossus
+Stolen Identity
+Esika's Chariot
+Mechanized Production
+Prototype Portal
+Thornglint Bridge
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Shanna, Purifying Blade
+Recycle
+Reliquary Tower
+Sun Titan
+Memnarch
 Thaumatic Compass // Spires of Orazca
 Essence of the Wild
 Lithoform Engine
@@ -148,7 +161,6 @@ Urborg, Tomb of Yawgmoth
 Roots of Life
 Karma
 Hadana's Climb // Winged Temple of Orazca
-Forbidden Orchard
 Illustrious Wanderglyph
 Prime Speaker Zegana
 Battle at the Helvault
@@ -176,7 +188,6 @@ Petrified Field
 Barrin, Master Wizard
 Cauldron of Souls
 Mirror Entity
-Runed Stalactite
 Swarmyard
 Retrofitter Foundry
 Martyr's Cause
@@ -253,7 +264,6 @@ Kiora's Follower
 Krenko, Tin Street Kingpin
 Manascape Refractor
 Moorland Haunt
-Mutavault
 Myojin of Life's Web
 Myojin of Roaring Blades
 Myojin of Seeing Winds
@@ -305,7 +315,6 @@ Wilderness Reclamation
 Wirewood Lodge
 Yavimaya Hollow
 Hanweir Battlements // Hanweir, the Writhing Township
-Silverbluff Bridge
 Dowsing Dagger // Lost Vale
 Conqueror's Galleon // Conqueror's Foothold
 `);

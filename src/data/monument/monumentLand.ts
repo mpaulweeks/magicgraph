@@ -98,15 +98,12 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Swarmyard`,
   tags: [
     MT.HasTapAbility,
+    MT.TargetsTribal,
   ],
-  combos: [
-    {
-      relationship: ME.TribalSynergy,
-      isMatch: other =>
-        other.tags.has(MT.HasChangeling, MT.GivesChangeling) ||
-        other.subtypes.has('Insect', 'Rat', 'Spider', 'Squirrel'),
-    },
-  ],
+  combos: [{
+    relationship: ME.TribalSynergy,
+    isMatch: other => other.subtypes.has('Insect', 'Rat', 'Spider', 'Squirrel'),
+  }],
 },
 {
   name: `Kessig Wolf Run`,
@@ -169,7 +166,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   combos: [
     {
       relationship: ME.ProtectsAttacker,
-      isMatch: other => other.tags.has(MT.VulnerableAttacker, MT.ManLand),
+      isMatch: other => other.tags.has(MT.VulnerableAttacker),
     },
   ],
 },
@@ -189,9 +186,11 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Mirrex`,
   subtypes: ['Sphere'],
   tags: [
-    MT.MakesMultipleTokens,
-    MT.MakesColorlessCreatures,
+    MT.MakesCreatureTokens,
     MT.MakesArtifactTokens,
+    MT.MakesColorlessCreatures,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
     MT.ManaSink,
     MT.HasTapAbility,
     MT.PoisonCounters,
@@ -216,14 +215,17 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Kher Keep`,
   additionalTypes: [CT.Legendary],
   tags: [
-    MT.MakesMultipleTokens,
+    MT.MakesCreatureTokens,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
     MT.HasTapAbility,
   ],
 },
 {
   name: `Field of the Dead`,
   tags: [
-    MT.MakesMultipleTokens,
+    MT.MakesCreatureTokens,
+    MT.MakesGradualTokens,
     MT.HasLandfall,
   ],
   subtypes: ['Zombie'],
@@ -235,8 +237,11 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [
     MT.CaresAboutTrinkets,
     MT.HasTapAbility,
+    MT.MakesCreatureTokens,
+    MT.MakesArtifactTokens,
     MT.MakesColorlessCreatures,
-    MT.MakesMultipleTokens,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
   ],
 },
 {
@@ -263,9 +268,17 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Mutavault`,
-  subtypes: [
+  tags: [
     MT.ManLand,
-    MT.GivesChangeling,
+    MT.GainsChangeling,
+  ],
+},
+{
+  name: `Faceless Haven`,
+  additionalTypes: [CT.Snow],
+  tags: [
+    MT.ManLand,
+    MT.GainsChangeling,
   ],
 },
 {
@@ -333,7 +346,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Littjara Mirrorlake`,
   tags: [
-    MT.MakesBigToken,
+    MT.MakesValuableTokens,
     MT.SacrificesSelf,
     MT.CopiesCreatures,
     MT.CopiesWithETB,
@@ -395,7 +408,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [MT.LandWithProtection],
 },
 {
-  name: `Silverbluff Bridge`,
+  name: `Thornglint Bridge`,
   nick: 'Bridge Lands',
   additionalTypes: [CT.Artifact],
   tags: [MT.LandWithProtection],
@@ -465,7 +478,9 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Kjeldoran Outpost`,
   tags: [
-    MT.MakesMultipleTokens,
+    MT.MakesCreatureTokens,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
     MT.CaresAboutPlains,
     MT.HasTapAbility,
   ],
@@ -481,7 +496,9 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Moorland Haunt`,
   tags: [
-    MT.MakesMultipleTokens,
+    MT.MakesCreatureTokens,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
   ],
 },
 {
@@ -569,20 +586,25 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   overrideCategory: MC.MulticolorLand,
   tags: [
     MT.ManLand,
+    MT.VulnerableAttacker,
     MT.TargetsCreatures,
   ],
 },
 {
   name: 'Castle Ardenvale',
   tags: [
-    MT.MakesMultipleTokens,
+    MT.MakesCreatureTokens,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
     MT.HasTapAbility,
   ],
 },
 {
   name: `Vitu-Ghazi, the City-Tree`,
   tags: [
-    MT.MakesMultipleTokens,
+    MT.MakesCreatureTokens,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
     MT.HasTapAbility,
   ],
 },
@@ -603,7 +625,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Grove of the Guardian`,
   tags: [
     MT.SacrificesSelf,
-    MT.MakesBigToken,
+    MT.MakesValuableTokens,
     MT.TapsCreatures
   ],
   overrideCategory: MC.Threat,
@@ -633,7 +655,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.LikesBeingCopiedWithMirror,
     MT.HasAgeCounters,
     MT.CannotTapForMana,
-    MT.MakesBigToken,
+    MT.MakesValuableTokens,
   ],
 },
 {
@@ -678,7 +700,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Eye of Ugin`,
   tags: [
     MT.CannotTapForMana,
-    MT.TargetsTribal,
+    MT.TutorsCreatureType,
   ],
   combos: [{
     relationship: ME.Tutors,
@@ -721,15 +743,18 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   name: `Restless Anchorage`,
   tags: [
     MT.ManLand,
+    MT.VulnerableAttacker,
     MT.HasPlusCounters,
     MT.MakesArtifactTokens,
+    MT.MakesGradualTokens,
   ],
 },
 {
   name: `Restless Prairie`,
   tags: [
     MT.ManLand,
-    MT.UsesTokens,
+    MT.VulnerableAttacker,
+    MT.UsesDisposableCreatureTokens,
   ],
 },
 {
@@ -751,7 +776,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Mirrorpool`,
   tags: [
-    MT.MakesBigToken,
+    MT.MakesValuableTokens,
     MT.CopiesCreatures,
     MT.CopiesWithETB,
     MT.SacrificesSelf,

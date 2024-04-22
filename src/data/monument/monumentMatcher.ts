@@ -22,7 +22,7 @@ export const MonMatchers: Matcher[] = [
     relationship: ME.TribalSynergy,
     isMatch: (a, b) =>
       a.tags.has(MT.TargetsTribal) &&
-      b.tags.has(MT.HasChangeling, MT.GivesChangeling),
+      b.tags.has(MT.HasChangeling, MT.GainsChangeling, MT.GivesChangeling),
   },
   {
     relationship: ME.TribalSynergy,
@@ -71,12 +71,14 @@ export const MonMatchers: Matcher[] = [
       ].some(b => b);
       const copyType = [
         a.tags.has(MT.CopiesWithCast) && b.tags.has(MT.LikesBeingCopiedWithCast),
-        a.tags.has(MT.CopiesWithETB) && b.tags.has(MT.LikesBeingCopiedWithETB),
+        a.tags.has(MT.CopiesWithCast, MT.CopiesWithETB) && b.tags.has(MT.LikesBeingCopiedWithETB),
         a.tags.has(MT.CopiesWithMirror) && b.tags.has(MT.LikesBeingCopiedWithMirror),
       ].some(b => b);
       const variable = [
         a.tags.has(MT.CopiesArtifacts) && b.tags.has(MT.TurnsIntoArtifact),
+        a.tags.all(MT.CopiesArtifacts) && b.types.all(CT.Land, CT.Artifact),
         a.tags.has(MT.CopiesLands) && b.tags.has(MT.TurnsIntoLand),
+        a.tags.all(MT.CopiesManLands) && b.tags.has(MT.ManLand),
       ].some(b => b);
       return (canTarget && copyType) || variable;
     },
@@ -101,8 +103,27 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.FueledBy,
     isMatch: (a,b) =>
-      a.tags.has(MT.UsesTokens) &&
-      b.tags.has(MT.MakesMultipleTokens),
+      a.tags.has(MT.UsesDisposableCreatureTokens) &&
+      b.tags.has(MT.MakesCreatureTokens, MT.MakesDisposableTokens),
+  },
+  {
+    relationship: ME.FueledBy,
+    isMatch: (a,b) =>
+      a.tags.has(MT.UsesValuableCreatureTokens) &&
+      b.tags.all(MT.MakesCreatureTokens, MT.MakesValuableTokens),
+  },
+  {
+    relationship: ME.FueledBy,
+    isMatch: (a,b) =>
+      a.tags.has(MT.UsesPermanentETBs) &&
+      b.tags.has(MT.MakesGradualTokens, MT.MakesMassTokens),
+  },
+  {
+    relationship: ME.FueledBy,
+    isMatch: (a,b) =>
+      a.tags.has(MT.UsesCreatureETBs) &&
+      b.tags.has(MT.MakesGradualTokens, MT.MakesMassTokens) &&
+      b.tags.has(MT.MakesCreatureTokens),
   },
   {
     relationship: ME.CombosWith,
@@ -185,7 +206,7 @@ export const MonMatchers: Matcher[] = [
     relationship: ME.Tutors,
     isMatch: (a,b) =>
       a.tags.has(MT.HasChangeling) &&
-      b.tags.has(MT.TutorsChangeling),
+      b.tags.has(MT.TutorsCreatureType),
   },
   {
     relationship: ME.Tutors,
@@ -198,6 +219,12 @@ export const MonMatchers: Matcher[] = [
     isMatch: (a,b) =>
       a.subtypes.has('Plains') &&
       b.tags.has(MT.TutorsPlains),
+  },
+  {
+    relationship: ME.TribalSynergy,
+    isMatch: (a,b) =>
+      a.types.has(CT.Snow) &&
+      b.tags.has(MT.CaresAboutSnow),
   },
   {
     relationship: ME.Nonbo,
@@ -251,16 +278,16 @@ export const MonMatchers: Matcher[] = [
     relationship: ME.Doubling,
     isMatch: (a,b) =>
       a.tags.has(MT.Populates) &&
-      b.tags.has(MT.MakesBigToken),
+      b.tags.has(MT.MakesValuableTokens),
   },
   {
     relationship: ME.Doubling,
     isMatch: (a,b) =>
       a.tags.has(MT.DoublesTokens) &&
       b.tags.has(
-        MT.MakesBigToken,
         MT.MakesArtifactTokens,
-        MT.MakesMultipleTokens,
+        MT.MakesDisposableTokens,
+        MT.MakesValuableTokens,
       ),
   },
   {
