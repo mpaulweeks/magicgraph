@@ -1420,6 +1420,7 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.LikesBeingBounced,
     MT.LikesBeingCopiedWithCast,
+    MT.CaresAboutOpponentCreatures,
   ],
 },
 {
@@ -1896,4 +1897,29 @@ export const NonLands: CardDraft[] = [{
     MT.ImprintsFromHand,
   ],
 },
+{
+  name: `The Eternal Wanderer`,
+  types: [CT.Planeswalker, CT.Legendary],
+  mc: '4WW',
+  category: MC.Interaction,
+  tags: [
+    MT.MakesCreatureTokens,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
+    MT.CaresAboutOpponentCreatures,
+  ],
+},
+{
+  name: `Keeper of the Accord`,
+  types: [CT.Creature],
+  mc: '3W',
+  category: MC.Misc,
+  tags: [
+    MT.MakesCreatureTokens,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
+    MT.CaresAboutOpponentCreatures,
+    MT.WantsLessLands,
+  ],
+}
 ];

@@ -104,7 +104,6 @@ const choppingBlock = parseList(`
 
 const pending = parseList(`
 Shapesharer
-Angel of Condemnation
 Proteus Staff
 
 Blinkmoth Well
@@ -127,10 +126,13 @@ Thornglint Bridge
 Mishra's Factory
 Blinkmoth Nexus
 Inkmoth Nexus
+The Eternal Wanderer
+Keeper of the Accord
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Angel of Condemnation
 Shanna, Purifying Blade
 Recycle
 Reliquary Tower
