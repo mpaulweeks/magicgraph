@@ -12,7 +12,6 @@ import { MonumentCategory, MonumentEdges, MonumentInverseEdge } from './monument
 
 const current = parseList(`
 Amareth, the Lustrous
-Cyclone Summoner
 Deserted Temple
 Drownyard Temple
 Elvish Reclaimer
@@ -57,7 +56,6 @@ Dark Depths
 
 Shorikai, Genesis Engine
 Evolutionary Leap
-Woodfall Primus
 Doubling Season
 Echoing Deeps
 Mangara of Corondor
@@ -72,7 +70,6 @@ Basilisk Collar
 
 The One Ring
 Phyrexia's Core
-Spine of Ish Sah
 Scroll Rack
 Flagstones of Trokair
 Hall of the Bandit Lord
@@ -91,7 +88,6 @@ Mirrorpool
 Lumbering Falls
 Elspeth Conquers Death
 Innocuous Researcher
-World Breaker
 Darksteel Garrison
 Song of the Dryads
 Forbidden Orchard
@@ -100,6 +96,10 @@ Progenitor Mimic
 `);
 
 const choppingBlock = parseList(`
+World Breaker
+Spine of Ish Sah
+Woodfall Primus
+Cyclone Summoner
 `);
 
 const pending = parseList(`
@@ -128,6 +128,13 @@ Blinkmoth Nexus
 Inkmoth Nexus
 The Eternal Wanderer
 Keeper of the Accord
+
+Battle at the Helvault
+Sower of Temptation
+Smirking Spelljacker
+Portal Manipulator
+Disciple of Caelus Nin
+Meddling Mage
 `);
 
 // todo add section Illegal for red cards
@@ -168,7 +175,6 @@ Karma
 Hadana's Climb // Winged Temple of Orazca
 Illustrious Wanderglyph
 Prime Speaker Zegana
-Battle at the Helvault
 Lunar Hatchling
 Kamahl's Will
 Summoning Station
@@ -235,7 +241,6 @@ Staff of Titania
 Canopy Vista
 Dismiss into Dream
 Prairie Stream
-Sower of Temptation
 Willbreaker
 Alchemist's Refuge
 Aven Courier
@@ -367,6 +372,7 @@ export const MonumentData: DeckData = {
   name: 'Monument.dec',
   description: 'Bant deck that tutors nonbasic lands to form multiple small A/B combos',
   notes: [
+    '2024/04/25: Reducing the curve / focusing on mana efficiency (eg cutting Spine of Ish Sah).',
     '2024/04/11: Minimize Monunent package to basics and utility spheres, now has exactly 9 sources.',
     '2023/11/09: New criteria for Sagas: Stage 2 must be spammable. Looping Stage 1 requires having Nesting Grounds already in play and mana to spare.',
     '2023/11/04: Due to color screw and mediocre blue Myojin, start reducing blue to a splash.',
