@@ -135,6 +135,8 @@ Smirking Spelljacker
 Portal Manipulator
 Disciple of Caelus Nin
 Meddling Mage
+Urza, Prince of Kroog
+Darksteel Citadel
 `);
 
 // todo add section Illegal for red cards

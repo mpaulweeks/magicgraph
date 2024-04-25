@@ -414,6 +414,11 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [MT.LandWithProtection],
 },
 {
+  name: `Darksteel Citadel`,
+  additionalTypes: [CT.Artifact],
+  tags: [MT.LandWithProtection],
+},
+{
   name: `Rishadan Port`,
   tags: [
     MT.TapsTargetLand,

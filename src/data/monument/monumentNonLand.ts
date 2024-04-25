@@ -1921,5 +1921,18 @@ export const NonLands: CardDraft[] = [{
     MT.CaresAboutOpponentCreatures,
     MT.WantsLessLands,
   ],
-}
+},
+{
+  name: `Urza, Prince of Kroog`,
+  types: [CT.Creature],
+  mc: '2WU',
+  category: MC.Threat,
+  tags: [
+    MT.MakesCreatureTokens,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
+    MT.CopiesArtifacts,
+    MT.CopiesWithETB,
+  ],
+},
 ];
