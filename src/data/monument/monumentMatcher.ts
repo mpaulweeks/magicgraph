@@ -47,12 +47,6 @@ export const MonMatchers: Matcher[] = [
       a.tags.has(MT.LandWithProtection) && b.tags.has(MT.AnimatesLand),
   },
   {
-    relationship: ME.ForcesTap,
-    isMatch: (a, b) =>
-      a.tags.has(MT.TapsTargetLand) &&
-      b.tags.has(MT.CaresAboutGettingLandTapped),
-  },
-  {
     relationship: ME.Untaps,
     isMatch: (a, b) =>
       a.tags.has(MT.UntapsLand) &&
@@ -260,14 +254,23 @@ export const MonMatchers: Matcher[] = [
       ].some(b => b),
   },
   {
-    relationship: ME.CombosWith,
+    relationship: ME.Tapping,
+    isMatch: (a, b) =>
+      (a.tags.has(MT.CaresAboutGettingLandTapped) || (
+        a.tags.has(MT.WantsToBeTapped) &&
+        a.types.has(CT.Land)
+      )) &&
+      b.tags.has(MT.TapsTargetLand),
+  },
+  {
+    relationship: ME.Tapping,
     isMatch: (a,b) =>
       a.tags.has(MT.WantsToBeTapped) &&
       a.types.has(CT.Creature) &&
       b.tags.has(MT.TapsCreatures),
   },
   {
-    relationship: ME.CombosWith,
+    relationship: ME.Tapping,
     isMatch: (a,b) =>
       a.tags.has(MT.WantsToBeTapped) &&
       a.types.has(CT.Artifact) &&
@@ -275,7 +278,7 @@ export const MonMatchers: Matcher[] = [
       b.tags.has(MT.TapsNonCreatureArtifacts),
   },
   {
-    relationship: ME.CombosWith,
+    relationship: ME.Lifegain,
     isMatch: (a,b) =>
       a.tags.has(MT.WantsLifegain) &&
       b.tags.has(MT.GainsLife),

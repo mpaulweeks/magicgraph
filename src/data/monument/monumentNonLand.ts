@@ -1229,6 +1229,9 @@ export const NonLands: CardDraft[] = [{
   mc: '4WW',
   types: [CT.Enchantment, CT.Saga],
   category: MC.Interaction,
+  tags: [
+    MT.MakesValuableTokens,
+  ],
 },
 {
   name: `The Night of the Doctor`,
@@ -1921,5 +1924,46 @@ export const NonLands: CardDraft[] = [{
     MT.CaresAboutOpponentCreatures,
     MT.WantsLessLands,
   ],
-}
+},
+{
+  name: `Smirking Spelljacker`,
+  types: [CT.Creature],
+  subtypes: ['Wizard'],
+  mc: '4U',
+  category: MC.Interaction,
+  tags: [
+    MT.LikesBeingBounced,
+    MT.VulnerableAttacker,
+  ],
+},
+{
+  name: `Portal Manipulator`,
+  types: [CT.Creature],
+  subtypes: ['Wizard'],
+  mc: '2WU',
+  category: MC.Interaction,
+  tags: [
+    MT.LikesBeingBounced,
+  ],
+},
+{
+  name: `Disciple of Caelus Nin`,
+  types: [CT.Creature],
+  subtypes: ['Wizard'],
+  mc: '4W',
+  category: MC.Interaction,
+  tags: [
+    MT.LikesBeingBounced,
+  ],
+},
+{
+  name: `Meddling Mage`,
+  types: [CT.Creature],
+  subtypes: ['Wizard'],
+  mc: 'WU',
+  category: MC.Interaction,
+  tags: [
+    MT.LikesBeingBounced,
+  ],
+},
 ];
