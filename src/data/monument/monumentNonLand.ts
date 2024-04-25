@@ -1927,7 +1927,7 @@ export const NonLands: CardDraft[] = [{
 },
 {
   name: `Urza, Prince of Kroog`,
-  types: [CT.Creature],
+  types: [CT.Creature, CT.Legendary],
   mc: '2WU',
   category: MC.Threat,
   tags: [
