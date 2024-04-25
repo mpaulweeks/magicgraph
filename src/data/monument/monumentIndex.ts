@@ -69,7 +69,6 @@ Mirage Mirror
 Basilisk Collar
 
 The One Ring
-Phyrexia's Core
 Scroll Rack
 Flagstones of Trokair
 Hall of the Bandit Lord
@@ -93,13 +92,15 @@ Song of the Dryads
 Forbidden Orchard
 Mutavault
 Progenitor Mimic
+
+Littjara Mirrorlake
+Battle at the Helvault
+The Eternal Wanderer
+Sower of Temptation
+Galecaster Colossus
 `);
 
 const choppingBlock = parseList(`
-World Breaker
-Spine of Ish Sah
-Woodfall Primus
-Cyclone Summoner
 `);
 
 const pending = parseList(`
@@ -116,23 +117,13 @@ Faceless Haven
 Runed Stalactite
 Cleaver Skaab
 Timber Protector
-Marit Lage's Slumber
-Galecaster Colossus
 Stolen Identity
 Esika's Chariot
-Mechanized Production
-Prototype Portal
-Thornglint Bridge
 Mishra's Factory
 Blinkmoth Nexus
 Inkmoth Nexus
-The Eternal Wanderer
 Keeper of the Accord
 
-Battle at the Helvault
-Sower of Temptation
-Smirking Spelljacker
-Portal Manipulator
 Disciple of Caelus Nin
 Meddling Mage
 Urza, Prince of Kroog
@@ -141,6 +132,21 @@ Darksteel Citadel
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+
+Phyrexia's Core
+Spine of Ish Sah
+World Breaker
+Woodfall Primus
+Cyclone Summoner
+
+Smirking Spelljacker
+Portal Manipulator
+
+Mechanized Production
+Prototype Portal
+Thornglint Bridge
+
+Marit Lage's Slumber
 Angel of Condemnation
 Shanna, Purifying Blade
 Recycle
@@ -154,7 +160,6 @@ Tomb of the Spirit Dragon
 Restless Vinestalk
 Lifetap
 
-Littjara Mirrorlake
 Nykthos, Shrine to Nyx
 Gruff Triplets
 Esix, Fractal Bloom

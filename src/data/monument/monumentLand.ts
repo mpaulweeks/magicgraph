@@ -204,12 +204,6 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.CopiesArtifacts,
     MT.CopiesWithMirror,
   ],
-  combos: [
-    {
-      relationship: ME.Clones,
-      isMatch: other => other.types.has(CT.Artifact),
-    },
-  ],
 },
 {
   name: `Kher Keep`,
@@ -327,7 +321,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   tags: [
     MT.DealsDamageToCreatures,
     MT.CannotTapForMana,
-    MT.CaresAboutGettingLandTapped,
+    MT.WantsToBeTapped,
     MT.HasTapAbility,
   ],
 },
@@ -660,6 +654,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.LikesBeingCopiedWithMirror,
     MT.HasAgeCounters,
     MT.CannotTapForMana,
+    MT.MakesCreatureTokens,
     MT.MakesValuableTokens,
   ],
 },

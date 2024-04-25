@@ -151,6 +151,8 @@ export enum MonumentEdge {
   CombosWith = 'Combos With',
   TribalSynergy = 'Tribal Synergy',
   LandTypeMatters = 'Land Type Matters',
+  Lifegain = 'Lifegain',
+  Tapping = 'Tapping',
 
   ManipulatesCounters = 'Manipulates Counters',
 
@@ -186,9 +188,6 @@ export enum MonumentEdge {
 
   Tutors = 'Tutors',
 
-  ForcesTap = 'Forces Tap',
-  TappedBy = 'Tapped By',
-
   Nonbo = 'Nonbo',
 }
 
@@ -203,7 +202,6 @@ export const MonumentInverseEdge = {
   [MonumentEdge.Clones]: MonumentEdge.ClonedBy,
   [MonumentEdge.Bins]: MonumentEdge.BinnedBy,
   [MonumentEdge.Reanimates]: MonumentEdge.ReanimatedBy,
-  [MonumentEdge.ForcesTap]: MonumentEdge.TappedBy,
 };
 
 export const MonumentEdges: string[] = [
