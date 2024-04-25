@@ -18,8 +18,10 @@ export const DeckView = (props: {
   const queryParsm = new URLSearchParams(window.location.search);
   const [includeCurrent, setIncludeCurrent] = useState<boolean>(queryParsm.get('current') === null || !!queryParsm.get('current'));
   const [includeChoppingBlock, setIncludeChoppingBlock] = useState<boolean>(queryParsm.get('choppingBlock') === null || !!queryParsm.get('choppingBlock'));
-  const [includePending, setIncludePending] = useState<boolean>(!!queryParsm.get('pending'));
-  const [includeRejected, setIncludeRejected] = useState<boolean>(!!queryParsm.get('rejected'));
+  const [includePendingCards, setIncludePendingCards] = useState<boolean>(!!queryParsm.get('pendingCards'));
+  const [includeRejectedCards, setIncludeRejectedCards] = useState<boolean>(!!queryParsm.get('rejectedCards'));
+  const [includePendingEdges, setIncludePendingEdges] = useState<boolean>(queryParsm.get('pendingEdges') === null || !!queryParsm.get('pendingEdges'));
+  const [includeRejectedEdges, setIncludeRejectedEdges] = useState<boolean>(!!queryParsm.get('rejectedEdges'));
   const [sortAscending, setSortAscending] = useState<boolean>(true);
   const [sorting, setSorting] = useState<Sorting>(Sorting.Alphabetical);
   const [filter, setFilter] = useState<string>();
@@ -55,13 +57,13 @@ export const DeckView = (props: {
   const choppingBlock = filtered.filter(c => c.choppingBlock);
   const toRender = filtered
     .filter(c => includeCurrent || !c.current)
-    .filter(c => includePending || !c.pending)
-    .filter(c => includeRejected || !c.rejected)
+    .filter(c => includePendingCards || !c.pending)
+    .filter(c => includeRejectedCards || !c.rejected)
     .filter(c => includeChoppingBlock || !c.choppingBlock);
   const edges = uniqueBy(
     deck.edges
-      .filter(e => includePending || e.related.every(c => !c.pending))
-      .filter(e => includeRejected || e.related.every(c => !c.rejected))
+      .filter(e => includePendingCards || includePendingEdges || e.related.every(c => !c.pending))
+      .filter(e => includeRejectedCards || includeRejectedEdges || e.related.every(c => !c.rejected))
       .sort(deck.compareEdges),
     elm => sort(elm.related.map(c => c.id)).join('|')
   );
@@ -124,21 +126,39 @@ export const DeckView = (props: {
           />
         </div>
         <div>
-          Show pending?
+          Show pending cards?
           <input
             type="checkbox"
             readOnly={true}
-            checked={includePending}
-            onClick={() => setIncludePending(!includePending)}
+            checked={includePendingCards}
+            onClick={() => setIncludePendingCards(!includePendingCards)}
           />
         </div>
         <div>
-          Show removed?
+          Show pending edges?
           <input
             type="checkbox"
             readOnly={true}
-            checked={includeRejected}
-            onClick={() => setIncludeRejected(!includeRejected)}
+            checked={includePendingEdges}
+            onClick={() => setIncludePendingEdges(!includePendingEdges)}
+          />
+        </div>
+        <div>
+          Show removed cards?
+          <input
+            type="checkbox"
+            readOnly={true}
+            checked={includeRejectedCards}
+            onClick={() => setIncludeRejectedCards(!includeRejectedCards)}
+          />
+        </div>
+        <div>
+          Show removed edges?
+          <input
+            type="checkbox"
+            readOnly={true}
+            checked={includeRejectedEdges}
+            onClick={() => setIncludeRejectedEdges(!includeRejectedEdges)}
           />
         </div>
       </section>
