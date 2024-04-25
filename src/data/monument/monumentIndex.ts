@@ -120,9 +120,6 @@ Marit Lage's Slumber
 Galecaster Colossus
 Stolen Identity
 Esika's Chariot
-Mechanized Production
-Prototype Portal
-Thornglint Bridge
 Mishra's Factory
 Blinkmoth Nexus
 Inkmoth Nexus
@@ -139,6 +136,11 @@ Meddling Mage
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+
+Mechanized Production
+Prototype Portal
+Thornglint Bridge
+
 Angel of Condemnation
 Shanna, Purifying Blade
 Recycle
