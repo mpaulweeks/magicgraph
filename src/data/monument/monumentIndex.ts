@@ -107,11 +107,6 @@ const pending = parseList(`
 Shapesharer
 Proteus Staff
 
-Blinkmoth Well
-Winter Orb
-Static Orb
-Storage Matrix
-
 Imprisoned in the Moon
 Faceless Haven
 Runed Stalactite
@@ -126,12 +121,15 @@ Keeper of the Accord
 
 Disciple of Caelus Nin
 Meddling Mage
-Urza, Prince of Kroog
-Darksteel Citadel
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+
+Blinkmoth Well
+Winter Orb
+Static Orb
+Storage Matrix
 
 Phyrexia's Core
 Spine of Ish Sah
@@ -144,7 +142,9 @@ Portal Manipulator
 
 Mechanized Production
 Prototype Portal
+Urza, Prince of Kroog
 Thornglint Bridge
+Darksteel Citadel
 
 Marit Lage's Slumber
 Angel of Condemnation

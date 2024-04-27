@@ -6,6 +6,7 @@ export const MonMatchers: Matcher[] = [
     relationship: ME.Nonbo,
     isMatch: (a,b) =>
       a.types.all(CT.Land, CT.Legendary) &&
+      !a.tags.has(MT.WantsToBeSacrificed) &&
       b.tags.has(MT.CopiesLands),
   },
   {
@@ -199,6 +200,15 @@ export const MonMatchers: Matcher[] = [
       a.tags.has(MT.SacrificeOutletLand) && [
         b.types.has(CT.Land) && b.tags.has(MT.WantsToBeSacrificed),
         b.tags.has(MT.WantsSacrificeOutletLand),
+      ].some(b => b),
+      a.tags.has(MT.CopiesArtifacts, MT.CopiesPermanent) && [
+        b.types.all(CT.Artifact, CT.Legendary) && b.tags.has(MT.WantsToBeSacrificed),
+      ].some(b => b),
+      a.tags.has(MT.CopiesCreatures, MT.CopiesPermanent) && [
+        b.types.all(CT.Creature, CT.Legendary) && b.tags.has(MT.WantsToBeSacrificed),
+      ].some(b => b),
+      a.tags.has(MT.CopiesLands, MT.CopiesPermanent) && [
+        b.types.all(CT.Land, CT.Legendary) && b.tags.has(MT.WantsToBeSacrificed),
       ].some(b => b),
     ].some(b => b),
   },
