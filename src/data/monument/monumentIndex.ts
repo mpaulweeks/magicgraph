@@ -55,7 +55,6 @@ Scaretiller
 Dark Depths
 
 Shorikai, Genesis Engine
-Evolutionary Leap
 Doubling Season
 Echoing Deeps
 Mangara of Corondor
@@ -87,7 +86,6 @@ Mirrorpool
 Lumbering Falls
 Elspeth Conquers Death
 Innocuous Researcher
-Darksteel Garrison
 Song of the Dryads
 Forbidden Orchard
 Mutavault
@@ -101,6 +99,8 @@ Galecaster Colossus
 `);
 
 const choppingBlock = parseList(`
+Darksteel Garrison
+Evolutionary Leap
 `);
 
 const pending = parseList(`
@@ -121,6 +121,12 @@ Keeper of the Accord
 
 Disciple of Caelus Nin
 Meddling Mage
+
+Academy Ruins
+Nevinyrral's Disk
+Boompile
+Coercive Portal
+Replication Technique
 `);
 
 // todo add section Illegal for red cards
@@ -189,9 +195,7 @@ The Night of the Doctor
 Hidden Nursery
 Pit of Offerings
 Tyrite Sanctum
-Nevinyrral's Disk
 Rootpath Purifier
-Boompile
 Darksteel Splicer
 Terrain Generator
 Unstable Glyphbridge // Sandswirl Wanderglyph
@@ -229,7 +233,6 @@ Twilight Shepherd
 Demolition Field
 Hordewing Skaab
 Tolaria West
-Academy Ruins
 Tekuthal, Inquiry Dominus
 Myojin of Cryptic Dreams
 Kjeldoran Outpost

@@ -1979,4 +1979,26 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingBounced,
   ],
 },
+{
+  name: `Coercive Portal`,
+  types: [CT.Artifact],
+  mc: '4',
+  category: MC.Interaction,
+  tags: [
+    MT.SacrificesSelf,
+    MT.LikesBeingBounced,
+    MT.DestroysAll,
+  ],
+},
+{
+  name: `Replication Technique`,
+  types: [CT.Sorcery],
+  mc: '4U',
+  category: MC.Misc,
+  tags: [
+    MT.CopiesPermanent,
+    MT.CopiesWithETB,
+    MT.MakesValuableTokens,
+  ],
+},
 ];
