@@ -199,7 +199,7 @@ export const MonMatchers: Matcher[] = [
       ].some(b => b),
       a.tags.has(MT.SacrificeOutletLand) && [
         b.types.has(CT.Land) && b.tags.has(MT.WantsToBeSacrificed),
-        b.tags.has(MT.WantsSacrificeOutletLand),
+        b.tags.has(MT.ReanimatesLand),
       ].some(b => b),
       a.tags.has(MT.CopiesArtifacts, MT.CopiesPermanent) && [
         b.types.all(CT.Artifact, CT.Legendary) && b.tags.has(MT.WantsToBeSacrificed),
@@ -326,5 +326,14 @@ export const MonMatchers: Matcher[] = [
     isMatch: (a,b) =>
       a.tags.has(MT.MassDraw) &&
       b.tags.has(MT.UnlocksHandsize),
+  },
+  {
+    relationship: ME.Reanimation,
+    isMatch: (a,b) =>
+      a.tags.has(MT.ReanimatesLand) && [
+        b.types.has(CT.Land) && b.tags.has(MT.SacrificesSelf),
+        b.types.all(CT.Land, CT.Saga),
+        b.tags.has(MT.DiscardOutlet, MT.SelfMill, MT.SacrificeOutletLand),
+      ].some(b => b),
   },
 ];

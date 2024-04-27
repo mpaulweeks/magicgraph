@@ -878,14 +878,16 @@ export const NonLands: CardDraft[] = [{
   mc: '4WW',
   types: [CT.Creature],
   category: MC.Recursion,
+  tags: [
+    MT.ReanimatesLand,
+  ],
   combos: [{
-    relationship: ME.Reanimates,
+    relationship: ME.Reanimation,
     isMatch: other =>
-      other.tags.has(MT.SacrificeOutletLand) ||
-      (other.mv <= 3 && (
+      other.mv <= 3 && (
         other.types.has(CT.Saga) ||
         other.tags.has(MT.SacrificesSelf)
-      )),
+      ),
   }],
 },
 {
@@ -1074,7 +1076,7 @@ export const NonLands: CardDraft[] = [{
   tags: [MT.BouncesLand],
   category: MC.Recursion,
   combos: [{
-    relationship: ME.Reanimates,
+    relationship: ME.Reanimation,
     isMatch: other =>
       other.types.has(CT.Artifact, CT.Enchantment) && (
         other.types.has(CT.Saga) ||
@@ -1169,15 +1171,10 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Creature],
   category: MC.Recursion,
   tags: [
-    MT.WantsSacrificeOutletLand,
     MT.WantsHaste,
+    MT.ReanimatesLand,
+    MT.SelfMill,
   ],
-  combos: [{
-    relationship: ME.Reanimates,
-    isMatch: other =>
-      other.types.has(CT.Land) &&
-      other.tags.has(MT.SacrificesSelf),
-  }],
 },
 {
   name: `Scaretiller`,
@@ -1185,15 +1182,9 @@ export const NonLands: CardDraft[] = [{
   types: [CT.Artifact, CT.Creature],
   category: MC.Recursion,
   tags: [
-    MT.WantsSacrificeOutletLand,
     MT.WantsToBeTapped,
+    MT.ReanimatesLand
   ],
-  combos: [{
-    relationship: ME.Reanimates,
-    isMatch: other =>
-      other.types.has(CT.Land) &&
-      other.tags.has(MT.SacrificesSelf),
-  }],
 },
 {
   name: `Martyr's Cause`,
@@ -1244,13 +1235,10 @@ export const NonLands: CardDraft[] = [{
   mc: '3GG',
   types: [CT.Enchantment, CT.Saga],
   category: MC.Recursion,
-  tags: [MT.WantsSacrificeOutletLand],
-  combos: [{
-    relationship: ME.Reanimates,
-    isMatch: other =>
-      other.types.has(CT.Land) &&
-      other.tags.has(MT.SacrificesSelf),
-  }],
+  tags: [
+    MT.ReanimatesLand,
+    MT.SelfMill,
+  ],
 },
 {
   name: `Song of Eärendil`,
@@ -1336,6 +1324,7 @@ export const NonLands: CardDraft[] = [{
     MT.MakesGradualTokens,
     MT.MakesDisposableTokens,
     MT.HasTapAbility,
+    MT.DiscardOutlet,
   ],
 },
 {
@@ -1999,6 +1988,36 @@ export const NonLands: CardDraft[] = [{
     MT.CopiesPermanent,
     MT.CopiesWithETB,
     MT.MakesValuableTokens,
+  ],
+},
+{
+  name: `Realms Uncharted`,
+  types: [CT.Instant],
+  mc: '2G',
+  category: MC.Tutor,
+  tags: [
+    MT.SelfMill,
+  ],
+},
+{
+  name: `Out of Time`,
+  types: [CT.Enchantment],
+  mc: '1WW',
+  category: MC.Interaction,
+  tags: [
+    MT.DestroysAll,
+    MT.SacrificesSelf,
+    MT.HasAgeCounters,
+  ],
+},
+{
+  name: `Vault 75: Middle School`,
+  types: [CT.Enchantment, CT.Saga],
+  mc: '2WW',
+  category: MC.Interaction,
+  tags: [
+    MT.DestroysAll,
+    MT.HasPlusCounters,
   ],
 },
 ];

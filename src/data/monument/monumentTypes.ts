@@ -21,7 +21,9 @@ export enum MonumentTag {
   WantsToBeSacrificed = 'Wants to be Sacrificed',
   WantsSacrificeOutletArtifact = 'Wants Sacrifice Outlet for Artifact',
   WantsSacrificeOutletCreature = 'Wants Sacrifice Outlet for Creature',
-  WantsSacrificeOutletLand = 'Wants Sacrifice Outlet for Land',
+  ReanimatesLand = 'Reanimates Land',
+  DiscardOutlet = 'Discard Outlet',
+  SelfMill = 'Self Mill',
 
   HasPlusCounters = '+1/+1 Counters',
   HasMinusCounters = '-1/-1 Counters',
@@ -183,8 +185,7 @@ export enum MonumentEdge {
   Bins = 'Bins',
   BinnedBy = 'Binned By',
 
-  Reanimates = 'Reanimates',
-  ReanimatedBy = 'Reanimated By',
+  Reanimation = 'Reanimation',
 
   Tutors = 'Tutors',
 
@@ -201,10 +202,10 @@ export const MonumentInverseEdge = {
   [MonumentEdge.ProtectsAttacker]: MonumentEdge.ProtectedBy,
   [MonumentEdge.Clones]: MonumentEdge.ClonedBy,
   [MonumentEdge.Bins]: MonumentEdge.BinnedBy,
-  [MonumentEdge.Reanimates]: MonumentEdge.ReanimatedBy,
 };
 
 export const MonumentEdges: string[] = [
   // dont care about ordering
   MonumentEdge.Nonbo,
+  MonumentEdge.Reanimation,
 ];

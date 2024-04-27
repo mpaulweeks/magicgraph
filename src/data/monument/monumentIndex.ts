@@ -58,7 +58,6 @@ Shorikai, Genesis Engine
 Doubling Season
 Echoing Deeps
 Mangara of Corondor
-High Market
 
 Doppelgang
 Nacatl War-Pride
@@ -92,45 +91,52 @@ Mutavault
 Progenitor Mimic
 
 Littjara Mirrorlake
-Battle at the Helvault
 The Eternal Wanderer
 Sower of Temptation
 Galecaster Colossus
+
+Realms Uncharted
+Imprisoned in the Moon
+Hall of Heliod's Generosity
+The Phasing of Zhalfir
+The Night of the Doctor
+Out of Time
 `);
 
 const choppingBlock = parseList(`
-Darksteel Garrison
-Evolutionary Leap
 `);
 
 const pending = parseList(`
 Shapesharer
 Proteus Staff
 
-Imprisoned in the Moon
 Faceless Haven
 Runed Stalactite
 Cleaver Skaab
 Timber Protector
 Stolen Identity
+Replication Technique
 Esika's Chariot
-Mishra's Factory
 Blinkmoth Nexus
-Inkmoth Nexus
 Keeper of the Accord
 
 Disciple of Caelus Nin
 Meddling Mage
 
-Academy Ruins
-Nevinyrral's Disk
-Boompile
-Coercive Portal
-Replication Technique
+Vault 75: Middle School
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+High Market
+Battle at the Helvault
+Darksteel Garrison
+Evolutionary Leap
+
+Academy Ruins
+Nevinyrral's Disk
+Boompile
+Coercive Portal
 
 Blinkmoth Well
 Winter Orb
@@ -149,6 +155,8 @@ Portal Manipulator
 Mechanized Production
 Prototype Portal
 Urza, Prince of Kroog
+Mishra's Factory
+Inkmoth Nexus
 Thornglint Bridge
 Darksteel Citadel
 
@@ -191,7 +199,6 @@ Prime Speaker Zegana
 Lunar Hatchling
 Kamahl's Will
 Summoning Station
-The Night of the Doctor
 Hidden Nursery
 Pit of Offerings
 Tyrite Sanctum
@@ -218,7 +225,6 @@ Fabled Passage
 Odric, Lunarch Marshal
 Swashbuckler's Whip
 Kindred Discovery
-Hall of Heliod's Generosity
 
 Perilous Forays
 Solemnity
@@ -323,7 +329,6 @@ Sword of the Animist
 Tatyova, Benthic Druid
 Taurean Mauler
 The Akroan War
-The Phasing of Zhalfir
 Tolaria
 Transmogrifying Wand
 Utvara Hellkite

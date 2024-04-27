@@ -71,6 +71,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.SacrificeOutletLand,
     MT.SundialFriendly,
     MT.LikesBeingBounced,
+    MT.SacrificeOutletLand,
   ],
   combos: [
     {
@@ -453,7 +454,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.HasTapAbility,
   ],
   combos: [{
-    relationship: ME.Reanimates,
+    relationship: ME.Reanimation,
     isMatch: other =>
       other.types.has(CT.Artifact) &&
       other.tags.has(MT.SacrificesSelf, MT.DestroysAll),
@@ -466,7 +467,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.HasTapAbility,
   ],
   combos: [{
-    relationship: ME.Reanimates,
+    relationship: ME.Reanimation,
     isMatch: other =>
       other.types.has(CT.Enchantment) && (
         other.types.has(CT.Saga) ||
@@ -612,7 +613,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   subtypes: ['Plains'],
   overrideCategory: MC.Recursion,
   combos: [{
-    relationship: ME.Reanimates,
+    relationship: ME.Reanimation,
     isMatch: other =>
       other.tags.has(MT.SacrificeOutletLand) || (
         other.types.has(CT.Land) &&
@@ -681,20 +682,16 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Echoing Deeps`,
+  tags: [
+    MT.ReanimatesLand,
+  ],
 },
 {
   name: `Petrified Field`,
   tags: [
     MT.SacrificesSelf,
+    MT.ReanimatesLand,
   ],
-  combos: [{
-    relationship: ME.Reanimates,
-    isMatch: other =>
-      other.tags.has(MT.SacrificeOutletLand) || (
-        other.types.has(CT.Land) &&
-        other.tags.has(MT.SacrificesSelf)
-      ),
-  }],
 },
 {
   name: `Eye of Ugin`,
