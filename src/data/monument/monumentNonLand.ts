@@ -1847,6 +1847,7 @@ export const NonLands: CardDraft[] = [{
     MT.MakesArtifactTokens,
     MT.MakesValuableTokens,
     MT.MakesGradualTokens,
+    MT.HasCipher,
   ],
 },
 {
@@ -2018,6 +2019,15 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.DestroysAll,
     MT.HasPlusCounters,
+  ],
+},
+{
+  name: `Arcane Heist`,
+  types: [CT.Sorcery],
+  mc: '2UU',
+  category: MC.Misc,
+  tags: [
+    MT.HasCipher,
   ],
 },
 ];

@@ -122,8 +122,10 @@ Keeper of the Accord
 
 Disciple of Caelus Nin
 Meddling Mage
-
 Vault 75: Middle School
+
+Arcane Heist
+
 `);
 
 // todo add section Illegal for red cards

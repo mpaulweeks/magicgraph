@@ -124,6 +124,7 @@ export enum MonumentTag {
   UsesCreatureETBs = 'Uses Creature ETBs',
   UsesZombies = 'Uses Zombies',
   LikesManLands = 'Likes Man Lands',
+  HasCipher = 'Has Cipher',
 
   ManipulatesTopDeck = 'ManipulatesTopDeck',
   CaresAboutTopdeck = 'CaresAboutTopdeck',

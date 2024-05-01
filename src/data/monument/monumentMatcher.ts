@@ -324,6 +324,12 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.CombosWith,
     isMatch: (a,b) =>
+      a.tags.has(MT.LikesManLands, MT.HasCipher) &&
+      b.tags.has(MT.ManLand),
+  },
+  {
+    relationship: ME.CombosWith,
+    isMatch: (a,b) =>
       a.tags.has(MT.MassDraw) &&
       b.tags.has(MT.UnlocksHandsize),
   },
