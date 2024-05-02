@@ -18,7 +18,6 @@ Elvish Reclaimer
 Expedition Map
 Field of the Dead
 Glacial Chasm
-Helm of Possession
 Karn's Bastion
 Kiora Bests the Sea God
 Lotus Field
@@ -61,7 +60,6 @@ Mangara of Corondor
 
 Doppelgang
 Nacatl War-Pride
-Sundial of the Infinite
 Mirage Mirror
 
 Basilisk Collar
@@ -98,12 +96,14 @@ Galecaster Colossus
 Realms Uncharted
 Imprisoned in the Moon
 Hall of Heliod's Generosity
-The Phasing of Zhalfir
 The Night of the Doctor
-Out of Time
+Sundial of the Infinite
 `);
 
 const choppingBlock = parseList(`
+The Phasing of Zhalfir
+Helm of Possession
+Out of Time
 `);
 
 const pending = parseList(`
@@ -125,7 +125,9 @@ Meddling Mage
 Vault 75: Middle School
 
 Arcane Heist
-
+Strict Proctor
+Phyrexian Dreadnought
+Sharding Sphinx
 `);
 
 // todo add section Illegal for red cards
