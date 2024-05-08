@@ -105,6 +105,8 @@ export enum MonumentTag {
   VulnerableAttacker = 'Vulnerable Attacker',
 
   SundialFriendly = 'Sundial Friendly',
+  DrawbackETB = 'DrawbackETB',
+  HasETB = 'HasETB',
 
   CaresAboutOpponentCreatures = 'Cares About Opponent Creatures',
 

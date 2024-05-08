@@ -65,7 +65,6 @@ Mirage Mirror
 Basilisk Collar
 
 The One Ring
-Scroll Rack
 Flagstones of Trokair
 Hall of the Bandit Lord
 
@@ -90,37 +89,33 @@ Progenitor Mimic
 
 Littjara Mirrorlake
 The Eternal Wanderer
-Sower of Temptation
 Galecaster Colossus
 
 Realms Uncharted
 Imprisoned in the Moon
 Hall of Heliod's Generosity
 The Night of the Doctor
-Sundial of the Infinite
+
+Faceless Haven
+Cleaver Skaab
+Timber Protector
+Disciple of Caelus Nin
+Keeper of the Accord
+Esika's Chariot
 `);
 
 const choppingBlock = parseList(`
-The Phasing of Zhalfir
-Helm of Possession
-Out of Time
 `);
 
 const pending = parseList(`
 Shapesharer
 Proteus Staff
 
-Faceless Haven
 Runed Stalactite
-Cleaver Skaab
-Timber Protector
 Stolen Identity
 Replication Technique
-Esika's Chariot
 Blinkmoth Nexus
-Keeper of the Accord
 
-Disciple of Caelus Nin
 Meddling Mage
 Vault 75: Middle School
 
@@ -132,6 +127,13 @@ Sharding Sphinx
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Sundial of the Infinite
+The Phasing of Zhalfir
+Helm of Possession
+Out of Time
+Sower of Temptation
+Scroll Rack
+
 High Market
 Battle at the Helvault
 Darksteel Garrison

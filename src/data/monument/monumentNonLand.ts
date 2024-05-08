@@ -281,7 +281,7 @@ export const NonLands: CardDraft[] = [{
   combos: [
     {
       relationship: ME.CombosWith,
-      isMatch: other => other.tags.has(MT.SundialFriendly),
+      isMatch: other => other.tags.has(MT.SundialFriendly, MT.DrawbackETB),
     },
   ],
 },
@@ -1334,7 +1334,7 @@ export const NonLands: CardDraft[] = [{
   mc: '2GGUU',
   category: MC.Draw,
   tags: [
-    MT.LikesBeingBounced,
+    MT.HasETB,
   ],
 },
 {
@@ -1391,7 +1391,7 @@ export const NonLands: CardDraft[] = [{
   category: MC.Interaction,
   tags: [
     MT.WantsToBeSacrificed,
-    MT.LikesBeingBounced,
+    MT.HasETB,
   ],
 },
 {
@@ -1410,7 +1410,7 @@ export const NonLands: CardDraft[] = [{
   mc: '3WW',
   category: MC.Interaction,
   tags: [
-    MT.LikesBeingBounced,
+    MT.HasETB,
     MT.LikesBeingCopiedWithCast,
     MT.CaresAboutOpponentCreatures,
   ],
@@ -1461,6 +1461,7 @@ export const NonLands: CardDraft[] = [{
     MT.MakesValuableTokens,
     MT.TargetsTribal,
     MT.LikesBeingCopiedWithETB,
+    MT.HasETB
   ],
 },
 {
@@ -1535,6 +1536,7 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithCast,
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
+    MT.HasETB,
   ],
 },
 {
@@ -1935,6 +1937,7 @@ export const NonLands: CardDraft[] = [{
   mc: '4U',
   category: MC.Interaction,
   tags: [
+    MT.HasETB,
     MT.LikesBeingBounced,
     MT.VulnerableAttacker,
   ],
@@ -1946,7 +1949,7 @@ export const NonLands: CardDraft[] = [{
   mc: '2WU',
   category: MC.Interaction,
   tags: [
-    MT.LikesBeingBounced,
+    MT.HasETB,
   ],
 },
 {
@@ -1956,7 +1959,7 @@ export const NonLands: CardDraft[] = [{
   mc: '4W',
   category: MC.Interaction,
   tags: [
-    MT.LikesBeingBounced,
+    MT.HasETB,
   ],
 },
 {
@@ -2028,6 +2031,41 @@ export const NonLands: CardDraft[] = [{
   category: MC.Misc,
   tags: [
     MT.HasCipher,
+  ],
+},
+{
+  name: `Strict Proctor`,
+  types: [CT.Creature],
+  mc: '1W',
+  category: MC.Misc,
+  combos: [{
+    relationship: ME.CombosWith,
+    isMatch: other => other.tags.has(MT.DrawbackETB),
+  }, {
+    relationship: ME.Nonbo,
+    isMatch: other => other.tags.has(MT.HasETB),
+  }],
+},
+{
+  name: `Phyrexian Dreadnought`,
+  types: [CT.Creature, CT.Artifact],
+  mc: '1',
+  category: MC.Threat,
+  tags: [
+    MT.DrawbackETB,
+  ],
+},
+{
+  name: `Sharding Sphinx`,
+  types: [CT.Creature, CT.Artifact],
+  mc: '4UU',
+  category: MC.Threat,
+  tags: [
+    MT.MakesArtifactTokens,
+    MT.MakesCreatureTokens,
+    MT.MakesMassTokens,
+    MT.MakesGradualTokens,
+    MT.MakesDisposableTokens,
   ],
 },
 ];

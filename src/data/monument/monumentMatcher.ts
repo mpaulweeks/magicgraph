@@ -77,9 +77,9 @@ export const MonMatchers: Matcher[] = [
         a.tags.has(MT.CopiesPermanent, MT.CopiesLands) && b.types.has(CT.Land),
       ].some(b => b);
       const copyType = [
-        a.tags.has(MT.CopiesWithCast) && b.tags.has(MT.LikesBeingCopiedWithCast),
-        a.tags.has(MT.CopiesWithCast, MT.CopiesWithETB) && b.tags.has(MT.LikesBeingCopiedWithETB),
-        a.tags.has(MT.CopiesWithMirror) && b.tags.has(MT.LikesBeingCopiedWithMirror),
+        a.tags.has(MT.CopiesWithCast) && b.tags.has(MT.LikesBeingCopiedWithCast, MT.HasETB),
+        a.tags.has(MT.CopiesWithCast, MT.CopiesWithETB) && b.tags.has(MT.LikesBeingCopiedWithETB, MT.HasETB),
+        a.tags.has(MT.CopiesWithMirror) && b.tags.has(MT.LikesBeingCopiedWithMirror, MT.DrawbackETB),
       ].some(b => b);
       const variable = [
         a.tags.has(MT.CopiesArtifacts) && b.tags.has(MT.TurnsIntoArtifact) && !a.tags.has(MT.ImprintsFromHand),
@@ -148,7 +148,7 @@ export const MonMatchers: Matcher[] = [
     relationship: ME.Fuels,
     isMatch: (a,b) =>
       a.types.has(CT.Land) &&
-      a.tags.has(MT.LikesBeingBounced) &&
+      a.tags.has(MT.LikesBeingBounced, MT.HasETB) &&
       b.tags.has(MT.BouncesLand),
   },
   {
