@@ -123,6 +123,7 @@ Arcane Heist
 Strict Proctor
 Phyrexian Dreadnought
 Sharding Sphinx
+Dino DNA
 `);
 
 // todo add section Illegal for red cards

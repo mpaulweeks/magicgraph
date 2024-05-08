@@ -2068,4 +2068,15 @@ export const NonLands: CardDraft[] = [{
     MT.MakesDisposableTokens,
   ],
 },
+{
+  name: `Dino DNA`,
+  types: [CT.Artifact],
+  mc: '1',
+  category: MC.Threat,
+  tags: [
+    MT.MakesCreatureTokens,
+    MT.MakesGradualTokens,
+    MT.MakesValuableTokens,
+  ],
+},
 ];
