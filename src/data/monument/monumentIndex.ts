@@ -124,6 +124,13 @@ Strict Proctor
 Phyrexian Dreadnought
 Sharding Sphinx
 Dino DNA
+
+Endbringer
+Sphinx of the Second Sun
+Nesting Dovehawk
+Combine Chrysalis
+Rhys the Redeemed
+Gargoyle Castle
 `);
 
 // todo add section Illegal for red cards
