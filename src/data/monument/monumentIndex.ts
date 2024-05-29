@@ -70,7 +70,6 @@ Crested Sunmare
 Restless Prairie
 Restless Anchorage
 The Shire
-Mirri, Weatherlight Duelist
 Divine Visitation
 Selesnya Eulogist
 Trostani, Selesnya's Voice
@@ -103,6 +102,7 @@ Vault 75: Middle School
 Strict Proctor
 Phyrexian Dreadnought
 Dino DNA
+Stolen Identity
 `);
 
 const choppingBlock = parseList(`
@@ -113,7 +113,6 @@ Shapesharer
 Proteus Staff
 
 Runed Stalactite
-Stolen Identity
 Replication Technique
 Blinkmoth Nexus
 
@@ -135,6 +134,7 @@ Magus of the Disk
 Galecaster Colossus
 Disciple of Caelus Nin
 Meddling Mage
+Mirri, Weatherlight Duelist
 
 Sundial of the Infinite
 The Phasing of Zhalfir
