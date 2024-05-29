@@ -103,6 +103,8 @@ Strict Proctor
 Phyrexian Dreadnought
 Dino DNA
 Stolen Identity
+Emeria, the Sky Ruin
+Dryad of the Ilysian Grove
 `);
 
 const choppingBlock = parseList(`
