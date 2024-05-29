@@ -21,7 +21,6 @@ Glacial Chasm
 Karn's Bastion
 Kiora Bests the Sea God
 Lotus Field
-Magus of the Disk
 Maze of Ith
 Mirrex
 Monument to Perfection
@@ -29,7 +28,6 @@ Moritte of the Frost
 Myojin of Cleansing Fire
 Myojin of Towering Might
 Nesting Grounds
-Riptide Laboratory
 Spara's Headquarters
 Thawing Glaciers
 The Mycosynth Gardens
@@ -56,7 +54,6 @@ Dark Depths
 Shorikai, Genesis Engine
 Doubling Season
 Echoing Deeps
-Mangara of Corondor
 
 Doppelgang
 Nacatl War-Pride
@@ -89,7 +86,6 @@ Progenitor Mimic
 
 Littjara Mirrorlake
 The Eternal Wanderer
-Galecaster Colossus
 
 Realms Uncharted
 Imprisoned in the Moon
@@ -99,9 +95,14 @@ The Night of the Doctor
 Faceless Haven
 Cleaver Skaab
 Timber Protector
-Disciple of Caelus Nin
 Keeper of the Accord
 Esika's Chariot
+
+Nesting Dovehawk
+Vault 75: Middle School
+Strict Proctor
+Phyrexian Dreadnought
+Dino DNA
 `);
 
 const choppingBlock = parseList(`
@@ -116,18 +117,11 @@ Stolen Identity
 Replication Technique
 Blinkmoth Nexus
 
-Meddling Mage
-Vault 75: Middle School
-
 Arcane Heist
-Strict Proctor
-Phyrexian Dreadnought
 Sharding Sphinx
-Dino DNA
 
 Endbringer
 Sphinx of the Second Sun
-Nesting Dovehawk
 Combine Chrysalis
 Rhys the Redeemed
 Gargoyle Castle
@@ -135,6 +129,13 @@ Gargoyle Castle
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Riptide Laboratory
+Mangara of Corondor
+Magus of the Disk
+Galecaster Colossus
+Disciple of Caelus Nin
+Meddling Mage
+
 Sundial of the Infinite
 The Phasing of Zhalfir
 Helm of Possession
