@@ -80,6 +80,7 @@ export const MonMatchers: Matcher[] = [
         a.tags.has(MT.CopiesWithCast) && b.tags.has(MT.LikesBeingCopiedWithCast, MT.HasETB),
         a.tags.has(MT.CopiesWithCast, MT.CopiesWithETB) && b.tags.has(MT.LikesBeingCopiedWithETB, MT.HasETB),
         a.tags.has(MT.CopiesWithMirror) && b.tags.has(MT.LikesBeingCopiedWithMirror, MT.DrawbackETB),
+        a.tags.has(MT.CopiesWithToken) && b.tags.has(MT.LikesBeingCopiedWithToken),
       ].some(b => b);
       const variable = [
         a.tags.has(MT.CopiesArtifacts) && b.tags.has(MT.TurnsIntoArtifact) && !a.tags.has(MT.ImprintsFromHand),

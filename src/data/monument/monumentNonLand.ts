@@ -463,6 +463,7 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithCast,
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
+    MT.LikesBeingCopiedWithToken,
     MT.MakesCreatureTokens,
     MT.MakesDevotion,
     MT.MakesMassTokens,
@@ -508,6 +509,7 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithCast,
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
+    MT.LikesBeingCopiedWithToken,
   ],
   category: MC.Threat,
 },
@@ -749,6 +751,7 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithCast,
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
+    MT.LikesBeingCopiedWithToken,
   ],
   category: MC.Ramp,
 },
@@ -761,6 +764,7 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithCast,
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
+    MT.LikesBeingCopiedWithToken,
   ],
   category: MC.Recursion,
 },
@@ -1461,6 +1465,7 @@ export const NonLands: CardDraft[] = [{
     MT.MakesValuableTokens,
     MT.TargetsTribal,
     MT.LikesBeingCopiedWithETB,
+    MT.LikesBeingCopiedWithToken,
     MT.HasETB
   ],
 },
@@ -1494,6 +1499,7 @@ export const NonLands: CardDraft[] = [{
     MT.MakesValuableTokens,
     MT.CopiesPermanent,
     MT.CopiesWithETB,
+    MT.CopiesWithToken,
   ],
 },
 {
@@ -1673,6 +1679,7 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithCast,
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
+    MT.LikesBeingCopiedWithToken,
     MT.TargetsTribal,
   ],
 },
@@ -1780,6 +1787,7 @@ export const NonLands: CardDraft[] = [{
     MT.MakesGradualTokens,
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
+    MT.LikesBeingCopiedWithToken,
   ],
 },
 {
@@ -1793,6 +1801,7 @@ export const NonLands: CardDraft[] = [{
     MT.CaresAboutForests,
     MT.LikesBeingCopiedWithETB,
     MT.LikesBeingCopiedWithMirror,
+    MT.LikesBeingCopiedWithToken,
   ],
 },
 {
@@ -1845,6 +1854,7 @@ export const NonLands: CardDraft[] = [{
     MT.CopiesCreatures,
     MT.CopiesManLands,
     MT.CopiesWithETB,
+    MT.CopiesWithToken,
     MT.MakesCreatureTokens,
     MT.MakesArtifactTokens,
     MT.MakesValuableTokens,
@@ -1876,6 +1886,7 @@ export const NonLands: CardDraft[] = [{
     MT.MakesGradualTokens,
     MT.CopiesArtifacts,
     MT.CopiesWithETB,
+    MT.CopiesWithToken,
   ],
 },
 {
@@ -1889,6 +1900,7 @@ export const NonLands: CardDraft[] = [{
     MT.MakesGradualTokens,
     MT.CopiesArtifacts,
     MT.CopiesWithETB,
+    MT.CopiesWithToken,
     MT.ImprintsFromHand,
   ],
 },
@@ -1928,6 +1940,7 @@ export const NonLands: CardDraft[] = [{
     MT.MakesDisposableTokens,
     MT.CopiesArtifacts,
     MT.CopiesWithETB,
+    MT.CopiesWithToken,
   ],
 },
 {
@@ -1991,6 +2004,7 @@ export const NonLands: CardDraft[] = [{
   tags: [
     MT.CopiesPermanent,
     MT.CopiesWithETB,
+    MT.CopiesWithToken,
     MT.MakesValuableTokens,
   ],
 },
@@ -2009,7 +2023,6 @@ export const NonLands: CardDraft[] = [{
   mc: '1WW',
   category: MC.Interaction,
   tags: [
-    MT.DestroysAll,
     MT.SacrificesSelf,
     MT.HasAgeCounters,
   ],
@@ -2020,7 +2033,6 @@ export const NonLands: CardDraft[] = [{
   mc: '2WW',
   category: MC.Interaction,
   tags: [
-    MT.DestroysAll,
     MT.HasPlusCounters,
   ],
 },
@@ -2077,6 +2089,16 @@ export const NonLands: CardDraft[] = [{
     MT.MakesCreatureTokens,
     MT.MakesGradualTokens,
     MT.MakesValuableTokens,
+  ],
+},
+{
+  name: `Nesting Dovehawk`,
+  types: [CT.Creature],
+  mc: '3W',
+  category: MC.Threat,
+  tags: [
+    MT.Populates,
+    MT.LikesBeingCopiedWithToken,
   ],
 },
 ];

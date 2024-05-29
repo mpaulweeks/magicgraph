@@ -342,6 +342,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.SacrificesSelf,
     MT.CopiesCreatures,
     MT.CopiesWithETB,
+    MT.CopiesWithToken,
   ],
 },
 {
@@ -773,6 +774,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.MakesValuableTokens,
     MT.CopiesCreatures,
     MT.CopiesWithETB,
+    MT.CopiesWithToken,
     MT.SacrificesSelf,
   ],
 },
