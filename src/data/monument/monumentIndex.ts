@@ -130,6 +130,20 @@ Gargoyle Castle
 Three Blind Mice
 Conclave Evangelist
 Ocelot Pride
+Boseiju, Who Endures
+Drowner of Truth
+Strength of the Harvest
+Suppression Ray
+Mosswort Bridge
+Shifting Woodland
+Prismatic Omen
+Realmwright
+Planar Nexus
+Meloku the Clouded Mirror
+Trade Routes
+Scryb Ranger
+Zimone, Quandrix Prodigy
+Budoka Gardener
 `);
 
 // todo add section Illegal for red cards
