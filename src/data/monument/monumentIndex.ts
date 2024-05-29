@@ -124,6 +124,10 @@ Sphinx of the Second Sun
 Combine Chrysalis
 Rhys the Redeemed
 Gargoyle Castle
+
+Three Blind Mice
+Conclave Evangelist
+Ocelot Pride
 `);
 
 // todo add section Illegal for red cards
