@@ -18,7 +18,6 @@ Drownyard Temple
 Elvish Reclaimer
 Expedition Map
 Field of the Dead
-Glacial Chasm
 Karn's Bastion
 Kiora Bests the Sea God
 Lotus Field
@@ -35,7 +34,6 @@ Thespian's Stage
 Urza's Saga
 Yavimaya, Cradle of Growth
 Vesuva
-Aura Shards
 Knight of the Reliquary
 Weathered Wayfarer
 Scholar of New Horizons
@@ -67,15 +65,12 @@ Hall of the Bandit Lord
 
 Crested Sunmare
 
-Restless Prairie
-Restless Anchorage
 The Shire
 Divine Visitation
 Selesnya Eulogist
 Trostani, Selesnya's Voice
 Mirrorpool
 
-Lumbering Falls
 Elspeth Conquers Death
 Innocuous Researcher
 Song of the Dryads
@@ -95,16 +90,20 @@ Faceless Haven
 Cleaver Skaab
 Timber Protector
 Keeper of the Accord
-Esika's Chariot
 
 Nesting Dovehawk
 Vault 75: Middle School
-Strict Proctor
 Phyrexian Dreadnought
 Dino DNA
 Stolen Identity
 Emeria, the Sky Ruin
 Dryad of the Ilysian Grove
+
+Thornglint Bridge
+Prototype Portal
+Arcum Dagsson
+Selvala, Explorer Returned
+Yisan, the Wanderer Bard
 `);
 
 const choppingBlock = parseList(`
@@ -115,14 +114,8 @@ Shapesharer
 Proteus Staff
 
 Runed Stalactite
-Replication Technique
-Blinkmoth Nexus
-
-Arcane Heist
-Sharding Sphinx
 
 Endbringer
-Sphinx of the Second Sun
 Combine Chrysalis
 Rhys the Redeemed
 Gargoyle Castle
@@ -137,7 +130,6 @@ Suppression Ray
 Mosswort Bridge
 Shifting Woodland
 Prismatic Omen
-Realmwright
 Planar Nexus
 Meloku the Clouded Mirror
 Trade Routes
@@ -146,22 +138,32 @@ Zimone, Quandrix Prodigy
 Budoka Gardener
 The Curse of Fenric
 
-Selvala, Explorer Returned
 Yenna, Redtooth Regent
-Yisan, the Wanderer Bard
-Arcum Dagsson
-Tolsimir Wolfblood
 Arcane Artisan
 Helm of the Host
 Bramble Sovereign
 Spitting Image
 Trenzalore Clocktower
-Thornglint Bridge
-Prototype Portal
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Glacial Chasm
+Restless Prairie
+Restless Anchorage
+Lumbering Falls
+Strict Proctor
+Esika's Chariot
+Aura Shards
+
+Replication Technique
+Blinkmoth Nexus
+Arcane Heist
+Realmwright
+Sharding Sphinx
+Sphinx of the Second Sun
+Tolsimir Wolfblood
+
 Myojin of Cleansing Fire
 Riptide Laboratory
 Mangara of Corondor

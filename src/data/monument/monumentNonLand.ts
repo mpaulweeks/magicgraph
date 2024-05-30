@@ -1685,6 +1685,7 @@ export const NonLands: CardDraft[] = [
     category: MC.Misc,
     tags: [
       MT.CopiesCreatures,
+      MT.CopiesArtifacts,
       MT.CopiesManLands,
       MT.CopiesWithETB,
       MT.CopiesWithToken,
@@ -1926,8 +1927,21 @@ export const NonLands: CardDraft[] = [
     name: `Prismatic Omen`,
     types: [CT.Enchantment],
     mc: '1G',
-    category: MC.Ramp,
+    category: MC.Misc,
     tags: [MT.GrantsPlainsType, MT.GrantsSwampType, MT.GrantsForestType],
+  },
+  {
+    name: `Realmwright`,
+    types: [CT.Creature],
+    subtypes: ['Wizard'],
+    mc: 'U',
+    category: MC.Misc,
+    tags: [
+      MT.GrantsPlainsType,
+      MT.GrantsSwampType,
+      MT.GrantsForestType,
+      MT.HasETB,
+    ],
   },
   {
     name: `Sphinx of the Second Sun`,
@@ -1954,6 +1968,55 @@ export const NonLands: CardDraft[] = [
       {
         relationship: ME.Tutors,
         isMatch: o => o.types.any(CT.Artifact) && !o.types.any(CT.Creature),
+      },
+    ],
+  },
+  {
+    name: `Tolsimir Wolfblood`,
+    mc: '4WG',
+    types: [CT.Creature, CT.Legendary],
+    subtypes: ['Elf'],
+    tags: [
+      MT.HasTapAbility,
+      MT.MakesGradualTokens,
+      MT.MakesCreatureTokens,
+      MT.MakesDisposableTokens,
+    ],
+    category: MC.Threat,
+  },
+  {
+    name: `Spitting Image`,
+    mc: '4UG',
+    types: [CT.Sorcery],
+    tags: [
+      MT.MakesGradualTokens,
+      MT.MakesCreatureTokens,
+      MT.MakesValuableTokens,
+    ],
+    category: MC.Threat,
+  },
+  {
+    name: `Helm of the Host`,
+    mc: '4',
+    types: [CT.Artifact, CT.Legendary],
+    tags: [
+      MT.MakesGradualTokens,
+      MT.MakesCreatureTokens,
+      MT.MakesValuableTokens,
+    ],
+    category: MC.Threat,
+  },
+  {
+    name: `Yenna, Redtooth Regent`,
+    mc: '2GW',
+    types: [CT.Creature, CT.Legendary],
+    subtypes: ['Elf'],
+    tags: [MT.MakesGradualTokens, MT.MakesValuableTokens],
+    category: MC.Threat,
+    combos: [
+      {
+        relationship: ME.Clones,
+        isMatch: o => o.types.all(CT.Enchantment),
       },
     ],
   },
