@@ -2101,4 +2101,13 @@ export const NonLands: CardDraft[] = [{
     MT.LikesBeingCopiedWithToken,
   ],
 },
+{
+  name: `Dryad of the Ilysian Grove`,
+  types: [CT.Creature, CT.Enchantment],
+  mc: '2G',
+  category: MC.Ramp,
+  tags: [
+    MT.GrantsPlainsType,
+  ],
+},
 ];

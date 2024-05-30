@@ -18,7 +18,12 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.EnablesMana,
     isMatch: (a, b) =>
-      a.tags.has(MT.GrantsLandTypes) && b.tags.has(MT.CannotTapForMana),
+      a.tags.has(MT.AddsManaAbility) && b.tags.has(MT.CannotTapForMana),
+  },
+  {
+    relationship: ME.CombosWith,
+    isMatch: (a, b) =>
+      a.tags.has(MT.CaresAboutPlains) && b.tags.has(MT.GrantsPlainsType),
   },
   {
     relationship: ME.Damages,

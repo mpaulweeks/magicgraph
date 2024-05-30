@@ -1,3 +1,5 @@
+import { TagLinks } from "../../types";
+
 export enum MonumentCategory {
   ComboLand = 'Combo Land',
   MulticolorLand = 'Multicolor Land',
@@ -43,7 +45,10 @@ export enum MonumentTag {
   GivesChangeling = 'Gives Changeling',
   TutorsCreatureType = 'Tutors Changeling',
 
-  GrantsLandTypes = 'Grants Land Types',
+  GrantsPlainsType = 'Grants Plains Type',
+  GrantsSwampType = 'Grants Swamp Type',
+  GrantsForestType = 'Grants Forest Type',
+  AddsManaAbility = 'Adds Mana Ability',
   CannotTapForMana = 'Cannot Tap For Mana',
 
   CaresAboutSnow = 'Cares About Snow',
@@ -214,3 +219,10 @@ export const MonumentEdges: string[] = [
   MonumentEdge.Nonbo,
   MonumentEdge.Reanimation,
 ];
+
+
+export const MonumentTagLinks: TagLinks = {
+  [MonumentTag.GrantsPlainsType]: [MonumentTag.AddsManaAbility],
+  [MonumentTag.GrantsSwampType]: [MonumentTag.AddsManaAbility],
+  [MonumentTag.GrantsForestType]: [MonumentTag.AddsManaAbility],
+};

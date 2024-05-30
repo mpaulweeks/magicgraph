@@ -23,7 +23,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Yavimaya, Cradle of Growth`,
   additionalTypes: [CT.Legendary],
-  tags: [MT.GrantsLandTypes],
+  tags: [MT.GrantsForestType],
   combos: [
     {
       relationship: ME.LandTypeMatters,
@@ -298,7 +298,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 {
   name: `Urborg, Tomb of Yawgmoth`,
   additionalTypes: [CT.Legendary],
-  tags: [MT.GrantsLandTypes],
+  tags: [MT.GrantsSwampType],
   combos: [
     {
       relationship: ME.LandTypeMatters,
@@ -523,7 +523,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
 },
 {
   name: `Riftstone Portal`,
-  tags: [MT.WantsToBeSacrificed, MT.GrantsLandTypes],
+  tags: [MT.WantsToBeSacrificed, MT.AddsManaAbility],
 },
 {
   name: `Gavony Township`,
@@ -810,6 +810,12 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     MT.ManLand,
     MT.TurnsIntoArtifact,
     MT.PoisonCounters,
+  ],
+},
+{
+  name: `Emeria, the Sky Ruin`,
+  tags: [
+    MT.CaresAboutPlains,
   ],
 },
 ];

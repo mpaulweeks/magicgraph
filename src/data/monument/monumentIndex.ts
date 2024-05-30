@@ -8,7 +8,7 @@ import { parseList } from '../../util/list';
 import { Lands } from './monumentLand';
 import { MonMatchers } from './monumentMatcher';
 import { NonLands } from './monumentNonLand';
-import { MonumentCategory, MonumentEdges, MonumentInverseEdge } from './monumentTypes';
+import { MonumentCategory, MonumentEdges, MonumentInverseEdge, MonumentTagLinks } from './monumentTypes';
 
 const current = parseList(`
 Amareth, the Lustrous
@@ -25,7 +25,6 @@ Maze of Ith
 Mirrex
 Monument to Perfection
 Moritte of the Frost
-Myojin of Cleansing Fire
 Myojin of Towering Might
 Nesting Grounds
 Spara's Headquarters
@@ -144,10 +143,12 @@ Trade Routes
 Scryb Ranger
 Zimone, Quandrix Prodigy
 Budoka Gardener
+The Curse of Fenric
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Myojin of Cleansing Fire
 Riptide Laboratory
 Mangara of Corondor
 Magus of the Disk
@@ -402,6 +403,7 @@ const collated = collate({
   choppingBlock,
   rejected,
   cards: allCards,
+  tagLinks: MonumentTagLinks,
 });
 
 const CategoryColorMap: Record<MonumentCategory, string> = {
