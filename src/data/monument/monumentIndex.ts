@@ -144,6 +144,9 @@ Helm of the Host
 Bramble Sovereign
 Spitting Image
 Trenzalore Clocktower
+Nissa, Who Shakes the World
+Verdant Touch
+Ugin, the Spirit Dragon
 `);
 
 // todo add section Illegal for red cards

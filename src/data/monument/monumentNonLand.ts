@@ -1754,6 +1754,7 @@ export const NonLands: CardDraft[] = [
       MT.MakesGradualTokens,
       MT.MakesDisposableTokens,
       MT.CaresAboutOpponentCreatures,
+      MT.HasLimitedUseCounters,
     ],
   },
   {
@@ -2019,5 +2020,26 @@ export const NonLands: CardDraft[] = [
         isMatch: o => o.types.all(CT.Enchantment),
       },
     ],
+  },
+  {
+    name: `Verdant Touch`,
+    mc: '1G',
+    types: [CT.Sorcery],
+    tags: [MT.AnimatesLand],
+    category: MC.Misc,
+  },
+  {
+    name: `Nissa, Who Shakes the World`,
+    mc: '3GG',
+    types: [CT.Planeswalker, CT.Legendary],
+    tags: [MT.AnimatesLand, MT.CaresAboutForests, MT.UntapsLand],
+    category: MC.Ramp,
+  },
+  {
+    name: `Ugin, the Spirit Dragon`,
+    mc: '8',
+    types: [CT.Planeswalker, CT.Legendary],
+    tags: [MT.HasLimitedUseCounters],
+    category: MC.Interaction,
   },
 ];
