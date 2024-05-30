@@ -5,41 +5,41 @@ import { LifeswapEdge as LE, LifeswapTag as LT } from './lifeswapTypes';
 export const LifeswapMatchers: Matcher[] = [
   {
     relationship: LE.CombosWith,
-    isMatch: (a, b) => a.tags.has(LT.SwapsLife) && b.tags.has(LT.PayAnyLife),
+    isMatch: (a, b) => a.tags.any(LT.SwapsLife) && b.tags.any(LT.PayAnyLife),
   },
   {
     relationship: LE.CombosWith,
-    isMatch: (a, b) => a.tags.has(LT.SwapsLife) && b.tags.has(LT.DrainsLife),
+    isMatch: (a, b) => a.tags.any(LT.SwapsLife) && b.tags.any(LT.DrainsLife),
   },
   {
     relationship: LE.CombosWith,
-    isMatch: (a, b) => a.tags.has(LT.ResetsLife) && b.tags.has(LT.PayAnyLife),
-  },
-  {
-    relationship: LE.CombosWith,
-    isMatch: (a, b) =>
-      a.tags.has(LT.ReanimatesCreatures) &&
-      b.types.has(CT.Creature) &&
-      b.tags.has(LT.SacrificeSelf),
+    isMatch: (a, b) => a.tags.any(LT.ResetsLife) && b.tags.any(LT.PayAnyLife),
   },
   {
     relationship: LE.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(LT.RemovesCounters, LT.Proliferates) && b.types.has(CT.Saga),
+      a.tags.any(LT.ReanimatesCreatures) &&
+      b.types.any(CT.Creature) &&
+      b.tags.any(LT.SacrificeSelf),
   },
   {
     relationship: LE.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(LT.RemovesCounters) && b.tags.has(LT.WantsRemoveCounters),
+      a.tags.any(LT.RemovesCounters, LT.Proliferates) && b.types.any(CT.Saga),
   },
   {
     relationship: LE.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(LT.Persist) && b.tags.has(LT.AddsPlusCounters),
+      a.tags.any(LT.RemovesCounters) && b.tags.any(LT.WantsRemoveCounters),
   },
   {
     relationship: LE.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(LT.Undying) && b.tags.has(LT.AddsMinusCounters),
+      a.tags.any(LT.Persist) && b.tags.any(LT.AddsPlusCounters),
+  },
+  {
+    relationship: LE.CombosWith,
+    isMatch: (a, b) =>
+      a.tags.any(LT.Undying) && b.tags.any(LT.AddsMinusCounters),
   },
 ];

@@ -9,7 +9,7 @@ export class Interset<T> {
   }
 
   // true if any args match
-  has(...other: T[]): boolean {
+  any(...other: T[]): boolean {
     return other.some(c => this.set.has(c));
   }
   all(...other: T[]): boolean {

@@ -14,7 +14,7 @@ export const LifeswapDraft: CardDraft[] = [
     combos: [
       {
         relationship: LifeswapEdge.CombosWith,
-        isMatch: other => other.tags.has(LT.ExileSelf),
+        isMatch: other => other.tags.any(LT.ExileSelf),
       },
     ],
   },

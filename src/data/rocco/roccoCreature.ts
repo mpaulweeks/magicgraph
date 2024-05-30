@@ -85,7 +85,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     mc: '4W',
     tags: [RT.AttackTrigger, RT.HasETB],
     combos: [
-      ReanimatesCombo(other => !other.types.has(CT.Land) && other.mv <= 3),
+      ReanimatesCombo(other => !other.types.any(CT.Land) && other.mv <= 3),
     ],
   },
   {
@@ -159,7 +159,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     combos: [
       {
         relationship: RE.CombosWith,
-        isMatch: other => other.tags.has(RT.MakesElfTokens),
+        isMatch: other => other.tags.any(RT.MakesElfTokens),
       },
     ],
   },
@@ -202,7 +202,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     combos: [
       {
         relationship: RE.Buffs,
-        isMatch: other => other.tags.has(RT.HasKeywords),
+        isMatch: other => other.tags.any(RT.HasKeywords),
       },
     ],
   },
@@ -216,7 +216,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
       {
         relationship: RE.CombosWith,
         isMatch: other =>
-          other.types.has(CT.Creature) && other.mc.includes('R'),
+          other.types.any(CT.Creature) && other.mc.includes('R'),
       },
     ],
   },
@@ -335,8 +335,8 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
       {
         relationship: RE.CombosWith,
         isMatch: other =>
-          other.subtypes.has('Changeling', 'Human') &&
-          other.tags.has(RT.BlinksSelf, RT.BouncesSelf),
+          other.subtypes.any('Changeling', 'Human') &&
+          other.tags.any(RT.BlinksSelf, RT.BouncesSelf),
       },
     ],
   },
@@ -373,10 +373,10 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
       {
         relationship: RE.CombosWith,
         isMatch: other =>
-          other.tags.has(RT.MakesSmallTokens) ||
+          other.tags.any(RT.MakesSmallTokens) ||
           (other.power !== undefined &&
             other.power <= 2 &&
-            other.tags.has(RT.BlinksSelf, RT.BouncesSelf)),
+            other.tags.any(RT.BlinksSelf, RT.BouncesSelf)),
       },
     ],
   },
@@ -413,7 +413,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     combos: [
       ReanimatesCombo(
         other =>
-          other.types.has(CT.Creature) && other.tags.has(RT.SelfSacrifice),
+          other.types.any(CT.Creature) && other.tags.any(RT.SelfSacrifice),
       ),
     ],
   },

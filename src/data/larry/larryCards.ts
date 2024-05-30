@@ -103,7 +103,7 @@ export const LarryDraft: CardDraft[] = [
     tags: [LT.WantsBounce, LT.WantsCountersRemoved, LT.DestroysOtherCreatures],
     combos: [
       TwoCardCombo(c =>
-        c.tags.has(LT.RemovesCountersInstant, LT.RemovesCountersSorcery),
+        c.tags.any(LT.RemovesCountersInstant, LT.RemovesCountersSorcery),
       ),
     ],
   },
@@ -115,7 +115,7 @@ export const LarryDraft: CardDraft[] = [
     tags: [LT.WantsBounce, LT.WantsCountersRemoved, LT.DestroysOtherCreatures],
     combos: [
       TwoCardCombo(c =>
-        c.tags.has(LT.RemovesCountersInstant, LT.RemovesCountersSorcery),
+        c.tags.any(LT.RemovesCountersInstant, LT.RemovesCountersSorcery),
       ),
     ],
   },
@@ -132,7 +132,7 @@ export const LarryDraft: CardDraft[] = [
     ],
     combos: [
       TwoCardCombo(c =>
-        c.tags.has(LT.ReanimatesEnchantments, LT.ReanimatesNonland4orLess),
+        c.tags.any(LT.ReanimatesEnchantments, LT.ReanimatesNonland4orLess),
       ),
     ],
   },
@@ -145,13 +145,13 @@ export const LarryDraft: CardDraft[] = [
     combos: [
       TwoCardCombo(
         c =>
-          !c.types.has(CT.Creature) &&
-          c.tags.has(LT.RemovesCountersInstant, LT.RemovesCountersSorcery),
+          !c.types.any(CT.Creature) &&
+          c.tags.any(LT.RemovesCountersInstant, LT.RemovesCountersSorcery),
       ),
       TwoCardCombo(
         c =>
-          c.tags.has(LT.ReanimatesEnchantments) &&
-          (c.types.all(CT.Legendary, CT.Creature) || !c.types.has(CT.Creature)),
+          c.tags.any(LT.ReanimatesEnchantments) &&
+          (c.types.all(CT.Legendary, CT.Creature) || !c.types.any(CT.Creature)),
       ),
     ],
   },
@@ -191,7 +191,7 @@ export const LarryDraft: CardDraft[] = [
     category: LC.Disk,
     tags: [LT.BouncesNonWizards, LT.HasCastTrigger],
     combos: [
-      TwoCardCombo(o => o.tags.has(LT.Bounces) && o.subtypes.has('Wizard')),
+      TwoCardCombo(o => o.tags.any(LT.Bounces) && o.subtypes.any('Wizard')),
     ],
   },
   {
@@ -220,7 +220,7 @@ export const LarryDraft: CardDraft[] = [
     combos: [
       {
         relationship: LE.SynergyWith,
-        isMatch: other => other.types.has(CT.Snow),
+        isMatch: other => other.types.any(CT.Snow),
       },
     ],
   },
@@ -467,7 +467,7 @@ export const LarryDraft: CardDraft[] = [
     combos: [
       {
         relationship: LE.LoopsETBWith,
-        isMatch: c => c.tags.has(LT.GivesFalseDeath),
+        isMatch: c => c.tags.any(LT.GivesFalseDeath),
       },
     ],
   },
@@ -498,14 +498,14 @@ export const LarryDraft: CardDraft[] = [
     types: [CT.Enchantment],
     mc: '3WU',
     category: LC.Other,
-    combos: [TwoCardCombo(c => c.tags.has(LT.DestroysEnchantments))],
+    combos: [TwoCardCombo(c => c.tags.any(LT.DestroysEnchantments))],
   },
   {
     name: `Mycosynth Lattice`,
     types: [CT.Artifact],
     mc: '6',
     category: LC.Other,
-    combos: [TwoCardCombo(c => c.tags.has(LT.DestroysArtifacts))],
+    combos: [TwoCardCombo(c => c.tags.any(LT.DestroysArtifacts))],
   },
 
   // Speculative
@@ -527,7 +527,7 @@ export const LarryDraft: CardDraft[] = [
       {
         relationship: LE.SynergyWith,
         isMatch: other =>
-          other.tags.has(
+          other.tags.any(
             LT.DestroysEnchantments,
             LT.DestroysNonArtifactNonLand,
             LT.DestroysNonLand,
@@ -554,7 +554,7 @@ export const LarryDraft: CardDraft[] = [
     types: [CT.Artifact, CT.Legendary],
     mc: '4',
     category: LC.Draw,
-    combos: [TwoCardCombo(o => o.tags.has(LT.Bounces))],
+    combos: [TwoCardCombo(o => o.tags.any(LT.Bounces))],
   },
   {
     name: `Nihil Spellbomb`,

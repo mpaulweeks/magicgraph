@@ -12,96 +12,96 @@ export const RocMatchers: Matcher[] = [
   {
     relationship: RE.Equipment,
     isMatch: (a, b) =>
-      a.tags.has(RT.WantsEvasion) && b.tags.has(RT.GivesEvasion),
+      a.tags.any(RT.WantsEvasion) && b.tags.any(RT.GivesEvasion),
   },
   {
     relationship: RE.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(RT.WantsMassTribal) &&
-      b.tags.has(RT.GivesMassTribal, RT.GivesConspiracy),
+      a.tags.any(RT.WantsMassTribal) &&
+      b.tags.any(RT.GivesMassTribal, RT.GivesConspiracy),
   },
   {
     relationship: RE.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(RT.WantsConspiracy) && b.tags.has(RT.GivesConspiracy),
+      a.tags.any(RT.WantsConspiracy) && b.tags.any(RT.GivesConspiracy),
   },
   {
     relationship: RE.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(RT.NeedsDiscard) && b.tags.has(RT.FuelsDiscard),
+      a.tags.any(RT.NeedsDiscard) && b.tags.any(RT.FuelsDiscard),
   },
   {
     relationship: RE.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(RT.WantsCreatureETBs) &&
-      b.tags.has(RT.MakesTokens, RT.BlinksSelf, RT.BouncesSelf),
+      a.tags.any(RT.WantsCreatureETBs) &&
+      b.tags.any(RT.MakesTokens, RT.BlinksSelf, RT.BouncesSelf),
   },
   {
     relationship: RE.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(RT.WantsNonTokenETBs, RT.WantsLTBs) &&
-      b.tags.has(RT.BlinksSelf, RT.BouncesSelf),
+      a.tags.any(RT.WantsNonTokenETBs, RT.WantsLTBs) &&
+      b.tags.any(RT.BlinksSelf, RT.BouncesSelf),
   },
   {
     relationship: RE.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(RT.UntapsCreature) && b.tags.has(RT.HasTapAbility),
+      a.tags.any(RT.UntapsCreature) && b.tags.any(RT.HasTapAbility),
   },
   {
     relationship: RE.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(RT.MakesTokens) && b.tags.has(RT.WantsGoWide, RT.WantsTokens),
+      a.tags.any(RT.MakesTokens) && b.tags.any(RT.WantsGoWide, RT.WantsTokens),
   },
   {
     relationship: RE.Tutors,
     isMatch: (a, b) =>
-      a.tags.has(RT.TutorsEquipment) && b.types.has(CT.Equipment),
+      a.tags.any(RT.TutorsEquipment) && b.types.any(CT.Equipment),
   },
   {
     relationship: RE.Tutors,
-    isMatch: (a, b) => a.tags.has(RT.TutorsLand) && b.types.has(CT.Land),
+    isMatch: (a, b) => a.tags.any(RT.TutorsLand) && b.types.any(CT.Land),
   },
   {
     relationship: RE.Tutors,
     isMatch: (a, b) =>
-      a.tags.has(RT.TutorsLegends) && b.types.has(CT.Legendary),
+      a.tags.any(RT.TutorsLegends) && b.types.any(CT.Legendary),
   },
   {
     relationship: RE.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(RT.HasETB, RT.WantsBounce) &&
-      (b.tags.has(RT.BouncesCreature) ||
-        (a.subtypes.has('Changeling', 'Elf') && b.tags.has(RT.BouncesElf))),
+      a.tags.any(RT.HasETB, RT.WantsBounce) &&
+      (b.tags.any(RT.BouncesCreature) ||
+        (a.subtypes.any('Changeling', 'Elf') && b.tags.any(RT.BouncesElf))),
   },
   {
     relationship: RE.Buffs,
     isMatch: (a, b) =>
-      a.tags.has(RT.GivesHaste) &&
-      b.tags.has(RT.AttackTrigger, RT.HasTapAbility),
+      a.tags.any(RT.GivesHaste) &&
+      b.tags.any(RT.AttackTrigger, RT.HasTapAbility),
   },
   {
     relationship: RE.Buffs,
     isMatch: (a, b) =>
-      a.tags.has(RT.AttackTrigger) &&
-      b.tags.has(RT.GivesIndestructible, RT.GivesEvasion),
+      a.tags.any(RT.AttackTrigger) &&
+      b.tags.any(RT.GivesIndestructible, RT.GivesEvasion),
   },
   {
     relationship: RE.Buffs,
     isMatch: (a, b) =>
-      a.tags.has(RT.GivesDeathtouchWhileAttacking) &&
-      b.tags.has(RT.WantsDeathtouchWhileAttacking, RT.WantsDeathtouchFlexible),
+      a.tags.any(RT.GivesDeathtouchWhileAttacking) &&
+      b.tags.any(RT.WantsDeathtouchWhileAttacking, RT.WantsDeathtouchFlexible),
   },
   {
     relationship: RE.Buffs,
     isMatch: (a, b) =>
-      a.tags.has(RT.GivesDeathtouchWhileTapped) &&
-      b.tags.has(RT.WantsDeathtouchWhileTapped, RT.WantsDeathtouchFlexible),
+      a.tags.any(RT.GivesDeathtouchWhileTapped) &&
+      b.tags.any(RT.WantsDeathtouchWhileTapped, RT.WantsDeathtouchFlexible),
   },
   {
     relationship: RE.Buffs,
     isMatch: (a, b) =>
-      a.tags.has(RT.GivesDeathtouchAlways) &&
-      b.tags.has(
+      a.tags.any(RT.GivesDeathtouchAlways) &&
+      b.tags.any(
         RT.WantsDeathtouchWhileAttacking,
         RT.WantsDeathtouchWhileTapped,
         RT.WantsDeathtouchAlways,
@@ -111,27 +111,27 @@ export const RocMatchers: Matcher[] = [
   {
     relationship: RE.Buffs,
     isMatch: (a, b) =>
-      a.tags.has(RT.GivesLifelink) && b.tags.has(RT.WantsLifelink),
+      a.tags.any(RT.GivesLifelink) && b.tags.any(RT.WantsLifelink),
   },
   {
     relationship: RE.Buffs,
     isMatch: (a, b) =>
-      a.tags.has(RT.GivesIndestructible) && b.tags.has(RT.WantsIndestructible),
+      a.tags.any(RT.GivesIndestructible) && b.tags.any(RT.WantsIndestructible),
   },
   {
     relationship: RE.Buffs,
-    isMatch: (a, b) => a.tags.has(RT.GivesPower) && b.tags.has(RT.WantsPower),
+    isMatch: (a, b) => a.tags.any(RT.GivesPower) && b.tags.any(RT.WantsPower),
   },
   {
     relationship: RE.Buffs,
     isMatch: (a, b) =>
-      a.tags.has(RT.GivesPlusCounters) &&
-      b.tags.has(RT.WantsPlusCounters, RT.WantsPower),
+      a.tags.any(RT.GivesPlusCounters) &&
+      b.tags.any(RT.WantsPlusCounters, RT.WantsPower),
   },
   {
     relationship: RE.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(RT.GivesLifelink, RT.GainsLife) &&
-      b.tags.has(RT.LifegainTrigger),
+      a.tags.any(RT.GivesLifelink, RT.GainsLife) &&
+      b.tags.any(RT.LifegainTrigger),
   },
 ];

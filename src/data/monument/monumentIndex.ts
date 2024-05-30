@@ -145,6 +145,19 @@ Scryb Ranger
 Zimone, Quandrix Prodigy
 Budoka Gardener
 The Curse of Fenric
+
+Selvala, Explorer Returned
+Yenna, Redtooth Regent
+Yisan, the Wanderer Bard
+Arcum Dagsson
+Tolsimir Wolfblood
+Arcane Artisan
+Helm of the Host
+Bramble Sovereign
+Spitting Image
+Trenzalore Clocktower
+Thornglint Bridge
+Prototype Portal
 `);
 
 // todo add section Illegal for red cards
@@ -190,11 +203,9 @@ Smirking Spelljacker
 Portal Manipulator
 
 Mechanized Production
-Prototype Portal
 Urza, Prince of Kroog
 Mishra's Factory
 Inkmoth Nexus
-Thornglint Bridge
 Darksteel Citadel
 
 Marit Lage's Slumber
@@ -351,7 +362,6 @@ Rishadan Port
 Scavenged Brawler
 Scute Swarm
 Seedborn Muse
-Selvala, Explorer Returned
 Shinka, the Bloodsoaked Keep
 Skullclamp
 Slippery Bogbonder

@@ -26,12 +26,6 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     name: `Yavimaya, Cradle of Growth`,
     additionalTypes: [CT.Legendary],
     tags: [MT.GrantsForestType],
-    combos: [
-      {
-        relationship: ME.LandTypeMatters,
-        isMatch: other => other.tags.has(MT.CaresAboutForests),
-      },
-    ],
   },
   {
     name: `Tyrite Sanctum`,
@@ -51,7 +45,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
       {
         relationship: ME.ManipulatesCounters,
         isMatch: other =>
-          !other.types.has(CT.Creature) && other.tags.has(MT.HasMinusCounters),
+          !other.types.any(CT.Creature) && other.tags.any(MT.HasMinusCounters),
       },
     ],
   },
@@ -73,7 +67,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     combos: [
       {
         relationship: ME.CombosWith,
-        isMatch: other => other.tags.has(MT.DealsDamageToPlayers),
+        isMatch: other => other.tags.any(MT.DealsDamageToPlayers),
       },
     ],
   },
@@ -93,7 +87,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
       {
         relationship: ME.TribalSynergy,
         isMatch: other =>
-          other.subtypes.has('Insect', 'Rat', 'Spider', 'Squirrel'),
+          other.subtypes.any('Insect', 'Rat', 'Spider', 'Squirrel'),
       },
     ],
   },
@@ -144,7 +138,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     combos: [
       {
         relationship: ME.ProtectsAttacker,
-        isMatch: other => other.tags.has(MT.VulnerableAttacker),
+        isMatch: other => other.tags.any(MT.VulnerableAttacker),
       },
     ],
   },
@@ -236,7 +230,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     combos: [
       {
         relationship: ME.Fuels,
-        isMatch: other => other.tags.has(MT.CaresAboutOpponentCreatures),
+        isMatch: other => other.tags.any(MT.CaresAboutOpponentCreatures),
       },
     ],
   },
@@ -246,7 +240,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     combos: [
       {
         relationship: ME.Bins,
-        isMatch: other => other.tags.has(MT.Flashback),
+        isMatch: other => other.tags.any(MT.Flashback),
       },
     ],
   },
@@ -254,12 +248,6 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     name: `Urborg, Tomb of Yawgmoth`,
     additionalTypes: [CT.Legendary],
     tags: [MT.GrantsSwampType],
-    combos: [
-      {
-        relationship: ME.LandTypeMatters,
-        isMatch: other => other.tags.has(MT.CaresAboutSwamps),
-      },
-    ],
   },
   {
     name: `Desert`,
@@ -280,8 +268,8 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
       {
         relationship: ME.CombosWith,
         isMatch: other =>
-          other.tags.has(MT.ExchangesForCreature) ||
-          (other.types.has(CT.Creature) && other.tags.has(MT.DonatesSelf)),
+          other.tags.any(MT.ExchangesForCreature) ||
+          (other.types.any(CT.Creature) && other.tags.any(MT.DonatesSelf)),
       },
     ],
   },
@@ -351,7 +339,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     combos: [
       {
         relationship: ME.TribalSynergy,
-        isMatch: b => b.subtypes.has('Wizard'),
+        isMatch: b => b.subtypes.any('Wizard'),
       },
     ],
   },
@@ -377,8 +365,8 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
       {
         relationship: ME.Reanimation,
         isMatch: other =>
-          other.types.has(CT.Artifact) &&
-          other.tags.has(MT.SacrificesSelf, MT.DestroysAll),
+          other.types.any(CT.Artifact) &&
+          other.tags.any(MT.SacrificesSelf, MT.DestroysAll),
       },
     ],
   },
@@ -390,8 +378,8 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
       {
         relationship: ME.Reanimation,
         isMatch: other =>
-          other.types.has(CT.Enchantment) &&
-          (other.types.has(CT.Saga) || other.tags.has(MT.SacrificesSelf)),
+          other.types.any(CT.Enchantment) &&
+          (other.types.any(CT.Saga) || other.tags.any(MT.SacrificesSelf)),
       },
     ],
   },
@@ -432,10 +420,10 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
       {
         relationship: ME.Untaps,
         isMatch: other =>
-          other.types.has(CT.Creature) &&
-          other.tags.has(MT.HasTapAbility) &&
-          (other.tags.has(MT.HasChangeling, MT.GivesChangeling) ||
-            other.subtypes.has('Elf')),
+          other.types.any(CT.Creature) &&
+          other.tags.any(MT.HasTapAbility) &&
+          (other.tags.any(MT.HasChangeling, MT.GivesChangeling) ||
+            other.subtypes.any('Elf')),
       },
     ],
   },
@@ -488,7 +476,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     combos: [
       {
         relationship: ME.CombosWith,
-        isMatch: other => other.tags.has(MT.TriggersOnLandTap),
+        isMatch: other => other.tags.any(MT.TriggersOnLandTap),
       },
     ],
   },
@@ -523,8 +511,8 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
       {
         relationship: ME.Reanimation,
         isMatch: other =>
-          other.tags.has(MT.SacrificeOutletLand) ||
-          (other.types.has(CT.Land) && other.tags.has(MT.SacrificesSelf)),
+          other.tags.any(MT.SacrificeOutletLand) ||
+          (other.types.any(CT.Land) && other.tags.any(MT.SacrificesSelf)),
       },
     ],
   },
@@ -566,7 +554,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     combos: [
       {
         relationship: ME.FueledBy,
-        isMatch: other => other.tags.has(MT.TutorsBasicsToHand, MT.BouncesLand),
+        isMatch: other => other.tags.any(MT.TutorsBasicsToHand, MT.BouncesLand),
       },
     ],
   },
@@ -592,7 +580,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
       {
         relationship: ME.Tutors,
         isMatch: other =>
-          other.types.has(CT.Creature) && other.colors.length === 0,
+          other.types.any(CT.Creature) && other.colors.length === 0,
       },
     ],
   },
@@ -606,7 +594,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     combos: [
       {
         relationship: ME.CombosWith,
-        isMatch: other => other.tags.has(MT.MakesColorlessCreatures),
+        isMatch: other => other.tags.any(MT.MakesColorlessCreatures),
       },
     ],
   },
@@ -617,7 +605,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     combos: [
       {
         relationship: ME.CombosWith,
-        isMatch: other => other.tags.has(MT.MakesDevotion),
+        isMatch: other => other.tags.any(MT.MakesDevotion),
       },
     ],
   },

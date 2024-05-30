@@ -23,7 +23,7 @@ export const NonLands: CardDraft[] = [
     combos: [
       {
         relationship: ME.CombosWith,
-        isMatch: other => other.subtypes.has('Sphere'),
+        isMatch: other => other.subtypes.any('Sphere'),
       },
     ],
   },
@@ -265,7 +265,7 @@ export const NonLands: CardDraft[] = [
     combos: [
       {
         relationship: ME.CombosWith,
-        isMatch: other => other.tags.has(MT.SundialFriendly, MT.DrawbackETB),
+        isMatch: other => other.tags.any(MT.SundialFriendly, MT.DrawbackETB),
       },
     ],
   },
@@ -400,7 +400,7 @@ export const NonLands: CardDraft[] = [
       {
         relationship: ME.CombosWith,
         isMatch: other =>
-          other.tags.has(MT.TutorsBasicsToBattlefield, MT.TutorsBasicsToHand),
+          other.tags.any(MT.TutorsBasicsToBattlefield, MT.TutorsBasicsToHand),
       },
     ],
   },
@@ -412,7 +412,7 @@ export const NonLands: CardDraft[] = [
     combos: [
       {
         relationship: ME.ManipulatesCounters,
-        isMatch: other => other.tags.has(MT.HasAbilityCounters),
+        isMatch: other => other.tags.any(MT.HasAbilityCounters),
       },
     ],
   },
@@ -821,7 +821,7 @@ export const NonLands: CardDraft[] = [
     combos: [
       {
         relationship: ME.FueledBy,
-        isMatch: other => other.tags.has(MT.MakesDisposableTokens),
+        isMatch: other => other.tags.any(MT.MakesDisposableTokens),
       },
     ],
   },
@@ -850,7 +850,7 @@ export const NonLands: CardDraft[] = [
         relationship: ME.Reanimation,
         isMatch: other =>
           other.mv <= 3 &&
-          (other.types.has(CT.Saga) || other.tags.has(MT.SacrificesSelf)),
+          (other.types.any(CT.Saga) || other.tags.any(MT.SacrificesSelf)),
       },
     ],
   },
@@ -1036,8 +1036,8 @@ export const NonLands: CardDraft[] = [
       {
         relationship: ME.Reanimation,
         isMatch: other =>
-          other.types.has(CT.Artifact, CT.Enchantment) &&
-          (other.types.has(CT.Saga) || other.tags.has(MT.SacrificesSelf)),
+          other.types.any(CT.Artifact, CT.Enchantment) &&
+          (other.types.any(CT.Saga) || other.tags.any(MT.SacrificesSelf)),
       },
     ],
   },
@@ -1203,7 +1203,7 @@ export const NonLands: CardDraft[] = [
       {
         relationship: ME.CombosWith,
         isMatch: other =>
-          other.types.has(CT.Creature) && other.tags.has(MT.HasIndestructible),
+          other.types.any(CT.Creature) && other.tags.any(MT.HasIndestructible),
       },
     ],
   },
@@ -1217,18 +1217,18 @@ export const NonLands: CardDraft[] = [
       {
         relationship: ME.CombosWith,
         isMatch: other =>
-          other.types.has(CT.Land, CT.Creature, CT.Artifact) &&
-          other.tags.has(MT.HasAgeCounters, MT.HasMinusCounters),
+          other.types.any(CT.Land, CT.Creature, CT.Artifact) &&
+          other.tags.any(MT.HasAgeCounters, MT.HasMinusCounters),
       },
       {
         relationship: ME.Nonbo,
         isMatch: other =>
-          other.tags.has(
+          other.tags.any(
             MT.PoisonCounters,
             MT.HasAbilityCounters,
             MT.HasLimitedUseCounters,
             MT.HasPlusCounters,
-          ) || other.types.has(CT.Saga),
+          ) || other.types.any(CT.Saga),
       },
     ],
   },
@@ -1283,7 +1283,7 @@ export const NonLands: CardDraft[] = [
     combos: [
       {
         relationship: ME.CombosWith,
-        isMatch: other => other.tags.has(MT.HasAbilityCounters),
+        isMatch: other => other.tags.any(MT.HasAbilityCounters),
       },
     ],
   },
@@ -1660,7 +1660,7 @@ export const NonLands: CardDraft[] = [
     combos: [
       {
         relationship: ME.TribalSynergy,
-        isMatch: b => b.subtypes.has('Wizard'),
+        isMatch: b => b.subtypes.any('Wizard'),
       },
     ],
   },
@@ -1735,6 +1735,12 @@ export const NonLands: CardDraft[] = [
       MT.CopiesWithETB,
       MT.CopiesWithToken,
       MT.ImprintsFromHand,
+    ],
+    combos: [
+      {
+        relationship: ME.Clones,
+        isMatch: o => o.types.all(CT.Artifact) && o.mv <= 1,
+      },
     ],
   },
   {
@@ -1863,11 +1869,11 @@ export const NonLands: CardDraft[] = [
     combos: [
       {
         relationship: ME.CombosWith,
-        isMatch: other => other.tags.has(MT.DrawbackETB),
+        isMatch: other => other.tags.any(MT.DrawbackETB),
       },
       {
         relationship: ME.Nonbo,
-        isMatch: other => other.tags.has(MT.HasETB),
+        isMatch: other => other.tags.any(MT.HasETB),
       },
     ],
   },
@@ -1914,6 +1920,41 @@ export const NonLands: CardDraft[] = [
     types: [CT.Creature, CT.Enchantment],
     mc: '2G',
     category: MC.Ramp,
-    tags: [MT.GrantsPlainsType],
+    tags: [MT.GrantsPlainsType, MT.GrantsSwampType, MT.GrantsForestType],
+  },
+  {
+    name: `Prismatic Omen`,
+    types: [CT.Enchantment],
+    mc: '1G',
+    category: MC.Ramp,
+    tags: [MT.GrantsPlainsType, MT.GrantsSwampType, MT.GrantsForestType],
+  },
+  {
+    name: `Sphinx of the Second Sun`,
+    mc: '6UU',
+    types: [CT.Creature],
+    tags: [MT.UntapsAllLands],
+    category: MC.Ramp,
+  },
+  {
+    name: `Yisan, the Wanderer Bard`,
+    mc: '2G',
+    types: [CT.Creature, CT.Legendary],
+    subtypes: ['Elf'],
+    tags: [MT.HasTapAbility, MT.HasAgeCounters],
+    category: MC.Draw,
+  },
+  {
+    name: `Arcum Dagsson`,
+    mc: '3U',
+    types: [CT.Creature, CT.Legendary],
+    tags: [MT.HasTapAbility, MT.UsesDisposableArtifactTokens],
+    category: MC.Draw,
+    combos: [
+      {
+        relationship: ME.Tutors,
+        isMatch: o => o.types.any(CT.Artifact) && !o.types.any(CT.Creature),
+      },
+    ],
   },
 ];

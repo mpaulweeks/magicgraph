@@ -6,97 +6,101 @@ export const MonMatchers: Matcher[] = [
     relationship: ME.Nonbo,
     isMatch: (a, b) =>
       a.types.all(CT.Land, CT.Legendary) &&
-      !a.tags.has(MT.WantsToBeSacrificed) &&
-      b.tags.has(MT.CopiesLands),
+      !a.tags.any(MT.WantsToBeSacrificed) &&
+      b.tags.any(MT.CopiesLands),
   },
   {
     relationship: ME.Nonbo,
     isMatch: (a, b) =>
-      a.tags.has(MT.ImprintsFromHand) && b.tags.has(MT.CopiesWithMirror),
+      a.tags.any(MT.ImprintsFromHand) && b.tags.any(MT.CopiesWithMirror),
+  },
+  {
+    relationship: ME.LandTypeMatters,
+    isMatch: (a, b) =>
+      [
+        a.tags.any(MT.CaresAboutPlains) && b.tags.any(MT.GrantsPlainsType),
+        a.tags.any(MT.CaresAboutSwamps) && b.tags.any(MT.GrantsSwampType),
+        a.tags.any(MT.CaresAboutForests) && b.tags.any(MT.GrantsForestType),
+      ].some(b => b),
   },
   {
     relationship: ME.EnablesMana,
     isMatch: (a, b) =>
-      a.tags.has(MT.AddsManaAbility) && b.tags.has(MT.CannotTapForMana),
-  },
-  {
-    relationship: ME.CombosWith,
-    isMatch: (a, b) =>
-      a.tags.has(MT.CaresAboutPlains) && b.tags.has(MT.GrantsPlainsType),
+      a.tags.any(MT.AddsManaAbility) && b.tags.any(MT.CannotTapForMana),
   },
   {
     relationship: ME.Damages,
     isMatch: (a, b) =>
-      a.tags.has(MT.DealsDamageToCreatures) && b.tags.has(MT.Enrage),
+      a.tags.any(MT.DealsDamageToCreatures) && b.tags.any(MT.Enrage),
   },
   {
     relationship: ME.Targets,
     isMatch: (a, b) =>
-      a.tags.has(MT.TargetsCreatures) && b.tags.has(MT.CaresAboutTargeting),
+      a.tags.any(MT.TargetsCreatures) && b.tags.any(MT.CaresAboutTargeting),
   },
   {
     relationship: ME.TribalSynergy,
     isMatch: (a, b) =>
-      a.tags.has(MT.TargetsTribal) &&
-      b.tags.has(MT.HasChangeling, MT.GainsChangeling, MT.GivesChangeling),
+      a.tags.any(MT.TargetsTribal) &&
+      b.tags.any(MT.HasChangeling, MT.GainsChangeling, MT.GivesChangeling),
   },
   {
     relationship: ME.TribalSynergy,
-    isMatch: (a, b) => a.tags.has(MT.UsesZombies) && b.subtypes.has('Zombie'),
+    isMatch: (a, b) => a.tags.any(MT.UsesZombies) && b.subtypes.any('Zombie'),
   },
   {
     relationship: ME.Protects,
     isMatch: (a, b) =>
-      a.tags.has(MT.LandWithProtection) && b.tags.has(MT.AnimatesLand),
+      a.tags.any(MT.LandWithProtection) && b.tags.any(MT.AnimatesLand),
   },
   {
     relationship: ME.Untaps,
     isMatch: (a, b) =>
-      a.tags.has(MT.UntapsLand) &&
-      b.types.has(CT.Land) &&
-      b.tags.has(MT.HasTapAbility),
+      a.tags.any(MT.UntapsLand) &&
+      b.types.any(CT.Land) &&
+      b.tags.any(MT.HasTapAbility),
   },
   {
     relationship: ME.Untaps,
     isMatch: (a, b) =>
-      a.tags.has(MT.UntapsCreature) &&
-      b.types.has(CT.Creature) &&
-      b.tags.has(MT.HasTapAbility),
+      a.tags.any(MT.UntapsCreature) &&
+      b.types.any(CT.Creature) &&
+      b.tags.any(MT.HasTapAbility),
   },
   {
     relationship: ME.Untaps,
     isMatch: (a, b) =>
-      a.tags.has(MT.UntapsLegends) &&
-      b.types.has(CT.Legendary) &&
-      b.tags.has(MT.HasTapAbility),
+      a.tags.any(MT.UntapsLegends) &&
+      b.types.any(CT.Legendary) &&
+      b.tags.any(MT.HasTapAbility),
   },
   {
     relationship: ME.Clones,
     isMatch: (a, b) => {
       const canTarget = [
-        a.tags.has(MT.CopiesPermanent, MT.CopiesCreatures) &&
-          b.types.has(CT.Creature),
-        a.tags.has(MT.CopiesPermanent, MT.CopiesArtifacts) &&
-          b.types.has(CT.Artifact),
-        a.tags.has(MT.CopiesPermanent, MT.CopiesLands) && b.types.has(CT.Land),
+        a.tags.any(MT.CopiesPermanent, MT.CopiesCreatures) &&
+          b.types.any(CT.Creature),
+        a.tags.any(MT.CopiesPermanent, MT.CopiesArtifacts) &&
+          b.types.any(CT.Artifact),
+        a.tags.any(MT.CopiesPermanent, MT.CopiesLands) && b.types.any(CT.Land),
       ].some(b => b);
       const copyType = [
-        a.tags.has(MT.CopiesWithCast) &&
-          b.tags.has(MT.LikesBeingCopiedWithCast, MT.HasETB),
-        a.tags.has(MT.CopiesWithCast, MT.CopiesWithETB) &&
-          b.tags.has(MT.LikesBeingCopiedWithETB, MT.HasETB),
-        a.tags.has(MT.CopiesWithMirror) &&
-          b.tags.has(MT.LikesBeingCopiedWithMirror, MT.DrawbackETB),
-        a.tags.has(MT.CopiesWithToken) &&
-          b.tags.has(MT.LikesBeingCopiedWithToken),
+        a.tags.any(MT.CopiesWithCast) &&
+          b.tags.any(MT.LikesBeingCopiedWithCast, MT.HasETB),
+        a.tags.any(MT.CopiesWithCast, MT.CopiesWithETB) &&
+          b.tags.any(MT.LikesBeingCopiedWithETB, MT.HasETB),
+        a.tags.any(MT.CopiesWithMirror) &&
+          b.tags.any(MT.LikesBeingCopiedWithMirror, MT.DrawbackETB),
+        a.tags.any(MT.CopiesWithToken) &&
+          b.tags.any(MT.LikesBeingCopiedWithToken),
       ].some(b => b);
       const variable = [
-        a.tags.has(MT.CopiesArtifacts) &&
-          b.tags.has(MT.TurnsIntoArtifact) &&
-          !a.tags.has(MT.ImprintsFromHand),
+        a.tags.any(MT.CopiesArtifacts) &&
+          b.tags.any(MT.TurnsIntoArtifact) &&
+          !a.tags.any(MT.ImprintsFromHand),
         a.tags.all(MT.CopiesArtifacts) && b.types.all(CT.Land, CT.Artifact),
-        a.tags.has(MT.CopiesLands) && b.tags.has(MT.TurnsIntoLand),
-        a.tags.all(MT.CopiesManLands) && b.tags.has(MT.ManLand),
+        a.tags.any(MT.CopiesLands) && b.tags.any(MT.TurnsIntoLand),
+        a.tags.all(MT.CopiesManLands) && b.tags.any(MT.ManLand),
       ].some(b => b);
       return (canTarget && copyType) || variable;
     },
@@ -104,163 +108,179 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.ManipulatesCounters,
     isMatch: (a, b) =>
-      a.tags.has(MT.HasMinusCounters) && b.tags.has(MT.HasPlusCounters),
+      a.tags.any(MT.HasMinusCounters) && b.tags.any(MT.HasPlusCounters),
   },
   {
     relationship: ME.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(MT.UntapsAllLands) &&
-      b.types.has(CT.Land) &&
-      b.tags.has(MT.ManaSink),
+      a.tags.any(MT.UntapsAllLands) &&
+      b.types.any(CT.Land) &&
+      b.tags.any(MT.ManaSink),
   },
   {
     relationship: ME.Tutors,
     isMatch: (a, b) =>
-      a.tags.has(MT.CaresAboutTrinkets) &&
-      b.types.has(CT.Artifact) &&
+      a.tags.any(MT.CaresAboutTrinkets) &&
+      b.types.any(CT.Artifact) &&
       ['0', '1'].includes(b.mc),
   },
   {
     relationship: ME.FueledBy,
     isMatch: (a, b) =>
-      a.tags.has(MT.UsesDisposableCreatureTokens) &&
-      b.tags.has(MT.MakesCreatureTokens, MT.MakesDisposableTokens),
+      a.tags.any(MT.UsesDisposableCreatureTokens) &&
+      b.tags.all(MT.MakesCreatureTokens, MT.MakesDisposableTokens),
   },
   {
     relationship: ME.FueledBy,
     isMatch: (a, b) =>
-      a.tags.has(MT.UsesValuableCreatureTokens) &&
+      a.tags.any(MT.UsesDisposableArtifactTokens) &&
+      b.tags.all(MT.MakesArtifactTokens, MT.MakesDisposableTokens),
+  },
+  {
+    relationship: ME.FueledBy,
+    isMatch: (a, b) =>
+      a.tags.any(MT.UsesDisposableArtifactCreatureTokens) &&
+      b.tags.all(
+        MT.MakesArtifactTokens,
+        MT.MakesCreatureTokens,
+        MT.MakesDisposableTokens,
+      ),
+  },
+  {
+    relationship: ME.FueledBy,
+    isMatch: (a, b) =>
+      a.tags.any(MT.UsesValuableCreatureTokens) &&
       b.tags.all(MT.MakesCreatureTokens, MT.MakesValuableTokens),
   },
   {
     relationship: ME.FueledBy,
     isMatch: (a, b) =>
-      a.tags.has(MT.UsesPermanentETBs) &&
-      b.tags.has(MT.MakesGradualTokens, MT.MakesMassTokens),
+      a.tags.any(MT.UsesPermanentETBs) &&
+      b.tags.any(MT.MakesGradualTokens, MT.MakesMassTokens),
   },
   {
     relationship: ME.FueledBy,
     isMatch: (a, b) =>
-      a.tags.has(MT.UsesCreatureETBs) &&
-      b.tags.has(MT.MakesGradualTokens, MT.MakesMassTokens) &&
-      b.tags.has(MT.MakesCreatureTokens),
+      a.tags.any(MT.UsesCreatureETBs) &&
+      b.tags.any(MT.MakesGradualTokens, MT.MakesMassTokens) &&
+      b.tags.any(MT.MakesCreatureTokens),
   },
   {
     relationship: ME.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(MT.DestroysAll) && b.tags.has(MT.HasIndestructible),
+      a.tags.any(MT.DestroysAll) && b.tags.any(MT.HasIndestructible),
   },
   {
     relationship: ME.Fuels,
     isMatch: (a, b) =>
-      a.tags.has(MT.TriggersLandfall) && b.tags.has(MT.HasLandfall),
+      a.tags.any(MT.TriggersLandfall) && b.tags.any(MT.HasLandfall),
   },
   {
     relationship: ME.Fuels,
     isMatch: (a, b) =>
-      a.types.has(CT.Land) &&
-      a.tags.has(MT.LikesBeingBounced, MT.HasETB) &&
-      b.tags.has(MT.BouncesLand),
+      a.types.any(CT.Land) &&
+      a.tags.any(MT.LikesBeingBounced, MT.HasETB) &&
+      b.tags.any(MT.BouncesLand),
   },
   {
     relationship: ME.ManipulatesCounters,
     isMatch: (a, b) =>
-      a.tags.has(MT.Proliferates) &&
+      a.tags.any(MT.Proliferates) &&
       [
-        b.tags.has(MT.HasAbilityCounters),
-        b.tags.has(MT.HasLimitedUseCounters),
-        b.tags.has(MT.PoisonCounters),
-        b.types.has(CT.Saga),
+        b.tags.any(MT.HasAbilityCounters),
+        b.tags.any(MT.HasLimitedUseCounters),
+        b.tags.any(MT.PoisonCounters),
+        b.types.any(CT.Saga),
       ].some(b => b),
   },
   {
     relationship: ME.ManipulatesCounters,
     isMatch: (a, b) =>
-      a.tags.has(MT.ProliferatesNonSaga) &&
-      !b.types.has(CT.Saga) &&
+      a.tags.any(MT.ProliferatesNonSaga) &&
+      !b.types.any(CT.Saga) &&
       [
-        b.tags.has(MT.HasAbilityCounters),
-        b.tags.has(MT.HasLimitedUseCounters),
+        b.tags.any(MT.HasAbilityCounters),
+        b.tags.any(MT.HasLimitedUseCounters),
       ].some(b => b),
   },
   {
     relationship: ME.ManipulatesCounters,
     isMatch: (a, b) =>
-      a.tags.has(MT.TransfersCounters) && b.tags.has(MT.HasAbilityCounters),
+      a.tags.any(MT.TransfersCounters) && b.tags.any(MT.HasAbilityCounters),
   },
   {
     relationship: ME.ManipulatesCounters,
     isMatch: (a, b) =>
-      a.tags.has(MT.RemovesCounters) &&
+      a.tags.any(MT.RemovesCounters) &&
       [
-        b.tags.has(MT.HasMinusCounters),
-        b.tags.has(MT.HasAgeCounters),
-        b.types.has(CT.Saga),
+        b.tags.any(MT.HasMinusCounters),
+        b.tags.any(MT.HasAgeCounters),
+        b.types.any(CT.Saga),
       ].some(b => b),
   },
   {
     relationship: ME.CombosWith,
     isMatch: (a, b) =>
       [
-        a.tags.has(MT.SacrificeOutletArtifact) &&
+        a.tags.any(MT.SacrificeOutletArtifact) &&
           [
-            b.types.has(CT.Artifact) && b.tags.has(MT.WantsToBeSacrificed),
-            b.tags.has(MT.WantsSacrificeOutletArtifact),
+            b.types.any(CT.Artifact) && b.tags.any(MT.WantsToBeSacrificed),
+            b.tags.any(MT.WantsSacrificeOutletArtifact),
           ].some(b => b),
-        a.tags.has(MT.SacrificeOutletCreature) &&
+        a.tags.any(MT.SacrificeOutletCreature) &&
           [
-            b.types.has(CT.Creature) && b.tags.has(MT.WantsToBeSacrificed),
-            b.tags.has(MT.WantsSacrificeOutletCreature),
+            b.types.any(CT.Creature) && b.tags.any(MT.WantsToBeSacrificed),
+            b.tags.any(MT.WantsSacrificeOutletCreature),
           ].some(b => b),
-        a.tags.has(MT.SacrificeOutletLand) &&
+        a.tags.any(MT.SacrificeOutletLand) &&
           [
-            b.types.has(CT.Land) && b.tags.has(MT.WantsToBeSacrificed),
-            b.tags.has(MT.ReanimatesLand),
+            b.types.any(CT.Land) && b.tags.any(MT.WantsToBeSacrificed),
+            b.tags.any(MT.ReanimatesLand),
           ].some(b => b),
-        a.tags.has(MT.CopiesArtifacts, MT.CopiesPermanent) &&
+        a.tags.any(MT.CopiesArtifacts, MT.CopiesPermanent) &&
           [
             b.types.all(CT.Artifact, CT.Legendary) &&
-              b.tags.has(MT.WantsToBeSacrificed),
+              b.tags.any(MT.WantsToBeSacrificed),
           ].some(b => b),
-        a.tags.has(MT.CopiesCreatures, MT.CopiesPermanent) &&
+        a.tags.any(MT.CopiesCreatures, MT.CopiesPermanent) &&
           [
             b.types.all(CT.Creature, CT.Legendary) &&
-              b.tags.has(MT.WantsToBeSacrificed),
+              b.tags.any(MT.WantsToBeSacrificed),
           ].some(b => b),
-        a.tags.has(MT.CopiesLands, MT.CopiesPermanent) &&
+        a.tags.any(MT.CopiesLands, MT.CopiesPermanent) &&
           [
             b.types.all(CT.Land, CT.Legendary) &&
-              b.tags.has(MT.WantsToBeSacrificed),
+              b.tags.any(MT.WantsToBeSacrificed),
           ].some(b => b),
       ].some(b => b),
   },
   {
     relationship: ME.Tutors,
     isMatch: (a, b) =>
-      a.types.has(CT.Legendary) && b.tags.has(MT.TutorsLegendary),
+      a.types.any(CT.Legendary) && b.tags.any(MT.TutorsLegendary),
   },
   {
     relationship: ME.Tutors,
     isMatch: (a, b) =>
-      a.tags.has(MT.HasChangeling) && b.tags.has(MT.TutorsCreatureType),
+      a.tags.any(MT.HasChangeling) && b.tags.any(MT.TutorsCreatureType),
   },
   {
     relationship: ME.Tutors,
-    isMatch: (a, b) => a.subtypes.has('Forest') && b.tags.has(MT.TutorsForest),
+    isMatch: (a, b) => a.subtypes.any('Forest') && b.tags.any(MT.TutorsForest),
   },
   {
     relationship: ME.Tutors,
-    isMatch: (a, b) => a.subtypes.has('Plains') && b.tags.has(MT.TutorsPlains),
+    isMatch: (a, b) => a.subtypes.any('Plains') && b.tags.any(MT.TutorsPlains),
   },
   {
     relationship: ME.TribalSynergy,
-    isMatch: (a, b) => a.types.has(CT.Snow) && b.tags.has(MT.CaresAboutSnow),
+    isMatch: (a, b) => a.types.any(CT.Snow) && b.tags.any(MT.CaresAboutSnow),
   },
   {
     relationship: ME.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(MT.ManipulatesTopDeck) &&
-      b.tags.has(
+      a.tags.any(MT.ManipulatesTopDeck) &&
+      b.tags.any(
         MT.CaresAboutTopdeck,
         MT.TutorsBasicsToBattlefield,
         MT.TutorsBasicsToHand,
@@ -272,48 +292,48 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(MT.GivesHaste) &&
+      a.tags.any(MT.GivesHaste) &&
       [
-        b.tags.has(MT.WantsHaste),
-        b.tags.has(MT.HasTapAbility) && b.types.has(CT.Creature),
+        b.tags.any(MT.WantsHaste),
+        b.tags.any(MT.HasTapAbility) && b.types.any(CT.Creature),
       ].some(b => b),
   },
   {
     relationship: ME.Tapping,
     isMatch: (a, b) =>
-      (a.tags.has(MT.CaresAboutGettingLandTapped) ||
-        (a.tags.has(MT.WantsToBeTapped) && a.types.has(CT.Land))) &&
-      b.tags.has(MT.TapsTargetLand),
+      (a.tags.any(MT.CaresAboutGettingLandTapped) ||
+        (a.tags.any(MT.WantsToBeTapped) && a.types.any(CT.Land))) &&
+      b.tags.any(MT.TapsTargetLand),
   },
   {
     relationship: ME.Tapping,
     isMatch: (a, b) =>
-      a.tags.has(MT.WantsToBeTapped) &&
-      a.types.has(CT.Creature) &&
-      b.tags.has(MT.TapsCreatures),
+      a.tags.any(MT.WantsToBeTapped) &&
+      a.types.any(CT.Creature) &&
+      b.tags.any(MT.TapsCreatures),
   },
   {
     relationship: ME.Tapping,
     isMatch: (a, b) =>
-      a.tags.has(MT.WantsToBeTapped) &&
-      a.types.has(CT.Artifact) &&
-      !a.types.has(CT.Creature) &&
-      b.tags.has(MT.TapsNonCreatureArtifacts),
+      a.tags.any(MT.WantsToBeTapped) &&
+      a.types.any(CT.Artifact) &&
+      !a.types.any(CT.Creature) &&
+      b.tags.any(MT.TapsNonCreatureArtifacts),
   },
   {
     relationship: ME.Lifegain,
-    isMatch: (a, b) => a.tags.has(MT.WantsLifegain) && b.tags.has(MT.GainsLife),
+    isMatch: (a, b) => a.tags.any(MT.WantsLifegain) && b.tags.any(MT.GainsLife),
   },
   {
     relationship: ME.Doubling,
     isMatch: (a, b) =>
-      a.tags.has(MT.Populates) && b.tags.has(MT.MakesValuableTokens),
+      a.tags.any(MT.Populates) && b.tags.any(MT.MakesValuableTokens),
   },
   {
     relationship: ME.Doubling,
     isMatch: (a, b) =>
-      a.tags.has(MT.DoublesTokens) &&
-      b.tags.has(
+      a.tags.any(MT.DoublesTokens) &&
+      b.tags.any(
         MT.MakesArtifactTokens,
         MT.MakesDisposableTokens,
         MT.MakesValuableTokens,
@@ -322,31 +342,31 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(MT.WantsLessLands) &&
-      b.tags.has(MT.BouncesLand, MT.SacrificeOutletLand),
+      a.tags.any(MT.WantsLessLands) &&
+      b.tags.any(MT.BouncesLand, MT.SacrificeOutletLand),
   },
   {
     relationship: ME.Protects,
-    isMatch: (a, b) => a.tags.has(MT.ProtectsLand) && b.tags.has(MT.ManLand),
+    isMatch: (a, b) => a.tags.any(MT.ProtectsLand) && b.tags.any(MT.ManLand),
   },
   {
     relationship: ME.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(MT.LikesManLands, MT.HasCipher) && b.tags.has(MT.ManLand),
+      a.tags.any(MT.LikesManLands, MT.HasCipher) && b.tags.any(MT.ManLand),
   },
   {
     relationship: ME.CombosWith,
     isMatch: (a, b) =>
-      a.tags.has(MT.MassDraw) && b.tags.has(MT.UnlocksHandsize),
+      a.tags.any(MT.MassDraw) && b.tags.any(MT.UnlocksHandsize),
   },
   {
     relationship: ME.Reanimation,
     isMatch: (a, b) =>
-      a.tags.has(MT.ReanimatesLand) &&
+      a.tags.any(MT.ReanimatesLand) &&
       [
-        b.types.has(CT.Land) && b.tags.has(MT.SacrificesSelf),
+        b.types.any(CT.Land) && b.tags.any(MT.SacrificesSelf),
         b.types.all(CT.Land, CT.Saga),
-        b.tags.has(MT.DiscardOutlet, MT.SelfMill, MT.SacrificeOutletLand),
+        b.tags.any(MT.DiscardOutlet, MT.SelfMill, MT.SacrificeOutletLand),
       ].some(b => b),
   },
 ];

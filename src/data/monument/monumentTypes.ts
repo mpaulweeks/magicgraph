@@ -129,6 +129,7 @@ export enum MonumentTag {
   UsesValuableCreatureTokens = 'Uses Valuable Creature Tokens',
   UsesDisposableCreatureTokens = 'Uses Disposable Creature Tokens',
   UsesDisposableArtifactTokens = 'Uses Disposable Artifact Tokens',
+  UsesDisposableArtifactCreatureTokens = 'Uses Disposable Artifact Creature Tokens',
   UsesPermanentETBs = 'Uses Permanent ETBs',
   UsesCreatureETBs = 'Uses Creature ETBs',
   UsesZombies = 'Uses Zombies',

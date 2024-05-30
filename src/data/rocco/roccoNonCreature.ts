@@ -43,7 +43,7 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [
     combos: [
       {
         relationship: RE.CombosWith,
-        isMatch: other => other.tags.has(RT.BlinksSelf),
+        isMatch: other => other.tags.any(RT.BlinksSelf),
       },
     ],
   },
@@ -52,7 +52,7 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [
     mc: '2W',
     types: [CT.Enchantment],
     combos: [
-      ReanimatesCombo(other => other.types.has(CT.Creature) && other.mv === 1),
+      ReanimatesCombo(other => other.types.any(CT.Creature) && other.mv === 1),
     ],
   },
   {
@@ -114,7 +114,7 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [
         relationship: RoccoEdge.Buffs,
         isMatch: other =>
           other.types.all(CT.Legendary, CT.Creature) &&
-          other.tags.has(RT.WantsPower),
+          other.tags.any(RT.WantsPower),
       },
     ],
   },
@@ -130,7 +130,7 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [
         relationship: RoccoEdge.Buffs,
         isMatch: other =>
           other.types.all(CT.Legendary, CT.Creature) &&
-          other.tags.has(RT.AttackTrigger),
+          other.tags.any(RT.AttackTrigger),
       },
     ],
   },

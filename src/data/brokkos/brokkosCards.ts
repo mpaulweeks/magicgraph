@@ -173,7 +173,7 @@ export const BrokkosCards: CardDraft[] = [
     combos: [
       {
         relationship: BE.CombosWith,
-        isMatch: other => other.tags.has(BT.HasPlusCounters),
+        isMatch: other => other.tags.any(BT.HasPlusCounters),
       },
     ],
   },
@@ -186,7 +186,7 @@ export const BrokkosCards: CardDraft[] = [
     combos: [
       {
         relationship: BE.CombosWith,
-        isMatch: other => other.tags.has(BT.HasPlusCounters),
+        isMatch: other => other.tags.any(BT.HasPlusCounters),
       },
     ],
   },
@@ -284,7 +284,7 @@ export const BrokkosCards: CardDraft[] = [
       {
         relationship: BE.CombosWith,
         isMatch: other =>
-          other.tags.has(BT.HasPlusCounters, BT.GivesPlusCounters),
+          other.tags.any(BT.HasPlusCounters, BT.GivesPlusCounters),
       },
     ],
   },
