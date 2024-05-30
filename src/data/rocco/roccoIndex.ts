@@ -1,14 +1,15 @@
 import { collate } from '../../lib/collate';
-import {
-  CardDraft,
-  CardType,
-  DeckData
-} from '../../types';
+import { CardDraft, CardType, DeckData } from '../../types';
 import { parseList } from '../../util/list';
 import { Creatures } from './roccoCreature';
 import { RocMatchers } from './roccoMatcher';
 import { NonCreatures } from './roccoNonCreature';
-import { RocEdges, RocInverseEdge, RoccoCategory, RoccoCategoryColorMap } from './roccoTypes';
+import {
+  RocEdges,
+  RocInverseEdge,
+  RoccoCategory,
+  RoccoCategoryColorMap,
+} from './roccoTypes';
 
 const current = parseList(`
 Rocco, Cabaretti Caterer
@@ -126,10 +127,7 @@ Abiding Grace
 const allCards: CardDraft[] = [
   ...Creatures.map(c => ({
     ...c,
-    types: [
-      CardType.Creature,
-      ...(c.additionalTypes ?? []),
-    ],
+    types: [CardType.Creature, ...(c.additionalTypes ?? [])],
     category: RoccoCategory.Creature,
     emphasize: true,
   })),
@@ -149,11 +147,14 @@ const collated = collate({
 
 export const RoccoData: DeckData = {
   name: 'Rocco.dec',
-  description: 'Naya deck that tutors creatures to form multiple small A/B combos',
-  links: [{
-    name: 'Tapped out',
-    url: 'https://tappedout.net/mtg-decks/heartless-rocco/',
-  }],
+  description:
+    'Naya deck that tutors creatures to form multiple small A/B combos',
+  links: [
+    {
+      name: 'Tapped out',
+      url: 'https://tappedout.net/mtg-decks/heartless-rocco/',
+    },
+  ],
   cardDrafts: collated.cardDrafts,
   missingDefinition: collated.missingDefinition,
   unused: collated.unused,

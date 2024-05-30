@@ -1,4 +1,4 @@
-import { TagLinks } from "../../types";
+import { TagLinks } from '../../types';
 
 export enum LifeswapCategory {
   Threat = 'Threat',
@@ -40,9 +40,7 @@ export enum LifeswapTag {
 }
 
 export const LifeswapTagLinks: TagLinks = {
-  [LifeswapTag.PayAnyLife]: [
-    LifeswapTag.PaySomeLife,
-  ],
+  [LifeswapTag.PayAnyLife]: [LifeswapTag.PaySomeLife],
   [LifeswapTag.Persist]: [
     LifeswapTag.AddsMinusCounters,
     LifeswapTag.WantsRemoveCounters,
@@ -56,8 +54,6 @@ export const LifeswapTagLinks: TagLinks = {
 export enum LifeswapEdge {
   CombosWith = 'Combos With',
 }
-export const LifeswapInverseEdge = {
-};
+export const LifeswapInverseEdge = {};
 
-export const OrderedEdges: string[] = [
-];
+export const OrderedEdges: string[] = [];

@@ -1,5 +1,5 @@
-import { CardDraft, CardListStatus, TagLinks } from "../types";
-import { unique } from "../util/list";
+import { CardDraft, CardListStatus, TagLinks } from '../types';
+import { unique } from '../util/list';
 
 export function collate(args: {
   current: string[];
@@ -18,7 +18,7 @@ export function collate(args: {
     const pending = (c.tags ?? []).concat();
     const newTags: Set<string> = new Set();
     while (pending.length) {
-      const t = pending.shift()!
+      const t = pending.shift()!;
       newTags.add(t);
       (tagLinks[t] ?? []).forEach(nt => {
         if (!newTags.has(nt)) {
@@ -41,22 +41,30 @@ export function collate(args: {
   const unused = allDefined.filter(name => !allUsed.includes(name));
   const missingDefinition = allUsed.filter(name => !allDefined.includes(name));
   const cardDrafts = [
-    ...cards.filter(c => args.current.includes(c.name)).map(c => ({
-      ...c,
-      status: CardListStatus.Current,
-    })),
-    ...cards.filter(c => args.pending.includes(c.name)).map(c => ({
-      ...c,
-      status: CardListStatus.Pending,
-    })),
-    ...cards.filter(c => args.rejected.includes(c.name)).map(c => ({
-      ...c,
-      status: CardListStatus.Rejected,
-    })),
-    ...cards.filter(c => args.choppingBlock.includes(c.name)).map(c => ({
-      ...c,
-      status: CardListStatus.ChoppingBlock,
-    })),
+    ...cards
+      .filter(c => args.current.includes(c.name))
+      .map(c => ({
+        ...c,
+        status: CardListStatus.Current,
+      })),
+    ...cards
+      .filter(c => args.pending.includes(c.name))
+      .map(c => ({
+        ...c,
+        status: CardListStatus.Pending,
+      })),
+    ...cards
+      .filter(c => args.rejected.includes(c.name))
+      .map(c => ({
+        ...c,
+        status: CardListStatus.Rejected,
+      })),
+    ...cards
+      .filter(c => args.choppingBlock.includes(c.name))
+      .map(c => ({
+        ...c,
+        status: CardListStatus.ChoppingBlock,
+      })),
   ];
   return { cardDrafts, unused, missingDefinition };
 }

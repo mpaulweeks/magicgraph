@@ -24,7 +24,7 @@ export class Deck {
     if (ai < bi) return -1;
     if (ai > bi) return 1;
     return a < b ? -1 : 1;
-  }
+  };
 
   private static validate(data: DeckData) {
     const unique = new Set<string>();

@@ -1,27 +1,38 @@
-import { useState } from "react";
-import { Deck } from "../lib/deck";
-import { sort, sortBy, unique, uniqueBy } from "../util/list";
+import { useState } from 'react';
+import { Deck } from '../lib/deck';
+import { sort, sortBy, unique, uniqueBy } from '../util/list';
 import styles from './App.module.css';
-import { AutoCard } from "./AutoCard";
-import { CardView } from "./CardView";
-import { GraphVis } from "./GraphVis";
+import { AutoCard } from './AutoCard';
+import { CardView } from './CardView';
+import { GraphVis } from './GraphVis';
 
 enum Sorting {
   Alphabetical = 1,
   Edges,
 }
 
-export const DeckView = (props: {
-  deck: Deck,
-}) => {
+export const DeckView = (props: { deck: Deck }) => {
   const { deck } = props;
   const queryParsm = new URLSearchParams(window.location.search);
-  const [includeCurrent, setIncludeCurrent] = useState<boolean>(queryParsm.get('current') === null || !!queryParsm.get('current'));
-  const [includeChoppingBlock, setIncludeChoppingBlock] = useState<boolean>(queryParsm.get('choppingBlock') === null || !!queryParsm.get('choppingBlock'));
-  const [includePendingCards, setIncludePendingCards] = useState<boolean>(!!queryParsm.get('pendingCards'));
-  const [includeRejectedCards, setIncludeRejectedCards] = useState<boolean>(!!queryParsm.get('rejectedCards'));
-  const [includePendingEdges, setIncludePendingEdges] = useState<boolean>(queryParsm.get('pendingEdges') === null || !!queryParsm.get('pendingEdges'));
-  const [includeRejectedEdges, setIncludeRejectedEdges] = useState<boolean>(!!queryParsm.get('rejectedEdges'));
+  const [includeCurrent, setIncludeCurrent] = useState<boolean>(
+    queryParsm.get('current') === null || !!queryParsm.get('current'),
+  );
+  const [includeChoppingBlock, setIncludeChoppingBlock] = useState<boolean>(
+    queryParsm.get('choppingBlock') === null ||
+      !!queryParsm.get('choppingBlock'),
+  );
+  const [includePendingCards, setIncludePendingCards] = useState<boolean>(
+    !!queryParsm.get('pendingCards'),
+  );
+  const [includeRejectedCards, setIncludeRejectedCards] = useState<boolean>(
+    !!queryParsm.get('rejectedCards'),
+  );
+  const [includePendingEdges, setIncludePendingEdges] = useState<boolean>(
+    queryParsm.get('pendingEdges') === null || !!queryParsm.get('pendingEdges'),
+  );
+  const [includeRejectedEdges, setIncludeRejectedEdges] = useState<boolean>(
+    !!queryParsm.get('rejectedEdges'),
+  );
   const [sortAscending, setSortAscending] = useState<boolean>(true);
   const [sorting, setSorting] = useState<Sorting>(Sorting.Alphabetical);
   const [filter, setFilter] = useState<string>();
@@ -29,19 +40,26 @@ export const DeckView = (props: {
 
   if (showGraph) {
     return (
-      <div style={{
-        position: 'absolute',
-        top: '0',
-        left: '0',
-        width: '100%',
-        height: '100vh',
-      }}>
-        <GraphVis deck={deck} />
-        <button onClick={() => setShowGraph(false)} style={{
+      <div
+        style={{
           position: 'absolute',
           top: '0',
-          right: '0',
-        }}>close</button>
+          left: '0',
+          width: '100%',
+          height: '100vh',
+        }}
+      >
+        <GraphVis deck={deck} />
+        <button
+          onClick={() => setShowGraph(false)}
+          style={{
+            position: 'absolute',
+            top: '0',
+            right: '0',
+          }}
+        >
+          close
+        </button>
       </div>
     );
   }
@@ -49,8 +67,7 @@ export const DeckView = (props: {
   const cardTypes = unique(deck.cards.map(c => c.types.asArray).flat()).sort();
   const categories = unique(deck.cards.map(c => c.category)).sort();
   const tags = unique(deck.cards.map(c => c.tags.asArray).flat()).sort();
-  const filtered = deck.cards
-    .filter(c => !filter || c.filterBy.has(filter));
+  const filtered = deck.cards.filter(c => !filter || c.filterBy.has(filter));
   const current = filtered.filter(c => c.current);
   const pending = filtered.filter(c => c.pending);
   const rejected = filtered.filter(c => c.rejected);
@@ -62,37 +79,45 @@ export const DeckView = (props: {
     .filter(c => includeChoppingBlock || !c.choppingBlock);
   const edges = uniqueBy(
     deck.edges
-      .filter(e => includePendingCards || includePendingEdges || e.related.every(c => !c.pending))
-      .filter(e => includeRejectedCards || includeRejectedEdges || e.related.every(c => !c.rejected))
+      .filter(
+        e =>
+          includePendingCards ||
+          includePendingEdges ||
+          e.related.every(c => !c.pending),
+      )
+      .filter(
+        e =>
+          includeRejectedCards ||
+          includeRejectedEdges ||
+          e.related.every(c => !c.rejected),
+      )
       .sort(deck.compareEdges),
-    elm => sort(elm.related.map(c => c.id)).join('|')
+    elm => sort(elm.related.map(c => c.id)).join('|'),
   );
   (window as any).edges = edges;
   const toRenderPreSort = {
     [Sorting.Alphabetical]: toRender,
-    [Sorting.Edges]: sortBy(toRender, card =>
-      edges
-        .filter(e => e.related.map(c => c.id).includes(card.id))
-        .filter(e => e.relationship !== 'Nonbo')
-        .length
+    [Sorting.Edges]: sortBy(
+      toRender,
+      card =>
+        edges
+          .filter(e => e.related.map(c => c.id).includes(card.id))
+          .filter(e => e.relationship !== 'Nonbo').length,
     ),
   }[sorting];
   const toRenderSorted = sortAscending
     ? toRenderPreSort
     : toRenderPreSort.concat().reverse();
 
-
   return (
-  <div className={styles.DeckView}>
+    <div className={styles.DeckView}>
       <div>
         <a href="./">go back</a>
       </div>
       <h1>{deck.data.name}</h1>
       {(deck.data.links ?? []).map(link => (
         <div key={link.url}>
-          <a href={link.url}>
-            {link.name}
-          </a>
+          <a href={link.url}>{link.name}</a>
         </div>
       ))}
       <p>{deck.data.description}</p>
@@ -186,9 +211,7 @@ export const DeckView = (props: {
       <section>
         <h3>
           Filter: {filter ?? 'none'}
-          <button onClick={() => setFilter(undefined)}>
-            reset
-          </button>
+          <button onClick={() => setFilter(undefined)}>reset</button>
         </h3>
         <div>
           Types:
@@ -216,13 +239,8 @@ export const DeckView = (props: {
         </div>
       </section>
       <div className={styles.CardGallery}>
-        {toRenderSorted.map((card) => (
-          <CardView
-            key={card.id}
-            deck={deck}
-            edges={edges}
-            card={card}
-          />
+        {toRenderSorted.map(card => (
+          <CardView key={card.id} deck={deck} edges={edges} card={card} />
         ))}
       </div>
       <section className={styles.DebugLists}>

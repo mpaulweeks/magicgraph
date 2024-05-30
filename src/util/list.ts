@@ -37,5 +37,10 @@ export function groupBy<T, K>(arr: T[], cb: (elm: T) => K): T[][] {
 }
 
 export function parseList(list: string): string[] {
-  return unique(list.split('\n').map(s => s.trim()).filter(s => s));
+  return unique(
+    list
+      .split('\n')
+      .map(s => s.trim())
+      .filter(s => s),
+  );
 }

@@ -1,12 +1,14 @@
 import { collate } from '../../lib/collate';
-import {
-  CardDraft,
-  DeckData
-} from '../../types';
+import { CardDraft, DeckData } from '../../types';
 import { parseList } from '../../util/list';
 import { BrokkosCards } from './brokkosCards';
 import { BrokkosMatchers } from './brokkosMatcher';
-import { BrokkosCategoryColorMap, BrokkosEdges, BrokkosInverseEdge, BrokkosTagLinks } from './brokkosTypes';
+import {
+  BrokkosCategoryColorMap,
+  BrokkosEdges,
+  BrokkosInverseEdge,
+  BrokkosTagLinks,
+} from './brokkosTypes';
 
 const current = parseList(`
 Brokkos, Apex of Forever
@@ -93,9 +95,7 @@ const rejected = parseList(`
 Doomskar Warrior
 `);
 
-const allCards: CardDraft[] = [
-  ...BrokkosCards,
-];
+const allCards: CardDraft[] = [...BrokkosCards];
 
 const collated = collate({
   current,
@@ -109,10 +109,12 @@ const collated = collate({
 export const BrokkosData: DeckData = {
   name: 'Brokkos, Apex of Power',
   description: 'Sultai deck that makes creatures big',
-  links: [{
-    name: 'Tapped out',
-    url: 'https://tappedout.net/mtg-decks/17-03-22-apex-of-power/',
-  }],
+  links: [
+    {
+      name: 'Tapped out',
+      url: 'https://tappedout.net/mtg-decks/17-03-22-apex-of-power/',
+    },
+  ],
   cardDrafts: collated.cardDrafts,
   missingDefinition: collated.missingDefinition,
   unused: collated.unused,

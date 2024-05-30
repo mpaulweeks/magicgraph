@@ -22,4 +22,4 @@ export enum CardType {
 }
 
 export const Colors = ['W', 'B', 'U', 'R', 'G'] as const;
-export type Color = typeof Colors[number];
+export type Color = (typeof Colors)[number];

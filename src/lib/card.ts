@@ -1,4 +1,12 @@
-import { CardCombo, CardDraft, CardListStatus, CardStyling, Cardlike, Color, Colors } from '../types';
+import {
+  CardCombo,
+  CardDraft,
+  CardListStatus,
+  CardStyling,
+  Cardlike,
+  Color,
+  Colors,
+} from '../types';
 import { Interset } from '../util/interset';
 
 export class CardImpl implements Cardlike {

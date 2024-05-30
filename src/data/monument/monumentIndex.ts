@@ -1,14 +1,15 @@
 import { collate } from '../../lib/collate';
-import {
-  CardDraft,
-  CardType,
-  DeckData
-} from '../../types';
+import { CardDraft, CardType, DeckData } from '../../types';
 import { parseList } from '../../util/list';
 import { Lands } from './monumentLand';
 import { MonMatchers } from './monumentMatcher';
 import { NonLands } from './monumentNonLand';
-import { MonumentCategory, MonumentEdges, MonumentInverseEdge, MonumentTagLinks } from './monumentTypes';
+import {
+  MonumentCategory,
+  MonumentEdges,
+  MonumentInverseEdge,
+  MonumentTagLinks,
+} from './monumentTypes';
 
 const current = parseList(`
 Amareth, the Lustrous
@@ -383,10 +384,7 @@ Conqueror's Galleon // Conqueror's Foothold
 const allCards: CardDraft[] = [
   ...Lands.map(c => ({
     ...c,
-    types: [
-      CardType.Land,
-      ...(c.additionalTypes ?? []),
-    ],
+    types: [CardType.Land, ...(c.additionalTypes ?? [])],
     category: c.overrideCategory ?? MonumentCategory.ComboLand,
     tags: (c.tags ?? []).concat('Is Land'),
     emphasize: true,
@@ -422,7 +420,8 @@ const CategoryColorMap: Record<MonumentCategory, string> = {
 };
 export const MonumentData: DeckData = {
   name: 'Monument.dec',
-  description: 'Bant deck that tutors nonbasic lands to form multiple small A/B combos',
+  description:
+    'Bant deck that tutors nonbasic lands to form multiple small A/B combos',
   notes: [
     '2024/04/25: Reducing the curve / focusing on mana efficiency (eg cutting Spine of Ish Sah).',
     '2024/04/11: Minimize Monunent package to basics and utility spheres, now has exactly 9 sources.',
@@ -430,13 +429,16 @@ export const MonumentData: DeckData = {
     '2023/11/04: Due to color screw and mediocre blue Myojin, start reducing blue to a splash.',
     '2023/10/30: Swap Temur for Bant to gain more indestructible and land tutors.',
   ],
-  links: [{
-    name: 'Monument to Hubris (retired)',
-    url: 'https://tappedout.net/mtg-decks/monument-to-hubris/',
-  }, {
-    name: 'Monument to Bant',
-    url: 'https://tappedout.net/mtg-decks/monument-to-bant/',
-  }],
+  links: [
+    {
+      name: 'Monument to Hubris (retired)',
+      url: 'https://tappedout.net/mtg-decks/monument-to-hubris/',
+    },
+    {
+      name: 'Monument to Bant',
+      url: 'https://tappedout.net/mtg-decks/monument-to-bant/',
+    },
+  ],
   cardDrafts: collated.cardDrafts,
   missingDefinition: collated.missingDefinition,
   unused: collated.unused,

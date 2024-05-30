@@ -24,29 +24,23 @@ function App() {
   const queryParsm = new URLSearchParams(window.location.search);
   const queryDeck = decks.filter(d => queryParsm.get(d.slug))[0];
   if (queryDeck) {
-    return (
-      <DeckView deck={new Deck(queryDeck.data)} />
-    );
+    return <DeckView deck={new Deck(queryDeck.data)} />;
   }
 
   return (
     <div>
       <h1>Magic Graph</h1>
-      <p>
-        Website for tracking complex, overlapping combos in my EDH decks
-      </p>
+      <p>Website for tracking complex, overlapping combos in my EDH decks</p>
       {decks.map(d => (
         <div>
           <h2>
-            <a href={`?${d.slug}=1`}>
-              {d.data.name}
-            </a>
+            <a href={`?${d.slug}=1`}>{d.data.name}</a>
           </h2>
           <p>{d.data.description}</p>
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 export default App;

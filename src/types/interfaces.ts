@@ -24,7 +24,7 @@ export interface Cardlike {
 export type CardStyling = {
   emphasize: boolean;
   notes: string[];
-}
+};
 
 export type CardCombo = {
   relationship: string;

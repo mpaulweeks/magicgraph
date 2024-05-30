@@ -21,7 +21,7 @@ export type DeckData = {
   name: string;
   description: string;
   notes?: string[];
-  links?: { name: string, url: string, }[];
+  links?: { name: string; url: string }[];
   cardDrafts: CardDraft[];
   missingDefinition: string[];
   unused: string[];

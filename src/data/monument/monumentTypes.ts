@@ -1,4 +1,4 @@
-import { TagLinks } from "../../types";
+import { TagLinks } from '../../types';
 
 export enum MonumentCategory {
   ComboLand = 'Combo Land',
@@ -219,7 +219,6 @@ export const MonumentEdges: string[] = [
   MonumentEdge.Nonbo,
   MonumentEdge.Reanimation,
 ];
-
 
 export const MonumentTagLinks: TagLinks = {
   [MonumentTag.GrantsPlainsType]: [MonumentTag.AddsManaAbility],

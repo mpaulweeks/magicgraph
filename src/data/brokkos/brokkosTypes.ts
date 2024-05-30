@@ -1,4 +1,4 @@
-import { TagLinks } from "../../types";
+import { TagLinks } from '../../types';
 
 export enum BrokkosCategory {
   Threat = 'Threat',
@@ -60,26 +60,15 @@ export enum BrokkosTag {
 }
 
 export const BrokkosTagLinks: TagLinks = {
-  [BrokkosTag.GivesDeathtouch]: [
-    BrokkosTag.HasDeathtouch,
-  ],
-  [BrokkosTag.GivesTrample]: [
-    BrokkosTag.HasTrample,
-  ],
-  [BrokkosTag.GivesPower]: [
-    BrokkosTag.IsBigBoy,
-  ],
-  [BrokkosTag.Mutates]: [
-    BrokkosTag.GivesPower,
-    BrokkosTag.GivesToughness,
-  ],
+  [BrokkosTag.GivesDeathtouch]: [BrokkosTag.HasDeathtouch],
+  [BrokkosTag.GivesTrample]: [BrokkosTag.HasTrample],
+  [BrokkosTag.GivesPower]: [BrokkosTag.IsBigBoy],
+  [BrokkosTag.Mutates]: [BrokkosTag.GivesPower, BrokkosTag.GivesToughness],
   [BrokkosTag.GivesPlusCounters]: [
     BrokkosTag.GivesPower,
     BrokkosTag.GivesToughness,
   ],
-  [BrokkosTag.WantsToBeInGraveyard]: [
-    BrokkosTag.WantsSacrificeOutlet,
-  ],
+  [BrokkosTag.WantsToBeInGraveyard]: [BrokkosTag.WantsSacrificeOutlet],
 };
 
 export enum BrokkosEdge {

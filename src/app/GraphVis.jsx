@@ -3,9 +3,15 @@ import Graph from 'react-graph-vis';
 // https://github.com/crubier/react-graph-vis
 
 function randomColor() {
-  const red = Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
-  const green = Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
-  const blue = Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
+  const red = Math.floor(Math.random() * 256)
+    .toString(16)
+    .padStart(2, '0');
+  const green = Math.floor(Math.random() * 256)
+    .toString(16)
+    .padStart(2, '0');
+  const blue = Math.floor(Math.random() * 256)
+    .toString(16)
+    .padStart(2, '0');
   return `#${red}${green}${blue}`;
 }
 
@@ -25,15 +31,15 @@ export const GraphVis = ({ deck }) => {
       hierarchical: false,
     },
     edges: {
-      color: "#000000",
+      color: '#000000',
     },
     // height: "500px"
   };
 
   const events = {
-    select: function(event) {
+    select: function (event) {
       var { nodes, edges } = event;
-    }
+    },
   };
   return (
     <Graph
@@ -49,5 +55,4 @@ export const GraphVis = ({ deck }) => {
       }}
     />
   );
-
-}
+};

@@ -1,12 +1,14 @@
 import { collate } from '../../lib/collate';
-import {
-  CardDraft,
-  DeckData
-} from '../../types';
+import { CardDraft, DeckData } from '../../types';
 import { parseList } from '../../util/list';
 import { LifeswapDraft } from './lifeswapCards';
 import { LifeswapMatchers } from './lifeswapMatcher';
-import { CategoryColorMap, LifeswapInverseEdge, LifeswapTagLinks, OrderedEdges } from './lifeswapTypes';
+import {
+  CategoryColorMap,
+  LifeswapInverseEdge,
+  LifeswapTagLinks,
+  OrderedEdges,
+} from './lifeswapTypes';
 
 const current = parseList(`
 Athreos, Shroud-Veiled
@@ -87,9 +89,7 @@ const pending = parseList(`
 const rejected = parseList(`
 `);
 
-const allCards: CardDraft[] = [
-  ...LifeswapDraft,
-];
+const allCards: CardDraft[] = [...LifeswapDraft];
 
 const collated = collate({
   current,
@@ -103,12 +103,13 @@ const collated = collate({
 export const LifeswapData: DeckData = {
   name: 'Life Swap',
   description: 'Swap life and remove counters',
-  notes: [
+  notes: [],
+  links: [
+    {
+      name: 'Tapped out',
+      url: 'https://tappedout.net/mtg-decks/athreos-life-swap/',
+    },
   ],
-  links: [{
-    name: 'Tapped out',
-    url: 'https://tappedout.net/mtg-decks/athreos-life-swap/',
-  }],
   cardDrafts: collated.cardDrafts,
   missingDefinition: collated.missingDefinition,
   unused: collated.unused,

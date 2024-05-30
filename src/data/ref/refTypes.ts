@@ -1,4 +1,4 @@
-import { TagLinks } from "../../types";
+import { TagLinks } from '../../types';
 
 export enum RefCategory {
   LandTypeCycling = 'LandTypeCycling',
@@ -13,17 +13,14 @@ export const RefCategoryColorMap = {
   [RefCategory.Adventure]: '#ddd',
 };
 
-export enum RefTag {
-}
+export enum RefTag {}
 
-export const RefTagLinks: TagLinks = {
-};
+export const RefTagLinks: TagLinks = {};
 
 export enum RefEdge {
   CombosWith = 'Combos With',
 }
-export const RefInverseEdge = {
-};
+export const RefInverseEdge = {};
 export const RefEdges: string[] = [
   // dont care
 ];

@@ -1,7 +1,5 @@
 import { collate } from '../../lib/collate';
-import {
-  DeckData
-} from '../../types';
+import { DeckData } from '../../types';
 import { parseList } from '../../util/list';
 import { RefCards } from './refCards';
 import { RefCategoryColorMap, RefEdges, RefInverseEdge } from './refTypes';

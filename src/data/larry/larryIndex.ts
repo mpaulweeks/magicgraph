@@ -1,7 +1,5 @@
 import { collate } from '../../lib/collate';
-import {
-  DeckData
-} from '../../types';
+import { DeckData } from '../../types';
 import { parseList } from '../../util/list';
 import { LarryDraft } from './larryCards';
 import { LarryMatchers } from './larryMatcher';
@@ -135,14 +133,17 @@ const collated = collate({
 
 export const LarryData: DeckData = {
   name: 'Larry Loops',
-  description: 'Esper deck that builds a repeatable wrath engine and winning with indestructible creatures',
+  description:
+    'Esper deck that builds a repeatable wrath engine and winning with indestructible creatures',
   notes: [
     '2023/11/09: Moving further away from graveyard recursion, more towards bounce. Being more picky with discs that can do both.',
   ],
-  links: [{
-    name: 'Tapped out',
-    url: 'https://tappedout.net/mtg-decks/tutorless-larry/',
-  }],
+  links: [
+    {
+      name: 'Tapped out',
+      url: 'https://tappedout.net/mtg-decks/tutorless-larry/',
+    },
+  ],
   cardDrafts: collated.cardDrafts,
   missingDefinition: collated.missingDefinition,
   unused: collated.unused,
