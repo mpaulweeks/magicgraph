@@ -186,7 +186,12 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   },
   {
     name: `Field of the Dead`,
-    tags: [MT.MakesCreatureTokens, MT.MakesGradualTokens, MT.HasLandfall],
+    tags: [
+      MT.MakesCreatureTokens,
+      MT.MakesGradualTokens,
+      MT.HasLandfall,
+      MT.MakesDisposableTokens,
+    ],
     subtypes: ['Zombie'],
   },
   {
