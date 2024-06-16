@@ -39,6 +39,10 @@ export enum MonumentTag {
   RemovesCounters = 'Removes Counters',
   PoisonCounters = 'Poison Counters',
   TutorsLegendary = 'Tutors Legendary',
+  TutorsSnow = 'Tutors Snow',
+  TutorsSnowLand = 'Tutors Snow Land',
+  TutorsSaga = 'Tutors Saga',
+  TutorsArtifact = 'Tutors Artifact',
 
   HasChangeling = 'Has Changeling',
   GainsChangeling = 'Gains Changeling',

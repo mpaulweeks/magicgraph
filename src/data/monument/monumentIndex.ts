@@ -14,8 +14,6 @@ import {
 const current = parseList(`
 Amareth, the Lustrous
 Deserted Temple
-Drownyard Temple
-Elvish Reclaimer
 Expedition Map
 Field of the Dead
 Karn's Bastion
@@ -34,7 +32,6 @@ Thespian's Stage
 Urza's Saga
 Yavimaya, Cradle of Growth
 Vesuva
-Knight of the Reliquary
 Weathered Wayfarer
 Scholar of New Horizons
 Arwen, Mortal Queen
@@ -45,7 +42,6 @@ Myojin of Blooming Dawn
 Minamo, School at Water's Edge
 Captain Sisay
 Blossoming Tortoise
-Dust Bowl
 Scaretiller
 Dark Depths
 
@@ -60,14 +56,12 @@ Mirage Mirror
 Basilisk Collar
 
 The One Ring
-Flagstones of Trokair
 Hall of the Bandit Lord
 
 Crested Sunmare
 
 The Shire
 Divine Visitation
-Selesnya Eulogist
 Trostani, Selesnya's Voice
 Mirrorpool
 
@@ -81,9 +75,7 @@ Progenitor Mimic
 Littjara Mirrorlake
 The Eternal Wanderer
 
-Realms Uncharted
 Imprisoned in the Moon
-Hall of Heliod's Generosity
 The Night of the Doctor
 
 Faceless Haven
@@ -103,7 +95,15 @@ Thornglint Bridge
 Prototype Portal
 Arcum Dagsson
 Selvala, Explorer Returned
-Yisan, the Wanderer Bard
+
+Urza's Cave
+Sowing Mycospawn
+Verdant Touch
+Arctic Treeline
+Search for Glory
+Inventors' Fair
+Timeless Dragon
+Nissa, Who Shakes the World
 `);
 
 const choppingBlock = parseList(`
@@ -144,13 +144,25 @@ Helm of the Host
 Bramble Sovereign
 Spitting Image
 Trenzalore Clocktower
-Nissa, Who Shakes the World
-Verdant Touch
 Ugin, the Spirit Dragon
+
+Into the North
+Oswald Fiddlebender
+The Book of Exalted Deeds
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Flagstones of Trokair
+Drownyard Temple
+Elvish Reclaimer
+Knight of the Reliquary
+Realms Uncharted
+Yisan, the Wanderer Bard
+Hall of Heliod's Generosity
+Dust Bowl
+Selesnya Eulogist
+
 Glacial Chasm
 Restless Prairie
 Restless Anchorage

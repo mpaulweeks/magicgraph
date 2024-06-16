@@ -631,7 +631,12 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   {
     name: `The Shire`,
     additionalTypes: [CT.Legendary],
-    tags: [MT.MakesArtifactTokens, MT.TapsCreatures, MT.GainsLife],
+    tags: [
+      MT.MakesArtifactTokens,
+      MT.MakesDisposableTokens,
+      MT.TapsCreatures,
+      MT.GainsLife,
+    ],
   },
   {
     name: `Mirrorpool`,
@@ -666,5 +671,19 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   {
     name: `Emeria, the Sky Ruin`,
     tags: [MT.CaresAboutPlains],
+  },
+  {
+    name: `Urza's Cave`,
+    tags: [MT.SacrificesSelf],
+  },
+  {
+    name: `Inventors' Fair`,
+    tags: [MT.TutorsArtifact, MT.GainsLife],
+  },
+  {
+    name: `Arctic Treeline`,
+    overrideCategory: MC.MulticolorLand,
+    additionalTypes: [CT.Snow],
+    subtypes: ['Plains'],
   },
 ];

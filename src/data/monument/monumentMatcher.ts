@@ -257,7 +257,25 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.Tutors,
     isMatch: (a, b) =>
+      a.types.any(CT.Artifact) && b.tags.any(MT.TutorsArtifact),
+  },
+  {
+    relationship: ME.Tutors,
+    isMatch: (a, b) =>
       a.types.any(CT.Legendary) && b.tags.any(MT.TutorsLegendary),
+  },
+  {
+    relationship: ME.Tutors,
+    isMatch: (a, b) => a.types.any(CT.Snow) && b.tags.any(MT.TutorsSnow),
+  },
+  {
+    relationship: ME.Tutors,
+    isMatch: (a, b) =>
+      a.types.all(CT.Snow, CT.Land) && b.tags.all(MT.TutorsSnowLand),
+  },
+  {
+    relationship: ME.Tutors,
+    isMatch: (a, b) => a.types.any(CT.Saga) && b.tags.any(MT.TutorsSaga),
   },
   {
     relationship: ME.Tutors,
