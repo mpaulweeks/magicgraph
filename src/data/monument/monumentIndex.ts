@@ -25,7 +25,6 @@ Monument to Perfection
 Moritte of the Frost
 Myojin of Towering Might
 Nesting Grounds
-Spara's Headquarters
 Thawing Glaciers
 The Mycosynth Gardens
 Thespian's Stage
@@ -33,7 +32,6 @@ Urza's Saga
 Yavimaya, Cradle of Growth
 Vesuva
 Weathered Wayfarer
-Scholar of New Horizons
 Arwen, Mortal Queen
 Mondrak, Glory Dominus
 Sensei's Divining Top
@@ -91,19 +89,23 @@ Stolen Identity
 Emeria, the Sky Ruin
 Dryad of the Ilysian Grove
 
-Thornglint Bridge
-Prototype Portal
-Arcum Dagsson
 Selvala, Explorer Returned
 
 Urza's Cave
 Sowing Mycospawn
-Verdant Touch
 Arctic Treeline
 Search for Glory
 Inventors' Fair
-Timeless Dragon
-Nissa, Who Shakes the World
+
+Tolaria West
+Restless Anchorage
+The Curse of Fenric
+Yenna, Redtooth Regent
+Spitting Image
+Replication Technique
+Amulet of Vigor
+The Book of Exalted Deeds
+Evolution Witness
 `);
 
 const choppingBlock = parseList(`
@@ -136,23 +138,28 @@ Trade Routes
 Scryb Ranger
 Zimone, Quandrix Prodigy
 Budoka Gardener
-The Curse of Fenric
 
-Yenna, Redtooth Regent
 Arcane Artisan
 Helm of the Host
 Bramble Sovereign
-Spitting Image
 Trenzalore Clocktower
 Ugin, the Spirit Dragon
 
 Into the North
 Oswald Fiddlebender
-The Book of Exalted Deeds
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Thornglint Bridge
+Prototype Portal
+Arcum Dagsson
+Spara's Headquarters
+Scholar of New Horizons
+Timeless Dragon
+Nissa, Who Shakes the World
+Verdant Touch
+
 Flagstones of Trokair
 Drownyard Temple
 Elvish Reclaimer
@@ -165,7 +172,6 @@ Selesnya Eulogist
 
 Glacial Chasm
 Restless Prairie
-Restless Anchorage
 Lumbering Falls
 Strict Proctor
 Esika's Chariot
@@ -303,7 +309,6 @@ Phyrexian Swarmlord
 Twilight Shepherd
 Demolition Field
 Hordewing Skaab
-Tolaria West
 Tekuthal, Inquiry Dominus
 Myojin of Cryptic Dreams
 Kjeldoran Outpost
