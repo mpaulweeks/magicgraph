@@ -177,7 +177,6 @@ Strict Proctor
 Esika's Chariot
 Aura Shards
 
-Replication Technique
 Blinkmoth Nexus
 Arcane Heist
 Realmwright
