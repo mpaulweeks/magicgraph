@@ -16,14 +16,12 @@ Amareth, the Lustrous
 Deserted Temple
 Expedition Map
 Field of the Dead
-Karn's Bastion
 Kiora Bests the Sea God
 Lotus Field
 Maze of Ith
 Mirrex
 Monument to Perfection
 Moritte of the Frost
-Myojin of Towering Might
 Nesting Grounds
 Thawing Glaciers
 The Mycosynth Gardens
@@ -32,11 +30,9 @@ Urza's Saga
 Yavimaya, Cradle of Growth
 Vesuva
 Weathered Wayfarer
-Arwen, Mortal Queen
 Mondrak, Glory Dominus
 Sensei's Divining Top
 Grove of the Guardian
-Myojin of Blooming Dawn
 Minamo, School at Water's Edge
 Captain Sisay
 Blossoming Tortoise
@@ -85,7 +81,6 @@ Nesting Dovehawk
 Vault 75: Middle School
 Phyrexian Dreadnought
 Dino DNA
-Stolen Identity
 Emeria, the Sky Ruin
 Dryad of the Ilysian Grove
 
@@ -95,17 +90,23 @@ Urza's Cave
 Sowing Mycospawn
 Arctic Treeline
 Search for Glory
-Inventors' Fair
 
 Tolaria West
 Restless Anchorage
 The Curse of Fenric
 Yenna, Redtooth Regent
-Spitting Image
 Replication Technique
 Amulet of Vigor
 The Book of Exalted Deeds
 Evolution Witness
+
+Alchemist's Refuge
+Lazotep Quarry
+Shadow of the Second Sun
+Six
+Into the North
+Ugin, the Spirit Dragon
+Tiller Engine
 `);
 
 const choppingBlock = parseList(`
@@ -143,14 +144,19 @@ Arcane Artisan
 Helm of the Host
 Bramble Sovereign
 Trenzalore Clocktower
-Ugin, the Spirit Dragon
-
-Into the North
 Oswald Fiddlebender
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Spitting Image
+Stolen Identity
+Inventors' Fair
+Karn's Bastion
+Myojin of Blooming Dawn
+Myojin of Towering Might
+Arwen, Mortal Queen
+
 Thornglint Bridge
 Prototype Portal
 Arcum Dagsson
@@ -327,7 +333,6 @@ Canopy Vista
 Dismiss into Dream
 Prairie Stream
 Willbreaker
-Alchemist's Refuge
 Aven Courier
 Awakening of Vitu-Ghazi
 Battle of Frost and Fire
