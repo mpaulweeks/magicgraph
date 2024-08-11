@@ -691,4 +691,29 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     additionalTypes: [CT.Snow],
     subtypes: ['Plains'],
   },
+  {
+    name: `Lazotep Quarry`,
+    tags: [MT.MakesCreatureTokens, MT.MakesValuableTokens, MT.SacrificesSelf],
+  },
+  {
+    name: `Gargoyle Castle`,
+    tags: [MT.MakesCreatureTokens, MT.MakesValuableTokens, MT.SacrificesSelf],
+  },
+  {
+    name: `Boseiju, Who Endures`,
+    additionalTypes: [CT.Legendary],
+    tags: [MT.SacrificesSelf],
+  },
+  {
+    name: `Mosswort Bridge`,
+    tags: [MT.LikesBeingBounced],
+  },
+  {
+    name: `Shifting Woodland`,
+    tags: [MT.ManLand, MT.CopiesPermanent, MT.CopiesWithMirror],
+  },
+  {
+    name: `Planar Nexus`,
+    subtypes: ['Sphere'],
+  },
 ];

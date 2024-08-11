@@ -80,7 +80,6 @@ Keeper of the Accord
 Nesting Dovehawk
 Vault 75: Middle School
 Phyrexian Dreadnought
-Dino DNA
 Emeria, the Sky Ruin
 Dryad of the Ilysian Grove
 
@@ -100,13 +99,15 @@ Amulet of Vigor
 The Book of Exalted Deeds
 Evolution Witness
 
-Alchemist's Refuge
 Lazotep Quarry
 Shadow of the Second Sun
 Six
 Into the North
 Ugin, the Spirit Dragon
 Tiller Engine
+
+Karn's Bastion
+Arixmethes, Slumbering Isle
 `);
 
 const choppingBlock = parseList(`
@@ -149,10 +150,11 @@ Oswald Fiddlebender
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Alchemist's Refuge
+Dino DNA
 Spitting Image
 Stolen Identity
 Inventors' Fair
-Karn's Bastion
 Myojin of Blooming Dawn
 Myojin of Towering Might
 Arwen, Mortal Queen
