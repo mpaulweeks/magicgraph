@@ -2156,7 +2156,7 @@ export const NonLands: CardDraft[] = [
     category: MC.Draw,
   },
   {
-    name: `Argent Dias`,
+    name: `Argent Dais`,
     mc: '1W',
     types: [CT.Artifact],
     tags: [

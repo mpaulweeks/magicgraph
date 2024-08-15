@@ -69,7 +69,6 @@ Progenitor Mimic
 Littjara Mirrorlake
 The Eternal Wanderer
 
-Imprisoned in the Moon
 The Night of the Doctor
 
 Faceless Haven
@@ -93,7 +92,6 @@ Search for Glory
 Tolaria West
 Restless Anchorage
 The Curse of Fenric
-Yenna, Redtooth Regent
 Replication Technique
 Amulet of Vigor
 The Book of Exalted Deeds
@@ -106,8 +104,9 @@ Into the North
 Ugin, the Spirit Dragon
 Tiller Engine
 
-Karn's Bastion
 Arixmethes, Slumbering Isle
+Shifting Woodland
+Argent Dais
 `);
 
 const choppingBlock = parseList(`
@@ -132,7 +131,6 @@ Drowner of Truth
 Strength of the Harvest
 Suppression Ray
 Mosswort Bridge
-Shifting Woodland
 Prismatic Omen
 Planar Nexus
 Meloku the Clouded Mirror
@@ -150,6 +148,10 @@ Oswald Fiddlebender
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Karn's Bastion
+Yenna, Redtooth Regent
+Imprisoned in the Moon
+
 Alchemist's Refuge
 Dino DNA
 Spitting Image
