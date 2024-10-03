@@ -97,7 +97,6 @@ Amulet of Vigor
 The Book of Exalted Deeds
 Evolution Witness
 
-Lazotep Quarry
 Shadow of the Second Sun
 Six
 Into the North
@@ -107,6 +106,8 @@ Tiller Engine
 Arixmethes, Slumbering Isle
 Shifting Woodland
 Argent Dais
+
+Swarmyard
 `);
 
 const choppingBlock = parseList(`
@@ -148,6 +149,8 @@ Oswald Fiddlebender
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Lazotep Quarry
+
 Karn's Bastion
 Yenna, Redtooth Regent
 Imprisoned in the Moon
@@ -297,7 +300,6 @@ Petrified Field
 Barrin, Master Wizard
 Cauldron of Souls
 Mirror Entity
-Swarmyard
 Retrofitter Foundry
 Martyr's Cause
 Glen Elendra Archmage
