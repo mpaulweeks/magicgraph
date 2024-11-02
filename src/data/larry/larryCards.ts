@@ -25,7 +25,7 @@ export const LarryDraft: CardDraft[] = [
   {
     name: `Magus of the Disk`,
     types: [CT.Creature],
-    subtypes: ['Wizard'],
+    subtypes: 'Wizard',
     mc: '2WW',
     category: LC.Disk,
     notes: [`ETBs tapped`, `Activate, hold priority, then bounce/phase out`],
@@ -186,7 +186,7 @@ export const LarryDraft: CardDraft[] = [
   {
     name: `Cyclone Summoner`,
     types: [CT.Creature],
-    subtypes: ['Wizard'],
+    subtypes: 'Wizard',
     mc: '5UU',
     category: LC.Disk,
     tags: [LT.BouncesNonWizards, LT.HasCastTrigger],
@@ -213,7 +213,7 @@ export const LarryDraft: CardDraft[] = [
   {
     name: `Heidar, Rimewind Master`,
     types: [CT.Creature, CT.Legendary],
-    subtypes: ['Wizard'],
+    subtypes: 'Wizard',
     mc: '4U',
     category: LC.Bouncer,
     tags: [LT.Bounces, LT.WantsProtection, LT.WantsHaste],
@@ -227,7 +227,7 @@ export const LarryDraft: CardDraft[] = [
   {
     name: `Vedalken Mastermind`,
     types: [CT.Creature],
-    subtypes: ['Wizard'],
+    subtypes: 'Wizard',
     mc: 'UU',
     category: LC.Bouncer,
     tags: [LT.Bounces, LT.WantsProtection, LT.WantsHaste],
@@ -235,7 +235,7 @@ export const LarryDraft: CardDraft[] = [
   {
     name: `Temporal Adept`,
     types: [CT.Creature],
-    subtypes: ['Wizard'],
+    subtypes: 'Wizard',
     mc: '1UU',
     category: LC.Bouncer,
     tags: [LT.Bounces, LT.WantsProtection, LT.WantsHaste],
@@ -346,7 +346,7 @@ export const LarryDraft: CardDraft[] = [
   {
     name: `Emry, Lurker of the Loch`,
     types: [CT.Creature, CT.Legendary],
-    subtypes: ['Wizard'],
+    subtypes: 'Wizard',
     mc: '2U',
     category: LC.Recursion,
     notes: [`Activates via tapping`],
@@ -750,7 +750,7 @@ export const LarryDraft: CardDraft[] = [
   {
     name: `Nevinyrral, Urborg Tyrant`,
     types: [CT.Creature, CT.Legendary],
-    subtypes: ['Zombie', 'Wizard'],
+    subtypes: 'Zombie Wizard',
     mc: '3WUB',
     category: LC.Disk,
     tags: [

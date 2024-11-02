@@ -85,7 +85,7 @@ export const BrokkosCards: CardDraft[] = [
     name: `Doomskar Warrior`,
     mc: '2GG',
     types: [CT.Creature],
-    subtypes: ['Human'],
+    subtypes: 'Human',
     category: BC.Draw,
     tags: [BT.HasTrample, BT.HasPlusCounters, BT.WantsPower],
   },

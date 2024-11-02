@@ -6,15 +6,13 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [
   {
     name: `Sword of the Animist`,
     mc: '2',
-    types: [CT.Artifact],
-    subtypes: [CT.Equipment],
+    types: [CT.Artifact, CT.Equipment],
     tags: [RT.WantsEvasion],
   },
   {
     name: `Sword of Feast and Famine`,
     mc: '2',
-    types: [CT.Artifact],
-    subtypes: [CT.Equipment],
+    types: [CT.Artifact, CT.Equipment],
     tags: [RT.WantsEvasion],
   },
   {

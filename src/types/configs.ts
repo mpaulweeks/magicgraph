@@ -6,7 +6,7 @@ export type CardDraft = {
   name: string;
   nick?: string;
   types: string[];
-  subtypes?: string[];
+  subtypes?: string;
   mc?: string;
   colors?: Color[];
   power?: number;

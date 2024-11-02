@@ -33,7 +33,9 @@ export class CardImpl implements Cardlike {
     this.name = draft.name;
     this.displayName = draft.nick ?? this.name.split(' // ')[0];
     this.types = new Interset(draft.types);
-    this.subtypes = new Interset(draft.subtypes ?? []);
+    this.subtypes = new Interset(
+      (draft.subtypes ?? '').split(' ').flatMap(s => (s ? [s] : [])),
+    );
     this.mc = draft.mc ?? '';
     this.colors = draft.colors ?? Colors.filter(c => this.mc.includes(c));
     this.power = draft.power;

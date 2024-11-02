@@ -87,7 +87,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
       {
         relationship: ME.TribalSynergy,
         isMatch: other =>
-          other.subtypes.any('Insect', 'Rat', 'Spider', 'Squirrel'),
+          other.subtypes.any(...'Insect Rat Spider Squirrel'.split(' ')),
       },
     ],
   },
@@ -156,7 +156,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   },
   {
     name: `Mirrex`,
-    subtypes: ['Sphere'],
+    subtypes: 'Sphere',
     tags: [
       MT.MakesCreatureTokens,
       MT.MakesArtifactTokens,
@@ -171,7 +171,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   {
     name: `The Mycosynth Gardens`,
     overrideCategory: MC.MulticolorLand,
-    subtypes: ['Sphere'],
+    subtypes: 'Sphere',
     tags: [MT.CopiesArtifacts, MT.CopiesWithMirror],
   },
   {
@@ -192,7 +192,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
       MT.HasLandfall,
       MT.MakesDisposableTokens,
     ],
-    subtypes: ['Zombie'],
+    subtypes: 'Zombie',
   },
   {
     name: `Urza's Saga`,
@@ -415,7 +415,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   {
     name: `The Hunter Maze`,
     nick: `Tap Spheres`,
-    subtypes: ['Sphere'],
+    subtypes: 'Sphere',
     tags: [MT.SacrificesSelf],
   },
   {
@@ -458,17 +458,17 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   {
     name: `Canopy Vista`,
     overrideCategory: MC.MulticolorLand,
-    subtypes: ['Plains', 'Forest'],
+    subtypes: 'Plains Forest',
   },
   {
     name: `Prairie Stream`,
     overrideCategory: MC.MulticolorLand,
-    subtypes: ['Plains', 'Island'],
+    subtypes: 'Plains Island',
   },
   {
     name: `Spara's Headquarters`,
     overrideCategory: MC.MulticolorLand,
-    subtypes: ['Plains', 'Island', 'Forest'],
+    subtypes: 'Plains Island Forest',
   },
   {
     name: `Tolaria West`,
@@ -510,7 +510,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   },
   {
     name: `Mistveil Plains`,
-    subtypes: ['Plains'],
+    subtypes: 'Plains',
     overrideCategory: MC.Recursion,
     combos: [
       {
@@ -689,7 +689,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     name: `Arctic Treeline`,
     overrideCategory: MC.MulticolorLand,
     additionalTypes: [CT.Snow],
-    subtypes: ['Plains'],
+    subtypes: 'Plains',
   },
   {
     name: `Lazotep Quarry`,
@@ -714,6 +714,6 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   },
   {
     name: `Planar Nexus`,
-    subtypes: ['Sphere'],
+    subtypes: 'Sphere',
   },
 ];
