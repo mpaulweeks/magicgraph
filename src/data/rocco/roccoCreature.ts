@@ -399,7 +399,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     additionalTypes: [CT.Legendary],
     subtypes: 'Squirrel',
     mc: '3G',
-    tags: [RT.WantsGoWide, RT.HasKeywords],
+    tags: [RT.WantsGoWide, RT.HasKeywords, RT.WantsLure],
   },
   {
     name: `Anger`,
@@ -473,7 +473,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     additionalTypes: [CT.Legendary],
     subtypes: 'God',
     mc: '2G',
-    tags: [RT.HasKeywords, RT.GivesPower, RT.HasDeathtouch],
+    tags: [RT.HasKeywords, RT.GivesPower, RT.HasDeathtouch, RT.WantsLure],
   },
   {
     name: `Oketra the True`,
@@ -661,5 +661,67 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     subtypes: 'Human Warrior',
     mc: '3RG',
     tags: [RT.GivesHaste, RT.UntapsCreature, RT.HasKeywords],
+  },
+  {
+    name: `Elven Warhounds`,
+    subtypes: 'Dog',
+    mc: '3G',
+    tags: [RT.WantsLure],
+  },
+  {
+    name: `Endbringer`,
+    subtypes: 'Eldrazi',
+    mc: '5C',
+    tags: [RT.WantsDeathtouchWhileTapped, RT.HasTapAbility],
+  },
+  {
+    name: `Harmonic Sliver`,
+    subtypes: 'Sliver',
+    mc: '1WG',
+    tags: [RT.HasETB],
+  },
+  {
+    name: `Hofri Ghostforge`,
+    subtypes: 'Dward Cleric',
+    mc: '3WR',
+    tags: [],
+    combos: [
+      {
+        relationship: RE.CombosWith,
+        isMatch: o => o.subtypes.any('Spirit'),
+      },
+    ],
+  },
+  {
+    name: `Rabbit Battery`,
+    additionalTypes: [CT.Artifact, CT.Equipment],
+    subtypes: 'Rabbit',
+    mc: 'R',
+    tags: [RT.GivesHaste],
+  },
+  {
+    name: `Stoneforge Mystic`,
+    subtypes: 'Kor Artificer',
+    mc: '1W',
+    tags: [RT.HasETB, RT.TutorsEquipment, RT.HasTapAbility],
+  },
+  {
+    name: `Trostani, Selesnya's Voice`,
+    additionalTypes: [CT.Legendary],
+    subtypes: 'Dryad',
+    mc: 'GGWW',
+    tags: [RT.WantsTokens, RT.WantsCreatureETBs, RT.GainsLife],
+  },
+  {
+    name: `Welcoming Vampire`,
+    subtypes: 'Vampire',
+    mc: '2W',
+    tags: [RT.WantsCreatureETBs],
+  },
+  {
+    name: `Sylvan Basilisk`,
+    subtypes: 'Basilisk',
+    mc: '3GG',
+    tags: [RT.WantsLure],
   },
 ];

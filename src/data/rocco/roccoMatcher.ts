@@ -94,6 +94,10 @@ export const RocMatchers: Matcher[] = [
   },
   {
     relationship: RE.CombosWith,
+    isMatch: (a, b) => a.tags.any(RT.WantsLure) && b.tags.any(RT.GivesLure),
+  },
+  {
+    relationship: RE.CombosWith,
     isMatch: (a, b) =>
       a.tags.any(RT.WantsMassTribal) &&
       b.tags.any(RT.GivesMassTribal, RT.GivesConspiracy),

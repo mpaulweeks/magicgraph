@@ -61,6 +61,7 @@ export enum RoccoTag {
   WantsPower = 'WantsPower',
   WantsTokens = 'WantsTokens',
   WantsGoWide = 'WantsGoWide',
+  WantsLure = 'WantsLure',
 
   LifegainTrigger = 'LifegainTrigger',
   GainsLife = 'GainsLife',

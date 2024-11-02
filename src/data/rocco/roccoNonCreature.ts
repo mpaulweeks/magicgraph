@@ -162,4 +162,19 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [
       },
     ],
   },
+  {
+    name: `Nemesis Mask`,
+    types: [CT.Artifact, CT.Equipment],
+    tags: [RT.GivesLure],
+  },
+  {
+    name: `Tocasia's Welcome`,
+    types: [CT.Enchantment],
+    tags: [RT.WantsTokens, RT.WantsCreatureETBs],
+  },
+  {
+    name: `Fighter Class`,
+    types: [CT.Enchantment],
+    tags: [RT.TutorsEquipment, RT.GivesLure],
+  },
 ];

@@ -22,6 +22,7 @@ Toski, Bearer of Secrets
 
 Aura Shards
 Birthing Pod
+Fighter Class
 
 Bane of Progress
 Cataclysmic Gearhulk
@@ -62,7 +63,6 @@ Rohirrim Chargers
 Stonehewer Giant
 
 Angel of Condemnation
-Arwen, Mortal Queen
 Crashing Drawbridge
 Nearheath Pilgrim
 Nightshade Peddler
@@ -88,11 +88,24 @@ const choppingBlock = parseList(`
 
 const pending = parseList(`
 Nacatl War-Pride
+Elven Warhounds
+Endbringer
+Enduring Innocence
+Harmonic Sliver
+Hofri Ghostforge
+Nemesis Mask
+Rabbit Battery
+Tocasia's Welcome
+Stoneforge Mystic
+Trostani, Selesnya's Voice
+Welcoming Vampire
+Sylvan Basilisk
 `);
 
 const rejected = parseList(`
 Angelic Skirmisher
 
+Arwen, Mortal Queen
 Temur Sabertooth
 Captain Sisay
 Atla Palani, Nest Tender
