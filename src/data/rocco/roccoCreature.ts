@@ -580,7 +580,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     name: `Viashino Heretic`,
     subtypes: 'Lizard',
     mc: '1R',
-    tags: [RT.HasTapAbility],
+    tags: [RT.HasTapAbility, RT.WantsLifelink],
   },
   {
     name: `Hope Tender`,
@@ -723,5 +723,17 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     subtypes: 'Basilisk',
     mc: '3GG',
     tags: [RT.WantsLure],
+  },
+  {
+    name: `Heliod, Sun-Crowned`,
+    additionalTypes: [CT.Enchantment, CT.Legendary],
+    subtypes: 'God',
+    mc: '2W',
+    tags: [
+      RT.GivesLifelink,
+      RT.HasKeywords,
+      RT.GivesPlusCounters,
+      RT.LifegainTrigger,
+    ],
   },
 ];

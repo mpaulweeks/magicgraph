@@ -100,6 +100,7 @@ Stoneforge Mystic
 Trostani, Selesnya's Voice
 Welcoming Vampire
 Sylvan Basilisk
+Heliod, Sun-Crowned
 `);
 
 const rejected = parseList(`
