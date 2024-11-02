@@ -9,6 +9,7 @@ export const RoccoCategoryColorMap = {
 
 export enum RoccoTag {
   BlinksSelf = 'BlinksSelf',
+  BlinksOther = 'BlinksOther',
   BouncesSelf = 'BouncesSelf',
   BouncesElf = 'BouncesElf',
   BouncesCreature = 'BouncesCreature',
@@ -16,6 +17,7 @@ export enum RoccoTag {
 
   HasETB = 'HasETB',
   WantsCreatureETBs = 'WantsCreatureETBs',
+  WantsCreatureCast = 'WantsCreatureCast',
   WantsNonTokenETBs = 'WantsNonTokenETBs',
   WantsLTBs = 'WantsLTBs',
 
@@ -31,7 +33,9 @@ export enum RoccoTag {
   MakesTokens = 'MakesTokens',
   MakesElfTokens = 'MakesElfTokens',
   MakesSmallTokens = 'MakesSmallTokens',
+  BuffsElves = 'BuffsElves',
 
+  HasDeathtouch = 'HasDeathtouch',
   GivesMassTribal = 'GivesMassTribal',
   GivesConspiracy = 'GivesConspiracy',
   GivesHaste = 'GivesHaste',
@@ -42,6 +46,7 @@ export enum RoccoTag {
   GivesIndestructible = 'GivesIndestructible',
   GivesPlusCounters = 'GivesPlusCounters',
   GivesPower = 'GivesPower',
+  GivesLure = 'GivesLure',
 
   WantsMassTribal = 'WantsMassTribal',
   WantsConspiracy = 'WantsConspiracy',
@@ -62,14 +67,22 @@ export enum RoccoTag {
 
   HasTapAbility = 'HasTapAbility',
   UntapsCreature = 'UntapsCreature',
+  UntapsLand = 'UntapsLand',
+  NeedsFewerLands = 'NeedsFewerLands',
   TutorsEquipment = 'TutorsEquipment',
   TutorsLand = 'TutorsLand',
   TutorsLegends = 'TutorsLegends',
   AttackTrigger = 'AttackTrigger',
+  VulnerableAttacker = 'VulnerableAttacker',
+  Exerts = 'Exerts',
+  HatesColor = 'HatesColor',
+  ChangesColor = 'ChangesColor',
 }
 
 export enum RoccoEdge {
   CombosWith = 'Combos With',
+  Untap = 'Untap',
+  Haste = 'Haste',
   Buffs = 'Buffs',
   Tutors = 'Tutors',
 

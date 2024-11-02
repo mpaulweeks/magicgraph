@@ -144,4 +144,24 @@ export const NonCreatures: Omit<CardDraft, 'category'>[] = [
     types: [CT.Land, CT.Legendary],
     tags: [RT.WantsGoWide],
   },
+  {
+    name: `Birthing Pod`,
+    types: [CT.Artifact],
+    tags: [RT.WantsTokens],
+  },
+  {
+    name: `Helm of the Host`,
+    types: [CT.Legendary, CT.Artifact, CT.Equipment],
+    tags: [RT.MakesTokens],
+  },
+  {
+    name: `Selesnya Sanctuary`,
+    types: [CT.Land],
+    combos: [
+      {
+        relationship: RE.CombosWith,
+        isMatch: o => o.tags.any(RT.UntapsLand, RT.NeedsFewerLands),
+      },
+    ],
+  },
 ];

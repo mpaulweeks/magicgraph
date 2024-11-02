@@ -14,102 +14,121 @@ import {
 const current = parseList(`
 Rocco, Cabaretti Caterer
 
-Fauna Shaman
-Temur Sabertooth
-Wirewood Symbiote
+Selesnya Sanctuary
 
-Arwen, Mortal Queen
-Atla Palani, Nest Tender
-Forgotten Ancient
-Heartless Hidetsugu
-Immaculate Magistrate
-Krenko, Tin Street Kingpin
-Mirror Entity
-Nearheath Pilgrim
-Nightshade Peddler
-Norin the Wary
-Odric, Lunarch Marshal
-Purphoros, Bronze-Blooded
-Ronin Cliffrider
-Saltskitter
-Saryth, the Viper's Fang
-Scalding Salamander
-Squee, Goblin Nabob
-Stonehewer Giant
-Swathcutter Giant
-Thundering Mightmare
-Wolverine Riders
-
-Jaya Ballard, Task Mage
-Peacekeeper
-Spikeshot Elder
-Squallmonger
-Stonecloaker
-
-Farhaven Elf
-Gala Greeters
-Heronblade Elite
-Kami of Whispered Hopes
-Scholar of New Horizons
-Shigeki, Jukai Visionary
-Wood Elves
-
-Mentor of the Meek
 Ohran Frostfang
 Soul of the Harvest
 Toski, Bearer of Secrets
 
-Anger
-Genesis
-Glory
-
-Norin the Wary
-Saltskitter
-Stonecloaker
-Squee, Goblin Nabob
-
-Sword of Kaldra
-Shield of Kaldra
-Helm of Kaldra
-Basilisk Collar
-Guardian Project
-Bow of Nylea
 Aura Shards
-Confusion in the Ranks
-Maskwood Nexus
+Birthing Pod
 
-Oketra the True
-Thorn Mammoth
-Magus of the Disk
-Primeval Herald
 Bane of Progress
+Cataclysmic Gearhulk
+Devout Witness
+Intrepid Hero
+Jaya Ballard, Task Mage
+Loran of the Third Path
+Magus of the Disk
 Nullmage Advocate
+Squallmonger
+Stun Sniper
+Tempting Licid
+Thorn Mammoth
+Ulvenwald Tracker
+Viashino Heretic
 
-Okina, Temple to the Grandfathers
-Eiganjo Castle
-Shinka, the Bloodsoaked Keep
+Gala Greeters
+Heronblade Elite
+Hope Tender
+Joraga Treespeaker
+Scholar of New Horizons
+Scuttlemutt
+Weathered Wayfarer
+White Plume Adventurer
+
+God-Eternal Oketra
+Heartless Hidetsugu
+Illustrious Wanderglyph
+Tendershoot Dryad
+Wolverine Riders
+
+Dust Elemental
+Whitemane Lion
+Wirewood Symbiote
+
+Fauna Shaman
+Rohirrim Chargers
+Stonehewer Giant
+
+Angel of Condemnation
+Arwen, Mortal Queen
+Crashing Drawbridge
+Nearheath Pilgrim
+Nightshade Peddler
+Norin the Wary
+Odric, Lunarch Marshal
+Rhonas the Indomitable
+Ronin Cliffrider
+Samut, Voice of Dissent
+Saryth, the Viper's Fang
+Scalding Salamander
+Squee, Goblin Nabob
 Trostani, Three Whispers
+
+Basilisk Collar
+Helm of Kaldra
+Helm of the Host
+Shield of Kaldra
+Sword of Kaldra
 `);
 
 const choppingBlock = parseList(`
 `);
 
 const pending = parseList(`
-Angelic Skirmisher
-Rhonas the Indomitable
-Captain Sisay
-Weathered Wayfarer
-Sokenzan, Crucible of Defiance
-Minas Tirith
 Nacatl War-Pride
 `);
 
 const rejected = parseList(`
+Angelic Skirmisher
+
+Temur Sabertooth
+Captain Sisay
+Atla Palani, Nest Tender
+Forgotten Ancient
+Immaculate Magistrate
+Krenko, Tin Street Kingpin
+Mirror Entity
+Purphoros, Bronze-Blooded
+Saltskitter
+Swathcutter Giant
+Thundering Mightmare
+Peacekeeper
+Spikeshot Elder
+Stonecloaker
+Farhaven Elf
+Kami of Whispered Hopes
+Shigeki, Jukai Visionary
+Wood Elves
+Mentor of the Meek
+Anger
+Genesis
+Glory
+Guardian Project
+Bow of Nylea
+Confusion in the Ranks
+Maskwood Nexus
+Oketra the True
+Primeval Herald
+Okina, Temple to the Grandfathers
+Eiganjo Castle
+Shinka, the Bloodsoaked Keep
+
 Crested Sunmare
 Cartographer's Hawk
 Khârn the Betrayer
 Etali, Primal Storm
-Whitemane Lion
 Sun Titan
 Soltari Foot Soldier
 Spore Frog

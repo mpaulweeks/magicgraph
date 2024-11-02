@@ -63,7 +63,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     subtypes: ['Cat'],
     mc: '1W',
     power: 2,
-    tags: [RT.BouncesSelf, RT.BouncesCreature, RT.HasETB],
+    tags: [RT.BouncesSelf, RT.HasETB],
   },
   {
     name: `Stonecloaker`,
@@ -170,6 +170,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     mc: '2R',
     tags: [
       RT.AttackTrigger,
+      RT.VulnerableAttacker,
       RT.WantsPower,
       RT.MakesTokens,
       RT.MakesSmallTokens,
@@ -288,6 +289,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
       RT.WantsDeathtouchWhileTapped,
       RT.WantsLifelink,
       RT.WantsIndestructible,
+      RT.HatesColor,
     ],
   },
   {
@@ -312,7 +314,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     name: `Cartographer's Hawk`,
     subtypes: ['Bird'],
     mc: '1W',
-    tags: [RT.AttackTrigger],
+    tags: [RT.AttackTrigger, RT.NeedsFewerLands],
   },
   {
     name: `Farhaven Elf`,
@@ -439,7 +441,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     name: `Magus of the Disk`,
     subtypes: ['Human', 'Wizard'],
     mc: '2WW',
-    tags: [RT.WantsIndestructible, RT.HasTapAbility],
+    tags: [RT.WantsIndestructible, RT.HasTapAbility, RT.WantsBounce],
   },
   {
     name: `Khârn the Betrayer`,
@@ -451,7 +453,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     name: `Primeval Herald`,
     subtypes: ['Elf', 'Scout'],
     mc: '3G',
-    tags: [RT.HasETB, RT.AttackTrigger],
+    tags: [RT.HasETB, RT.VulnerableAttacker, RT.AttackTrigger],
   },
   {
     name: `Etali, Primal Storm`,
@@ -471,7 +473,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     additionalTypes: [CT.Legendary],
     subtypes: ['God'],
     mc: '2G',
-    tags: [RT.HasKeywords, RT.GivesPower],
+    tags: [RT.HasKeywords, RT.GivesPower, RT.HasDeathtouch],
   },
   {
     name: `Oketra the True`,
@@ -503,7 +505,7 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
     name: `Weathered Wayfarer`,
     subtypes: ['Human', 'Nomad', 'Cleric'],
     mc: 'W',
-    tags: [RT.TutorsLand],
+    tags: [RT.TutorsLand, RT.NeedsFewerLands, RT.HasTapAbility],
   },
   {
     name: `Trostani, Three Whispers`,
@@ -522,6 +524,142 @@ export const Creatures: (Omit<CardDraft, 'types' | 'category'> & {
       RT.WantsDeathtouchWhileAttacking,
       RT.WantsDeathtouchWhileTapped,
       RT.GivesEvasion,
+      RT.VulnerableAttacker,
     ],
+  },
+
+  {
+    name: `Cataclysmic Gearhulk`,
+    additionalTypes: [CT.Artifact],
+    subtypes: [],
+    mc: '3WW',
+    tags: [RT.HasETB],
+  },
+  {
+    name: `Devout Witness`,
+    subtypes: [],
+    mc: '2W',
+    tags: [RT.HasTapAbility, RT.NeedsDiscard],
+  },
+  {
+    name: `Intrepid Hero`,
+    subtypes: [],
+    mc: '2W',
+    tags: [RT.HasTapAbility],
+  },
+  {
+    name: `Loran of the Third Path`,
+    subtypes: [],
+    mc: '2W',
+    tags: [RT.HasTapAbility, RT.HasETB],
+  },
+  {
+    name: `Stun Sniper`,
+    subtypes: [],
+    mc: 'RW',
+    tags: [RT.HasTapAbility, RT.WantsDeathtouchWhileTapped],
+  },
+  {
+    name: `Tempting Licid`,
+    subtypes: [],
+    mc: '2G',
+    tags: [RT.GivesLure],
+  },
+  {
+    name: `Ulvenwald Tracker`,
+    subtypes: [],
+    mc: 'G',
+    combos: [
+      {
+        relationship: RE.CombosWith,
+        isMatch: o => o.tags.any(RT.HasDeathtouch, RT.GivesDeathtouchAlways),
+      },
+    ],
+  },
+  {
+    name: `Viashino Heretic`,
+    subtypes: [],
+    mc: '1R',
+    tags: [RT.HasTapAbility],
+  },
+  {
+    name: `Hope Tender`,
+    subtypes: [],
+    mc: '1G',
+    tags: [RT.HasTapAbility, RT.Exerts, RT.UntapsLand],
+  },
+  {
+    name: `Joraga Treespeaker`,
+    subtypes: ['Elf'],
+    mc: 'G',
+    tags: [RT.HasTapAbility, RT.GivesPlusCounters, RT.BuffsElves],
+  },
+  {
+    name: `Scuttlemutt`,
+    additionalTypes: [CT.Artifact],
+    subtypes: [],
+    mc: '3',
+    tags: [RT.HasTapAbility, RT.ChangesColor],
+  },
+  {
+    name: `White Plume Adventurer`,
+    subtypes: [],
+    mc: '2W',
+    tags: [RT.UntapsCreature],
+  },
+  {
+    name: `God-Eternal Oketra`,
+    subtypes: [],
+    mc: '3WW',
+    tags: [RT.MakesTokens, RT.WantsCreatureCast],
+  },
+  {
+    name: `Illustrious Wanderglyph`,
+    subtypes: [],
+    mc: '3WW',
+    tags: [RT.MakesSmallTokens, RT.MakesTokens],
+  },
+  {
+    name: `Tendershoot Dryad`,
+    subtypes: [],
+    mc: '3GG',
+    tags: [RT.MakesSmallTokens, RT.MakesTokens],
+  },
+  {
+    name: `Dust Elemental`,
+    subtypes: [],
+    mc: '2WW',
+    tags: [RT.BouncesSelf, RT.BouncesCreature],
+  },
+  {
+    name: `Rohirrim Chargers`,
+    subtypes: [],
+    mc: '2RW',
+    tags: [RT.AttackTrigger, RT.VulnerableAttacker],
+    combos: [
+      {
+        relationship: RE.CombosWith,
+        isMatch: o => o.tags.any(RT.Exerts),
+      },
+    ],
+  },
+  {
+    name: `Angel of Condemnation`,
+    subtypes: [],
+    mc: '2WW',
+    tags: [RT.HasTapAbility, RT.Exerts, RT.BlinksOther],
+  },
+  {
+    name: `Crashing Drawbridge`,
+    additionalTypes: [CT.Artifact],
+    subtypes: [],
+    mc: '2',
+    tags: [RT.GivesHaste],
+  },
+  {
+    name: `Samut, Voice of Dissent`,
+    subtypes: [],
+    mc: '3RG',
+    tags: [RT.GivesHaste, RT.UntapsCreature, RT.HasKeywords],
   },
 ];
