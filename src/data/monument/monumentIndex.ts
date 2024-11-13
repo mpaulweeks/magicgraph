@@ -12,111 +12,110 @@ import {
 } from './monumentTypes';
 
 const current = parseList(`
-Amareth, the Lustrous
-Deserted Temple
+Thalia and The Gitrog Monster
+
+Argent Dais
+Basilisk Collar
+Nemesis Mask
+Haywire Mite
+Invasion of Fiora // Marchesa, Resolute Monarch
+Tempting Licid
+Act of Authority
+Aura Shards
+Binding the Old Gods
+Call to the Grave
+Indrik Umbra
+Kaya the Inexorable
+Kaya, Intangible Slayer
+Nissa, Ascended Animist
+The Eternal Wanderer
+Ugin, the Spirit Dragon
+
+Amulet of Vigor
+Scaretiller
+Blossoming Tortoise
+Innocuous Researcher
+Beledros Witherbloom
+Erinis, Gloom Stalker
+
+Mirage Mirror
+Nesting Dovehawk
+Timber Protector
+Divine Visitation
+The Book of Exalted Deeds
+Mondrak, Glory Dominus
+Trostani, Selesnya's Voice
+Athreos, Shroud-Veiled
+
+Staff of Titania
+Crested Sunmare
+Nacatl War-Pride
+
+Necropotence
+The One Ring
+
 Expedition Map
-Field of the Dead
-Kiora Bests the Sea God
+Sowing Mycospawn
+Weathered Wayfarer
+Wight of the Reliquary
+Hour of Promise
+Nylea's Intervention
+Pir's Whim
+Reap and Sow
+Sylvan Scrying
+Tempt with Discovery
+
+Forbidden Orchard
 Lotus Field
-Maze of Ith
-Mirrex
-Monument to Perfection
-Moritte of the Frost
-Nesting Grounds
 Thawing Glaciers
 The Mycosynth Gardens
 Thespian's Stage
-Urza's Saga
-Yavimaya, Cradle of Growth
+Urza's Cave
 Vesuva
-Weathered Wayfarer
-Mondrak, Glory Dominus
-Sensei's Divining Top
-Grove of the Guardian
-Minamo, School at Water's Edge
-Captain Sisay
-Blossoming Tortoise
-Scaretiller
+
+Arena
+Cabal Coffers
+Glacial Chasm
+Maze of Ith
+Hall of the Bandit Lord
 Dark Depths
 
-Shorikai, Genesis Engine
-Doubling Season
+Urza's Saga
 Echoing Deeps
-
-Doppelgang
-Nacatl War-Pride
-Mirage Mirror
-
-Basilisk Collar
-
-The One Ring
-Hall of the Bandit Lord
-
-Crested Sunmare
-
-The Shire
-Divine Visitation
-Trostani, Selesnya's Voice
+Field of the Dead
+Grove of the Guardian
+Karn's Bastion
+Mirrex
 Mirrorpool
-
-Elspeth Conquers Death
-Innocuous Researcher
-Song of the Dryads
-Forbidden Orchard
 Mutavault
-Progenitor Mimic
+Nesting Grounds
+The Monumental Facade
+Vault of the Archangel
+Westvale Abbey // Ormendahl, Profane Prince
 
-Littjara Mirrorlake
-The Eternal Wanderer
-
-The Night of the Doctor
-
-Faceless Haven
-Cleaver Skaab
-Timber Protector
-Keeper of the Accord
-
-Nesting Dovehawk
-Vault 75: Middle School
-Phyrexian Dreadnought
+Glasswing Grace // Age-Graced Chapel
+Strength of the Harvest // Haven of the Harvest
+Revitalizing Repast // Old-Growth Grove
+Bojuka Bog
 Emeria, the Sky Ruin
-Dryad of the Ilysian Grove
-
-Selvala, Explorer Returned
-
-Urza's Cave
-Sowing Mycospawn
-Arctic Treeline
-Search for Glory
-
-Tolaria West
-Restless Anchorage
-The Curse of Fenric
-Replication Technique
-Amulet of Vigor
-The Book of Exalted Deeds
-Evolution Witness
-
-Shadow of the Second Sun
-Six
-Into the North
-Ugin, the Spirit Dragon
-Tiller Engine
-
-Arixmethes, Slumbering Isle
+Lair of the Hydra
+Monumental Henge
+Riftstone Portal
 Shifting Woodland
-Argent Dais
+The Shire
+Urborg, Tomb of Yawgmoth
+Yavimaya, Cradle of Growth
 
-Swarmyard
+Monument to Perfection
+Thaumatic Compass // Spires of Orazca
+Prismatic Omen
+Dryad of the Ilysian Grove
 `);
 
 const choppingBlock = parseList(`
 `);
 
 const pending = parseList(`
-Shapesharer
-Proteus Staff
-
 Runed Stalactite
 
 Endbringer
@@ -128,19 +127,13 @@ Three Blind Mice
 Conclave Evangelist
 Ocelot Pride
 Boseiju, Who Endures
-Drowner of Truth
-Strength of the Harvest
-Suppression Ray
 Mosswort Bridge
-Prismatic Omen
 Planar Nexus
-Meloku the Clouded Mirror
 Trade Routes
 Scryb Ranger
 Zimone, Quandrix Prodigy
-Budoka Gardener
+Budoka Gardener // Dokai, Weaver of Life
 
-Arcane Artisan
 Helm of the Host
 Bramble Sovereign
 Trenzalore Clocktower
@@ -149,9 +142,51 @@ Oswald Fiddlebender
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Arcane Artisan
+Meloku the Clouded Mirror
+Shapesharer
+Proteus Staff
+Drowner of Truth // Drowned Jungle
+Suppression Ray // Orderly Plaza
+
+Swarmyard
+Faceless Haven
+Littjara Mirrorlake
+Minamo, School at Water's Edge
+Tolaria West
+Deserted Temple
+Restless Anchorage
+Arctic Treeline
+Amareth, the Lustrous
+Kiora Bests the Sea God
+Moritte of the Frost
+Selvala, Explorer Returned
+Elspeth Conquers Death
+Captain Sisay
+Sensei's Divining Top
+The Night of the Doctor
+Shorikai, Genesis Engine
+Doubling Season
+Doppelgang
+Song of the Dryads
+Cleaver Skaab
+Progenitor Mimic
+Keeper of the Accord
+Replication Technique
+Vault 75: Middle School
+Phyrexian Dreadnought
+Search for Glory
+Into the North
+The Curse of Fenric
+Evolution Witness
+Shadow of the Second Sun
+Six
+Tiller Engine
+Arixmethes, Slumbering Isle
+Urza, Lord High Artificer
+
 Lazotep Quarry
 
-Karn's Bastion
 Yenna, Redtooth Regent
 Imprisoned in the Moon
 
@@ -183,12 +218,10 @@ Hall of Heliod's Generosity
 Dust Bowl
 Selesnya Eulogist
 
-Glacial Chasm
 Restless Prairie
 Lumbering Falls
 Strict Proctor
 Esika's Chariot
-Aura Shards
 
 Blinkmoth Nexus
 Arcane Heist
@@ -250,7 +283,6 @@ Recycle
 Reliquary Tower
 Sun Titan
 Memnarch
-Thaumatic Compass // Spires of Orazca
 Essence of the Wild
 Lithoform Engine
 Tomb of the Spirit Dragon
@@ -273,7 +305,6 @@ Sinister Concierge
 The World Spell
 The Bath Song
 Thelonite Druid
-Urborg, Tomb of Yawgmoth
 Roots of Life
 Karma
 Hadana's Climb // Winged Temple of Orazca
@@ -311,7 +342,6 @@ Kindred Discovery
 Perilous Forays
 Solemnity
 Zopandrel, Hunger Dominus
-Riftstone Portal
 Gavony Township
 Animation Module
 Song of Eärendil
@@ -334,7 +364,6 @@ Krosan Verge
 Vitu-Ghazi, the City-Tree
 The Fall of Lord Konda // Fragment of Konda
 Jalira, Master Polymorphist
-Staff of Titania
 Canopy Vista
 Dismiss into Dream
 Prairie Stream
@@ -374,7 +403,6 @@ Myojin of Life's Web
 Myojin of Roaring Blades
 Myojin of Seeing Winds
 Nightmare Lash
-Nissa, Ascended Animist
 Novablast Wurm
 Oath of Lieges
 Okina, Temple to the Grandfathers
@@ -463,8 +491,9 @@ const CategoryColorMap: Record<MonumentCategory, string> = {
 export const MonumentData: DeckData = {
   name: 'Monument.dec',
   description:
-    'Bant deck that tutors nonbasic lands to form multiple small A/B combos',
+    'Deck that tutors nonbasic lands to form multiple small A/B combos',
   notes: [
+    '2023/11/13: Swap Bant for Abzan to gain more threats + better commander.',
     '2024/04/25: Reducing the curve / focusing on mana efficiency (eg cutting Spine of Ish Sah).',
     '2024/04/11: Minimize Monunent package to basics and utility spheres, now has exactly 9 sources.',
     '2023/11/09: New criteria for Sagas: Stage 2 must be spammable. Looping Stage 1 requires having Nesting Grounds already in play and mana to spare.',
@@ -477,8 +506,12 @@ export const MonumentData: DeckData = {
       url: 'https://tappedout.net/mtg-decks/monument-to-hubris/',
     },
     {
-      name: 'Monument to Bant',
+      name: 'Monument to Bant (retired)',
       url: 'https://tappedout.net/mtg-decks/monument-to-bant/',
+    },
+    {
+      name: 'Monument to Death',
+      url: 'https://tappedout.net/mtg-decks/monument-to-death/',
     },
   ],
   cardDrafts: collated.cardDrafts,
