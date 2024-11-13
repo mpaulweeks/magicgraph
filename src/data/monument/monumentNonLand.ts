@@ -2178,6 +2178,18 @@ export const NonLands: CardDraft[] = [
     ],
     category: MC.Threat,
   },
+  {
+    name: `Wight of the Reliquary`,
+    mc: 'GB',
+    types: [CT.Creature],
+    subtypes: 'Zombie Knight',
+    tags: [
+      MT.TutorsLand,
+      MT.SacrificeOutletCreature,
+      MT.UsesDisposableCreatureTokens,
+    ],
+    category: MC.Tutor,
+  },
 ];
 
 const todo = `
@@ -2196,13 +2208,6 @@ Beledros Witherbloom
 Erinis, Gloom Stalker
 Athreos, Shroud-Veiled
 Necropotence
-Wight of the Reliquary
-Hour of Promise
-Nylea's Intervention
-Pir's Whim
-Reap and Sow
-Sylvan Scrying
-Tempt with Discovery
 Glasswing Grace // Age-Graced Chapel
 Strength of the Harvest // Haven of the Harvest
 Revitalizing Repast // Old-Growth Grove
