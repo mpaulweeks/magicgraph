@@ -55,15 +55,8 @@ Necropotence
 The One Ring
 
 Expedition Map
-Sowing Mycospawn
 Weathered Wayfarer
 Wight of the Reliquary
-Hour of Promise
-Nylea's Intervention
-Pir's Whim
-Reap and Sow
-Sylvan Scrying
-Tempt with Discovery
 
 Forbidden Orchard
 Lotus Field

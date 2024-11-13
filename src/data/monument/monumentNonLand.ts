@@ -2179,3 +2179,46 @@ export const NonLands: CardDraft[] = [
     category: MC.Threat,
   },
 ];
+
+const todo = `
+Thalia and The Gitrog Monster
+Nemesis Mask
+Haywire Mite
+Invasion of Fiora // Marchesa, Resolute Monarch
+Tempting Licid
+Act of Authority
+Binding the Old Gods
+Call to the Grave
+Indrik Umbra
+Kaya the Inexorable
+Kaya, Intangible Slayer
+Beledros Witherbloom
+Erinis, Gloom Stalker
+Athreos, Shroud-Veiled
+Necropotence
+Wight of the Reliquary
+Hour of Promise
+Nylea's Intervention
+Pir's Whim
+Reap and Sow
+Sylvan Scrying
+Tempt with Discovery
+Glasswing Grace // Age-Graced Chapel
+Strength of the Harvest // Haven of the Harvest
+Revitalizing Repast // Old-Growth Grove
+Drowner of Truth // Drowned Jungle
+Suppression Ray // Orderly Plaza
+Combine Chrysalis
+Rhys the Redeemed
+Three Blind Mice
+Conclave Evangelist
+Ocelot Pride
+Trade Routes
+Scryb Ranger
+Zimone, Quandrix Prodigy
+Budoka Gardener // Dokai, Weaver of Life
+Bramble Sovereign
+Trenzalore Clocktower
+Arcane Artisan
+Meloku the Clouded Mirror
+`;

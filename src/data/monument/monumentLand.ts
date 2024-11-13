@@ -716,4 +716,42 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     name: `Planar Nexus`,
     subtypes: 'Sphere',
   },
+  {
+    name: `Arena`,
+    tags: [MT.CannotTapForMana, MT.DealsDamageToCreatures],
+  },
+  {
+    name: `Cabal Coffers`,
+    tags: [MT.CannotTapForMana, MT.CaresAboutSwamps],
+  },
+  {
+    name: `The Monumental Facade`,
+    subtypes: 'Sphere',
+    tags: [MT.HasAbilityCounters],
+  },
+  {
+    name: `Vault of the Archangel`,
+    tags: [],
+  },
+  {
+    name: `Westvale Abbey // Ormendahl, Profane Prince`,
+    tags: [
+      MT.HasTapAbility,
+      MT.MakesCreatureTokens,
+      MT.MakesDisposableTokens,
+      MT.UsesDisposableCreatureTokens,
+    ],
+  },
+  {
+    name: `Bojuka Bog`,
+    tags: [MT.HasETB],
+  },
+  {
+    name: `Lair of the Hydra`,
+    tags: [MT.ManaSink, MT.ManLand],
+  },
+  {
+    name: `Monumental Henge`,
+    tags: [MT.ManaSink, MT.HasTapAbility],
+  },
 ];
