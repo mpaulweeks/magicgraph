@@ -487,7 +487,7 @@ export const MonumentData: DeckData = {
   description:
     'Deck that tutors nonbasic lands to form multiple small A/B combos',
   notes: [
-    '2023/11/13: Swap Bant for Abzan to gain more threats + better commander.',
+    '2024/11/13: Swap Bant for Abzan to gain more threats + better commander.',
     '2024/04/25: Reducing the curve / focusing on mana efficiency (eg cutting Spine of Ish Sah).',
     '2024/04/11: Minimize Monunent package to basics and utility spheres, now has exactly 9 sources.',
     '2023/11/09: New criteria for Sagas: Stage 2 must be spammable. Looping Stage 1 requires having Nesting Grounds already in play and mana to spare.',
@@ -496,16 +496,16 @@ export const MonumentData: DeckData = {
   ],
   links: [
     {
-      name: 'Monument to Hubris (retired)',
-      url: 'https://tappedout.net/mtg-decks/monument-to-hubris/',
+      name: 'Monument to Death',
+      url: 'https://tappedout.net/mtg-decks/monument-to-death/',
     },
     {
       name: 'Monument to Bant (retired)',
       url: 'https://tappedout.net/mtg-decks/monument-to-bant/',
     },
     {
-      name: 'Monument to Death',
-      url: 'https://tappedout.net/mtg-decks/monument-to-death/',
+      name: 'Monument to Hubris (retired)',
+      url: 'https://tappedout.net/mtg-decks/monument-to-hubris/',
     },
   ],
   cardDrafts: collated.cardDrafts,
