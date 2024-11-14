@@ -2190,40 +2190,240 @@ export const NonLands: CardDraft[] = [
     ],
     category: MC.Tutor,
   },
+  {
+    name: `Thalia and The Gitrog Monster`,
+    mc: '1WGB',
+    types: [CT.Creature, CT.Legendary],
+    tags: [MT.HasDeathtouch, MT.UsesDisposableCreatureTokens],
+    category: MC.Draw,
+  },
+  {
+    name: `Nemesis Mask`,
+    mc: '3',
+    types: [CT.Artifact, CT.Equipment],
+    tags: [MT.GivesLure],
+    category: MC.Interaction,
+  },
+  {
+    name: `Haywire Mite`,
+    mc: '1',
+    types: [CT.Creature, CT.Artifact],
+    tags: [MT.SacrificesSelf],
+    category: MC.Interaction,
+  },
+  {
+    name: `Invasion of Fiora // Marchesa, Resolute Monarch`,
+    mc: '4BB',
+    types: [CT.Battle],
+    tags: [MT.RemovesCounters],
+    category: MC.Interaction,
+  },
+  {
+    name: `Tempting Licid`,
+    mc: '2G',
+    types: [CT.Creature],
+    tags: [MT.GivesLure],
+    category: MC.Interaction,
+  },
+  {
+    name: `Act of Authority`,
+    mc: '1WW',
+    types: [CT.Enchantment],
+    tags: [],
+    category: MC.Interaction,
+  },
+  {
+    name: `Binding the Old Gods`,
+    mc: '2BG',
+    types: [CT.Enchantment, CT.Saga],
+    tags: [MT.TutorsForest, MT.GivesDeathtouch],
+    category: MC.Interaction,
+  },
+  {
+    name: `Call to the Grave`,
+    mc: '4B',
+    types: [CT.Enchantment],
+    tags: [MT.UsesZombies, MT.UsesDisposableCreatureTokens, MT.LikesManLands],
+    category: MC.Interaction,
+  },
+  {
+    name: `Indrik Umbra`,
+    mc: '4WG',
+    types: [CT.Enchantment, CT.Aura],
+    tags: [MT.GivesLure],
+    category: MC.Interaction,
+  },
+  {
+    name: `Kaya the Inexorable`,
+    mc: '4WB',
+    types: [CT.Planeswalker, CT.Legendary],
+    tags: [],
+    category: MC.Interaction,
+  },
+  {
+    name: `Kaya, Intangible Slayer`,
+    mc: '3WB',
+    types: [CT.Planeswalker, CT.Legendary],
+    tags: [],
+    category: MC.Interaction,
+  },
+  {
+    name: `Beledros Witherbloom`,
+    mc: '5GB',
+    types: [CT.Creature, CT.Legendary],
+    tags: [
+      MT.MakesGradualTokens,
+      MT.MakesDisposableTokens,
+      MT.MakesCreatureTokens,
+      MT.UntapsAllLands,
+    ],
+    category: MC.Ramp,
+  },
+  {
+    name: `Erinis, Gloom Stalker`,
+    mc: '2G',
+    types: [CT.Creature, CT.Legendary],
+    tags: [MT.HasDeathtouch, MT.ReanimatesLand],
+    category: MC.Ramp,
+  },
+  {
+    name: `Athreos, Shroud-Veiled`,
+    mc: '4WB',
+    types: [CT.Creature, CT.Enchantment, CT.Legendary],
+    tags: [MT.HasAbilityCounters],
+    category: MC.Misc,
+  },
+  {
+    name: `Necropotence`,
+    mc: 'BBB',
+    types: [CT.Enchantment],
+    tags: [],
+    category: MC.Draw,
+  },
+  {
+    name: `Glasswing Grace // Age-Graced Chapel`,
+    mc: '1WB',
+    types: [CT.Enchantment, CT.Aura, CT.Land],
+    tags: [MT.LikesBeingBounced],
+    category: MC.Misc,
+  },
+  {
+    name: `Strength of the Harvest // Haven of the Harvest`,
+    mc: '1GW',
+    types: [CT.Enchantment, CT.Aura, CT.Land],
+    tags: [MT.LikesBeingBounced],
+    category: MC.Misc,
+  },
+  {
+    name: `Revitalizing Repast // Old-Growth Grove`,
+    mc: 'G',
+    types: [CT.Instant, CT.Land],
+    tags: [MT.LikesBeingBounced],
+    category: MC.Misc,
+  },
+  {
+    name: `Drowner of Truth // Drowned Jungle`,
+    mc: '5UG',
+    types: [CT.Creature, CT.Land],
+    tags: [MT.LikesBeingBounced],
+    category: MC.Misc,
+  },
+  {
+    name: `Suppression Ray // Orderly Plaza`,
+    mc: '3WU',
+    types: [CT.Sorcery, CT.Land],
+    tags: [MT.LikesBeingBounced],
+    category: MC.Misc,
+  },
+  {
+    name: `Combine Chrysalis`,
+    mc: '',
+    types: [],
+    tags: [],
+    category: MC.Misc,
+  },
+  {
+    name: `Rhys the Redeemed`,
+    mc: '',
+    types: [],
+    tags: [],
+    category: MC.Misc,
+  },
+  {
+    name: `Three Blind Mice`,
+    mc: '',
+    types: [],
+    tags: [],
+    category: MC.Misc,
+  },
+  {
+    name: `Conclave Evangelist`,
+    mc: '',
+    types: [],
+    tags: [],
+    category: MC.Misc,
+  },
+  {
+    name: `Ocelot Pride`,
+    mc: '',
+    types: [],
+    tags: [],
+    category: MC.Misc,
+  },
+  {
+    name: `Trade Routes`,
+    mc: '',
+    types: [],
+    tags: [],
+    category: MC.Misc,
+  },
+  {
+    name: `Scryb Ranger`,
+    mc: '1G',
+    types: [CT.Creature],
+    tags: [MT.CaresAboutForests, MT.BouncesLand],
+    category: MC.Misc,
+  },
+  {
+    name: `Zimone, Quandrix Prodigy`,
+    mc: '',
+    types: [],
+    tags: [],
+    category: MC.Misc,
+  },
+  {
+    name: `Budoka Gardener // Dokai, Weaver of Life`,
+    mc: '',
+    types: [],
+    tags: [],
+    category: MC.Misc,
+  },
+  {
+    name: `Bramble Sovereign`,
+    mc: '',
+    types: [],
+    tags: [],
+    category: MC.Misc,
+  },
+  {
+    name: `Trenzalore Clocktower`,
+    mc: '',
+    types: [],
+    tags: [],
+    category: MC.Misc,
+  },
+  {
+    name: `Arcane Artisan`,
+    mc: '',
+    types: [],
+    tags: [],
+    category: MC.Misc,
+  },
+  {
+    name: `Meloku the Clouded Mirror`,
+    mc: '',
+    types: [],
+    tags: [],
+    category: MC.Misc,
+  },
 ];
-
-const todo = `
-Thalia and The Gitrog Monster
-Nemesis Mask
-Haywire Mite
-Invasion of Fiora // Marchesa, Resolute Monarch
-Tempting Licid
-Act of Authority
-Binding the Old Gods
-Call to the Grave
-Indrik Umbra
-Kaya the Inexorable
-Kaya, Intangible Slayer
-Beledros Witherbloom
-Erinis, Gloom Stalker
-Athreos, Shroud-Veiled
-Necropotence
-Glasswing Grace // Age-Graced Chapel
-Strength of the Harvest // Haven of the Harvest
-Revitalizing Repast // Old-Growth Grove
-Drowner of Truth // Drowned Jungle
-Suppression Ray // Orderly Plaza
-Combine Chrysalis
-Rhys the Redeemed
-Three Blind Mice
-Conclave Evangelist
-Ocelot Pride
-Trade Routes
-Scryb Ranger
-Zimone, Quandrix Prodigy
-Budoka Gardener // Dokai, Weaver of Life
-Bramble Sovereign
-Trenzalore Clocktower
-Arcane Artisan
-Meloku the Clouded Mirror
-`;

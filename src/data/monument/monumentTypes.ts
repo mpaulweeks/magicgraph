@@ -112,6 +112,9 @@ export enum MonumentTag {
   ManaSink = 'Mana Sink',
   WantsHaste = 'Wants Haste',
   GivesHaste = 'Gives Haste',
+  GivesLure = 'Gives Lure',
+  GivesDeathtouch = 'Gives Deathtouch',
+  HasDeathtouch = 'Has Deathtouch',
 
   VulnerableAttacker = 'Vulnerable Attacker',
 
