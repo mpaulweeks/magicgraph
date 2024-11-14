@@ -754,4 +754,14 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     name: `Monumental Henge`,
     tags: [MT.ManaSink, MT.HasTapAbility],
   },
+  {
+    name: `Indatha Triome`,
+    overrideCategory: MC.MulticolorLand,
+    subtypes: 'Plains Island Forest',
+  },
+  {
+    name: `Murmuring Bosk`,
+    overrideCategory: MC.MulticolorLand,
+    subtypes: 'Forest',
+  },
 ];

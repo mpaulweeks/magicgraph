@@ -20,11 +20,9 @@ Nemesis Mask
 Haywire Mite
 Invasion of Fiora // Marchesa, Resolute Monarch
 Tempting Licid
-Act of Authority
 Aura Shards
 Binding the Old Gods
 Call to the Grave
-Indrik Umbra
 Kaya the Inexorable
 Kaya, Intangible Slayer
 Nissa, Ascended Animist
@@ -66,7 +64,6 @@ Thespian's Stage
 Urza's Cave
 Vesuva
 
-Arena
 Cabal Coffers
 Glacial Chasm
 Maze of Ith
@@ -93,7 +90,6 @@ Bojuka Bog
 Emeria, the Sky Ruin
 Lair of the Hydra
 Monumental Henge
-Riftstone Portal
 Shifting Woodland
 The Shire
 Urborg, Tomb of Yawgmoth
@@ -106,22 +102,30 @@ Dryad of the Ilysian Grove
 `);
 
 const choppingBlock = parseList(`
+Act of Authority
+Arena
+Indrik Umbra
+Riftstone Portal
 `);
 
 const pending = parseList(`
+Indatha Triome
+Murmuring Bosk
 Runed Stalactite
-
 Endbringer
-Combine Chrysalis
-Rhys the Redeemed
-Gargoyle Castle
-
-Three Blind Mice
-Conclave Evangelist
 Ocelot Pride
 Boseiju, Who Endures
 Mosswort Bridge
 Planar Nexus
+`);
+
+// todo add section Illegal for red cards
+const rejected = parseList(`
+Combine Chrysalis
+Rhys the Redeemed
+Gargoyle Castle
+Three Blind Mice
+Conclave Evangelist
 Trade Routes
 Scryb Ranger
 Zimone, Quandrix Prodigy
@@ -131,10 +135,7 @@ Helm of the Host
 Bramble Sovereign
 Trenzalore Clocktower
 Oswald Fiddlebender
-`);
 
-// todo add section Illegal for red cards
-const rejected = parseList(`
 Arcane Artisan
 Meloku the Clouded Mirror
 Shapesharer
