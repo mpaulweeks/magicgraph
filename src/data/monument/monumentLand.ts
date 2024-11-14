@@ -731,7 +731,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   },
   {
     name: `Vault of the Archangel`,
-    tags: [],
+    tags: [MT.GivesDeathtouch],
   },
   {
     name: `Westvale Abbey // Ormendahl, Profane Prince`,

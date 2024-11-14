@@ -447,6 +447,7 @@ export const NonLands: CardDraft[] = [
       MT.MakesMassTokens,
       MT.MakesValuableTokens,
       MT.WantsHaste,
+      MT.HasLure,
     ],
     category: MC.Threat,
   },

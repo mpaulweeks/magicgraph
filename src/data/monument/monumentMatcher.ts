@@ -34,6 +34,16 @@ export const MonMatchers: Matcher[] = [
       a.tags.any(MT.DealsDamageToCreatures) && b.tags.any(MT.Enrage),
   },
   {
+    relationship: ME.CombosWith,
+    isMatch: (a, b) =>
+      a.tags.any(MT.GivesLure) &&
+      b.tags.any(MT.HasDeathtouch, MT.GivesDeathtouch),
+  },
+  {
+    relationship: ME.CombosWith,
+    isMatch: (a, b) => a.tags.any(MT.HasLure) && b.tags.any(MT.GivesDeathtouch),
+  },
+  {
     relationship: ME.Targets,
     isMatch: (a, b) =>
       a.tags.any(MT.TargetsCreatures) && b.tags.any(MT.CaresAboutTargeting),
@@ -186,12 +196,12 @@ export const MonMatchers: Matcher[] = [
     relationship: ME.ManipulatesCounters,
     isMatch: (a, b) =>
       a.tags.any(MT.Proliferates) &&
-      [
-        b.tags.any(MT.HasAbilityCounters),
-        b.tags.any(MT.HasLimitedUseCounters),
-        b.tags.any(MT.PoisonCounters),
-        b.types.any(CT.Saga),
-      ].some(b => b),
+      (b.tags.any(
+        MT.HasAbilityCounters,
+        MT.HasLimitedUseCounters,
+        MT.PoisonCounters,
+      ) ||
+        b.types.any(CT.Saga, CT.Planeswalker)),
   },
   {
     relationship: ME.ManipulatesCounters,
