@@ -859,7 +859,12 @@ export const NonLands: CardDraft[] = [
     name: `Arwen, Mortal Queen`,
     mc: '1WG',
     types: [CT.Creature, CT.Legendary],
-    tags: [MT.HasIndestructible, MT.HasAbilityCounters, MT.HasPlusCounters],
+    tags: [
+      MT.HasIndestructible,
+      MT.HasAbilityCounters,
+      MT.HasPlusCounters,
+      MT.HasLifelinkCounter,
+    ],
     category: MC.Misc,
   },
   {
@@ -915,7 +920,12 @@ export const NonLands: CardDraft[] = [
     name: `Karma`,
     mc: '2WW',
     types: [CT.Enchantment],
-    tags: [MT.CaresAboutSwamps, MT.DealsDamageToPlayers, MT.SundialFriendly],
+    tags: [
+      MT.CaresAboutSwamps,
+      MT.DealsDamageToPlayers,
+      MT.SundialFriendly,
+      MT.WantsLifelinkCounter,
+    ],
     category: MC.Misc,
   },
   {
@@ -1158,6 +1168,7 @@ export const NonLands: CardDraft[] = [
     name: `The Night of the Doctor`,
     mc: '4WW',
     types: [CT.Enchantment, CT.Saga],
+    tags: [MT.HasLifelinkCounter],
     category: MC.Interaction,
   },
   {
@@ -2426,5 +2437,23 @@ export const NonLands: CardDraft[] = [
     types: [],
     tags: [],
     category: MC.Misc,
+  },
+  {
+    name: `Vivien Reid`,
+    mc: '3GG',
+    types: [CT.Planeswalker, CT.Legendary],
+    category: MC.Interaction,
+  },
+  {
+    name: `Pestilence`,
+    mc: '2BB',
+    types: [CT.Enchantment],
+    tags: [
+      MT.LikesManLands,
+      MT.WantsLifelinkCounter,
+      MT.DealsDamageToPlayers,
+      MT.DealsDamageToCreatures,
+    ],
+    category: MC.Interaction,
   },
 ];

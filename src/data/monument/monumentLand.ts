@@ -764,4 +764,12 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
     overrideCategory: MC.MulticolorLand,
     subtypes: 'Forest',
   },
+  {
+    name: `Khalni Garden`,
+    tags: [MT.HasETB, MT.MakesDisposableTokens],
+  },
+  {
+    name: `Sejiri Steppe`,
+    tags: [MT.HasETB],
+  },
 ];

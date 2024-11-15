@@ -143,6 +143,8 @@ export enum MonumentTag {
   UsesZombies = 'Uses Zombies',
   LikesManLands = 'Likes Man Lands',
   HasCipher = 'Has Cipher',
+  HasLifelinkCounter = 'Has Lifelink Counter',
+  WantsLifelinkCounter = 'Wants Lifelink Counter',
 
   ManipulatesTopDeck = 'ManipulatesTopDeck',
   CaresAboutTopdeck = 'CaresAboutTopdeck',

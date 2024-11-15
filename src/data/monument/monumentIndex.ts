@@ -16,7 +16,6 @@ Thalia and The Gitrog Monster
 
 Argent Dais
 Basilisk Collar
-Nemesis Mask
 Haywire Mite
 Invasion of Fiora // Marchesa, Resolute Monarch
 Tempting Licid
@@ -27,9 +26,10 @@ Kaya the Inexorable
 Kaya, Intangible Slayer
 Nissa, Ascended Animist
 The Eternal Wanderer
+Vivien Reid
 Ugin, the Spirit Dragon
-
-Amulet of Vigor
+Pestilence
+The Night of the Doctor
 Scaretiller
 Blossoming Tortoise
 Innocuous Researcher
@@ -43,7 +43,8 @@ Divine Visitation
 The Book of Exalted Deeds
 Mondrak, Glory Dominus
 Trostani, Selesnya's Voice
-Athreos, Shroud-Veiled
+Arwen, Mortal Queen
+Karma
 
 Staff of Titania
 Crested Sunmare
@@ -58,6 +59,7 @@ Wight of the Reliquary
 
 Forbidden Orchard
 Lotus Field
+Murmuring Bosk
 Thawing Glaciers
 The Mycosynth Gardens
 Thespian's Stage
@@ -84,12 +86,12 @@ Vault of the Archangel
 Westvale Abbey // Ormendahl, Profane Prince
 
 Glasswing Grace // Age-Graced Chapel
-Strength of the Harvest // Haven of the Harvest
 Revitalizing Repast // Old-Growth Grove
 Bojuka Bog
 Emeria, the Sky Ruin
 Lair of the Hydra
 Monumental Henge
+Sejiri Steppe
 Shifting Woodland
 The Shire
 Urborg, Tomb of Yawgmoth
@@ -103,14 +105,10 @@ Dryad of the Ilysian Grove
 
 const choppingBlock = parseList(`
 Act of Authority
-Arena
-Indrik Umbra
-Riftstone Portal
 `);
 
 const pending = parseList(`
 Indatha Triome
-Murmuring Bosk
 Runed Stalactite
 Endbringer
 Ocelot Pride
@@ -121,6 +119,14 @@ Planar Nexus
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Athreos, Shroud-Veiled
+Nemesis Mask
+Amulet of Vigor
+Khalni Garden
+Arena
+Riftstone Portal
+Indrik Umbra
+Strength of the Harvest // Haven of the Harvest
 Combine Chrysalis
 Rhys the Redeemed
 Gargoyle Castle
@@ -158,7 +164,6 @@ Selvala, Explorer Returned
 Elspeth Conquers Death
 Captain Sisay
 Sensei's Divining Top
-The Night of the Doctor
 Shorikai, Genesis Engine
 Doubling Season
 Doppelgang
@@ -191,7 +196,6 @@ Stolen Identity
 Inventors' Fair
 Myojin of Blooming Dawn
 Myojin of Towering Might
-Arwen, Mortal Queen
 
 Thornglint Bridge
 Prototype Portal
@@ -300,7 +304,6 @@ The World Spell
 The Bath Song
 Thelonite Druid
 Roots of Life
-Karma
 Hadana's Climb // Winged Temple of Orazca
 Illustrious Wanderglyph
 Prime Speaker Zegana

@@ -85,6 +85,11 @@ export const MonMatchers: Matcher[] = [
       b.tags.any(MT.HasTapAbility),
   },
   {
+    relationship: ME.CombosWith,
+    isMatch: (a, b) =>
+      a.tags.any(MT.HasLifelinkCounter) && b.tags.any(MT.WantsLifelinkCounter),
+  },
+  {
     relationship: ME.Clones,
     isMatch: (a, b) => {
       const canTarget = [
