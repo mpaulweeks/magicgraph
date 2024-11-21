@@ -108,6 +108,7 @@ Act of Authority
 `);
 
 const pending = parseList(`
+Gilraen, Dúnedain Protector
 Indatha Triome
 Runed Stalactite
 Endbringer

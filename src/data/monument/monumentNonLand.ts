@@ -895,7 +895,7 @@ export const NonLands: CardDraft[] = [
     mc: 'W',
     types: [CT.Creature],
     tags: [
-      MT.TutorsLand,
+      MT.TutorsLandToHand,
       MT.TriggersLandfall,
       MT.HasTapAbility,
       MT.WantsLessLands,
@@ -907,7 +907,7 @@ export const NonLands: CardDraft[] = [
     mc: '1WG',
     types: [CT.Creature],
     tags: [
-      MT.TutorsLand,
+      MT.TutorsLandToHand,
       MT.TriggersLandfall,
       MT.SacrificeOutletLand,
       MT.CaresAboutForests,
@@ -1013,7 +1013,12 @@ export const NonLands: CardDraft[] = [
     name: `Staff of Titania`,
     mc: '2',
     types: [CT.Artifact, CT.Equipment],
-    tags: [MT.CaresAboutForests],
+    tags: [
+      MT.CaresAboutForests,
+      MT.MakesGradualTokens,
+      MT.MakesCreatureTokens,
+      MT.MakesDisposableTokens,
+    ],
     category: MC.Threat,
   },
   {
@@ -2059,7 +2064,7 @@ export const NonLands: CardDraft[] = [
     mc: '3G',
     types: [CT.Creature],
     subtypes: 'Eldrazi',
-    tags: [MT.TutorsLand, MT.LikesBeingBounced],
+    tags: [MT.TutorsLandToHand, MT.LikesBeingBounced],
     category: MC.Tutor,
   },
   {
@@ -2196,7 +2201,7 @@ export const NonLands: CardDraft[] = [
     types: [CT.Creature],
     subtypes: 'Zombie Knight',
     tags: [
-      MT.TutorsLand,
+      MT.TutorsLandToHand,
       MT.SacrificeOutletCreature,
       MT.UsesDisposableCreatureTokens,
     ],
@@ -2295,7 +2300,7 @@ export const NonLands: CardDraft[] = [
     name: `Erinis, Gloom Stalker`,
     mc: '2G',
     types: [CT.Creature, CT.Legendary],
-    tags: [MT.HasDeathtouch, MT.ReanimatesLand],
+    tags: [MT.HasDeathtouch, MT.ReanimatesLand, MT.VulnerableAttacker],
     category: MC.Ramp,
   },
   {
@@ -2455,5 +2460,36 @@ export const NonLands: CardDraft[] = [
       MT.DealsDamageToCreatures,
     ],
     category: MC.Interaction,
+  },
+  {
+    name: `Sigiled Sword of Valeron`,
+    mc: '3',
+    types: [CT.Artifact, CT.Equipment],
+    tags: [
+      MT.MakesGradualTokens,
+      MT.MakesCreatureTokens,
+      MT.MakesDisposableTokens,
+    ],
+    category: MC.Buff,
+  },
+  {
+    name: `Charnel Serenade`,
+    mc: '4BB',
+    types: [CT.Sorcery],
+    tags: [MT.HasAgeCounters, MT.SelfMill],
+    category: MC.Recursion,
+  },
+  {
+    name: `Gilraen, Dúnedain Protector`,
+    mc: '2W',
+    types: [CT.Creature, CT.Legendary],
+    tags: [MT.BlinksCreatures, MT.HasLifelinkCounter],
+    category: MC.Misc,
+    combos: [
+      {
+        relationship: ME.ProtectsAttacker,
+        isMatch: other => other.tags.any(MT.VulnerableAttacker),
+      },
+    ],
   },
 ];

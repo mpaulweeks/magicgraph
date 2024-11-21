@@ -63,7 +63,8 @@ export enum MonumentTag {
   TutorsBasicsToHand = 'Tutors Basics to Hand',
   TutorsForest = 'Tutors Forest',
   TutorsPlains = 'Tutors Plains',
-  TutorsLand = 'Tutors Land',
+  TutorsLandToBattlefield = 'Tutors Land To Battlefield',
+  TutorsLandToHand = 'Tutors Land to Hand',
   WantsLessLands = 'WantsLessLands',
 
   Flashback = 'Flashback',
@@ -145,6 +146,7 @@ export enum MonumentTag {
   HasCipher = 'Has Cipher',
   HasLifelinkCounter = 'Has Lifelink Counter',
   WantsLifelinkCounter = 'Wants Lifelink Counter',
+  BlinksCreatures = 'Blinks Creatures',
 
   ManipulatesTopDeck = 'ManipulatesTopDeck',
   CaresAboutTopdeck = 'CaresAboutTopdeck',

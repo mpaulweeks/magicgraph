@@ -296,7 +296,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   {
     name: `Tolaria`,
     additionalTypes: [CT.Legendary],
-    tags: [MT.TargetsCreatures, MT.TutorsLand, MT.HasTapAbility],
+    tags: [MT.TargetsCreatures, MT.HasTapAbility],
   },
   {
     name: `Yavimaya Hollow`,
@@ -473,7 +473,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   {
     name: `Tolaria West`,
     overrideCategory: MC.Tutor,
-    tags: [MT.TutorsLand, MT.LikesBeingBounced],
+    tags: [MT.TutorsLandToHand, MT.LikesBeingBounced],
   },
   {
     name: `Deserted Temple`,
@@ -679,7 +679,7 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   },
   {
     name: `Urza's Cave`,
-    tags: [MT.SacrificesSelf],
+    tags: [MT.SacrificesSelf, MT.TutorsLandToBattlefield],
   },
   {
     name: `Inventors' Fair`,
@@ -771,5 +771,13 @@ export const Lands: (Omit<CardDraft, 'types' | 'category'> & {
   {
     name: `Sejiri Steppe`,
     tags: [MT.HasETB],
+  },
+  {
+    name: `Talon Gates of Madara`,
+    tags: [MT.HasETB],
+  },
+  {
+    name: `Hive of the Eye Tyrant`,
+    tags: [MT.ManLand],
   },
 ];

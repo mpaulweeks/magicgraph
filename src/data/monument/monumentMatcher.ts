@@ -312,6 +312,13 @@ export const MonMatchers: Matcher[] = [
   {
     relationship: ME.CombosWith,
     isMatch: (a, b) =>
+      a.tags.any(MT.TutorsLandToBattlefield) &&
+      b.types.any(CT.Land) &&
+      b.tags.any(MT.HasETB),
+  },
+  {
+    relationship: ME.CombosWith,
+    isMatch: (a, b) =>
       a.tags.any(MT.ManipulatesTopDeck) &&
       b.tags.any(
         MT.CaresAboutTopdeck,
@@ -319,7 +326,8 @@ export const MonMatchers: Matcher[] = [
         MT.TutorsBasicsToHand,
         MT.TutorsForest,
         MT.TutorsPlains,
-        MT.TutorsLand,
+        MT.TutorsLandToBattlefield,
+        MT.TutorsLandToHand,
       ),
   },
   {
