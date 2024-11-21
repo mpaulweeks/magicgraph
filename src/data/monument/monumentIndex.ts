@@ -16,7 +16,6 @@ Thalia and The Gitrog Monster
 
 Argent Dais
 Basilisk Collar
-Haywire Mite
 Invasion of Fiora // Marchesa, Resolute Monarch
 Tempting Licid
 Aura Shards
@@ -44,7 +43,8 @@ The Book of Exalted Deeds
 Mondrak, Glory Dominus
 Trostani, Selesnya's Voice
 Arwen, Mortal Queen
-Karma
+Sigiled Sword of Valeron
+Charnel Serenade
 
 Staff of Titania
 Crested Sunmare
@@ -60,6 +60,7 @@ Wight of the Reliquary
 Forbidden Orchard
 Lotus Field
 Murmuring Bosk
+Talon Gates of Madara
 Thawing Glaciers
 The Mycosynth Gardens
 Thespian's Stage
@@ -85,10 +86,9 @@ The Monumental Facade
 Vault of the Archangel
 Westvale Abbey // Ormendahl, Profane Prince
 
-Glasswing Grace // Age-Graced Chapel
-Revitalizing Repast // Old-Growth Grove
 Bojuka Bog
 Emeria, the Sky Ruin
+Hive of the Eye Tyrant
 Lair of the Hydra
 Monumental Henge
 Sejiri Steppe
@@ -119,6 +119,11 @@ Planar Nexus
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Haywire Mite
+Karma
+Glasswing Grace // Age-Graced Chapel
+Revitalizing Repast // Old-Growth Grove
+
 Athreos, Shroud-Veiled
 Nemesis Mask
 Amulet of Vigor
