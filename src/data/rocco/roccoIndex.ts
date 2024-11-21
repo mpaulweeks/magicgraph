@@ -17,8 +17,9 @@ Rocco, Cabaretti Caterer
 Selesnya Sanctuary
 
 Ohran Frostfang
-Soul of the Harvest
 Toski, Bearer of Secrets
+Enduring Innocence
+Welcoming Vampire
 
 Aura Shards
 Birthing Pod
@@ -68,7 +69,6 @@ Nearheath Pilgrim
 Nightshade Peddler
 Norin the Wary
 Odric, Lunarch Marshal
-Rhonas the Indomitable
 Ronin Cliffrider
 Samut, Voice of Dissent
 Saryth, the Viper's Fang
@@ -90,7 +90,6 @@ const pending = parseList(`
 Nacatl War-Pride
 Elven Warhounds
 Endbringer
-Enduring Innocence
 Harmonic Sliver
 Hofri Ghostforge
 Nemesis Mask
@@ -98,13 +97,14 @@ Rabbit Battery
 Tocasia's Welcome
 Stoneforge Mystic
 Trostani, Selesnya's Voice
-Welcoming Vampire
 Sylvan Basilisk
 Heliod, Sun-Crowned
 `);
 
 const rejected = parseList(`
 Angelic Skirmisher
+Rhonas the Indomitable
+Soul of the Harvest
 
 Arwen, Mortal Queen
 Temur Sabertooth
