@@ -2492,4 +2492,11 @@ export const NonLands: CardDraft[] = [
       },
     ],
   },
+  {
+    name: `Eye of Doom`,
+    mc: '4',
+    types: [CT.Creature, CT.Artifact],
+    tags: [MT.HasLimitedUseCounters],
+    category: MC.Interaction,
+  },
 ];

@@ -27,7 +27,6 @@ Fighter Class
 
 Bane of Progress
 Cataclysmic Gearhulk
-Devout Witness
 Intrepid Hero
 Jaya Ballard, Task Mage
 Loran of the Third Path
@@ -81,6 +80,7 @@ Helm of Kaldra
 Helm of the Host
 Shield of Kaldra
 Sword of Kaldra
+Rabbit Battery
 `);
 
 const choppingBlock = parseList(`
@@ -93,7 +93,6 @@ Endbringer
 Harmonic Sliver
 Hofri Ghostforge
 Nemesis Mask
-Rabbit Battery
 Tocasia's Welcome
 Stoneforge Mystic
 Trostani, Selesnya's Voice
@@ -102,6 +101,7 @@ Heliod, Sun-Crowned
 `);
 
 const rejected = parseList(`
+Devout Witness
 Angelic Skirmisher
 Rhonas the Indomitable
 Soul of the Harvest

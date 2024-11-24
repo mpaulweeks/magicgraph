@@ -34,6 +34,7 @@ Blossoming Tortoise
 Innocuous Researcher
 Beledros Witherbloom
 Erinis, Gloom Stalker
+Eye of Doom
 
 Mirage Mirror
 Nesting Dovehawk
@@ -104,7 +105,6 @@ Dryad of the Ilysian Grove
 `);
 
 const choppingBlock = parseList(`
-Act of Authority
 `);
 
 const pending = parseList(`
@@ -120,6 +120,7 @@ Planar Nexus
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Act of Authority
 Haywire Mite
 Karma
 Glasswing Grace // Age-Graced Chapel
