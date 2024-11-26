@@ -21,7 +21,6 @@ Tempting Licid
 Aura Shards
 Binding the Old Gods
 Call to the Grave
-Kaya the Inexorable
 Kaya, Intangible Slayer
 Nissa, Ascended Animist
 The Eternal Wanderer
@@ -31,7 +30,6 @@ Pestilence
 The Night of the Doctor
 Scaretiller
 Blossoming Tortoise
-Innocuous Researcher
 Beledros Witherbloom
 Erinis, Gloom Stalker
 Eye of Doom
@@ -56,7 +54,6 @@ The One Ring
 
 Expedition Map
 Weathered Wayfarer
-Wight of the Reliquary
 
 Forbidden Orchard
 Lotus Field
@@ -89,7 +86,6 @@ Westvale Abbey // Ormendahl, Profane Prince
 
 Bojuka Bog
 Emeria, the Sky Ruin
-Hive of the Eye Tyrant
 Lair of the Hydra
 Monumental Henge
 Sejiri Steppe
@@ -102,6 +98,12 @@ Monument to Perfection
 Thaumatic Compass // Spires of Orazca
 Prismatic Omen
 Dryad of the Ilysian Grove
+
+Miren, the Moaning Well
+Ulvenwald Hydra
+Realm Seekers
+Crypt Rats
+Manascape Refactor
 `);
 
 const choppingBlock = parseList(`
@@ -120,6 +122,11 @@ Planar Nexus
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Hive of the Eye Tyrant
+Innocuous Researcher
+Kaya the Inexorable
+Wight of the Reliquary
+
 Act of Authority
 Haywire Mite
 Karma
@@ -401,7 +408,6 @@ Kher Keep
 Khârn the Betrayer
 Kiora's Follower
 Krenko, Tin Street Kingpin
-Manascape Refractor
 Moorland Haunt
 Myojin of Life's Web
 Myojin of Roaring Blades
