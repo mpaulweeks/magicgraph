@@ -17,10 +17,8 @@ Thalia and The Gitrog Monster
 Argent Dais
 Basilisk Collar
 Invasion of Fiora // Marchesa, Resolute Monarch
-Tempting Licid
 Aura Shards
 Binding the Old Gods
-Call to the Grave
 Kaya, Intangible Slayer
 Nissa, Ascended Animist
 The Eternal Wanderer
@@ -30,9 +28,6 @@ Pestilence
 The Night of the Doctor
 Scaretiller
 Blossoming Tortoise
-Beledros Witherbloom
-Erinis, Gloom Stalker
-Eye of Doom
 
 Mirage Mirror
 Nesting Dovehawk
@@ -42,7 +37,6 @@ The Book of Exalted Deeds
 Mondrak, Glory Dominus
 Trostani, Selesnya's Voice
 Arwen, Mortal Queen
-Sigiled Sword of Valeron
 Charnel Serenade
 
 Staff of Titania
@@ -87,7 +81,6 @@ Westvale Abbey // Ormendahl, Profane Prince
 Bojuka Bog
 Emeria, the Sky Ruin
 Lair of the Hydra
-Monumental Henge
 Sejiri Steppe
 Shifting Woodland
 The Shire
@@ -104,24 +97,38 @@ Ulvenwald Hydra
 Realm Seekers
 Crypt Rats
 Manascape Refactor
+Planar Nexus
+
+Gilraen, Dúnedain Protector
+Sutina, Speaker of the Tajuru
+Mutliclass Bardic
+Sliver Hive
+Harmonic Sliver
+Necrotic Sliver
 `);
 
 const choppingBlock = parseList(`
 `);
 
 const pending = parseList(`
-Gilraen, Dúnedain Protector
 Indatha Triome
 Runed Stalactite
 Endbringer
 Ocelot Pride
 Boseiju, Who Endures
 Mosswort Bridge
-Planar Nexus
 `);
 
 // todo add section Illegal for red cards
 const rejected = parseList(`
+Sigiled Sword of Valeron
+Monumental Henge
+Beledros Witherbloom
+Erinis, Gloom Stalker
+Tempting Licid
+Call to the Grave
+
+Eye of Doom
 Hive of the Eye Tyrant
 Innocuous Researcher
 Kaya the Inexorable
